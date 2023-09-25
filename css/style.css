@@ -11,8 +11,7 @@ body{
 .entity h1,
 .entity h2,
 .entity h3,
-.entity h4,
-.entity h5{
+.entity h4{
   border-bottom: 1px solid navy;
 }
 .description{
@@ -24,4 +23,22 @@ body{
 }
 .description dl dd {
   margin-left: 1em;
+}
+
+h5[aria-expanded=true] .bi-chevron-right {
+  display: none !important;
+}
+h5[aria-expanded=false] .bi-chevron-down {
+  display: none !important;
+}
+
+/* Custom CSS */
+.xml-code {
+  font-size: 14px;
+  background-color: #f7f7f7;
+  color: #333;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: min-content;
 }
