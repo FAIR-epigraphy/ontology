@@ -265,9 +265,9 @@ function buildTree(node, parentId)
         let example = category.example !== '' ? `<p>Example: <a href="${category.example}" target="_blank"> ${category.example} </a></p>` : '';
 
         // Create a new list item for this category
-        html += `<div id="${category.id}" class="entity">
-                      <h4><a href="#${category.id}">${category.name}</a></h4>
-                      <p><strong>IRI: </strong><code>https://ontology.inscriptiones.org/bilingualism#${category.id}</code></p>
+        html += `<div id="bilingualism.${category.id}" class="entity">
+                      <h4><a href="#bilingualism.${category.id}">${category.name}</a></h4>
+                      <p><strong>IRI: </strong><code>https://ontology.inscriptiones.org/bilingualism#bilingualism.${category.id}</code></p>
                       <div class="comment">
                           <p>
                               ${category.description}
