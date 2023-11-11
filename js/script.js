@@ -210,8 +210,8 @@ let bilingualism = `
 				"categories": []
 			},
 			{
-				"id": "bigraphic",
-				"name": "Bigraphic",
+				"id": "biscriptal",
+				"name": "biscriptal",
 				"description": "Same language but using two script systems",
 				"example": "https://gis.latinnow.eu/object/193069",
 				"categories": []
