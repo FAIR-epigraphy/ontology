@@ -1,0 +1,1780 @@
+@prefix : <https://ontology.inscriptiones.org/type_of_inscription/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://ontology.inscriptiones.org/type_of_inscription/> .
+
+<https://ontology.inscriptiones.org/type_of_inscription/> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/description
+<http://purl.org/dc/elements/1.1/description> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/relation
+<http://purl.org/dc/elements/1.1/relation> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#altLabel
+<http://www.w3.org/2004/02/skos/core#altLabel> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#example
+<http://www.w3.org/2004/02/skos/core#example> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Abecedarium
+:Abecedarium rdf:type owl:Class ;
+             rdfs:subClassOf :Writing_practice ;
+             <http://purl.org/dc/elements/1.1/description> "Inscription that consists of the letters of an alphabet serving as a tool for teaching or practicing writing skills. The inscription abecedarium may be found on various objects, such as stone tablets, walls, pot sherds, or other durable materials."@en ;
+             <http://purl.org/dc/elements/1.1/relation> <http://www.eagle-network.eu/voc/typeins/lod/112.html> ;
+             rdfs:label "Abecedarium"@en ;
+             <http://www.w3.org/2004/02/skos/core#example> <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR140209> ,
+                                                           <http://sicily.classics.ox.ac.uk/inscription/ISic020442> ,
+                                                           <https://igcyr.unibo.it/igcyr000700> ,
+                                                           <https://romaninscriptionsofbritain.org/inscriptions/Brit.49.36> ,
+                                                           <https://romaninscriptionsofbritain.org/inscriptions/2491.136> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Acclamation
+:Acclamation rdf:type owl:Class ;
+             rdfs:subClassOf :Expressive ,
+                             :Honorary ;
+             <http://purl.org/dc/elements/1.1/description> "Inscriptions expressing enthusiastic praise or admiration, often in a public or ceremonial context. Acclamations are often short texts praising either an individual or deity, wishing well and success."@en ;
+             <http://purl.org/dc/elements/1.1/relation> <http://www.eagle-network.eu/voc/typeins/lod/73> ;
+             rdfs:label "Acclamation"@en ;
+             <http://www.w3.org/2004/02/skos/core#altLabel> "Aclamación"@es ;
+             <http://www.w3.org/2004/02/skos/core#example> <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD000320> ,
+                                                           <https://igcyr.unibo.it/gvcyr055> ,
+                                                           <https://igcyr.unibo.it/igcyr093400> ,
+                                                           <https://insaph.kcl.ac.uk/ala2004/inscription/eAla055.html> ,
+                                                           <https://www.edb.uniba.it/epigraph/17076> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Accounts
+:Accounts rdf:type owl:Class ;
+          rdfs:subClassOf :List ;
+          <http://purl.org/dc/elements/1.1/description> "Inscriptions recording financial transactions, expenditures, or balances, used for administrative, financial, or commercial purposes, providing a systematic record of financial activities over a specific period. Lists detailing expenditures, costs, detailing individual expenses or categories of expenses without providing broader financial context."@en ;
+          <http://purl.org/dc/elements/1.1/relation> <http://vocab.getty.edu/page/aat/300145802> ,
+                                                     <http://www.eagle-network.eu/voc/typeins/lod/410.html> ,
+                                                     <https://www.eagle-network.eu/voc/typeins/lod/56> ,
+                                                     <https://www.eagle-network.eu/voc/typeins/lod/57> ;
+          rdfs:label "Accounts"@en ;
+          <http://www.w3.org/2004/02/skos/core#altLabel> "Account"@en ,
+                                                         "Expenses"@en ,
+                                                         "Rendiconto"@it ;
+          <http://www.w3.org/2004/02/skos/core#example> <http://sicily.classics.ox.ac.uk/inscription/ISic001247> ,
+                                                        <http://sicily.classics.ox.ac.uk/inscription/ISic001249> ,
+                                                        <http://sicily.classics.ox.ac.uk/inscription/ISic030271> ,
+                                                        <https://igcyr.unibo.it/igcyr009420> ,
+                                                        <https://igcyr.unibo.it/igcyr011900> ,
+                                                        <https://romaninscriptionsofbritain.org/inscriptions/Brit.26.28> ,
+                                                        <https://www.atticinscriptions.com/inscription/IGI3/476> ,
+                                                        <https://www.atticinscriptions.com/inscription/IGII31/533> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Advertisement
+:Advertisement rdf:type owl:Class ;
+               rdfs:subClassOf :Pragmatic ;
+               <http://purl.org/dc/elements/1.1/description> "Inscriptions intended to promote or advertise products, services, or events, often short, and memorable phrases used for promotional or propaganda purposes."@en ;
+               <http://purl.org/dc/elements/1.1/relation> <http://vocab.getty.edu/page/aat/300193993> ,
+                                                          <http://www.eagle-network.eu/voc/typeins/lod/128.html> ;
+               rdfs:label "Advertisement"@en ;
+               <http://www.w3.org/2004/02/skos/core#altLabel> "Avertissement"@fr ,
+                                                              "Slogan"@en ;
+               <http://www.w3.org/2004/02/skos/core#example> <http://sicily.classics.ox.ac.uk/inscription/ISic000470> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Age
+:Age rdf:type owl:Class ;
+     rdfs:subClassOf :Measure ;
+     <http://purl.org/dc/elements/1.1/description> "Inscriptions indicating the age or date of an object or event."@en ;
+     rdfs:label "Age"@en ;
+     <http://www.w3.org/2004/02/skos/core#example> <https://romaninscriptionsofbritain.org/inscriptions/2494.1> ,
+                                                   <https://romaninscriptionsofbritain.org/inscriptions/2494.2> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Agonistic_inscription
+:Agonistic_inscription rdf:type owl:Class ;
+                       rdfs:subClassOf :Honorific ;
+                       <http://purl.org/dc/elements/1.1/description> "Texts praising or honoring individuals who won in athletic and dramatic games, often alongside with a dedication of a statue."@en ;
+                       <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/369.html> ;
+                       rdfs:label "Agonistic inscription"@en ;
+                       <http://www.w3.org/2004/02/skos/core#example> <https://iospe.kcl.ac.uk/3.176.html> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Anepigraphic
+:Anepigraphic rdf:type owl:Class ;
+              <http://purl.org/dc/elements/1.1/description> "Epigraphic objects without traces of any letters, but bearing images, paitings, or general characteristics similar to existing epigraphic objects."@en ;
+              <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/141> ;
+              rdfs:label "Anepigraphic"@en ;
+              <http://www.w3.org/2004/02/skos/core#altLabel> "Anepígrafa"@es ;
+              <http://www.w3.org/2004/02/skos/core#example> <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR145943> ,
+                                                            <http://mama.csad.ox.ac.uk/monuments/MAMA-XI-012.html> ,
+                                                            <https://iospe.kcl.ac.uk/5.56.html> ,
+                                                            <https://iospe.kcl.ac.uk/5.57.html> ,
+                                                            <https://romaninscriptionsofbritain.org/inscriptions/Brit.23.17> ,
+                                                            <https://romaninscriptionsofbritain.org/inscriptions/2412.5> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Announcement
+:Announcement rdf:type owl:Class ;
+              rdfs:subClassOf :Pragmatic ;
+              <http://purl.org/dc/elements/1.1/description> "Inscriptions serving to publicly announce or inform about events, tasks, activities, or information relevant to the community, such as munera (public games or shows)."@en ;
+              <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/113.html> ;
+              rdfs:label "Announcement"@en ;
+              <http://www.w3.org/2004/02/skos/core#altLabel> "Adnuntiatio"@la ,
+                                                             "Notice"@en ;
+              <http://www.w3.org/2004/02/skos/core#example> <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD014570> ,
+                                                            <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD053407> ,
+                                                            <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD053409> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Apotropaic_text
+:Apotropaic_text rdf:type owl:Class ;
+                 rdfs:subClassOf :Invocation ;
+                 <http://purl.org/dc/elements/1.1/description> "Inscriptions believed to possess magical properties, intended to ward off evil or harmful influences from the commissioner." ;
+                 <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/381> ;
+                 rdfs:label "Apotropaic text"@en ;
+                 <http://www.w3.org/2004/02/skos/core#example> <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD055976> ,
+                                                               <https://iospe.kcl.ac.uk/5.109.html> ,
+                                                               <https://iospe.kcl.ac.uk/5.43.html> ,
+                                                               <https://romaninscriptionsofbritain.org/inscriptions/Brit.44.21> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Arbitration
+:Arbitration rdf:type owl:Class ;
+             rdfs:subClassOf :Legal ;
+             <http://purl.org/dc/elements/1.1/description> "Legal inscriptions pertaining to the settlement of disputes through arbitration."@en ;
+             <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/59> ;
+             rdfs:label "Arbitration"@en ;
+             <http://www.w3.org/2004/02/skos/core#altLabel> "Contrat d’arbitrage"@fr .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Aretalogy
+:Aretalogy rdf:type owl:Class ;
+           rdfs:subClassOf :Religious ;
+           <http://purl.org/dc/elements/1.1/description> "Inscriptions containing a narrative of the miraculous deeds of a god or hero."@en ;
+           <http://purl.org/dc/elements/1.1/relation> "urn:cite:brill:inscriptionType:0000017" ;
+           rdfs:label "Aretalogy"@en .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Army
+:Army rdf:type owl:Class ;
+      rdfs:subClassOf :Production ;
+      <http://purl.org/dc/elements/1.1/description> "Production marks or short text associated with military production."@en ;
+      rdfs:label "Army"@en ;
+      <http://www.w3.org/2004/02/skos/core#example> <https://gis.latinnow.eu/object/302376> ,
+                                                    <https://romaninscriptionsofbritain.org/inscriptions/2463.19.i> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Artist
+:Artist rdf:type owl:Class ;
+        rdfs:subClassOf :Private_production ;
+        <http://purl.org/dc/elements/1.1/description> "Signatures of artists or craftsmen or short texts indicating authorship."@en ;
+        <http://purl.org/dc/elements/1.1/relation> <http://www.eagle-network.eu/voc/typeins/lod/110.html> ,
+                                                   <https://www.eagle-network.eu/voc/typeins/lod/109.html> ,
+                                                   <https://www.eagle-network.eu/voc/typeins/lod/115.html> ,
+                                                   <https://www.eagle-network.eu/voc/typeins/lod/333.html> ;
+        rdfs:label "Artist"@en ;
+        <http://www.w3.org/2004/02/skos/core#altLabel> "Artist's signature"@en ,
+                                                       "Aufschrift"@de ,
+                                                       "Beischrift"@de ,
+                                                       "Epigrafe di artista"@it ,
+                                                       "Firma del artesano"@es ,
+                                                       "Sculptor's signature"@en ,
+                                                       "Signature d’artiste"@fr ;
+        <http://www.w3.org/2004/02/skos/core#example> <http://sicily.classics.ox.ac.uk/inscription/ISic000834> ,
+                                                      <http://sicily.classics.ox.ac.uk/inscription/ISic020471> ,
+                                                      <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD036515> ,
+                                                      <https://gis.latinnow.eu/object/140604> ,
+                                                      <https://gis.latinnow.eu/object/171651> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Association_Statutes
+:Association_Statutes rdf:type owl:Class ;
+                      rdfs:subClassOf :Private_Association ;
+                      <http://purl.org/dc/elements/1.1/description> "Legal inscriptions detailing the statutes or regulations of associations or clubs."@en ;
+                      <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/7.html> ;
+                      rdfs:label "Association Statutes"@en ;
+                      <http://www.w3.org/2004/02/skos/core#altLabel> "Ley de asociación"@es ,
+                                                                     "Loi d’association"@fr .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Association_members
+:Association_members rdf:type owl:Class ;
+                     rdfs:subClassOf :Names ;
+                     <http://purl.org/dc/elements/1.1/description> "Lists of individuals belonging to a specific association or club."@en ;
+                     <http://purl.org/dc/elements/1.1/relation> "urn:cite:brill:inscriptionType:0000012" ;
+                     rdfs:label "Association members"@en ;
+                     <http://www.w3.org/2004/02/skos/core#example> <https://igcyr.unibo.it/igcyr114500> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Astronomical_text
+:Astronomical_text rdf:type owl:Class ;
+                   rdfs:subClassOf :Time_recording ;
+                   <http://purl.org/dc/elements/1.1/description> "Inscriptions containing information related to astronomical observations, celestial events, or celestial phenomena."@en ;
+                   <http://purl.org/dc/elements/1.1/relation> "urn:cite:brill:inscriptionType:0000043" ;
+                   rdfs:label "Astronomical text"@en .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Auxiliary
+:Auxiliary rdf:type owl:Class ;
+           rdfs:subClassOf :Army ;
+           <http://purl.org/dc/elements/1.1/description> "Production marks or short text associated with Roman auxiliary military units."@en ;
+           rdfs:label "Auxiliary"@en ;
+           <http://www.w3.org/2004/02/skos/core#example> <https://romaninscriptionsofbritain.org/inscriptions/Brit.41.67> ,
+                                                         <https://romaninscriptionsofbritain.org/inscriptions/2458.10> ,
+                                                         <https://romaninscriptionsofbritain.org/inscriptions/2464.li> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Boundary_dispute
+:Boundary_dispute rdf:type owl:Class ;
+                  rdfs:subClassOf :Cadastral ;
+                  <http://purl.org/dc/elements/1.1/description> "Texts related to disputes about boundaries (controversiae finium) or controversies, often related to land or property boundaries and their resolution." ;
+                  rdfs:label "Boundary dispute"@en ;
+                  <http://www.w3.org/2004/02/skos/core#example> <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD008548> ,
+                                                                <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD012421> ,
+                                                                <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD026625> ,
+                                                                <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD027398> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Boundary_marker
+:Boundary_marker rdf:type owl:Class ;
+                 rdfs:subClassOf :Cadastral ;
+                 <http://purl.org/dc/elements/1.1/description> "Inscriptions specifically designed to mark the boundaries or termination points of land parcels or territorial divisions. \"Boundary stones recording the limits of a sanctuary, public area, or privately owned property (Woodhead 1959, 47)\". In the Greek context known as horos, it is often associated with sacred or legal boundaries."@en ;
+                 <http://purl.org/dc/elements/1.1/relation> <http://vocab.getty.edu/page/aat/300006962> ,
+                                                            <https://www.eagle-network.eu/voc/typeins/lod/100.html> ,
+                                                            <https://www.eagle-network.eu/voc/typeins/lod/425> ,
+                                                            <https://www.eagle-network.eu/voc/typeins/lod/96> ;
+                 rdfs:label "Boundary marker"@en ;
+                 <http://www.w3.org/2004/02/skos/core#altLabel> "Border delimitation"@en ,
+                                                                "Borne"@fr ,
+                                                                "Borne frontière"@fr ,
+                                                                "Boundary stone"@en ,
+                                                                "Cippus"@la ,
+                                                                "Grenzmarkierung"@de ,
+                                                                "Grenzstein"@de ,
+                                                                "Place marker"@en ,
+                                                                "Terminus"@la ,
+                                                                "ὅρος"@el ;
+                 <http://www.w3.org/2004/02/skos/core#example> <http://sicily.classics.ox.ac.uk/inscription/ISic000082> ,
+                                                               <http://sicily.classics.ox.ac.uk/inscription/ISic003159> ,
+                                                               <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD000049> ,
+                                                               <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD000701> ,
+                                                               <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD026538> ,
+                                                               <https://romaninscriptionsofbritain.org/inscriptions/Brit.54.1> ,
+                                                               <https://romaninscriptionsofbritain.org/inscriptions/395> ,
+                                                               <https://www.edb.uniba.it/epigraph/31274> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Building_inscription
+:Building_inscription rdf:type owl:Class ;
+                      rdfs:subClassOf :Identification ;
+                      <http://purl.org/dc/elements/1.1/description> "Inscriptions related to buildings or structures, often providing information about their financing, construction, dedication, or history."@en ;
+                      <http://purl.org/dc/elements/1.1/relation> <http://www.eagle-network.eu/voc/typeins/lod/86.html> ;
+                      rdfs:label "Building inscription"@en ;
+                      <http://www.w3.org/2004/02/skos/core#altLabel> "Bau-/Stifterinschrift"@de ,
+                                                                     "Bauinschrift"@de ,
+                                                                     "Monumental inscription"@en ,
+                                                                     "oper. publ. priv. que"@la ,
+                                                                     "titulus apparatus"@la ;
+                      <http://www.w3.org/2004/02/skos/core#example> <http://sicily.classics.ox.ac.uk/inscription/ISic000004> ,
+                                                                    <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR092961> ,
+                                                                    <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD011387> ,
+                                                                    <https://insaph.kcl.ac.uk/ala2004/inscription/eAla017.html> ,
+                                                                    <https://romaninscriptionsofbritain.org/inscriptions/1574> ,
+                                                                    <https://romaninscriptionsofbritain.org/inscriptions/2171> ,
+                                                                    <https://www.edb.uniba.it/epigraph/29013> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Cadastral
+:Cadastral rdf:type owl:Class ;
+           rdfs:subClassOf :Space_delimitation ;
+           <http://purl.org/dc/elements/1.1/description> "Inscriptions related to land surveying or property registration, often used for administrative purposes."@en ;
+           <http://purl.org/dc/elements/1.1/relation> <http://vocab.getty.edu/page/aat/300027247> ,
+                                                      <http://vocab.getty.edu/page/aat/300136962> ,
+                                                      <http://www.eagle-network.eu/voc/typeins/lod/48.html> ,
+                                                      <https://www.eagle-network.eu/voc/typeins/lod/97.html> ;
+           rdfs:label "Cadastral"@en ;
+           <http://www.w3.org/2004/02/skos/core#altLabel> "Borne de cadastration"@fr ,
+                                                          "Cadastre"@fr ;
+           <http://www.w3.org/2004/02/skos/core#example> <http://sicily.classics.ox.ac.uk/inscription/ISic001174> ,
+                                                         <http://sicily.classics.ox.ac.uk/inscription/ISic003651> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Calendar
+:Calendar rdf:type owl:Class ;
+          rdfs:subClassOf :Time_recording ;
+          <http://purl.org/dc/elements/1.1/description> "Inscriptions providing information about the organization of time, including dates, months, and years, often in chronological order."@en ;
+          <http://purl.org/dc/elements/1.1/relation> <http://vocab.getty.edu/page/aat/300026741> ,
+                                                     <http://www.eagle-network.eu/voc/typeins/lod/3.html> ;
+          rdfs:label "Calendar"@en ;
+          <http://www.w3.org/2004/02/skos/core#altLabel> "Calendario"@it ,
+                                                         "Kalender"@de ;
+          <http://www.w3.org/2004/02/skos/core#example> <http://sicily.classics.ox.ac.uk/inscription/ISic000320> ,
+                                                        <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR078788> ,
+                                                        <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD000997> ,
+                                                        <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD045018> ,
+                                                        <https://iospe.kcl.ac.uk/5.98.html> ,
+                                                        <https://romaninscriptionsofbritain.org/inscriptions/Brit.41.65> ,
+                                                        <https://romaninscriptionsofbritain.org/inscriptions/Brit.49.32> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Capacity
+:Capacity rdf:type owl:Class ;
+          rdfs:subClassOf :Measure ;
+          <http://purl.org/dc/elements/1.1/description> "Inscriptions indicating the capacity or volume of a container or space."@en ;
+          <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/objtyp/lod/161.html> ,
+                                                     <https://www.eagle-network.eu/voc/typeins/lod/125.html> ;
+          rdfs:label "Capacity"@en ;
+          <http://www.w3.org/2004/02/skos/core#altLabel> "Volume" ;
+          <http://www.w3.org/2004/02/skos/core#example> <https://romaninscriptionsofbritain.org/inscriptions/Brit.33.8> ,
+                                                        <https://romaninscriptionsofbritain.org/inscriptions/Brit.40.42> ,
+                                                        <https://romaninscriptionsofbritain.org/inscriptions/Brit.54.28> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Centurial_stone
+:Centurial_stone rdf:type owl:Class ;
+                 rdfs:subClassOf :Building_inscription ;
+                 <http://purl.org/dc/elements/1.1/description> "Inscriptions identifying a military officer (centurio) in charge of the building activity."@en ;
+                 <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/356.html> ;
+                 rdfs:label "Centurial stone"@en ;
+                 <http://www.w3.org/2004/02/skos/core#example> <https://romaninscriptionsofbritain.org/inscriptions/1843> ,
+                                                               <https://romaninscriptionsofbritain.org/inscriptions/1856> ,
+                                                               <https://romaninscriptionsofbritain.org/inscriptions/1916> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Certification
+:Certification rdf:type owl:Class ;
+               rdfs:subClassOf :Regulatory ;
+               <http://purl.org/dc/elements/1.1/description> "Inscriptions that serve as official endorsements, authorizations, or certifications issued by governmental or authoritative bodies. These inscriptions validate the authenticity, legality, or compliance of certain actions, documents, or individuals within a regulatory framework. They may include seals, stamps, or written declarations confirming adherence to specific standards, qualifications, or requirements established by relevant authorities."@en ;
+               rdfs:label "Certification"@en .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Citizens
+:Citizens rdf:type owl:Class ;
+          rdfs:subClassOf :Names ;
+          <http://purl.org/dc/elements/1.1/description> "Lists of individuals recognized as citizens of a particular city or state."@en ;
+          rdfs:label "Citizens"@en .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Citizenship
+:Citizenship rdf:type owl:Class ;
+             rdfs:subClassOf :Decree ;
+             <http://purl.org/dc/elements/1.1/description> "Decrees pertaining to the granting or revocation of citizenship rights."@en ;
+             <http://purl.org/dc/elements/1.1/relation> "urn:cite:brill:inscriptionType:0000003" ;
+             rdfs:label "Citizenship"@en .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/City
+:City rdf:type owl:Class ;
+      rdfs:subClassOf :Letter ;
+      <http://purl.org/dc/elements/1.1/description> "Letters addressed to or concerning municipal or civic matters."@en ;
+      <http://purl.org/dc/elements/1.1/relation> "urn:cite:brill:inscriptionType:0000006" ;
+      rdfs:label "City"@en ;
+      <http://www.w3.org/2004/02/skos/core#example> <https://iospe.kcl.ac.uk/1.12.html> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Civic_alotment
+:Civic_alotment rdf:type owl:Class ;
+                rdfs:subClassOf :Regulatory ;
+                <http://purl.org/dc/elements/1.1/description> "Inscriptions related to the allocation or distribution of civic resources, privileges, or responsibilities within a community or city-state. Texts or inscriptions are often found on fragments of pottery or stone, known as ostraka (singular: ostrakon), which were used in ancient Greece for various purposes, including voting in ostracism procedures. Ostracism was a political process in which citizens could vote to banish a prominent individual from the city-state for ten years. Ostraka were used as voting tokens, with citizens writing the name of the person they wished to ostracize on the fragment (process known as ostrakophoria)."@en ;
+                <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/130.html> ,
+                                                           "urn:cite:brill:inscriptionType:0000010" ;
+                rdfs:label "Civic alotment"@en ;
+                <http://www.w3.org/2004/02/skos/core#altLabel> "Ostrakon"@en ;
+                <http://www.w3.org/2004/02/skos/core#example> <http://sicily.classics.ox.ac.uk/inscription/ISic020386> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Civic_ownership
+:Civic_ownership rdf:type owl:Class ;
+                 rdfs:subClassOf :Ownership ;
+                 <http://purl.org/dc/elements/1.1/description> "Production marks or short text associated with civic or municipal production."@en ;
+                 rdfs:label "Civic ownership"@en .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Civic_production
+:Civic_production rdf:type owl:Class ;
+                  rdfs:subClassOf :Production ;
+                  <http://purl.org/dc/elements/1.1/description> "Production marks or short text associated with civic or municipal production." ;
+                  rdfs:label "Civic production"@en ;
+                  <http://www.w3.org/2004/02/skos/core#example> <https://romaninscriptionsofbritain.org/inscriptions/2486.14.xxiv> ,
+                                                                <https://romaninscriptionsofbritain.org/inscriptions/2487.5.i> ,
+                                                                <https://romaninscriptionsofbritain.org/inscriptions/2487.8.i> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Coin_legend
+:Coin_legend rdf:type owl:Class ;
+             rdfs:subClassOf :Certification ;
+             <http://purl.org/dc/elements/1.1/relation> <http://nomisma.org/ontology#hasLegend> ,
+                                                        "Inscriptions on coins indicating their issuing authority, or other relevant information." ;
+             rdfs:label "Coin legend"@en .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Commemorative
+:Commemorative rdf:type owl:Class ;
+               <http://purl.org/dc/elements/1.1/description> "Texts commemorating individuals, communities or events, delimiting one's final resting place, or broadly related to the funerary act."@en ;
+               rdfs:label "Commemorative"@en ;
+               <http://www.w3.org/2004/02/skos/core#example> <https://iospe.kcl.ac.uk/5.328.html> ,
+                                                             <https://iospe.kcl.ac.uk/5.89.html> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Confession
+:Confession rdf:type owl:Class ;
+            rdfs:subClassOf :Religious ;
+            <http://purl.org/dc/elements/1.1/description> "Inscriptions involving the admission or declaration of sins, faults, or wrongdoings, often associated with religious rituals or practices."@en ;
+            <http://purl.org/dc/elements/1.1/relation> "urn:cite:brill:inscriptionType:0000018" ;
+            rdfs:label "Confession"@en .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Contents
+:Contents rdf:type owl:Class ;
+          rdfs:subClassOf :Description ;
+          <http://purl.org/dc/elements/1.1/description> "Inscriptions providing information about the contents, ingredients, or composition of objects, containers, or packages."@en ;
+          rdfs:label "Contents"@en ;
+          <http://www.w3.org/2004/02/skos/core#example> <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR175147> ,
+                                                        <https://romaninscriptionsofbritain.org/inscriptions/Brit.54.28> ,
+                                                        <https://romaninscriptionsofbritain.org/inscriptions/2503.1> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Contract
+:Contract rdf:type owl:Class ;
+          rdfs:subClassOf :Legal ;
+          <http://purl.org/dc/elements/1.1/description> "Legal agreements or contracts between parties."@en ;
+          <http://purl.org/dc/elements/1.1/relation> <http://vocab.getty.edu/page/aat/300027649> ,
+                                                     <https://www.eagle-network.eu/voc/typeins/lod/375.html> ;
+          rdfs:label "Contract"@en ;
+          <http://www.w3.org/2004/02/skos/core#altLabel> "Contratto"@it ;
+          <http://www.w3.org/2004/02/skos/core#example> <http://sicily.classics.ox.ac.uk/inscription/ISic030001> ,
+                                                        <http://sicily.classics.ox.ac.uk/inscription/ISic030051> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Date
+:Date rdf:type owl:Class ;
+      rdfs:subClassOf :Time_recording ;
+      <http://purl.org/dc/elements/1.1/description> "Inscriptions indicating a particular point in time, usually in the form of a day, month, and year."@en ;
+      rdfs:label "Date"@en ;
+      <http://www.w3.org/2004/02/skos/core#example> <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR154574> ,
+                                                    <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR168481> ,
+                                                    <https://gis.latinnow.eu/object/180621> ,
+                                                    <https://romaninscriptionsofbritain.org/inscriptions/2493.7> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Decree
+:Decree rdf:type owl:Class ;
+        rdfs:subClassOf :Legal ;
+        <http://purl.org/dc/elements/1.1/description> "Specific order, decision, or judgment issued by an executive, administrative, or judicial authority in response to a particular matter or situation. While decrees may have legal effects and enforceability, they are usually more focused and specific than laws, addressing individual cases or issues rather than establishing general principles or regulations applicable to a wider scope of circumstances. The language of a decree is often formulaic and structured."@en ;
+        <http://purl.org/dc/elements/1.1/relation> <http://vocab.getty.edu/page/aat/300026925> ,
+                                                   <http://www.eagle-network.eu/voc/typeins/lod/384.html> ;
+        rdfs:label "Decree"@en ;
+        <http://www.w3.org/2004/02/skos/core#altLabel> "Edict"@en ,
+                                                       "Edictum"@la ,
+                                                       "Prostagma"@el ;
+        <http://www.w3.org/2004/02/skos/core#example> <http://sicily.classics.ox.ac.uk/inscription/ISic000668> ,
+                                                      <http://sicily.classics.ox.ac.uk/inscription/ISic001077> ,
+                                                      <https://igcyr.unibo.it/igcyr062810> ,
+                                                      <https://igcyr.unibo.it/igcyr062820> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Dedication
+:Dedication rdf:type owl:Class ;
+            rdfs:subClassOf :Religious ;
+            <http://purl.org/dc/elements/1.1/description> "Inscriptions dedicating an object, structure, or offering to a deity or religious entity. Dedications often contain a name of the dedicant or recipient, reason for making the dedication and details of the financial provisions."@en ;
+            <http://purl.org/dc/elements/1.1/relation> <http://vocab.getty.edu/page/aat/300178243> ,
+                                                       <http://vocab.getty.edu/page/aat/300404460> ,
+                                                       <https://www.eagle-network.eu/voc/typeins/lod/80> ,
+                                                       <https://www.eagle-network.eu/voc/typeins/lod/88.html> ;
+            rdfs:label "Dedication"@en ;
+            <http://www.w3.org/2004/02/skos/core#altLabel> "Dédicace"@fr ,
+                                                           "Dédicatoria"@es ,
+                                                           "Titulus dedicatorius"@la ,
+                                                           "Votive"@en ,
+                                                           "Votive dedication"@en ,
+                                                           "Weihischrift"@de ;
+            <http://www.w3.org/2004/02/skos/core#example> <http://mama.csad.ox.ac.uk/monuments/MAMA-XI-069.html> ,
+                                                          <http://sicily.classics.ox.ac.uk/inscription/ISic000029> ,
+                                                          <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD000030> ,
+                                                          <https://igcyr.unibo.it/gvcyr024> ,
+                                                          <https://iospe.kcl.ac.uk/1.17.html> ,
+                                                          <https://romaninscriptionsofbritain.org/inscriptions/Brit.32.20> ,
+                                                          <https://www.edb.uniba.it/epigraph/35429> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Defixio
+:Defixio rdf:type owl:Class ;
+         rdfs:subClassOf :Invocation ;
+         <http://purl.org/dc/elements/1.1/description> "Curse tablets or binding spells, aimed at causing harm to others or seeking revenge."@en ;
+         <http://purl.org/dc/elements/1.1/relation> <http://vocab.getty.edu/page/aat/300410443> ,
+                                                    <https://www.eagle-network.eu/voc/typeins/lod/76.html> ,
+                                                    <https://www.eagle-network.eu/voc/typeins/lod/77.html> ;
+         rdfs:label "Defixio"@en ;
+         <http://www.w3.org/2004/02/skos/core#altLabel> "Curse"@en ,
+                                                        "Fluchtafel"@la ,
+                                                        "Imprécation"@es ,
+                                                        "Tabula defixionis"@la ;
+         <http://www.w3.org/2004/02/skos/core#example> <http://sicily.classics.ox.ac.uk/inscription/ISic030009> ,
+                                                       <http://sicily.classics.ox.ac.uk/inscription/ISic030099> ,
+                                                       <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD000012> ,
+                                                       <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD001039> ,
+                                                       <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD001042> ,
+                                                       <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD013929> ,
+                                                       <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD019906> ,
+                                                       <https://igcyr.unibo.it/gvcyr039> ,
+                                                       <https://romaninscriptionsofbritain.org/inscriptions/Brit.10.2> ,
+                                                       <https://romaninscriptionsofbritain.org/inscriptions/Brit.15.7> ,
+                                                       <https://romaninscriptionsofbritain.org/inscriptions/Brit.19.2> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Deme
+:Deme rdf:type owl:Class ;
+      rdfs:subClassOf :Decree ;
+      <http://purl.org/dc/elements/1.1/description> "Decrees related to the administration or regulations of demes, local administrative units in ancient Greece."@en ;
+      <http://purl.org/dc/elements/1.1/relation> "urn:cite:brill:inscriptionType:0000004" ;
+      rdfs:label "Deme"@en .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Description
+:Description rdf:type owl:Class ;
+             rdfs:subClassOf :Identification ;
+             <http://purl.org/dc/elements/1.1/description> "Texts identifying the physical characteristics of the inscribed object and its function."@en ;
+             rdfs:label "Description"@en .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Diagramma
+:Diagramma rdf:type owl:Class ;
+           rdfs:subClassOf :Decree ;
+           <http://purl.org/dc/elements/1.1/description> "Decree of a Greek polis and of a federal state or most commonly to an ordinance or law in the form of a letter issued “in the name of the kings” by the royal chancery of the Macedonian and Hellenistic kingdoms. The latter dealt with several subjects such as establishing a new constitution, the recall of exiles, the creation of a new law code, court procedures, solving border disputes, and prescribing a tax law."@en ;
+           <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/406.html> ;
+           rdfs:label "Diagramma"@en ;
+           <http://www.w3.org/2004/02/skos/core#example> <https://igcyr.unibo.it/igcyr010800> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Didascalic
+:Didascalic rdf:type owl:Class ;
+            <http://purl.org/dc/elements/1.1/description> "Texts related to the educational or instructional activities, the practice of writing either individual letters or longer text excerpts."@en ;
+            rdfs:label "Didascalic"@en ;
+            <http://www.w3.org/2004/02/skos/core#example> <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR140039> ,
+                                                          <http://ancientgraffiti.org/Graffiti/graffito/AGP-SMYTP1007> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Dikastic_tablet
+:Dikastic_tablet rdf:type owl:Class ;
+                 rdfs:subClassOf :Certification ;
+                 <http://purl.org/dc/elements/1.1/description> "Inscription serving as a certification of the dikastai, judges or jurors, in ancient Athens."@en ;
+                 <http://purl.org/dc/elements/1.1/relation> "urn:cite:brill:inscriptionType:0000009" ;
+                 rdfs:label "Dikastic tablet"@en .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Distance_slab
+:Distance_slab rdf:type owl:Class ;
+               rdfs:subClassOf :Road_network ;
+               <http://purl.org/dc/elements/1.1/description> "Inscriptions found on Roman roads indicating distances to various destinations or milestones."@en ;
+               rdfs:label "Distance slab"@en ;
+               <http://www.w3.org/2004/02/skos/core#example> <https://romaninscriptionsofbritain.org/inscriptions/2173> ,
+                                                             <https://romaninscriptionsofbritain.org/inscriptions/2200> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Elogium
+:Elogium rdf:type owl:Class ;
+         rdfs:subClassOf :Commemorative ;
+         <http://purl.org/dc/elements/1.1/description> "Commemorative inscriptions praising or celebrating the accomplishments, virtues, or qualities of a deceased individual or group of people, most typically one's ancestors. Elogia were displayed either privately, or publicly on public monuments, but not necessarily at the place of the funeral. Elogia can be sometimes considered as a commemorative and sometimes honorific texts, depending on their context."@en ;
+         <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/70> ;
+         rdfs:label "Elogium"@en ;
+         <http://www.w3.org/2004/02/skos/core#example> <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD002493> ,
+                                                       <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD024284> ,
+                                                       <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD030304> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Emperor
+:Emperor rdf:type owl:Class ;
+         rdfs:subClassOf :Letter ;
+         <http://purl.org/dc/elements/1.1/description> "Letters involving communication with or from a Roman Emperor."@en ;
+         <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/30> ;
+         rdfs:label "Emperor"@en ;
+         <http://www.w3.org/2004/02/skos/core#altLabel> "Carta del emperador"@es ,
+                                                        "Imperial letter"@en ,
+                                                        "Lettre de l’empereur"@fr ;
+         <http://www.w3.org/2004/02/skos/core#example> <https://insaph.kcl.ac.uk/ala2004/inscription/eAla001.html> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Endownment
+:Endownment rdf:type owl:Class ;
+            rdfs:subClassOf :Legal ;
+            <http://purl.org/dc/elements/1.1/description> "Legal inscriptions concerning the endowment or donation of property or assets."@en ;
+            <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/382> ;
+            rdfs:label "Endownment"@en ;
+            <http://www.w3.org/2004/02/skos/core#altLabel> "Benefaction" .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Entertainment
+:Entertainment rdf:type owl:Class ;
+               <http://purl.org/dc/elements/1.1/description> "Texts related to a gaming activity, description of game rules or game elements."@en ;
+               <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/369.html> ;
+               rdfs:label "Entertainment"@en ;
+               <http://www.w3.org/2004/02/skos/core#example> <http://sicily.classics.ox.ac.uk/inscription/ISic020580> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Ephebes
+:Ephebes rdf:type owl:Class ;
+         rdfs:subClassOf :Names ;
+         <http://purl.org/dc/elements/1.1/description> "Lists of male individuals undergoing military training or education (ephebia) in ancient Greece."@en ;
+         <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/419.html> ;
+         rdfs:label "Ephebes"@en ;
+         <http://www.w3.org/2004/02/skos/core#example> <https://igcyr.unibo.it/igcyr015200> ,
+                                                       <https://igcyr.unibo.it/igcyr103900> ,
+                                                       <https://igcyr.unibo.it/igcyr126700> ,
+                                                       <https://www.atticinscriptions.com/inscription/IGII2/1996> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Exhortation
+:Exhortation rdf:type owl:Class ;
+             rdfs:subClassOf :Expressive ;
+             <http://purl.org/dc/elements/1.1/description> "Inscriptions urging or encouraging action or behavior."@en ;
+             rdfs:label "Exhortation"@en ;
+             <http://www.w3.org/2004/02/skos/core#example> <http://sicily.classics.ox.ac.uk/inscription/ISic020537> ,
+                                                           <https://romaninscriptionsofbritain.org/inscriptions/Brit.45.28> ,
+                                                           <https://romaninscriptionsofbritain.org/inscriptions/2423.10> ,
+                                                           <https://romaninscriptionsofbritain.org/inscriptions/3118> ,
+                                                           <https://romaninscriptionsofbritain.org/inscriptions/647> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Explicit
+:Explicit rdf:type owl:Class ;
+          rdfs:subClassOf :Expressive ;
+          <http://purl.org/dc/elements/1.1/description> "Inscriptions containing explicit, obscene or vulgar language, gestures, or imagery related to sexuality or sensuality."@en ;
+          <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/134.html> ;
+          rdfs:label "Explicit"@en ;
+          <http://www.w3.org/2004/02/skos/core#altLabel> "Erotic"@en ,
+                                                         "Erotique"@fr ;
+          <http://www.w3.org/2004/02/skos/core#example> <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR154433> ,
+                                                        <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR168048> ,
+                                                        <http://ancientgraffiti.org/Graffiti/graffito/AGP-SMYTP1033> ,
+                                                        <http://ancientgraffiti.org/Graffiti/graffito/AGP-SMYTP1093> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Expressive
+:Expressive rdf:type owl:Class ;
+            <http://purl.org/dc/elements/1.1/description> "Statements aimed at individuals or group of people with expectation of provoking positive or negative reactions and emotions, often reflecting individual creativity and subjectivity."@en ;
+            rdfs:label "Expressive"@en ;
+            <http://www.w3.org/2004/02/skos/core#altLabel> "Interactive"@en ,
+                                                           "Speaking object"@en ;
+            <http://www.w3.org/2004/02/skos/core#example> <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR151890> ,
+                                                          <https://gis.latinnow.eu/object/203262> ,
+                                                          <https://gis.latinnow.eu/object/234060> ,
+                                                          <https://romaninscriptionsofbritain.org/inscriptions/1124> ,
+                                                          <https://romaninscriptionsofbritain.org/inscriptions/2421.50> ,
+                                                          <https://romaninscriptionsofbritain.org/inscriptions/2433.7> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Fasti
+:Fasti rdf:type owl:Class ;
+       rdfs:subClassOf :Calendar ;
+       <http://purl.org/dc/elements/1.1/description> "Inscriptions specifically detailing religious or civic calendars of ancient Rome often including important festivals, events, or ceremonies in a chronological order." ;
+       <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/2.html> ;
+       rdfs:label "Fasti"@en ;
+       <http://www.w3.org/2004/02/skos/core#altLabel> "Fasten"@de ;
+       <http://www.w3.org/2004/02/skos/core#example> <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR003059> ,
+                                                     <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR071856> ,
+                                                     <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR071936> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Foreigners
+:Foreigners rdf:type owl:Class ;
+            rdfs:subClassOf :Names ;
+            <http://purl.org/dc/elements/1.1/description> "Lists of individuals identified as foreigners or non-citizens of a particular city or state."@en ;
+            rdfs:label "Foreigners"@en ;
+            <http://www.w3.org/2004/02/skos/core#example> <https://igcyr.unibo.it/igcyr097300> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Funerary
+:Funerary rdf:type owl:Class ;
+          rdfs:subClassOf :Commemorative ;
+          <http://purl.org/dc/elements/1.1/description> "Inscriptions commemorating an individual or individuals who have passed away, found typically on a gravestone, tomb, or memorial marker. These inscriptions often include the name of the deceased, and may also contain additional details about the deceased such as age, origin, occupation and life achievements, but also information about their relatives, or commissioners of the inscription / grave. Some inscriptions may contain verse epigrams, quotes or tributes to the departed. Funerary inscriptions serve as a means of honoring and remembering the deceased and are a common feature in burial sites and memorial spaces across various cultures and time periods. The language of funerary inscriptions is often formulaic, with repetitive phrases such as the invocation of the underworld deities 'Dis Manibus', or well wishes to the deceased."@en ;
+          <http://purl.org/dc/elements/1.1/relation> <http://vocab.getty.edu/page/aat/300028729> ,
+                                                     <https://www.eagle-network.eu/voc/typeins/lod/92> ;
+          rdfs:label "Funerary"@en ;
+          <http://www.w3.org/2004/02/skos/core#altLabel> "Epigrafe sepolcrale"@it ,
+                                                         "Epitaph"@en ,
+                                                         "Grabinschrift"@de ,
+                                                         "Inscription funéraire"@fr ,
+                                                         "Sírfelirat"@hu ,
+                                                         "Titulus sepulcralis"@la ;
+          <http://www.w3.org/2004/02/skos/core#example> <http://mama.csad.ox.ac.uk/monuments/MAMA-XI-216.html> ,
+                                                        <http://sicily.classics.ox.ac.uk/inscription/ISic000001> ,
+                                                        <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD000001> ,
+                                                        <https://romaninscriptionsofbritain.org/inscriptions/1871> ,
+                                                        <https://www.edb.uniba.it/epigraph/27244> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Gaming_element
+:Gaming_element rdf:type owl:Class ;
+                rdfs:subClassOf :Ludic ;
+                <http://purl.org/dc/elements/1.1/description> "Inscriptions detailing elements or components of games, such as rules, pieces, or scoring systems."@en ;
+                <http://purl.org/dc/elements/1.1/relation> <http://vocab.getty.edu/page/aat/300205348> ;
+                rdfs:label "Gaming element"@en ;
+                <http://www.w3.org/2004/02/skos/core#altLabel> "Tessera lusus"@la ;
+                <http://www.w3.org/2004/02/skos/core#example> <https://insaph.kcl.ac.uk/ala2004/inscription/eAla068.html> ,
+                                                              <https://insaph.kcl.ac.uk/ala2004/inscription/eAla069.html> ,
+                                                              <https://insaph.kcl.ac.uk/ala2004/inscription/eAla217.html> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Greeting
+:Greeting rdf:type owl:Class ;
+          rdfs:subClassOf :Expressive ;
+          <http://purl.org/dc/elements/1.1/description> "Inscriptions conveying salutations or well-wishes to others."@en ;
+          <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/386.html> ;
+          rdfs:label "Greeting"@en ;
+          <http://www.w3.org/2004/02/skos/core#example> <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR168483> ,
+                                                        <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR175942> ,
+                                                        <http://sicily.classics.ox.ac.uk/inscription/ISic001674> ,
+                                                        <http://sicily.classics.ox.ac.uk/inscription/ISic003200> ,
+                                                        <http://sicily.classics.ox.ac.uk/inscription/ISic004515> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Healing_text
+:Healing_text rdf:type owl:Class ;
+              rdfs:subClassOf :Invocation ;
+              <http://purl.org/dc/elements/1.1/description> "Invocations specifically seeking divine intervention for healing illnesses or physical disabilities or gift to the deity for successful recovery of the commissioner or relatives. Healing tablets are often accompanied by visual representation of the ill / healed body part and description of the healing miracle."@en ;
+              <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/430> ;
+              rdfs:label "Healing text"@en ;
+              <http://www.w3.org/2004/02/skos/core#altLabel> "Sanatio"@la ;
+              <http://www.w3.org/2004/02/skos/core#example> <http://ancientgraffiti.org/Graffiti/graffito/AGP-SMYT00122> ,
+                                                            <http://ancientgraffiti.org/Graffiti/graffito/AGP-SMYT00271> ,
+                                                            <http://ancientgraffiti.org/Graffiti/graffito/AGP-SMYTP1032> ,
+                                                            <https://romaninscriptionsofbritain.org/inscriptions/Brit.27.10> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Honorary
+:Honorary rdf:type owl:Class ;
+          rdfs:subClassOf :Decree ;
+          <http://purl.org/dc/elements/1.1/description> "Official orders or commands issued by a governing authority to honor or recognize an individual or a group of people. The language of a decree is often formulaic and following a customary structure. \"Decree giving thanks and honours of one kind or another to a citizen or alien who has deserved well of the state (Woodhead 1959, 39).\""@en ;
+          <http://purl.org/dc/elements/1.1/relation> "urn:cite:brill:inscriptionType:0000001" ;
+          rdfs:label "Honorary"@en .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Honorific
+:Honorific rdf:type owl:Class ;
+           <http://purl.org/dc/elements/1.1/description> "Texts praising or honoring individuals, groups, or entities for their achievements, contributions, or status. Texts often express the reasons for receiving the honours."@en ;
+           <http://purl.org/dc/elements/1.1/relation> <http://vocab.getty.edu/page/aat/300305463> ,
+                                                      <http://www.eagle-network.eu/voc/typeins/lod/69.html> ;
+           rdfs:label "Honorific"@en ;
+           <http://www.w3.org/2004/02/skos/core#altLabel> "Ehreninschrift"@de ,
+                                                          "Honorarius"@la ,
+                                                          "Honorary"@en ,
+                                                          "Honorifique"@fr ,
+                                                          "Honorífica"@es ,
+                                                          "Onoraria"@it ,
+                                                          "τιμητική"@el ;
+           <http://www.w3.org/2004/02/skos/core#example> <http://sicily.classics.ox.ac.uk/inscription/ISic000508> ,
+                                                         <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD000021> ,
+                                                         <https://igcyr.unibo.it/igcyr015400> ,
+                                                         <https://insaph.kcl.ac.uk/ala2004/inscription/eAla002.html> ,
+                                                         <https://romaninscriptionsofbritain.org/inscriptions/1909> ,
+                                                         <https://romaninscriptionsofbritain.org/inscriptions/8> ,
+                                                         <https://www.edb.uniba.it/epigraph/34452> ,
+                                                         "EDR000067" .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Hospitality_agreement
+:Hospitality_agreement rdf:type owl:Class ;
+                       rdfs:subClassOf :Certification ;
+                       <http://purl.org/dc/elements/1.1/description> "Inscriptions certifying or documenting hospitality agreements or arrangements. Tessera hospitalis (σύμβολον). A token of mutual hospitality and friendship; consisting of a small die, which was given by a host to his guest at the time of departure, when it was broken into two parts, each party retaining one-half, so that if either of them or their descendants should again meet, they might recognize each other, and renew or repay their ancient family obligations (Plaut. Poen. v. 2, 86-93). Harry Thurston Peck, Harpers Dictionary of Classical Antiquities (1898)"@en ;
+                       <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/133.html> ;
+                       rdfs:label "Hospitality agreement"@en ;
+                       <http://www.w3.org/2004/02/skos/core#altLabel> "Acuerdo de Hospitalidad"@es ,
+                                                                      "Freundschaftstafel"@de ,
+                                                                      "Tessera hospitalis"@la ,
+                                                                      "σύμβολον"@el ;
+                       <http://www.w3.org/2004/02/skos/core#example> <http://sicily.classics.ox.ac.uk/inscription/ISic001668> ,
+                                                                     <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD000272> ,
+                                                                     <https://gis.latinnow.eu/object/183426> ,
+                                                                     <https://gis.latinnow.eu/object/219626> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Hymn
+:Hymn rdf:type owl:Class ;
+      rdfs:subClassOf :Religious ;
+      <http://purl.org/dc/elements/1.1/description> "Inscriptions containing songs or poems of praise, devotion, or worship, often dedicated to a deity or divine figure."@en ;
+      <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/65> ;
+      rdfs:label "Hymn"@en ;
+      <http://www.w3.org/2004/02/skos/core#altLabel> "Hymne"@fr ;
+      <http://www.w3.org/2004/02/skos/core#example> <https://igcyr.unibo.it/gvcyr041> ,
+                                                    <https://iospe.kcl.ac.uk/3.172.html> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Identification
+:Identification rdf:type owl:Class ;
+                <http://purl.org/dc/elements/1.1/description> "Texts identifying the physical characteristics of the inscribed object and other qualities, its origin, its classification, and its belonging, eventually providing information about the commisioner."@en ;
+                rdfs:label "Identification"@en .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Imperial_ownership
+:Imperial_ownership rdf:type owl:Class ;
+                    rdfs:subClassOf :Ownership ;
+                    <http://purl.org/dc/elements/1.1/description> "Ownership marks or names associated with imperial figures or authorities indicating the ownership of the object."@en ;
+                    rdfs:label "Imperial ownership"@en ;
+                    <http://www.w3.org/2004/02/skos/core#example> <https://romaninscriptionsofbritain.org/inscriptions/Brit.21.39> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Imperial_production
+:Imperial_production rdf:type owl:Class ;
+                     rdfs:subClassOf :Production ;
+                     <http://purl.org/dc/elements/1.1/description> "Production marks or short text  associated with production governed on behalf of the Roman emperor." ;
+                     rdfs:label "Imperial production"@en ;
+                     <http://www.w3.org/2004/02/skos/core#example> <https://romaninscriptionsofbritain.org/inscriptions/Brit.49.13> ,
+                                                                   <https://romaninscriptionsofbritain.org/inscriptions/2482.1> ,
+                                                                   <https://romaninscriptionsofbritain.org/inscriptions/2484.1.iii> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Inquiry
+:Inquiry rdf:type owl:Class ;
+         rdfs:subClassOf :Oracle ;
+         <http://purl.org/dc/elements/1.1/description> "Inscriptions with the text of the oracle inquiry recorded, referring to the act or process of seeking guidance or advice from an oracle."@en ;
+         <http://purl.org/dc/elements/1.1/relation> "urn:cite:brill:inscriptionType:0000016" ;
+         rdfs:label "Inquiry"@en .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Insult
+:Insult rdf:type owl:Class ;
+        rdfs:subClassOf :Expressive ;
+        <http://purl.org/dc/elements/1.1/description> "Inscriptions expressing disdain, offense, or derogatory remarks towards others."@en ;
+        <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/401.html> ;
+        rdfs:label "Insult"@en ;
+        <http://www.w3.org/2004/02/skos/core#altLabel> "Imprecation"@en ;
+        <http://www.w3.org/2004/02/skos/core#example> <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR127815> ,
+                                                      <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR151896> ,
+                                                      <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR154573> ,
+                                                      <https://romaninscriptionsofbritain.org/inscriptions/Brit.54.3> ,
+                                                      <https://romaninscriptionsofbritain.org/inscriptions/2450.3> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Inventories
+:Inventories rdf:type owl:Class ;
+             rdfs:subClassOf :List ;
+             <http://purl.org/dc/elements/1.1/description> "Lists cataloging items, goods, or assets."@en ;
+             rdfs:label "Inventories"@en ;
+             <http://www.w3.org/2004/02/skos/core#example> <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR154044> ,
+                                                           <http://sicily.classics.ox.ac.uk/inscription/ISic000613> ,
+                                                           <https://www.atticinscriptions.com/inscription/AIUK44/3> ,
+                                                           <https://www.atticinscriptions.com/inscription/IGI3/329> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Invocation
+:Invocation rdf:type owl:Class ;
+            rdfs:subClassOf :Magic ;
+            <http://purl.org/dc/elements/1.1/description> "Inscriptions invoking divine or supernatural powers for assistance or protection, petitions or requests addressed to a deity or divine entity." ;
+            <http://purl.org/dc/elements/1.1/relation> <http://vocab.getty.edu/page/aat/300026452> ,
+                                                       <http://www.eagle-network.eu/voc/typeins/lod/85.html> ,
+                                                       <https://www.eagle-network.eu/voc/typeins/lod/387> ;
+            rdfs:label "Invocation"@en ;
+            <http://www.w3.org/2004/02/skos/core#altLabel> "Gebet"@de ,
+                                                           "Prayer"@en ;
+            <http://www.w3.org/2004/02/skos/core#example> <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR128050> ,
+                                                          <http://sicily.classics.ox.ac.uk/inscription/ISic001698> ,
+                                                          <http://sicily.classics.ox.ac.uk/inscription/ISic020440> ,
+                                                          <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD029715> ,
+                                                          <https://insaph.kcl.ac.uk/ala2004/inscription/eAla036.html> ,
+                                                          <https://iospe.kcl.ac.uk/5.45.html> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Itinerary
+:Itinerary rdf:type owl:Class ;
+           rdfs:subClassOf :Space_delimitation ;
+           <http://purl.org/dc/elements/1.1/description> "Inscriptions providing directions, distances, or routes for travelers, commonly found on ancient roads or pathways. Excerpts from itineraries, providing a description of a geographic area, with distances and main settlements and geographic features to help the traveller."@en ;
+           rdfs:label "Itinerary"@en ;
+           <http://www.w3.org/2004/02/skos/core#example> <https://romaninscriptionsofbritain.org/inscriptions/Brit.48.8> ,
+                                                         <https://romaninscriptionsofbritain.org/inscriptions/2415.53> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Joke
+:Joke rdf:type owl:Class ;
+      rdfs:subClassOf :Expressive ;
+      <http://purl.org/dc/elements/1.1/description> "Inscriptions containing humorous or witty remarks, anecdotes, or aphorisms."@en ;
+      rdfs:label "Joke"@en ;
+      <http://www.w3.org/2004/02/skos/core#altLabel> "Aphorism"@en ;
+      <http://www.w3.org/2004/02/skos/core#example> <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR175872> ,
+                                                    <https://romaninscriptionsofbritain.org/inscriptions/TabLondBloomberg79> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/King
+:King rdf:type owl:Class ;
+      rdfs:subClassOf :Letter ;
+      <http://purl.org/dc/elements/1.1/description> "Letters addressed to or from a monarch or ruler."@en ;
+      <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/31.html> ;
+      rdfs:label "King"@en ;
+      <http://www.w3.org/2004/02/skos/core#altLabel> "Lettre de souverain"@fr ;
+      <http://www.w3.org/2004/02/skos/core#example> <https://igcyr.unibo.it/igcyr011100> ,
+                                                    <https://igcyr.unibo.it/igcyr131400> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Label
+:Label rdf:type owl:Class ;
+       rdfs:subClassOf :Description ;
+       <http://purl.org/dc/elements/1.1/description> "Inscriptions providing descriptive or identifying information for objects, artifacts, or images."@en ;
+       <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/109.html> ;
+       rdfs:label "Label"@en ;
+       <http://www.w3.org/2004/02/skos/core#altLabel> "Caption"@en ;
+       <http://www.w3.org/2004/02/skos/core#example> <http://ancientgraffiti.org/Graffiti/graffito/AGP-SMYT00282> ,
+                                                     <http://sicily.classics.ox.ac.uk/inscription/ISic020539> ,
+                                                     <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD036515> ,
+                                                     <https://igcyr.unibo.it/igcyr084210> ,
+                                                     <https://insaph.kcl.ac.uk/ala2004/inscription/eAla251.html> ,
+                                                     <https://romaninscriptionsofbritain.org/inscriptions/2106> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Legal
+:Legal rdf:type owl:Class ;
+       rdfs:subClassOf :Regulatory ;
+       <http://purl.org/dc/elements/1.1/description> "Legal codes or statutes enacted by governing authorities, excluding Lex Sacra. Rules or regulations established by a government or governing authority that is binding and enforceable within a particular jurisdiction. Laws are typically enacted through legislative processes, such as the passage of bills by a legislative body, and they often apply to a broad range of circumstances or situations."@en ;
+       <http://purl.org/dc/elements/1.1/relation> <http://vocab.getty.edu/page/aat/300027590> ,
+                                                  <https://www.eagle-network.eu/voc/typeins/lod/4.html> ;
+       rdfs:label "Legal"@en ;
+       <http://www.w3.org/2004/02/skos/core#altLabel> "Gesetz"@de ,
+                                                      "Law"@en ,
+                                                      "Loi"@fr ;
+       <http://www.w3.org/2004/02/skos/core#example> <http://sicily.classics.ox.ac.uk/inscription/ISic004407> ,
+                                                     <http://sicily.classics.ox.ac.uk/inscription/ISic030016> ,
+                                                     <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD067465> ,
+                                                     <https://gis.latinnow.eu/object/165508> ,
+                                                     <https://gis.latinnow.eu/object/201934> ,
+                                                     <https://igcyr.unibo.it/igcyr125500> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Legionary
+:Legionary rdf:type owl:Class ;
+           rdfs:subClassOf :Army ;
+           <http://purl.org/dc/elements/1.1/description> "Production marks or short text associated with Roman legionary military units."@en ;
+           rdfs:label "Legionary"@en ;
+           <http://www.w3.org/2004/02/skos/core#example> <https://romaninscriptionsofbritain.org/inscriptions/Brit.47.27> ,
+                                                         <https://romaninscriptionsofbritain.org/inscriptions/Brit.53.58> ,
+                                                         <https://romaninscriptionsofbritain.org/inscriptions/2458.2.iii> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Letter
+:Letter rdf:type owl:Class ;
+        rdfs:subClassOf :Pragmatic ;
+        <http://purl.org/dc/elements/1.1/description> "Inscriptions in the form of letters, conveying messages between individuals, groups, or entities."@en ;
+        <http://purl.org/dc/elements/1.1/relation> <http://vocab.getty.edu/page/aat/300026879> ,
+                                                   <http://www.eagle-network.eu/voc/typeins/lod/402.html> ;
+        rdfs:label "Letter"@en ;
+        <http://www.w3.org/2004/02/skos/core#altLabel> "Brief"@de ;
+        <http://www.w3.org/2004/02/skos/core#example> <http://sicily.classics.ox.ac.uk/inscription/ISic000827> ,
+                                                      <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD017607> ,
+                                                      <https://igcyr.unibo.it/igcyr011100> ,
+                                                      <https://iospe.kcl.ac.uk/1.13.html> ,
+                                                      <https://iospe.kcl.ac.uk/1.14.html> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Lex_sacra
+:Lex_sacra rdf:type owl:Class ;
+           rdfs:subClassOf :Regulatory_text ;
+           <http://purl.org/dc/elements/1.1/description> "Religious laws or regulations with legal or binding authority within a religious context."@en ;
+           <http://purl.org/dc/elements/1.1/relation> <http://vocab.getty.edu/page/aat/300027894> ,
+                                                      <http://vocab.getty.edu/page/aat/300220519> ,
+                                                      <http://www.eagle-network.eu/voc/typeins/lod/10.html> ;
+           rdfs:label "Lex sacra"@en ;
+           <http://www.w3.org/2004/02/skos/core#altLabel> "Legge sacra"@it ,
+                                                          "Ley sacra"@es ,
+                                                          "Loi sacrée"@fr ,
+                                                          "Sacred law"@en ;
+           <http://www.w3.org/2004/02/skos/core#example> <http://sicily.classics.ox.ac.uk/inscription/ISic001424> ,
+                                                         <https://igcyr.unibo.it/igcyr016700> ,
+                                                         <https://igcyr.unibo.it/igcyr100300> ,
+                                                         <https://igcyr.unibo.it/igcyr109200> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/List
+:List rdf:type owl:Class ;
+      rdfs:subClassOf :Record_keeping ;
+      <http://purl.org/dc/elements/1.1/description> "Inscriptions presenting information in the form of a catalog or enumeration."@en ;
+      <http://purl.org/dc/elements/1.1/relation> <http://vocab.getty.edu/page/aat/300027119> ,
+                                                 <http://www.eagle-network.eu/voc/typeins/lod/108.html> ,
+                                                 <https://www.eagle-network.eu/voc/typeins/lod/331.html> ,
+                                                 <https://www.eagle-network.eu/voc/typeins/lod/362.html> ;
+      rdfs:label "List"@en ;
+      <http://www.w3.org/2004/02/skos/core#altLabel> "Catalogue"@en ,
+                                                     "Liste"@fr ,
+                                                     "Verzeichnis"@de ;
+      <http://www.w3.org/2004/02/skos/core#example> <http://sicily.classics.ox.ac.uk/inscription/ISic001035> ,
+                                                    <http://sicily.classics.ox.ac.uk/inscription/ISic003345> ,
+                                                    <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD000694> ,
+                                                    <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD060750> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Ludic
+:Ludic rdf:type owl:Class ;
+       rdfs:subClassOf :Entertainment ;
+       <http://purl.org/dc/elements/1.1/description> "Inscriptions specifically related to games or gaming activities."@en ;
+       <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/369.html> ;
+       rdfs:label "Ludic"@en ;
+       <http://www.w3.org/2004/02/skos/core#example> <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR073606> ,
+                                                     <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR073607> ,
+                                                     <https://romaninscriptionsofbritain.org/inscriptions/Brit.32.41> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Magic
+:Magic rdf:type owl:Class ;
+       rdfs:subClassOf :Religious ;
+       <http://purl.org/dc/elements/1.1/description> "Inscriptions associated with magical practices, rituals, or beliefs, aimed at invoking supernatural powers or protection."@en ;
+       <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/366.html> ;
+       rdfs:label "Magic"@en ;
+       <http://www.w3.org/2004/02/skos/core#example> <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR167837> ,
+                                                     <http://sicily.classics.ox.ac.uk/inscription/ISic030317> ,
+                                                     <https://romaninscriptionsofbritain.org/inscriptions/Brit.49.38> ,
+                                                     <https://romaninscriptionsofbritain.org/inscriptions/706> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Magistrate
+:Magistrate rdf:type owl:Class ;
+            rdfs:subClassOf :Letter ;
+            <http://purl.org/dc/elements/1.1/description> "Letters involving communication with or from a Roman magistrate or official."@en ;
+            <http://purl.org/dc/elements/1.1/relation> "urn:cite:brill:inscriptionType:0000007" ;
+            rdfs:label "Magistrate"@en .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Magistrates
+:Magistrates rdf:type owl:Class ;
+             rdfs:subClassOf :Names ;
+             <http://purl.org/dc/elements/1.1/description> "Lists of individuals holding official positions or roles within a governmental or administrative structure."@en ;
+             <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/32> ;
+             rdfs:label "Magistrates"@en ;
+             <http://www.w3.org/2004/02/skos/core#example> <http://sicily.classics.ox.ac.uk/inscription/ISic001033> ,
+                                                           <http://sicily.classics.ox.ac.uk/inscription/ISic001034> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Maker
+:Maker rdf:type owl:Class ;
+       rdfs:subClassOf :Private_production ;
+       <http://purl.org/dc/elements/1.1/description> "Marks or short texts identifying private maker or manufacturer of an object."@en ;
+       <http://purl.org/dc/elements/1.1/relation> <http://vocab.getty.edu/page/aat/300256090> ;
+       rdfs:label "Maker"@en ;
+       <http://www.w3.org/2004/02/skos/core#example> <https://gis.latinnow.eu/object/107131> ,
+                                                     <https://gis.latinnow.eu/object/154512> ,
+                                                     <https://gis.latinnow.eu/object/205747> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Manumission
+:Manumission rdf:type owl:Class ;
+             rdfs:subClassOf :Legal ;
+             <http://purl.org/dc/elements/1.1/description> "Legal inscriptions pertaining to the emancipation or freeing of slaves."@en ;
+             <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/51> ;
+             rdfs:label "Manumission"@en ;
+             <http://www.w3.org/2004/02/skos/core#altLabel> "Acta de manumisión"@es ,
+                                                            "Acte d'affranchissement"@fr ,
+                                                            "Atto di manumissione"@it .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Mason
+:Mason rdf:type owl:Class ;
+       rdfs:subClassOf :Private_production ;
+       <http://purl.org/dc/elements/1.1/description> "Marks indicating the mason or quarry responsible for stone or building materials, marks related to the manufacturing process in the quarry."@en ;
+       <http://purl.org/dc/elements/1.1/relation> <http://vocab.getty.edu/page/aat/300264553> ,
+                                                  <http://vocab.getty.edu/page/aat/300379817> ,
+                                                  <http://www.eagle-network.eu/voc/typeins/lod/121> ,
+                                                  <http://www.eagle-network.eu/voc/typeins/lod/390.html> ,
+                                                  <https://www.eagle-network.eu/voc/typeins/lod/394> ;
+       rdfs:label "Mason"@en ;
+       <http://www.w3.org/2004/02/skos/core#altLabel> "Mason's mark"@en ,
+                                                      "Quarry mark"@en ;
+       <http://www.w3.org/2004/02/skos/core#example> <http://sicily.classics.ox.ac.uk/inscription/ISic001548> ,
+                                                     <https://gis.latinnow.eu/object/165075> ,
+                                                     <https://romaninscriptionsofbritain.org/inscriptions/1004> ,
+                                                     <https://romaninscriptionsofbritain.org/inscriptions/1014> ,
+                                                     <https://romaninscriptionsofbritain.org/inscriptions/1952> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Measure
+:Measure rdf:type owl:Class ;
+         rdfs:subClassOf :Description ;
+         <http://purl.org/dc/elements/1.1/description> "Inscriptions related to measurements, quantities, or values."@en ;
+         rdfs:label "Measure"@en ;
+         <http://www.w3.org/2004/02/skos/core#example> <http://sicily.classics.ox.ac.uk/inscription/ISic020551> ,
+                                                       <http://sicily.classics.ox.ac.uk/inscription/ISic020770> ,
+                                                       <https://insaph.kcl.ac.uk/ala2004/inscription/eAla214.html> ,
+                                                       <https://insaph.kcl.ac.uk/ala2004/inscription/eAla215.html> ,
+                                                       <https://romaninscriptionsofbritain.org/inscriptions/Brit.28.20> ,
+                                                       <https://romaninscriptionsofbritain.org/inscriptions/Brit.34.35> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Milestone
+:Milestone rdf:type owl:Class ;
+           rdfs:subClassOf :Road_network ;
+           <http://purl.org/dc/elements/1.1/description> "Inscriptions placed along roads to mark distances, typically indicating the distance to a specific location or city. Milestones often mentioned Roman emperors and local authorities who were responsible for the road construction and maintenance."@en ;
+           <http://purl.org/dc/elements/1.1/relation> <http://vocab.getty.edu/page/aat/300006973> ,
+                                                      <https://www.eagle-network.eu/voc/typeins/lod/102.html> ,
+                                                      <https://www.eagle-network.eu/voc/typeins/lod/306.html> ;
+           rdfs:label "Milestone"@en ;
+           <http://www.w3.org/2004/02/skos/core#altLabel> "Borne routière"@fr ,
+                                                          "Leugenstein"@de ,
+                                                          "Meilen-/Leugenstein"@de ,
+                                                          "Meilenstein"@de ,
+                                                          "Miliarium"@la ;
+           <http://www.w3.org/2004/02/skos/core#example> <http://mama.csad.ox.ac.uk/monuments/MAMA-XI-009.html> ,
+                                                         <http://sicily.classics.ox.ac.uk/inscription/ISic000610> ,
+                                                         <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD060883> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Military_diploma
+:Military_diploma rdf:type owl:Class ;
+                  rdfs:subClassOf :Certification ;
+                  <http://purl.org/dc/elements/1.1/description> "Military diplomas or discharge certificates issued to soldiers in the Roman army."@en ;
+                  <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/272.html> ,
+                                                             <https://www.eagle-network.eu/voc/typeins/lod/273.html> ,
+                                                             <https://www.eagle-network.eu/voc/typeins/lod/91> ;
+                  rdfs:label "Military diploma"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Diploma militar"@es ,
+                                                                 "Diplôme militaire"@fr ,
+                                                                 "Militärdiplom"@de ;
+                  <http://www.w3.org/2004/02/skos/core#example> <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD009203> ,
+                                                                <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD014561> ,
+                                                                <https://romaninscriptionsofbritain.org/inscriptions/2401.1> ,
+                                                                <https://romaninscriptionsofbritain.org/inscriptions/2401.7> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Military_personnel
+:Military_personnel rdf:type owl:Class ;
+                    rdfs:subClassOf :Names ;
+                    <http://purl.org/dc/elements/1.1/description> "Lists of individuals serving in military, including their positions or ranks."@en ;
+                    rdfs:label "Military personnel"@en ;
+                    <http://www.w3.org/2004/02/skos/core#example> <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD005863> ,
+                                                                  <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD013497> ,
+                                                                  <https://igcyr.unibo.it/igcyr109000> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Military_regulations
+:Military_regulations rdf:type owl:Class ;
+                      rdfs:subClassOf :Regulatory ;
+                      <http://purl.org/dc/elements/1.1/description> "Inscriptions related to military matters or regulations."@en ;
+                      rdfs:label "Military regulations"@en .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Mortgage_stone
+:Mortgage_stone rdf:type owl:Class ;
+                rdfs:subClassOf :Cadastral ;
+                <http://purl.org/dc/elements/1.1/description> "Inscriptions indicating that such private property has been pledged as security on a dowry or a loan (Woodhead 1959, 47)."@en ;
+                rdfs:label "Mortgage stone"@en .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Names
+:Names rdf:type owl:Class ;
+       rdfs:subClassOf :List ;
+       <http://purl.org/dc/elements/1.1/description> "Lists of names of individuals, groups, or entities."@en ;
+       <http://purl.org/dc/elements/1.1/relation> "urn:cite:brill:inscriptionType:0000013" ;
+       rdfs:label "Names"@en ;
+       <http://www.w3.org/2004/02/skos/core#example> <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR128560> ,
+                                                     <http://sicily.classics.ox.ac.uk/inscription/ISic003438> ,
+                                                     <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD002509> ,
+                                                     <https://igcyr.unibo.it/igcyr009300> ,
+                                                     <https://igcyr.unibo.it/igcyr115000> ,
+                                                     <https://romaninscriptionsofbritain.org/inscriptions/Brit.26.3> ,
+                                                     <https://romaninscriptionsofbritain.org/inscriptions/Brit.40.21> ,
+                                                     <https://romaninscriptionsofbritain.org/inscriptions/2417.9> ,
+                                                     <https://www.atticinscriptions.com/inscription/AIUK43B/1> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Oath
+:Oath rdf:type owl:Class ;
+      rdfs:subClassOf :Religious ;
+      <http://purl.org/dc/elements/1.1/description> "Inscriptions involving a solemn promise or commitment, often made in a religious or sacred context."@en ;
+      <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/409.html> ;
+      rdfs:label "Oath"@en ;
+      <http://www.w3.org/2004/02/skos/core#altLabel> "Giuramento"@la ;
+      <http://www.w3.org/2004/02/skos/core#example> <https://iospe.kcl.ac.uk/3.100.html> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Oracle
+:Oracle rdf:type owl:Class ;
+        rdfs:subClassOf :Religious ;
+        <http://purl.org/dc/elements/1.1/description> "Inscriptions related to the consultation or response of an oracle, typically providing guidance, prophecy, or advice."@en ;
+        <http://purl.org/dc/elements/1.1/relation> <http://www.eagle-network.eu/voc/typeins/lod/429.html> ;
+        rdfs:label "Oracle"@en ;
+        <http://www.w3.org/2004/02/skos/core#altLabel> "Oracolo"@it ;
+        <http://www.w3.org/2004/02/skos/core#example> <http://sicily.classics.ox.ac.uk/inscription/ISic002754> ,
+                                                      <http://sicily.classics.ox.ac.uk/inscription/ISic003367> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Origin
+:Origin rdf:type owl:Class ;
+        rdfs:subClassOf :Identification ;
+        <http://purl.org/dc/elements/1.1/description> "Inscriptions indicating the place of origin or provenance of an object."@en ;
+        rdfs:label "Origin"@en ;
+        <http://www.w3.org/2004/02/skos/core#example> <https://gis.latinnow.eu/object/140989> ,
+                                                      <https://romaninscriptionsofbritain.org/inscriptions/Brit.27.11> ,
+                                                      <https://romaninscriptionsofbritain.org/inscriptions/Brit.32.39> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Orphic_text
+:Orphic_text rdf:type owl:Class ;
+             rdfs:subClassOf :Magic ;
+             <http://purl.org/dc/elements/1.1/description> "Inscriptions associated with Orphic religious beliefs or practices, often containing instructions or rituals for the afterlife."@en ;
+             <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/432> ;
+             rdfs:label "Orphic text"@en ;
+             <http://www.w3.org/2004/02/skos/core#altLabel> "Laminetta 'orfica'"@it .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Ownership
+:Ownership rdf:type owl:Class ;
+           rdfs:subClassOf <https://ontology.inscriptiones.org/type_of_inscription/Production_/_Ownership> ;
+           <http://purl.org/dc/elements/1.1/description> "Inscriptions marking ownership or bearing the name of an individual, entity, or institution in charge."@en ;
+           <http://purl.org/dc/elements/1.1/relation> <http://vocab.getty.edu/page/aat/300028772> ,
+                                                      <https://www.eagle-network.eu/voc/typeins/lod/313.html> ;
+           rdfs:label "Ownership"@en ;
+           <http://www.w3.org/2004/02/skos/core#altLabel> "Besitzerinschrift"@de ,
+                                                          "Marca de propiedad"@es ,
+                                                          "Marque de propriété"@fr ,
+                                                          "Owner inscription"@en ,
+                                                          "Owner's sign"@en ;
+           <http://www.w3.org/2004/02/skos/core#example> <https://insaph.kcl.ac.uk/ala2004/inscription/eAla214.html> ,
+                                                         <https://iospe.kcl.ac.uk/5.342.html> ,
+                                                         <https://romaninscriptionsofbritain.org/inscriptions/Brit.22.30> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Patronage
+:Patronage rdf:type owl:Class ;
+           rdfs:subClassOf :Legal ;
+           <http://purl.org/dc/elements/1.1/description> "Legal regulations governing the relationship between patrons and clients in ancient societies."@en ;
+           <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/129.html> ;
+           rdfs:label "Patronage"@en ;
+           <http://www.w3.org/2004/02/skos/core#altLabel> "Patronatstafel"@de ,
+                                                          "Tabula patronatus"@la ;
+           <http://www.w3.org/2004/02/skos/core#example> <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD000779> ,
+                                                         <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD024321> ,
+                                                         <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD041925> ,
+                                                         <https://gis.latinnow.eu/object/205796> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Pragmatic
+:Pragmatic rdf:type owl:Class ;
+           <http://purl.org/dc/elements/1.1/description> "A written indication of a fact, opinion, or belief. A statement aimed at conveying specific messages, directives, or information to an audience in a direct and straightforward manner."@en ;
+           rdfs:label "Pragmatic"@en ;
+           <http://www.w3.org/2004/02/skos/core#example> <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR151867> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Price
+:Price rdf:type owl:Class ;
+       rdfs:subClassOf :Measure ;
+       <http://purl.org/dc/elements/1.1/description> "Inscriptions indicating the cost or value of an object or service."@en ;
+       rdfs:label "Price"@en ;
+       <http://www.w3.org/2004/02/skos/core#example> <https://igcyr.unibo.it/igcyr088000> ,
+                                                     <https://romaninscriptionsofbritain.org/inscriptions/2494.91> ,
+                                                     <https://romaninscriptionsofbritain.org/inscriptions/2504.8> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Priesthood_sale
+:Priesthood_sale rdf:type owl:Class ;
+                 rdfs:subClassOf :Lex_sacra ;
+                 <http://purl.org/dc/elements/1.1/description> "Regulations concerning the sale of a priesthood in Greek contexts."@en ;
+                 <http://purl.org/dc/elements/1.1/relation> "urn:cite:brill:inscriptionType:0000005" ;
+                 rdfs:label "Priesthood sale"@en .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Priests
+:Priests rdf:type owl:Class ;
+         rdfs:subClassOf :Names ;
+         <http://purl.org/dc/elements/1.1/description> "Lists of individuals holding religious or priestly offices or titles."@en ;
+         <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/33.html> ;
+         rdfs:label "Priests"@en ;
+         <http://www.w3.org/2004/02/skos/core#example> <http://sicily.classics.ox.ac.uk/inscription/ISic000829> ,
+                                                       <https://igcyr.unibo.it/igcyr109300> ,
+                                                       <https://igcyr.unibo.it/igcyr129600> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Private_Association
+:Private_Association rdf:type owl:Class ;
+                     rdfs:subClassOf :Decree ;
+                     <http://purl.org/dc/elements/1.1/description> "Decrees concerning the establishment, regulation, or dissolution of private associations or clubs."@en ;
+                     <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/15> ;
+                     rdfs:label "Private Association"@en ;
+                     <http://www.w3.org/2004/02/skos/core#altLabel> "Décret d'association"@fr .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Private_individuals
+:Private_individuals rdf:type owl:Class ;
+                     rdfs:subClassOf :Letter ;
+                     <http://purl.org/dc/elements/1.1/description> "Personal correspondence between individuals."@en ;
+                     <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/359> ;
+                     rdfs:label "Private individuals"@en ;
+                     <http://www.w3.org/2004/02/skos/core#example> <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD008966> ,
+                                                                   <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD010753> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Private_ownership
+:Private_ownership rdf:type owl:Class ;
+                   rdfs:subClassOf :Ownership ;
+                   <http://purl.org/dc/elements/1.1/description> "Inscriptions indicating private ownership, often in the form of owners name or initials." ;
+                   rdfs:label "Private ownership"@en .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Private_production
+:Private_production rdf:type owl:Class ;
+                    rdfs:subClassOf :Production ;
+                    <http://purl.org/dc/elements/1.1/description> "Production marks or short text associated with private or individual production, often represented by personal name or initials."@en ;
+                    <http://purl.org/dc/elements/1.1/relation> <http://vocab.getty.edu/page/aat/300028705> ;
+                    rdfs:label "Private production"@en ;
+                    <http://www.w3.org/2004/02/skos/core#altLabel> "Producer signature"@en ,
+                                                                   "tit. in artis operib. inscr." ;
+                    <http://www.w3.org/2004/02/skos/core#example> <http://sicily.classics.ox.ac.uk/inscription/ISic002746> ,
+                                                                  <https://gis.latinnow.eu/object/232983> ,
+                                                                  <https://romaninscriptionsofbritain.org/inscriptions/Brit.20.51> ,
+                                                                  <https://romaninscriptionsofbritain.org/inscriptions/Brit.33.16> ,
+                                                                  <https://romaninscriptionsofbritain.org/inscriptions/2409.35> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Procuratorial_production
+:Procuratorial_production rdf:type owl:Class ;
+                          rdfs:subClassOf :Production ;
+                          <http://purl.org/dc/elements/1.1/description> "Production marks or short text associated with production by procuratorial authorities."@en ;
+                          rdfs:label "Procuratorial production"@en ;
+                          <http://www.w3.org/2004/02/skos/core#example> <https://romaninscriptionsofbritain.org/inscriptions/2443.2> ,
+                                                                        <https://romaninscriptionsofbritain.org/inscriptions/2485.1.vii> ,
+                                                                        <https://romaninscriptionsofbritain.org/inscriptions/2485.4.iii> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Production
+:Production rdf:type owl:Class ;
+            rdfs:subClassOf <https://ontology.inscriptiones.org/type_of_inscription/Production_/_Ownership> ;
+            <http://purl.org/dc/elements/1.1/description> "Marks or symbols, including a short text, indicating the production or manufacturing process of an object."@en ;
+            <http://purl.org/dc/elements/1.1/relation> <http://vocab.getty.edu/page/aat/300195926> ,
+                                                       <http://vocab.getty.edu/page/aat/300195985> ,
+                                                       <http://www.eagle-network.eu/voc/typeins/lod/119> ;
+            rdfs:label "Production"@en ;
+            <http://www.w3.org/2004/02/skos/core#altLabel> "Production mark"@en ;
+            <http://www.w3.org/2004/02/skos/core#example> <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD054641> ,
+                                                          <https://gis.latinnow.eu/object/125102> ,
+                                                          <https://gis.latinnow.eu/object/146414> ,
+                                                          <https://gis.latinnow.eu/object/190973> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Production_list
+:Production_list rdf:type owl:Class ;
+                 rdfs:subClassOf :List ;
+                 <http://purl.org/dc/elements/1.1/description> "Lists detailing the production process or materials used in the creation of an object."@en ;
+                 rdfs:label "Production list"@en ;
+                 <http://www.w3.org/2004/02/skos/core#example> <https://romaninscriptionsofbritain.org/inscriptions/Brit.24.30> ,
+                                                               <https://romaninscriptionsofbritain.org/inscriptions/2491.2> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Proskynema
+:Proskynema rdf:type owl:Class ;
+            rdfs:subClassOf :Invocation ;
+            <http://purl.org/dc/elements/1.1/description> "Inscriptions associated with acts of reverence, adoration, or worship, such as bowing or kneeling before a deity or sacred object."@en ;
+            <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/423.html> ;
+            rdfs:label "Proskynema"@en ;
+            <http://www.w3.org/2004/02/skos/core#altLabel> "Proscìnema" .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Proxeny
+:Proxeny rdf:type owl:Class ;
+         rdfs:subClassOf :Decree ;
+         <http://purl.org/dc/elements/1.1/description> "Decrees concerning the institution or regulation of proxeny, a system of reciprocal hospitality and diplomatic privileges in ancient Greek poleis."@en ;
+         <http://purl.org/dc/elements/1.1/relation> "urn:cite:brill:inscriptionType:0000002" ;
+         rdfs:label "Proxeny"@en ;
+         <http://www.w3.org/2004/02/skos/core#example> <https://iospe.kcl.ac.uk/1.5.html> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Psalm
+:Psalm rdf:type owl:Class ;
+       rdfs:subClassOf :Quotation ;
+       <http://purl.org/dc/elements/1.1/description> "Inscriptions with quotations specifically from the Book of Psalms or other religious texts."@en ;
+       <http://purl.org/dc/elements/1.1/relation> "urn:cite:brill:inscriptionType:0000039" ;
+       rdfs:label "Psalm"@en .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Public_subscription
+:Public_subscription rdf:type owl:Class ;
+                     rdfs:subClassOf :Names ;
+                     <http://purl.org/dc/elements/1.1/description> "Lists of individuals who contributed to a public fund or initiative through voluntary subscription."@en ;
+                     <http://purl.org/dc/elements/1.1/relation> "urn:cite:brill:inscriptionType:0000008" ;
+                     rdfs:label "Public subscription"@en ;
+                     <http://www.w3.org/2004/02/skos/core#example> <https://www.atticinscriptions.com/inscription/IGII31/1011> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Quantity
+:Quantity rdf:type owl:Class ;
+          rdfs:subClassOf :Measure ;
+          <http://purl.org/dc/elements/1.1/description> "Inscriptions specifying quantities or amounts."@en ;
+          rdfs:label "Quantity"@en ;
+          <http://www.w3.org/2004/02/skos/core#example> <https://romaninscriptionsofbritain.org/inscriptions/Brit.36.18> ,
+                                                        <https://romaninscriptionsofbritain.org/inscriptions/2491.14> ,
+                                                        <https://romaninscriptionsofbritain.org/inscriptions/2491.3> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Quotation
+:Quotation rdf:type owl:Class ;
+           rdfs:subClassOf :Writing_practice ;
+           <http://purl.org/dc/elements/1.1/description> "Inscriptions containing quoted passages or excerpts from literary works."@en ;
+           <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/55.html> ;
+           rdfs:label "Quotation"@en ;
+           <http://www.w3.org/2004/02/skos/core#altLabel> "Citation littéraire"@fr ,
+                                                          "Literary citation"@en ,
+                                                          "Literary quotation"@en ;
+           <http://www.w3.org/2004/02/skos/core#example> <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR140166> ,
+                                                         <http://ancientgraffiti.org/Graffiti/graffito/AGP-SMYT00291> ,
+                                                         <https://romaninscriptionsofbritain.org/inscriptions/Brit.51.20> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Record_keeping
+:Record_keeping rdf:type owl:Class ;
+                <http://purl.org/dc/elements/1.1/description> "Texts related to organizing and storing information for administrative and financial purposes."@en ;
+                rdfs:label "Record keeping"@en ;
+                <http://www.w3.org/2004/02/skos/core#example> <https://romaninscriptionsofbritain.org/inscriptions/TabLondBloomberg77> ,
+                                                              <https://romaninscriptionsofbritain.org/inscriptions/TabLondBloomberg78> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Regulatory
+:Regulatory rdf:type owl:Class ;
+            <http://purl.org/dc/elements/1.1/description> "Texts related to regulations, rules, or instructions governing behavior or conduct."@en ;
+            <http://purl.org/dc/elements/1.1/relation> <http://vocab.getty.edu/page/aat/300027842> ;
+            rdfs:label "Regulatory"@en ;
+            <http://www.w3.org/2004/02/skos/core#example> <https://insaph.kcl.ac.uk/ala2004/inscription/eAla220.html> ,
+                                                          <https://iospe.kcl.ac.uk/3.109.html> ,
+                                                          <https://iospe.kcl.ac.uk/3.110.html> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Regulatory_text
+:Regulatory_text rdf:type owl:Class ;
+                 rdfs:subClassOf :Religious ;
+                 <http://purl.org/dc/elements/1.1/description> "Texts related to regulations, rules, or instructions governing behavior or conduct."@en ;
+                 <http://purl.org/dc/elements/1.1/relation> "urn:cite:brill:inscriptionType:0000015" ;
+                 rdfs:label "Regulatory text"@en ;
+                 <http://www.w3.org/2004/02/skos/core#example> <https://igcyr.unibo.it/igcyr016800> ,
+                                                               <https://igcyr.unibo.it/igcyr100200> ,
+                                                               <https://igcyr.unibo.it/igcyr100400> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Religious
+:Religious rdf:type owl:Class ;
+           <http://purl.org/dc/elements/1.1/description> "Texts associated with religious practices, beliefs, rituals, or conduct of religious institutions."@en ;
+           <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/79> ;
+           rdfs:label "Religious"@en ;
+           <http://www.w3.org/2004/02/skos/core#altLabel> "Religieux"@fr ,
+                                                          "Religiosa"@es ,
+                                                          "Sacer"@la ;
+           <http://www.w3.org/2004/02/skos/core#example> <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR000864> ,
+                                                         <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR001690> ,
+                                                         <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD000052> ,
+                                                         <https://igcyr.unibo.it/igcyr032900> ,
+                                                         <https://iospe.kcl.ac.uk/5.92.html> ,
+                                                         <https://iospe.kcl.ac.uk/5.93.html> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Renuntium
+:Renuntium rdf:type owl:Class ;
+           rdfs:subClassOf :Military_regulations ;
+           <http://purl.org/dc/elements/1.1/description> "Military announcements or orders issued by commanding officers."@en ;
+           rdfs:label "Renuntium"@en ;
+           <http://www.w3.org/2004/02/skos/core#example> <https://romaninscriptionsofbritain.org/inscriptions/TabVindol130> ,
+                                                         <https://romaninscriptionsofbritain.org/inscriptions/TabVindol579> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Report
+:Report rdf:type owl:Class ;
+        rdfs:subClassOf :Pragmatic ;
+        <http://purl.org/dc/elements/1.1/description> "Inscriptions providing information or accounts of events, activities, or observations."@en ;
+        rdfs:label "Report"@en ;
+        <http://www.w3.org/2004/02/skos/core#example> <https://igcyr.unibo.it/igcyr097100> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Road_network
+:Road_network rdf:type owl:Class ;
+              rdfs:subClassOf :Space_delimitation ;
+              <http://purl.org/dc/elements/1.1/description> "Inscriptions related to the construction, maintenance and travel along the road network system."@en ;
+              rdfs:label "Road network"@en .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Road_signpost
+:Road_signpost rdf:type owl:Class ;
+               rdfs:subClassOf :Road_network ;
+               <http://purl.org/dc/elements/1.1/description> "Inscriptions providing directional information or guidance to travelers, often found at intersections or crossroads."@en ;
+               <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/380> ;
+               rdfs:label "Road signpost"@en ;
+               <http://www.w3.org/2004/02/skos/core#altLabel> "Street sign"@en ;
+               <http://www.w3.org/2004/02/skos/core#example> <https://igcyr.unibo.it/igcyr030800> ,
+                                                             <https://igcyr.unibo.it/igcyr107350> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Seat_inscription
+:Seat_inscription rdf:type owl:Class ;
+                  rdfs:subClassOf :Space_delimitation ;
+                  <http://purl.org/dc/elements/1.1/description> "Inscriptions found on seats or benches in ancient theaters, stadiums, or assembly areas, often indicating reserved seating or honorary dedications to individuals."@en ;
+                  <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/111.html> ;
+                  rdfs:label "Seat inscription"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Sitzinschrift"@de ;
+                  <http://www.w3.org/2004/02/skos/core#example> <http://sicily.classics.ox.ac.uk/inscription/ISic000732> ,
+                                                                <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD020431> ,
+                                                                <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD027208> ,
+                                                                <https://gis.latinnow.eu/object/160937> ,
+                                                                <https://www.edb.uniba.it/epigraph/42638> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Signaculum
+:Signaculum rdf:type owl:Class ;
+            rdfs:subClassOf :Certification ;
+            <http://purl.org/dc/elements/1.1/description> "Inscriptions serving as official certification or seal, usually on a portable object."@en ;
+            rdfs:label "Signaculum"@en ;
+            <http://www.w3.org/2004/02/skos/core#example> <https://gis.latinnow.eu/object/111341> ,
+                                                          <https://gis.latinnow.eu/object/130718> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Signaculum_medicorum
+:Signaculum_medicorum rdf:type owl:Class ;
+                      rdfs:subClassOf :Signaculum ;
+                      <http://purl.org/dc/elements/1.1/description> "Inscriptions serving as official certifications or seals specifically related to medical professionals."@en ;
+                      rdfs:label "Signaculum medicorum"@en ;
+                      <http://www.w3.org/2004/02/skos/core#example> <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD012156> ,
+                                                                    <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD036701> ,
+                                                                    <https://gis.latinnow.eu/object/195090> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Slaves
+:Slaves rdf:type owl:Class ;
+        rdfs:subClassOf :Names ;
+        <http://purl.org/dc/elements/1.1/description> "Lists of individuals identified as slaves."@en ;
+        rdfs:label "Slaves"@en .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Space_allocation
+:Space_allocation rdf:type owl:Class ;
+                  rdfs:subClassOf :Space_delimitation ;
+                  <http://purl.org/dc/elements/1.1/description> "Inscriptions indicating the allocation or designation of space for various purposes, such as religious, civic, or administrative functions."@en ;
+                  <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/116.html> ,
+                                                             "urn:cite:brill:inscriptionType:0000021" ;
+                  rdfs:label "Space allocation"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Topos inscription"@en ;
+                  <http://www.w3.org/2004/02/skos/core#example> <http://ancientgraffiti.org/Graffiti/graffito/AGP-SMYT00094> ,
+                                                                <http://ancientgraffiti.org/Graffiti/graffito/AGP-SMYTP0964> ,
+                                                                <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD002496> ,
+                                                                <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD010235> ,
+                                                                <https://insaph.kcl.ac.uk/ala2004/inscription/eAla196.html> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Space_delimitation
+:Space_delimitation rdf:type owl:Class ;
+                    <http://purl.org/dc/elements/1.1/description> "Texts marking the allocation of space including its boundaries, its use and distribution between private and public entities."@en ;
+                    <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/96.html> ;
+                    rdfs:label "Space delimitation"@en ;
+                    <http://www.w3.org/2004/02/skos/core#altLabel> "term. non sep." ;
+                    <http://www.w3.org/2004/02/skos/core#example> <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR075677> ,
+                                                                  <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD065913> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Tally_mark
+:Tally_mark rdf:type owl:Class ;
+            rdfs:subClassOf :Measure ;
+            <http://purl.org/dc/elements/1.1/description> "Inscriptions used for counting or keeping track of quantities, often in the form of tally marks."@en ;
+            rdfs:label "Tally mark"@en ;
+            <http://www.w3.org/2004/02/skos/core#example> <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR154444> ,
+                                                          <https://romaninscriptionsofbritain.org/inscriptions/2491.52.i> ,
+                                                          <https://romaninscriptionsofbritain.org/inscriptions/2491.53> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Terminatio_agrorum
+:Terminatio_agrorum rdf:type owl:Class ;
+                    rdfs:subClassOf :Cadastral ;
+                    <http://purl.org/dc/elements/1.1/description> "Inscriptions marking the boundaries of agricultural lands or fields in Roman contexts."@en ;
+                    <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/47.html> ;
+                    rdfs:label "Terminatio agrorum"@en .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Tessera_frumentaria
+:Tessera_frumentaria rdf:type owl:Class ;
+                     rdfs:subClassOf :Certification ;
+                     <http://purl.org/dc/elements/1.1/description> "A voucher or ticket given upon certain occasions by the magistrates to the poor, in exchange for which they received the quantities of bread, corn, wine, and oil, or sums of money inscribed upon it (Suet. Nero, 11; Suet. Aug. 40, Suet. Aug., 41); or sometimes scattered in a bounty (congiarium) amongst the crowd by the emperors, or wealthy personages, for the purpose of courting popular favour (Suet. Dom. 4). Harry Thurston Peck, Harpers Dictionary of Classical Antiquities (1898)"@en ;
+                     rdfs:label "Tessera frumentaria"@en .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Tessera_militaris
+:Tessera_militaris rdf:type owl:Class ;
+                   rdfs:subClassOf :Certification ;
+                   <http://purl.org/dc/elements/1.1/description> "A billet or wooden tablet (Polyb. vi. 34) with the watchword inscribed upon it, which was given out by the officers to their soldiers, in order that they might have a test for distinguishing friends from foes; it was also employed as a means by which the orders of the commander were distributed through the different divisions of an army (Livy, vii. 35; xxvii. 46; Veg. Mil. ii. 7; Verg. Aen. vii. 637). Harry Thurston Peck, Harpers Dictionary of Classical Antiquities (1898)"@en ;
+                   rdfs:label "Tessera militaris"@en .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Tessera_monumentum
+:Tessera_monumentum rdf:type owl:Class ;
+                    rdfs:subClassOf :Building_inscription ;
+                    <http://purl.org/dc/elements/1.1/description> "Token with an inscription distributed on the occasion of a monument or building unveiling / inauguration ceremony."@en ;
+                    <http://purl.org/dc/elements/1.1/relation> <http://vocab.getty.edu/page/aat/300404068> ,
+                                                               <https://www.eagle-network.eu/voc/objtyp/lod/280.html> ;
+                    rdfs:label "Tessera monumentum"@en ;
+                    <http://www.w3.org/2004/02/skos/core#example> <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR072011> ,
+                                                                  <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR085758> ,
+                                                                  <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR105056> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Tessera_nummularia
+:Tessera_nummularia rdf:type owl:Class ;
+                    rdfs:subClassOf :Certification ;
+                    <http://purl.org/dc/elements/1.1/description> "Token with an inscription attached to a coin bags (folles), certifying that the coins within were of the right number and genuine, by a mint official called a 'nummularius'."@en ;
+                    <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/131.html> ;
+                    rdfs:label "Tessera nummularia"@en ;
+                    <http://www.w3.org/2004/02/skos/core#example> <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR016411> ,
+                                                                  <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR073069> ,
+                                                                  <https://gis.latinnow.eu/object/214068> ,
+                                                                  <https://gis.latinnow.eu/object/216190> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Tessera_spectaculum
+:Tessera_spectaculum rdf:type owl:Class ;
+                     rdfs:subClassOf :Certification ;
+                     <http://purl.org/dc/elements/1.1/description> "Token with an inscription used as a pass to attend a show, games, or a spectacle. Stamped into a clay shard was an entrance aisle and row number for spectators attending an event at an amphitheater or arena. A ticket of admission to the theatre, or other place of public amusement (Mart.viii. 78), distributed by the duumvir and entitling the holder to a place at the representation. On it were inscribed the number of the seat, the division and row in which it was situate, and in some cases the title of the play performed. Harry Thurston Peck, Harpers Dictionary of Classical Antiquities (1898)"@en ;
+                     rdfs:label "Tessera spectaculum"@en ;
+                     <http://www.w3.org/2004/02/skos/core#altLabel> "Tessera theatralis" ;
+                     <http://www.w3.org/2004/02/skos/core#example> <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR080877> ,
+                                                                   <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR134158> ,
+                                                                   <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR146538> ,
+                                                                   <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR152553> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Testament
+:Testament rdf:type owl:Class ;
+           rdfs:subClassOf :Legal ;
+           <http://purl.org/dc/elements/1.1/description> "Legal documents detailing the last will and testament of an individual, outlining a person's wishes regarding the distribution of their property and assets after their death."@en ;
+           <http://purl.org/dc/elements/1.1/relation> <http://vocab.getty.edu/page/aat/300027764> ,
+                                                      <https://www.eagle-network.eu/voc/typeins/lod/63.html> ;
+           rdfs:label "Testament"@en ;
+           <http://www.w3.org/2004/02/skos/core#altLabel> "Donation testamentaire"@fr ,
+                                                          "Testamento"@it ,
+                                                          "Will"@en ;
+           <http://www.w3.org/2004/02/skos/core#example> <http://sicily.classics.ox.ac.uk/inscription/ISic000581> ,
+                                                         <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD000721> ,
+                                                         <https://igcyr.unibo.it/igcyr011200> ,
+                                                         <https://insaph.kcl.ac.uk/ala2004/inscription/eAla091.html> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Time_recording
+:Time_recording rdf:type owl:Class ;
+                rdfs:subClassOf :Record_keeping ;
+                <http://purl.org/dc/elements/1.1/description> "Texts related to organization and delineation of time intervals, whether through specific dates, calendrical systems, or astronomical observations, including recording, measuring and arranging events and individuals in chronological order."@en ;
+                rdfs:label "Time recording"@en .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Tomb_regulation
+:Tomb_regulation rdf:type owl:Class ;
+                 rdfs:subClassOf :Funerary ;
+                 <http://purl.org/dc/elements/1.1/description> "Tomb protection regulations entail measures or directives aimed at safeguarding burial sites from vandalism, theft, or other forms of damage, often inscribed as warnings or prohibitions to preserve the sanctity of the deceased's final resting place. Funerary regulations may include curses or maledictions aimed at deterring grave desecration or ensuring the sanctity of burial sites, serving as warnings against violating sacred grounds, or legal provisions or rights related to burial practices, often inscribed to establish ownership or jurisdiction over burial sites, ensuring proper administration and maintenance of funerary grounds."@en ;
+                 <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/354.html> ;
+                 rdfs:label "Tomb regulation"@en ;
+                 <http://www.w3.org/2004/02/skos/core#altLabel> "Iura sepulcrorum" ;
+                 <http://www.w3.org/2004/02/skos/core#example> <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD005121> ,
+                                                               <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD027532> ,
+                                                               <https://igcyr.unibo.it/igcyr010100> ,
+                                                               <https://igcyr.unibo.it/igcyr010440> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Touristic_text
+:Touristic_text rdf:type owl:Class ;
+                rdfs:subClassOf :Space_delimitation ;
+                <http://purl.org/dc/elements/1.1/description> "Inscriptions recording the visit of a given place by tourists or visitors, often found at historical sites, monuments, or landmarks. (Woodhead 1959, 47)."@en ;
+                <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/135.html> ;
+                rdfs:label "Touristic text"@en ;
+                <http://www.w3.org/2004/02/skos/core#altLabel> "Texte turistique"@fr ;
+                <http://www.w3.org/2004/02/skos/core#example> <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR127234> ,
+                                                              <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR140152> ,
+                                                              <http://sicily.classics.ox.ac.uk/inscription/ISic001391> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Treaty
+:Treaty rdf:type owl:Class ;
+        rdfs:subClassOf :Legal ;
+        <http://purl.org/dc/elements/1.1/description> "Inscriptions concerning treaties or formal agreement or contract between two or more sovereign states or political entities. It establishes legal obligations and commitments between the parties involved and is typically negotiated and ratified through diplomatic channels. Treaties can cover a wide range of subjects, including peace agreements or trade agreements."@en ;
+        <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/420.html> ;
+        rdfs:label "Treaty"@en ;
+        <http://www.w3.org/2004/02/skos/core#altLabel> "Trattato"@it ;
+        <http://www.w3.org/2004/02/skos/core#example> <https://iospe.kcl.ac.uk/3.103.html> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Unable_to_determine
+:Unable_to_determine rdf:type owl:Class ;
+                     <http://purl.org/dc/elements/1.1/description> "Texts that were not classified as belonging to any of the existing category, due to their fragmentary preservation, the lack of clarity of the text, or due to the missing context (physical description, origin, archaeological context etc.)."@en ;
+                     <http://purl.org/dc/elements/1.1/relation> <http://www.eagle-network.eu/voc/typeins/lod/143.html> ,
+                                                                <https://www.eagle-network.eu/voc/typeins/lod/144.html> ;
+                     rdfs:label "Unable to determine"@en ;
+                     <http://www.w3.org/2004/02/skos/core#altLabel> "Unbestimmt"@de ,
+                                                                    "Uncertain"@en ,
+                                                                    "Unclear"@en ,
+                                                                    "Unknown"@en ;
+                     <http://www.w3.org/2004/02/skos/core#example> <http://sicily.classics.ox.ac.uk/inscription/ISic000039> ,
+                                                                   <http://sicily.classics.ox.ac.uk/inscription/ISic000242> ,
+                                                                   <https://igcyr.unibo.it/gvcyr050> ,
+                                                                   <https://iospe.kcl.ac.uk/1.48.html> ,
+                                                                   <https://romaninscriptionsofbritain.org/inscriptions/Brit.53.3> ,
+                                                                   "EDR000122" .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Unassigned
+:Unassigned rdf:type owl:Class ;
+            <http://purl.org/dc/elements/1.1/description> "Texts that were not yet categorised and will be revisited in the future."@en ;
+            rdfs:label "Unassigned"@en .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Victors
+:Victors rdf:type owl:Class ;
+         rdfs:subClassOf :Names ;
+         <http://purl.org/dc/elements/1.1/description> "Lists of individuals who achieved victory or success in contests, competitions, or eventually battles."@en ;
+         <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/369> ;
+         rdfs:label "Victors"@en ;
+         <http://www.w3.org/2004/02/skos/core#example> <https://www.atticinscriptions.com/inscription/IGII34/555> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Warning
+:Warning rdf:type owl:Class ;
+         rdfs:subClassOf :Regulatory ;
+         <http://purl.org/dc/elements/1.1/description> "Inscriptions providing warnings or cautions regarding specific actions or behaviors, often containing prohibitive regulations to maintain order, protect public welfare, and uphold the rule of law within a society or jurisdiction. Prohibitions are typically enforced through laws, regulations, or directives, and violators may be subject to fines, imprisonment, or other legal sanctions."@en ;
+         rdfs:label "Warning"@en ;
+         <http://www.w3.org/2004/02/skos/core#altLabel> "Prohibition"@en ;
+         <http://www.w3.org/2004/02/skos/core#example> <https://insaph.kcl.ac.uk/ala2004/inscription/eAla111.html> ,
+                                                       <https://insaph.kcl.ac.uk/ala2004/inscription/eAla112.html> ,
+                                                       <https://insaph.kcl.ac.uk/ala2004/inscription/eAla129.html> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Weight
+:Weight rdf:type owl:Class ;
+        rdfs:subClassOf :Measure ;
+        <http://purl.org/dc/elements/1.1/description> "Inscriptions indicating the weight or mass of an object."@en ;
+        <http://purl.org/dc/elements/1.1/relation> <http://vocab.getty.edu/page/aat/300197555> ,
+                                                   <http://www.eagle-network.eu/voc/typeins/lod/123.html> ,
+                                                   "urn:cite:brill:inscriptionType:0000027" ;
+        rdfs:label "Weight"@en ;
+        <http://www.w3.org/2004/02/skos/core#example> <http://sicily.classics.ox.ac.uk/inscription/ISic003498> ,
+                                                      <https://iospe.kcl.ac.uk/1.38.html> ,
+                                                      <https://romaninscriptionsofbritain.org/inscriptions/Brit.36.16> ,
+                                                      <https://romaninscriptionsofbritain.org/inscriptions/Brit.41.81> ,
+                                                      <https://romaninscriptionsofbritain.org/inscriptions/2412.72> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Writing_practice
+:Writing_practice rdf:type owl:Class ;
+                  rdfs:subClassOf :Didascalic ;
+                  <http://purl.org/dc/elements/1.1/description> "Texts related to the practice of writing either individual letters or longer text excerpts."@en ;
+                  rdfs:label "Writing practice"@en ;
+                  <http://www.w3.org/2004/02/skos/core#example> <http://sicily.classics.ox.ac.uk/inscription/ISic001670> ,
+                                                                <https://romaninscriptionsofbritain.org/inscriptions/2491.80> .
+
+
+###  https://ontology.inscriptiones.org/type_of_inscription/Production_/_Ownership
+<https://ontology.inscriptiones.org/type_of_inscription/Production_/_Ownership> rdf:type owl:Class ;
+                                                                                rdfs:subClassOf :Identification ;
+                                                                                <http://purl.org/dc/elements/1.1/description> "Inscriptions indicating the authorship or ownership of an object, alternatively a person responsible for production." ;
+                                                                                <http://purl.org/dc/elements/1.1/relation> <http://www.eagle-network.eu/voc/typeins/lod/105> ;
+                                                                                rdfs:label "Production / Ownership"@en ;
+                                                                                <http://www.w3.org/2004/02/skos/core#altLabel> "Owner / artist inscription"@en ;
+                                                                                <http://www.w3.org/2004/02/skos/core#example> <http://sicily.classics.ox.ac.uk/inscription/ISic020607> ,
+                                                                                                                              <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR006648> ,
+                                                                                                                              <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD000035> ,
+                                                                                                                              <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD001425> ,
+                                                                                                                              <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD006115> ,
+                                                                                                                              <https://igcyr.unibo.it/igcyr064920> .
+
+
+###  Generated by the OWL API (version 4.5.13) https://github.com/owlcs/owlapi
