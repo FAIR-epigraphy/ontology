@@ -184,7 +184,8 @@
         <http://purl.org/dc/elements/1.1/relation> <http://www.eagle-network.eu/voc/typeins/lod/110.html> ,
                                                    <https://www.eagle-network.eu/voc/typeins/lod/109.html> ,
                                                    <https://www.eagle-network.eu/voc/typeins/lod/115.html> ,
-                                                   <https://www.eagle-network.eu/voc/typeins/lod/333.html> ;
+                                                   <https://www.eagle-network.eu/voc/typeins/lod/333.html> ,
+                                                   <https://www.eagle-network.eu/voc/typeins/lod/374.html> ;
         rdfs:label "Artist"@en ;
         <http://www.w3.org/2004/02/skos/core#altLabel> "Artist's signature"@en ,
                                                        "Aufschrift"@de ,
@@ -195,7 +196,8 @@
                                                        "Signature d’artiste"@fr ;
         <http://www.w3.org/2004/02/skos/core#example> <http://sicily.classics.ox.ac.uk/inscription/ISic000834> ,
                                                       <http://sicily.classics.ox.ac.uk/inscription/ISic020471> ,
-                                                      <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD036515> ,
+                                                      <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR071652> ,
+                                                      <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD001827> ,
                                                       <https://gis.latinnow.eu/object/140604> ,
                                                       <https://gis.latinnow.eu/object/171651> .
 
