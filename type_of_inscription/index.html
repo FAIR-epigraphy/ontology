@@ -10,6 +10,7 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <link href="../css/bootstrap-icons.min.css" rel="stylesheet" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style_toi.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 
 <body>
@@ -33,7 +34,10 @@
         <div class="row mt-3">
             <div class="col-md-5">
                 <div class="card overflow-auto" style="height: 85vh;">
-                    <h5 class="card-header">Vocabulary</h5>
+                    <h5 class="card-header">
+                        Vocabulary
+                        <span onclick="download()" title="Download Vocabulary" class="float-end fs-4 bi bi-download fw-bold" style="cursor: pointer;"></span>
+                    </h5>
                     <div class="card-body">
                         <div class="input-group mb-3">
                             <input id="myInput" class="form-control" type="search" placeholder="Search.." />

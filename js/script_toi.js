@@ -119,12 +119,11 @@ async function getVocDetails(iri) {
     for (let d of detailsArray) {
         if (!d.get('pred').value.includes('label') && !d.get('pred').value.includes('description')) {
             let key, value = '';
-            if(d.get('pred').value.split('/').pop().split('#').pop() === 'subClassOf')
-            {
+            if (d.get('pred').value.split('/').pop().split('#').pop() === 'subClassOf') {
                 key = 'Parent';
                 value = `<a href="${d.get('obj').value}" target="_blank">${d.get('obj').value.split('/').pop().split('#').pop()} <i class="bi bi-box-arrow-up-right"></i></a>`;
             }
-            else{
+            else {
                 key = d.get('pred').value.split('/').pop().split('#').pop().replace(/([A-Z])/g, ' $1').trim();
                 value = d.get('obj').value.includes('http') ? `<a href="${d.get('obj').value}" target="_blank">${d.get('obj').value} <i class="bi bi-box-arrow-up-right"></i></a>` : d.get('obj').value;
             }
@@ -299,4 +298,26 @@ async function runQuery(query) {
     // let d = bindings[0].get('class').value
     // let s = '';
     return bindings;
+}
+
+function download() {
+    $.ajaxSetup({ cache: false });
+    $("#data").load(fileName, function (responseTxt, statusTxt, xhr) {
+        if (statusTxt == "success") {
+
+            const contentType = 'text/plain';
+            const a = document.createElement('a');
+            const file = new Blob([responseTxt], { type: contentType });
+            const fName = `Type_of_Inscription.ttl`;
+
+            a.href = URL.createObjectURL(file);
+            a.download = fName;
+            a.click();
+
+            URL.revokeObjectURL(a.href);
+        }
+        if (statusTxt == "error")
+            console.log("Error: " + xhr.status + ": " + xhr.statusText + ": <br />" + responseTxt);
+    });
+
 }
