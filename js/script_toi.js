@@ -170,6 +170,7 @@ $("#myInput").on("input", async function () {
 loadData(fileName);
 
 function loadData(file) {
+    $.ajaxSetup({ cache: false });
     $("#data").load(file, function (responseTxt, statusTxt, xhr) {
         if (statusTxt == "success") {
 
