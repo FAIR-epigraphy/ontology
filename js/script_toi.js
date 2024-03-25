@@ -124,7 +124,9 @@ async function getVocDetails(iri) {
             let key, value = '';
             if (d.get('pred').value.split('/').pop().split('#').pop() === 'subClassOf') {
                 key = 'Parent';
-                value = `<a href="${d.get('obj').value}" target="_blank">${d.get('obj').value.split('/').pop().split('#').pop()} <i class="bi bi-box-arrow-up-right"></i></a>`;
+                parts = d.get('obj').value.split('/');
+                lastEle = parts[parts.length - 1];
+                value = `<a href="${parts.slice(0, -1).join('/') + '/#' + lastEle}" target="_blank">${d.get('obj').value.split('/').pop().split('#').pop()} <i class="bi bi-box-arrow-up-right"></i></a>`;
             }
             else {
                 key = d.get('pred').value.split('/').pop().split('#').pop().replace(/([A-Z])/g, ' $1').trim();
@@ -166,8 +168,6 @@ $("#myInput").on("input", async function () {
         $('#root li').click();
     }
 });
-
-
 
 async function updateList() {
     let appendPrefixes = '';
