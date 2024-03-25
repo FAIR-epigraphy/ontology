@@ -48,14 +48,15 @@ body{
     padding: 0;
   }
   
-  .menu-list li a {
+  .menu-list li span {
     text-decoration: none;
     color: #333333;
     font-size: 16px;
     transition: color 0.3s;
+    cursor: pointer;
   }
   
-  .menu-list li a:hover {
+  .menu-list li span:hover {
     color: #007bff;
   }
   

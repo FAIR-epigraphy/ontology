@@ -1,11 +1,12 @@
-const { DataFactory } = N3;
-const { namedNode, literal, defaultGraph, quad } = DataFactory;
-const store = new N3.Store();
-var allPrefixes = {};
-var fileName = "../type_of_inscription/data/rdf_data.txt";
+
 ///////////////////////////////////////////////////////////////////////////////////
 
 //console.log($('#divBig').css('display'))
+
+async function call() {
+    await updateList();
+}
+call();
 
 $.fn.extend({
     treed: function (o) {
@@ -90,8 +91,10 @@ async function getVocDetails(iri) {
     let detailsArray = await runQuery(query);
 
     ////////////////////////////////////////////
+    let parts = iri.split('/');
+    let lastEle = parts[parts.length - 1];
     let detailHTML = `<h6 class="fw-bold">IRI</h6>
-                    <p><a href="${iri}" target="_blank"> ${iri} <i class="bi bi-box-arrow-up-right"></i></a></p>
+                    <p><a href="${parts.slice(0, -1).join('/') + '/#' + lastEle}" target="_blank"> ${iri} <i class="bi bi-box-arrow-up-right"></i></a></p>
                     <table class="table table-hover">
                     <tbody>`;
     let label = detailsArray.filter(x => x.get('pred').value.includes('label'));
@@ -164,39 +167,7 @@ $("#myInput").on("input", async function () {
     }
 });
 
-/////////////////////////////////////////////////////////////////////////////////
-////// Load RDF data
-loadData(fileName);
 
-function loadData(file) {
-    $.ajaxSetup({ cache: false });
-    $("#data").load(file, function (responseTxt, statusTxt, xhr) {
-        if (statusTxt == "success") {
-
-            const parser_for_graphs = new N3.Parser();
-            let records = [];
-
-            parser_for_graphs.parse(responseTxt,
-                async (error, quad, prefixes) => {
-                    if (quad) {
-                        store.addQuad(
-                            quad.subject.id,
-                            quad.predicate.id,
-                            quad.object.id
-                            //namedNode(graph)
-                        )
-                    }
-                    //    console.log(quad);
-                    else {
-                        allPrefixes = prefixes;
-                        await updateList();
-                    }
-                });
-        }
-        if (statusTxt == "error")
-            console.log("Error: " + xhr.status + ": " + xhr.statusText + ": <br />" + responseTxt);
-    });
-}
 
 async function updateList() {
     let appendPrefixes = '';
@@ -286,18 +257,6 @@ function manageParentChildRel(c, label, des, allClasses) {
 
     list += '</li>'
     return list;
-}
-
-async function runQuery(query) {
-    let myEngine = new Comunica.QueryEngine();
-    let result = await myEngine.query(query, {
-        sources: [store],
-    });
-    let bindingsStream = await result.execute();
-    const bindings = await bindingsStream.toArray();
-    // let d = bindings[0].get('class').value
-    // let s = '';
-    return bindings;
 }
 
 function download() {

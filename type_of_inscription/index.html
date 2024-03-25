@@ -21,90 +21,22 @@
         </div>
         <nav class="nav-menu">
             <ul class="menu-list">
-                <li><a href="../type_of_inscription/index.html">Home</a></li>
+                <li>
+                    <span onclick="navigatePage('landing', this)">Home</span>
+                </li>
+                <li>
+                    <span onclick="navigatePage('vocabularies', this)">Vocabulary</span>
+                </li>
             </ul>
-            <div class="menu-toggle">
+            <div class="menu-toggle" id="btnMobileMenu">
                 <div class="bar"></div>
                 <div class="bar"></div>
                 <div class="bar"></div>
             </div>
         </nav>
     </header>
-    <div class="container-fluid">
-        <div class="row mt-3">
-            <div class="col-md-5">
-                <div class="card overflow-auto" style="height: 85vh;">
-                    <h5 class="card-header">
-                        Vocabulary
-                        <span onclick="download()" title="Download Vocabulary" class="float-end fs-4 bi bi-download fw-bold" style="cursor: pointer;"></span>
-                    </h5>
-                    <div class="card-body">
-                        <div class="input-group mb-3">
-                            <input id="myInput" class="form-control" type="search" placeholder="Search.." />
-                            <span class="input-group-text" id="inputGroup-sizing-default">
-                                <i class="bi bi-search"></i>
-                            </span>
-                        </div>
-                        <ul id="tree">
-                            <li id="root">
-                                <!-- <button>-</button> -->
-                                <ul id="ulClasses">
-                                    <div class="text-center" style="text-align: center;
-                                    top: 45%;
-                                    bottom: 0;
-                                    left: 0;
-                                    right: 0;
-                                    position: absolute;">
-                                        <div class="spinner-border text-primary" style="width: 5rem; height: 5rem;"
-                                            role="status">
-                                            <span class="visually-hidden">Loading...</span>
-                                        </div>
-                                    </div>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-7 d-none d-sm-block d-sm-none d-md-block" id="divBig">
-                <div class="card overflow-auto" style="height: 85vh;">
-                    <h5 class="card-header">Details</h5>
-                    <div class="card-body voc-details">
-                        <p class="text-center" style="color: rgb(200 200 200);
-                        font-size: 30px;
-                        text-align: center;
-                        top: 45%;
-                        height: 1em;
-                        bottom: 0;
-                        left: 0;
-                        right: 0;
-                        position: absolute;">Please select any type to view detail</p>
-                    </div>
-                </div>
-            </div>
+    <div class="container-fluid" id="divContent">
 
-            <div class="d-block d-sm-block d-md-none" id="divSmall">
-                <button id="btnVocDetails" class="btn btn-primary d-none" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
-                    Toggle static offcanvas
-                </button>
-
-                <div class="offcanvas offcanvas-end w-100" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop"
-                    aria-labelledby="staticBackdropLabel">
-                    <div class="offcanvas-header border-bottom">
-                        <h5 class="offcanvas-title" id="staticBackdropLabel">Details
-                        </h5>
-                        <button id="btnVocDetailsClose" type="button" class="btn-close" data-bs-dismiss="offcanvas"
-                            aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <div class="voc-details" style="overflow-wrap: break-word;">
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
 
@@ -116,7 +48,134 @@
     <!-- RDF Library -->
     <script src="../js/n3.min.js"></script>
     <script src="../js/comunica-browser.js"></script>
-    <script src="../js/script_toi.js"></script>
+
+
+    <script>
+        /////////////////////////////////////////////////////////////
+        ////////////////// RDF 
+        var fileName = "../type_of_inscription/data/rdf_data.txt";
+        const { DataFactory } = N3;
+        const { namedNode, literal, defaultGraph, quad } = DataFactory;
+        const store = new N3.Store();
+        var allPrefixes = {};
+        var isDataLoaded = false;
+
+        ////// Load RDF data
+        loadData(fileName);
+        
+        /////////////////////////////////////////////////
+        async function runQuery(query) {
+            let myEngine = new Comunica.QueryEngine();
+            let result = await myEngine.query(query, {
+                sources: [store],
+            });
+            let bindingsStream = await result.execute();
+            const bindings = await bindingsStream.toArray();
+            return bindings;
+        }
+
+        /////////////////////////////////////////////////////////////////////////////////
+        function loadData(file) {
+            $.ajaxSetup({ cache: false });
+            $("#data").load(file, function (responseTxt, statusTxt, xhr) {
+                if (statusTxt == "success") {
+
+                    const parser_for_graphs = new N3.Parser();
+                    let records = [];
+
+                    parser_for_graphs.parse(responseTxt,
+                        async (error, quad, prefixes) => {
+                            if (quad) {
+                                store.addQuad(
+                                    quad.subject.id,
+                                    quad.predicate.id,
+                                    quad.object.id
+                                    //namedNode(graph)
+                                )
+                            }
+                            //    console.log(quad);
+                            else {
+                                allPrefixes = prefixes;
+                                //await updateList();
+                                isDataLoaded = true;
+                            }
+                        });
+                }
+                if (statusTxt == "error")
+                    console.log("Error: " + xhr.status + ": " + xhr.statusText + ": <br />" + responseTxt);
+            });
+        }
+
+        ///////////////////////////////////////////////////////////////
+        // Menu
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const menuList = document.querySelector('.menu-list');
+
+            menuToggle.addEventListener('click', function () {
+                menuToggle.classList.toggle('active');
+                menuList.classList.toggle('active');
+            });
+        });
+
+        // On refersh page
+        let path = window.location.pathname;
+        if (window.location.href.split('#').length > 1) {
+            let interval = setInterval(() => {
+                if(isDataLoaded){
+                    clearInterval(interval);
+                    navigatePage(window.location.href.split('#')[1], null)
+                }
+            }, 100);
+        }
+        else if (path === '/type_of_inscription/index.html' || path === '/type_of_inscription/') {
+            $('#divContent').load('landing.html')
+        }
+
+        function navigatePage(pageName, control) {
+            // $('.nav-link').removeClass('active');
+            // if (control !== null)
+            //     $(control).addClass('active')
+            // else {
+            //     let all = $('.nav-link');
+            //     let active = Array.from(all).filter(x =>
+            //         $(x).html().toLowerCase() === pageName
+            //     )
+
+            //     $(active[0]).addClass('active')
+            // }
+            if (pageName === 'landing' || pageName === 'vocabularies') {
+                $('#divContent').load(`${pageName}.html`)
+            } else {
+                //http://127.0.0.1:5501/type_of_inscription/#Anepigraphic
+                $('#divContent').load(`vocabularyIRI.html`)
+            }
+
+            changeurl(pageName);
+        }
+
+        function changeurl(pageName) {
+            var new_url = get_hostname(window.location.href);
+            if (pageName === 'landing')
+                new_url = `${get_hostname(window.location.href)}/type_of_inscription/`;
+
+            new_url = `${get_hostname(window.location.href)}/type_of_inscription/#${pageName.replaceAll(" ", "_")}`;
+
+            window.history.pushState("data", "Title", new_url);
+            document.title = `${pageName.toUpperCase()}`;
+            document.getElementById('btnMobileMenu').click();
+        }
+
+        function get_hostname(url) {
+            var m;
+            if (url.indexOf('https') !== -1)
+                m = url.match(/^https:\/\/[^/]+/);
+            else
+                m = url.match(/^http:\/\/[^/]+/);
+
+            return m ? m[0] : null;
+        }
+    </script>
 </body>
 
 </html>

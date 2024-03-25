@@ -1,0 +1,99 @@
+<div class="row">
+    <div class="col-md-12 mt-3">
+        <div class="card overflow-auto" style="height: 85vh;">
+            <h5 class="card-header" id="divVocName">Details</h5>
+            <div class="card-body voc-details">
+                <div class="text-center" style="text-align: center;
+                            top: 45%;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            position: absolute;">
+                    <div class="spinner-border text-primary" style="width: 5rem; height: 5rem;" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    async function getVocDetails() {
+        let iri = window.location.href;
+        iri = iri.replace('#', '');
+        let query = `
+        SELECT ?pred ?obj 
+        WHERE {
+            <${iri}> ?pred ?obj .
+            FILTER NOT EXISTS {
+                <${iri}> a ?obj .
+            }
+        }`
+        let detailsArray = await runQuery(query);
+
+        ////////////////////////////////////////////
+        let parts = iri.split('/');
+        let lastEle = parts[parts.length - 1];
+        let detailHTML = `<h6 class="fw-bold">IRI</h6>
+                    <p><a href="${parts.slice(0, -1).join('/') + '/#' + lastEle}" target="_blank"> ${iri} <i class="bi bi-box-arrow-up-right"></i></a></p>
+                    <table class="table table-hover">
+                    <tbody>`;
+        let label = detailsArray.filter(x => x.get('pred').value.includes('label'));
+
+        if (label.length > 0) {
+            detailHTML += `
+                        <tr>
+                            <th scope="row" style="width: 20%;" class="text-capitalize">${label[0].get('pred').value.split('#').pop()}</th>
+                            <td>${label[0].get('obj').value}</td>
+                        </tr>
+                    `;
+        }
+
+        let description = detailsArray.filter(x => x.get('pred').value.includes('description'));
+
+        if (description.length > 0) {
+            detailHTML += `
+                        <tr>
+                            <th scope="row" style="width: 20%;" class="text-capitalize">${description[0].get('pred').value.split('/').pop()}</th>
+                            <td>${description[0].get('obj').value}</td>
+                        </tr>
+                    `;
+        }
+
+        for (let d of detailsArray) {
+            if (!d.get('pred').value.includes('label') && !d.get('pred').value.includes('description')) {
+                let key, value = '';
+                if (d.get('pred').value.split('/').pop().split('#').pop() === 'subClassOf') {
+                    key = 'Parent';
+                    value = `<a href="${d.get('obj').value}" target="_blank">${d.get('obj').value.split('/').pop().split('#').pop()} <i class="bi bi-box-arrow-up-right"></i></a>`;
+                }
+                else {
+                    key = d.get('pred').value.split('/').pop().split('#').pop().replace(/([A-Z])/g, ' $1').trim();
+                    value = d.get('obj').value.includes('http') ? `<a href="${d.get('obj').value}" target="_blank">${d.get('obj').value} <i class="bi bi-box-arrow-up-right"></i></a>` : d.get('obj').value;
+                }
+                detailHTML += `
+                        <tr>
+                            <th scope="row" style="width: 20%;" class="text-capitalize">
+                                ${key}
+                            </th>
+                            <td style="overflow-wrap: break-word;">${value}</td>
+                        </tr>
+                `;
+            }
+        }
+
+        detailHTML += ` </tbody>
+        </table>`;
+
+        $('.voc-details').html(detailHTML);
+
+        if ($('#divBig').css('display') === 'none') {
+            $('#btnVocDetails').click()
+        } else {
+            $('#btnVocDetailsClose').click();
+        }
+    }
+
+    getVocDetails();
+</script>
