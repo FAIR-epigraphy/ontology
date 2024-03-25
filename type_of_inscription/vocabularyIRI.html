@@ -21,6 +21,8 @@
 <script>
     async function getVocDetails() {
         let iri = window.location.href;
+        let className = iri.split('#')[0];
+        document.getElementById('divVocName').innerHTML = `Detail of ${className}`
         iri = iri.replace('#', '');
         let query = `
         SELECT ?pred ?obj 
