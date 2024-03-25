@@ -62,7 +62,7 @@
 
         ////// Load RDF data
         loadData(fileName);
-        
+
         /////////////////////////////////////////////////
         async function runQuery(query) {
             let myEngine = new Comunica.QueryEngine();
@@ -122,7 +122,7 @@
         let path = window.location.pathname;
         if (window.location.href.split('#').length > 1) {
             let interval = setInterval(() => {
-                if(isDataLoaded){
+                if (isDataLoaded) {
                     clearInterval(interval);
                     navigatePage(window.location.href.split('#')[1], null)
                 }
@@ -158,8 +158,8 @@
             var new_url = get_hostname(window.location.href);
             if (pageName === 'landing')
                 new_url = `${get_hostname(window.location.href)}/type_of_inscription/`;
-
-            new_url = `${get_hostname(window.location.href)}/type_of_inscription/#${pageName.replaceAll(" ", "_")}`;
+            else
+                new_url = `${get_hostname(window.location.href)}/type_of_inscription/#${pageName.replaceAll(" ", "_")}`;
 
             window.history.pushState("data", "Title", new_url);
             document.title = `${pageName.toUpperCase()}`;
