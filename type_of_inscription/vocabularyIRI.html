@@ -21,7 +21,7 @@
 <script>
     async function getVocDetails() {
         let iri = window.location.href;
-        let className = iri.split('#')[0];
+        let className = iri.split('#')[1];
         document.getElementById('divVocName').innerHTML = `Detail of ${className}`
         iri = iri.replace('#', '');
         let query = `
@@ -89,12 +89,6 @@
         </table>`;
 
         $('.voc-details').html(detailHTML);
-
-        if ($('#divBig').css('display') === 'none') {
-            $('#btnVocDetails').click()
-        } else {
-            $('#btnVocDetailsClose').click();
-        }
     }
 
     getVocDetails();
