@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAIR Type of inscription
+    <title>FAIR Epigraphic Vocabularies
     </title>
     <link href="../css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <link href="../css/bootstrap-icons.min.css" rel="stylesheet" crossorigin="anonymous">
@@ -13,13 +13,13 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 
-<body>
-    <header class="header sticky-top">
+<body class="overflow-auto">
+    <header class="header sticky-top bg-light">
         <div class="logo">
             <img src="../images/logo.png" alt="Your Logo">
-            <div class="logo-text">FAIR Epigraphy (Type of Inscription)</div>
+            <div class="logo-text">FAIR Epigraphy</div>
         </div>
-        <nav class="nav-menu">
+        <nav class="nav-menu bg-light">
             <ul class="menu-list">
                 <li>
                     <span onclick="navigatePage('landing', this)">Home</span>
@@ -161,7 +161,7 @@
                 new_url = `${get_hostname(window.location.href)}/type_of_inscription/#${pageName.replaceAll(" ", "_")}`;
 
             window.history.pushState("data", "Title", new_url);
-            document.title = `${pageName.toUpperCase()}`;
+            document.title = `FAIR Epigraphic Vocabularies - ${pageName.charAt(0).toUpperCase() + pageName.slice(1)}`;
             document.getElementById('btnMobileMenu').click();
         }
 
