@@ -107,10 +107,10 @@
 
         ///////////////////////////////////////////////////////////////
         // Menu
-        document.addEventListener('DOMContentLoaded', function () {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const menuList = document.querySelector('.menu-list');
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menuList = document.querySelector('.menu-list');
 
+        document.addEventListener('DOMContentLoaded', function () {
             menuToggle.addEventListener('click', function () {
                 menuToggle.classList.toggle('active');
                 menuList.classList.toggle('active');
@@ -162,7 +162,11 @@
 
             window.history.pushState("data", "Title", new_url);
             document.title = `FAIR Epigraphic Vocabularies - ${pageName.charAt(0).toUpperCase() + pageName.slice(1)}`;
-            document.getElementById('btnMobileMenu').click();
+            //
+            
+            if(document.getElementById('btnMobileMenu').classList.contains('active')){
+                document.getElementById('btnMobileMenu').click();
+            }
         }
 
         function get_hostname(url) {
