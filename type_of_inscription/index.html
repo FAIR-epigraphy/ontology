@@ -22,10 +22,19 @@
         <nav class="nav-menu bg-light">
             <ul class="menu-list">
                 <li>
-                    <span onclick="navigatePage('landing', this)">Home</span>
+                    <span onclick="navigatePage('landing', this)">
+                        <i class="bi bi-house-door"></i> Home
+                    </span>
                 </li>
                 <li>
-                    <span onclick="navigatePage('vocabularies', this)">Vocabulary</span>
+                    <span onclick="navigatePage('vocabularies', this)">
+                        <i class="bi bi-diagram-3"></i>  Vocabulary
+                    </span>
+                </li>
+                <li>
+                    <span onclick="download()" title="Download Vocabulary">
+                        <i class="bi bi-download fw-bold"></i> Download
+                    </span>
                 </li>
             </ul>
             <div class="menu-toggle" id="btnMobileMenu">
@@ -163,8 +172,8 @@
             window.history.pushState("data", "Title", new_url);
             document.title = `FAIR Epigraphic Vocabularies - ${pageName.charAt(0).toUpperCase() + pageName.slice(1)}`;
             //
-            
-            if(document.getElementById('btnMobileMenu').classList.contains('active')){
+
+            if (document.getElementById('btnMobileMenu').classList.contains('active')) {
                 document.getElementById('btnMobileMenu').click();
             }
         }
@@ -177,6 +186,28 @@
                 m = url.match(/^http:\/\/[^/]+/);
 
             return m ? m[0] : null;
+        }
+
+        function download() {
+            $.ajaxSetup({ cache: false });
+            $("#data").load(fileName, function (responseTxt, statusTxt, xhr) {
+                if (statusTxt == "success") {
+
+                    const contentType = 'text/plain';
+                    const a = document.createElement('a');
+                    const file = new Blob([responseTxt], { type: contentType });
+                    const fName = `Type_of_Inscription.ttl`;
+
+                    a.href = URL.createObjectURL(file);
+                    a.download = fName;
+                    a.click();
+
+                    URL.revokeObjectURL(a.href);
+                }
+                if (statusTxt == "error")
+                    console.log("Error: " + xhr.status + ": " + xhr.statusText + ": <br />" + responseTxt);
+            });
+
         }
     </script>
 </body>

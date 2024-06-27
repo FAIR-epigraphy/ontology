@@ -74,6 +74,7 @@ $.fn.extend({
 
 async function getVocDetails(iri) {
     let appendPrefixes = '';
+    
     for (const [key, value] of Object.entries(allPrefixes)) {
         //console.log(`${key}: ${value}`);
         appendPrefixes += `PREFIX ${key}: <${value}>\n`;
@@ -89,7 +90,7 @@ async function getVocDetails(iri) {
             }
         }`
     let detailsArray = await runQuery(query);
-
+    debugger;
     ////////////////////////////////////////////
     let parts = iri.split('/');
     let lastEle = parts[parts.length - 1];
@@ -97,30 +98,34 @@ async function getVocDetails(iri) {
                     <p><a href="${parts.slice(0, -1).join('/') + '/#' + lastEle}" target="_blank"> ${iri} <i class="bi bi-box-arrow-up-right"></i></a></p>
                     <table class="table table-hover">
                     <tbody>`;
-    let label = detailsArray.filter(x => x.get('pred').value.includes('label'));
+    let label = detailsArray.filter(x => x.get('pred').value.includes('prefLabel'));
 
     if (label.length > 0) {
+        key = label[0].get('pred').value.split('/').pop().split('#').pop().replace(/([A-Z])/g, ' $1').trim();
+        value = label[0].get('obj').id;
         detailHTML += `
                         <tr>
-                            <th scope="row" style="width: 20%;" class="text-capitalize">${label[0].get('pred').value.split('#').pop()}</th>
-                            <td>${label[0].get('obj').value}</td>
+                            <th scope="row" style="width: 20%;" class="text-capitalize">${key}</th>
+                            <td>${value}</td>
                         </tr>
                     `;
     }
 
-    let description = detailsArray.filter(x => x.get('pred').value.includes('description'));
+    let description = detailsArray.filter(x => x.get('pred').value.includes('definition'));
 
     if (description.length > 0) {
+        key = description[0].get('pred').value.split('/').pop().split('#').pop().replace(/([A-Z])/g, ' $1').trim();
+        value = description[0].get('obj').value;
         detailHTML += `
                         <tr>
-                            <th scope="row" style="width: 20%;" class="text-capitalize">${description[0].get('pred').value.split('/').pop()}</th>
-                            <td>${description[0].get('obj').value}</td>
+                            <th scope="row" style="width: 20%;" class="text-capitalize">${key}</th>
+                            <td>${value}</td>
                         </tr>
                     `;
     }
 
     for (let d of detailsArray) {
-        if (!d.get('pred').value.includes('label') && !d.get('pred').value.includes('description')) {
+        if (!d.get('pred').value.includes('prefLabel') && !d.get('pred').value.includes('definition')) {
             let key, value = '';
             if (d.get('pred').value.split('/').pop().split('#').pop() === 'subClassOf') {
                 key = 'Parent';
@@ -130,7 +135,7 @@ async function getVocDetails(iri) {
             }
             else {
                 key = d.get('pred').value.split('/').pop().split('#').pop().replace(/([A-Z])/g, ' $1').trim();
-                value = d.get('obj').value.includes('http') ? `<a href="${d.get('obj').value}" target="_blank">${d.get('obj').value} <i class="bi bi-box-arrow-up-right"></i></a>` : d.get('obj').value;
+                value = d.get('obj').value.includes('http') ? `<a href="${d.get('obj').value}" target="_blank">${d.get('obj').value} <i class="bi bi-box-arrow-up-right"></i></a>` : d.get('obj').id;
             }
             detailHTML += `
                         <tr>
@@ -181,8 +186,8 @@ async function updateList() {
                          SELECT DISTINCT ?class ?label ?description
                                 WHERE { 
                                     ?class a owl:Class .
-                                    ?class rdfs:label ?label .
-                                    ?class dc:description ?description
+                                    ?class skos:prefLabel ?label .
+                                    ?class skos:definition ?description
                                     FILTER NOT EXISTS {
                                         ?class rdfs:subClassOf ?otherSub .
                                         FILTER (?otherSub != ?class)
@@ -190,6 +195,7 @@ async function updateList() {
                             }
                             ORDER BY ?label
                         `;
+    //debugger;
     let mainClasses = await runQuery(sparql_query);
 
     sparql_query = `${appendPrefixes}
@@ -202,11 +208,11 @@ async function updateList() {
                                 FILTER (str(?supertype) !='')
                                 } .
                         OPTIONAL { 
-                                ?subject rdfs:label ?label .
+                                ?subject skos:prefLabel ?label .
                                 FILTER (str(?label) != '')
                                 }
                         OPTIONAL { 
-                                ?subject dc:description ?description .
+                                ?subject skos:definition ?description .
                                 FILTER (str(?description) != '')
                                 }
                     
