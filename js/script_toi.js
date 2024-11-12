@@ -187,15 +187,12 @@ async function updateList() {
                                 WHERE { 
                                     ?class a owl:Class .
                                     ?class skos:prefLabel ?label .
-                                    ?class skos:definition ?description
-                                    FILTER NOT EXISTS {
-                                        ?class rdfs:subClassOf ?otherSub .
-                                        FILTER (?otherSub != ?class)
-                                    }
+                                    ?class skos:definition ?description .
+                                    ?class rdfs:subClassOf owl:Thing .
                             }
                             ORDER BY ?label
                         `;
-    //debugger;
+    debugger;
     let mainClasses = await runQuery(sparql_query);
 
     sparql_query = `${appendPrefixes}
@@ -216,7 +213,7 @@ async function updateList() {
                                 FILTER (str(?description) != '')
                                 }
                     
-                    } ORDER BY ?subject
+                    } ORDER BY ?label
     `;
 
     let allClasses = await runQuery(sparql_query);
