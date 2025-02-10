@@ -54,6 +54,9 @@
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
     <!-- RDF Library -->
     <script src="../js/n3.min.js"></script>
     <script src="../js/comunica-browser.js"></script>
@@ -63,6 +66,7 @@
         /////////////////////////////////////////////////////////////
         ////////////////// RDF 
         var fileName = "../type_of_inscription/data/rdf_data.txt";
+        var voidFileName = "../type_of_inscription/data/VoID.txt";
         const { DataFactory } = N3;
         const { namedNode, literal, defaultGraph, quad } = DataFactory;
         const store = new N3.Store();

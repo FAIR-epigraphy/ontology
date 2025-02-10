@@ -74,7 +74,7 @@ $.fn.extend({
 
 async function getVocDetails(iri) {
     let appendPrefixes = '';
-    
+
     for (const [key, value] of Object.entries(allPrefixes)) {
         //console.log(`${key}: ${value}`);
         appendPrefixes += `PREFIX ${key}: <${value}>\n`;
@@ -90,7 +90,7 @@ async function getVocDetails(iri) {
             }
         }`
     let detailsArray = await runQuery(query);
-    debugger;
+    //debugger;
     ////////////////////////////////////////////
     let parts = iri.split('/');
     let lastEle = parts[parts.length - 1];
@@ -162,6 +162,7 @@ async function getVocDetails(iri) {
 
 //// Filter
 $("#myInput").on("input", async function () {
+    //debugger;
     var value = $(this).val().toLowerCase();
     $(".tree li").filter(function () {
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
@@ -192,7 +193,7 @@ async function updateList() {
                             }
                             ORDER BY ?label
                         `;
-    debugger;
+    //debugger;
     let mainClasses = await runQuery(sparql_query);
 
     sparql_query = `${appendPrefixes}
@@ -220,10 +221,30 @@ async function updateList() {
     displayMainClasses(mainClasses, allClasses);
 }
 
-function displayMainClasses(classes, allClasses) {
+async function getAllAlternateLables(iri) {
+    let allLables = await runQuery(`
+        SELECT ?altLabels 
+            WHERE {
+                <${iri}> <http://www.w3.org/2004/02/skos/core#altLabel> ?altLabels .
+            }
+        `);
+
+    let altLabels = '';
+
+    if (allLables.length > 0) {
+        // I need to combine this array to single string
+        for (let al of allLables) {
+            altLabels += al.get('altLabels').value + ', ';
+        }
+    }
+    return altLabels.slice(0, -2);
+}
+
+async function displayMainClasses(classes, allClasses) {
     let divClasses = '';
     for (let c of classes) {
-        divClasses += manageParentChildRel(c.get('class').value, c.get('label').value, c.get('description').value, allClasses);
+        let altLabels = await getAllAlternateLables(c.get('class').value);
+        divClasses += await manageParentChildRel(c.get('class').value, c.get('label').value, c.get('description').value, allClasses, altLabels);
     }
     $('#ulClasses').html(divClasses);
 
@@ -241,19 +262,22 @@ function displayMainClasses(classes, allClasses) {
     $('#root').first().click();
 }
 
-function manageParentChildRel(c, label, des, allClasses) {
+async function manageParentChildRel(c, label, des, allClasses, altLabels) {
     let list = '';
     let children = allClasses.filter(x => x.get('supertype').value === c)
     list += `<li id="${c}">
                     <button>
                         ${label}
                         <span class="d-none">${des}</span>
+                        <span class="d-none">${altLabels.length !== '' ? altLabels : ''}</span>
                     </button>
             `;
     if (children.length > 0) {
         list += `<ul>`
-        for (let ch of children) {
-            list += `<li>${manageParentChildRel(ch.get('subject').value, ch.get('label').value, ch.get('description').value, allClasses)}</li>`;
+        for (let ch = 0; ch < children.length; ch++) {
+            //debugger;
+            let altLabels = await getAllAlternateLables(children[ch].get('subject').value);
+            list += `<li>${await manageParentChildRel(children[ch].get('subject').value, children[ch].get('label').value, children[ch].get('description').value, allClasses, altLabels)}</li>`;
         }
         list += '</ul>'
     }
@@ -262,24 +286,34 @@ function manageParentChildRel(c, label, des, allClasses) {
     return list;
 }
 
-function download() {
+async function download() {
     $.ajaxSetup({ cache: false });
-    $("#data").load(fileName, function (responseTxt, statusTxt, xhr) {
-        if (statusTxt == "success") {
 
-            const contentType = 'text/plain';
-            const a = document.createElement('a');
-            const file = new Blob([responseTxt], { type: contentType });
-            const fName = `Type_of_Inscription.ttl`;
+    const zip = new JSZip();
 
-            a.href = URL.createObjectURL(file);
-            a.download = fName;
-            a.click();
+    try {
+        // Wait for both files to load asynchronously
+        const file1Content = await (await fetch(fileName)).text();
+        const file2Content = await (await fetch(voidFileName)).text();
 
-            URL.revokeObjectURL(a.href);
-        }
-        if (statusTxt == "error")
-            console.log("Error: " + xhr.status + ": " + xhr.statusText + ": <br />" + responseTxt);
-    });
+        // Add files to the ZIP container
+        zip.file("Type_of_Inscription.ttl", file1Content);
+        zip.file("VoID.ttl", file2Content);
+
+        // Generate the ZIP file as a blob
+        const content = await zip.generateAsync({ type: "blob" });
+
+        // Trigger the download
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(content);
+        a.download = "Type_of_Inscription.zip"; // Name of the ZIP file
+        a.click();
+
+        // Clean up the URL object
+        URL.revokeObjectURL(a.href);
+
+    } catch (error) {
+        console.error(error); // Handle any error that might occur during file loading
+    }
 
 }
