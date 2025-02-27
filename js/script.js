@@ -1,389 +1,385 @@
-let bilingualism = `
-{
-	"Bilingualism": {
-		"id": "bilingualism",
-        "name": "Bilingualism",
-		"authors": [{
-			"FullName": "",
-			"ORCID": "",
-			"WikidataID": ""
-		}],
-		"contributors": [{
-			"FullName": "",
-			"ORCID": "",
-			"WikidataID": ""
-		}],
-		"categories": [{
-				"id": "biversion",
-				"name": "Biversion",
-				"description": "Two separate parts in different languages and a content which is usually at least in part common to both",
-				"example": "",
-				"categories": [{
-						"id": "biversion.duplicating",
-						"name": "Duplicating",
-						"description": "Same content in each version",
-						"example": "https://gis.latinnow.eu/object/171846",
-						"categories": []
-					},
-					{
-						"id": "biversion.partial",
-						"name": "Partial",
-						"description": "Versions say partly the same thing, but one says more",
-						"example": "https://gis.latinnow.eu/object/207067",
-						"categories": []
-					},
-					{
-						"id": "biversion.overlapping",
-						"name": "Overlapping",
-						"description": "Versions say different things, but part of it is the same in both",
-						"example": "https://gis.latinnow.eu/object/190250",
-						"categories": []
-					},
-					{
-						"id": "biversion.complementary",
-						"name": "Complementary",
-						"description": "Versions say different things, but part of the same text ",
-						"example": "https://gis.latinnow.eu/object/189168",
-						"categories": []
-					}
-				]
-			},
-			{
-				"id": "bilingual-phenomena",
-				"name": "Bilingual Phenomena",
-				"description": "Composed in one language but showing bilingual phenomena from another",
-				"example": "",
-				"categories": [{
-						"id": "bilingual-phenomena.code-switching",
-						"name": "Code Switching",
-						"description": "Full blown switch from one language into another",
-						"example": "https://gis.latinnow.eu/object/233183",
-						"categories": [{
-								"id": "bilingual-phenomena.code-switching.tag-switching",
-								"name": "Tag Switching",
-								"description": "Switch for e.g. a formula such as VSLM",
-								"example": "https://gis.latinnow.eu/object/233167"
-							},
-							{
-								"id": "bilingual-phenomena.code-switching.inter-sentential",
-								"name": "inter-sentential",
-								"description": "Between sentence/clause boundaries",
-								"example": "https://gis.latinnow.eu/object/201464"
-							},
-							{
-								"id": "bilingual-phenomena.code-switching.intra-sentential",
-								"name": "Intra Sentential",
-								"description": "Within sentence/clause boundaries",
-								"example": "https://gis.latinnow.eu/object/212300",
-								"categories": [{
-										"id": "bilingual-phenomena.code-switching.intra-sentential.lexical",
-										"name": "Lexical",
-										"description": "",
-										"example": ""
-									},
-									{
-										"id": "bilingual-phenomena.code-switching.intra-sentential.syntactic",
-										"name": "Syntactic",
-										"description": "",
-										"example": ""
-									},
-									{
-										"id": "bilingual-phenomena.code-switching.intra-sentential.morphological",
-										"name": "Morphological",
-										"description": "",
-										"example": "e.g. the ‘Greek Latin’ deployed in the res gestae or senatus consulta etc.?"
-									},
-									{
-										"id": "bilingual-phenomena.code-switching.intra-sentential.phonetic",
-										"name": "Phonetic",
-										"description": "",
-										"example": "e.g. Lusitanian word endings in Latin texts"
-									}
-								]
-							}
-						]
-					},
-					{
-						"id": "bilingual-phenomena.interference",
-						"name": "Interference",
-						"description": "Features from another language unintentionally transferred into the main language of the text",
-						"example": "",
-						"categories": [{
-								"id": "bilingual-phenomena.interference.lexical",
-								"name": "Lexical",
-								"description": "",
-								"example": "",
-								"categories": []
-							},
-							{
-								"id": "bilingual-phenomena.interference.syntactic",
-								"name": "Syntactic",
-								"description": "",
-								"example": "",
-								"categories": []
-							},
-							{
-								"id": "bilingual-phenomena.interference.morphological",
-								"name": "Morphological",
-								"description": "",
-								"example": "",
-								"categories": []
-							},
-							{
-								"id": "bilingual-phenomena.interference.phonetic",
-								"name": "Phonetic",
-								"description": "",
-								"example": "",
-								"categories": []
-							}
-						]
-					},
-					{
-						"id": "bilingual-phenomena.borrowing",
-						"name": "Borrowing",
-						"description": "Adoption of any linguistic element from one language into another. The items function in the adopting language as native elements, often with some degree of integration",
-						"example": "https://gis.latinnow.eu/object/190250",
-						"categories": [{
-								"id": "bilingual-phenomena.borrowing.lexical",
-								"name": "Lexical",
-								"description": "",
-								"example": "",
-								"categories": []
-							},
-							{
-								"id": "bilingual-phenomena.borrowing.syntactic",
-								"name": "Syntactic",
-								"description": "",
-								"example": "",
-								"categories": []
-							},
-							{
-								"id": "bilingual-phenomena.borrowing.morphological",
-								"name": "Morphological",
-								"description": "",
-								"example": ""
-							},
-							{
-								"id": "bilingual-phenomena.borrowing.phonetic",
-								"name": "Phonetic",
-								"description": "",
-								"example": "",
-								"categories": []
-							},
-							{
-								"id": "bilingual-phenomena.borrowing.calque",
-								"name": "Calque",
-								"description": "Translation of a foreign expression by a new native form which matches the foreign, e.g. sky-scraper, gratte-ciel",
-								"example": "",
-								"categories": []
-							},
-							{
-								"id": "bilingual-phenomena.borrowing.loan-shifting",
-								"name": "Loan Shifting",
-								"description": "When a word undergoes semantic extension on the model of a foreign counterpart",
-								"example": "",
-								"categories": []
-							}
-						]
-					},
-					{
-						"id": "bilingual-phenomena.translingualism",
-						"name": "Translingualism",
-						"description": "When forms chosen seem to be expressing more than one language at the same time, e.g. nata. This is a tricky one because sometimes it is simply the case that we cannot work out which language to assign something to, but in some cases it seems there is a desire to use translingualism (e.g. some of the Gaulish-Latin spindle whorls)",
-						"example": "",
-						"categories": []
-					}
-				]
-			},
-			{
-				"id": "mixed-language",
-				"name": "Mixed Language",
-				"description": "In genetically mixed languages or codes that are so mixed that it is impossible to identify the dominant language.",
-				"example": "https://gis.latinnow.eu/object/218752",
-				"categories": []
-			},
-			{
-				"id": "translingual",
-				"name": "Translingual",
-				"description": "Different from Text with bilingual phenomena: translingualism, as the whole text would be translingual.",
-				"example": "https://gis.latinnow.eu/object/233074",
-				"categories": []
-			},
-			{
-				"id": "biscriptal",
-				"name": "biscriptal",
-				"description": "Same language but using two script systems",
-				"example": "https://gis.latinnow.eu/object/193069",
-				"categories": []
-			},
-			{
-				"id": "transliterated",
-				"name": "Transliterated",
-				"description": "Whole text is in a script which is not the primary one used for that language.",
-				"example": "https://gis.latinnow.eu/object/145440",
-				"categories": []
-			},
-			{
-				"id": "biscriptal-phenomena",
-				"name": "Biscriptal Phenomena",
-				"description": "e.g. Velleron stele is Gaulish in Greek script but with valete which is Latin written in Greek script, so that text could be tagged with Text with bilingual phenomena: Code-switching: intra-sentential: lexical AND Text with graphic phenomena: Transliteration",
-				"example": "https://gis.latinnow.eu/object/233183",
-				"categories": [{
-						"id": "biscriptal-phenomena.graphic-interference",
-						"name": "Graphic Interference",
-						"description": "(‘accidental’) letter forms/orthographic rules from the script with which the author is more familiar intrude into the script of the text.",
-						"example": "",
-						"categories": []
-					},
-					{
-						"id": "biscriptal-phenomena.transliteration",
-						"name": "Transliteration",
-						"description": "either by choice or because author doesn’t know the other script of another language being used e.g. for code-switching in the primary",
-						"example": "",
-						"categories": []
-					},
-					{
-						"id": "biscriptal-phenomena.graphic-borrowing",
-						"name": "Graphic Borrowing",
-						"description": "when a script form is used from another set used to write a different language, for example to represent a sound in a name, e.g. tau gallicum forms in Gaulish names in Latin texts.",
-						"example": "",
-						"categories": []
-					}
-				]
-			}
-		]
+
+///////////////////////////////////////////////////////////////////////////////////
+
+//console.log($('#divBig').css('display'))
+
+/////////////////////////////////////////////////////////////
+////////////////// RDF 
+var fileName = "../bilingualism/data/rdf_data.ttl";
+//var voidFileName = "../type_of_inscription/data/VoID.ttl";
+const { DataFactory } = N3;
+const { namedNode, literal, defaultGraph, quad } = DataFactory;
+const store = new N3.Store();
+var allPrefixes = {};
+var isDataLoaded = false;
+
+////// Load RDF data
+loadData(fileName);
+
+/////////////////////////////////////////////////
+async function runQuery(query) {
+	let myEngine = new Comunica.QueryEngine();
+	let result = await myEngine.query(query, {
+		sources: [store],
+	});
+	let bindingsStream = await result.execute();
+	const bindings = await bindingsStream.toArray();
+	return bindings;
+}
+
+/////////////////////////////////////////////////////////////////////////////////
+async function loadData(file) {
+	$.ajaxSetup({ cache: false });
+	let rdfData = await fetch(file);
+	let data = await rdfData.text();
+	if (data !== '') {
+		const parser_for_graphs = new N3.Parser();
+		let records = [];
+
+		parser_for_graphs.parse(data,
+			async (error, quad, prefixes) => {
+				if (quad) {
+					store.addQuad(
+						quad.subject.id,
+						quad.predicate.id,
+						quad.object.id
+						//namedNode(graph)
+					)
+				}
+				//    console.log(quad);
+				else {
+					allPrefixes = prefixes;
+					isDataLoaded = true;
+					call();
+				}
+			});
 	}
 }
-`;
 
-function buildTree(node, parentId)
-{
-    let html = '';
-    for (const categoryKey in node) {
-        const category = node[categoryKey];
-        const categoryId = category.id;
-        let example = category.example !== '' ? `<p>Example: <a href="${category.example}" target="_blank"> ${category.example} </a></p>` : '';
-
-        // Create a new list item for this category
-        html += `<div id="bilingualism.${category.id}" class="entity">
-                      <h4><a href="#bilingualism.${category.id}">${category.name}</a></h4>
-                      <p><strong>IRI: </strong><code>https://ontology.inscriptiones.org/bilingualism#bilingualism.${category.id}</code></p>
-                      <div class="comment">
-                          <p>
-                              ${category.description}
-                          </p>
-                          ${example}
-                          
-                      </div>
-                `;
-
-        // Check if this category has subcategories
-        if (category.categories && category.categories.length > 0) {
-            html += `<h5 data-bs-target="#coll-${categoryId}" data-bs-toggle="collapse" style=cursor:pointer; aria-expanded="true">
-                        <i class="bi bi-chevron-right"></i>
-                        <i class="bi bi-chevron-down"></i>
-                        Categories
-                    </h5>`;
-            // Create an ordered list for subcategories
-            html += `<div id="coll-${categoryId}" class="collapse show">`;
-            html += `<ul class="list-group ms-5">`;
-            html += buildTree(category.categories, categoryId); // Recursively build subcategories
-            html += `</ul>`;
-            html += `</div>`;
-        }
-        html += `</div>`
-    }
-    return html;
-
+async function call() {
+	await updateList();
 }
 
-// Toggle tree items when clicked
-// function toggleCollapse(eleId)
-// {
-//     const $ul = $(`#${eleId}`).children('ul');
-//     if ($ul.length > 0) {
-//         $ul.toggle();
-//         $(this).toggleClass('collapsed');
-//     }
-// }
-// $('#tree-container').on('click', function () {
-//     const $ul = $(this).children('ul');
-//     if ($ul.length > 0) {
-//         $ul.toggle();
-//         $(this).toggleClass('collapsed');
-//     }
-// });
 
-// Call the buildTree function with your JSON data
-const jsonData = JSON.parse(bilingualism);
-const treeHtml = buildTree(jsonData['Bilingualism']['categories'], ''); // Pass an empty parentId for the root level
+$.fn.extend({
+	treed: function (o) {
 
-// Append the generated tree structure to an element with a specific ID (e.g., 'tree-container')
-document.getElementById('tree-container').innerHTML = `<ul class="tree">${treeHtml}</ul>`;
+		var openedClass = 'bi bi-caret-down-fill';
+		var closedClass = 'bi bi-caret-right-fill';
+
+		if (typeof o != 'undefined') {
+			if (typeof o.openedClass != 'undefined') {
+				openedClass = o.openedClass;
+			}
+			if (typeof o.closedClass != 'undefined') {
+				closedClass = o.closedClass;
+			}
+		};
+
+		//initialize each of the top levels
+		var tree = $(this);
+		tree.addClass("tree");
+		tree.find('li').has("ul").each(function () {
+			var branch = $(this); //li with children ul
+			branch.prepend(`<i class='indicator ${closedClass}'></i>`);
+			branch.addClass('branch');
+			branch.on('click', function (e) {
+				if (this == e.target) {
+					var icon = $(this).children('i:first');
+					icon.toggleClass(openedClass + " " + closedClass);
+					$(this).children().children().toggle();
+				}
+			})
+			branch.children().children().toggle();
+		});
+		//fire event from the dynamically added icon
+		tree.find('.branch .indicator').each(function () {
+			$(this).on('click', function () {
+				$(this).closest('li').click();
+			});
+		});
+		//fire event to open branch if the li contains an anchor instead of text
+		tree.find('.branch>a').each(function () {
+			$(this).on('click', function (e) {
+				$(this).closest('li').click();
+				e.preventDefault();
+			});
+		});
+		//fire event to open branch if the li contains a button instead of text
+		tree.find('.branch>button').each(function () {
+			$(this).on('click', function (e) {
+				$(this).closest('li').click();
+				e.preventDefault();
+			});
+		});
+
+		tree.find('button').each(function () {
+			$(this).on('click', function (e) {
+				$('.tree button').removeClass('active')
+				$(this).closest('button').addClass('active');
+				//console.log($(this).parent().attr('id'))
+				getVocDetails($(this).parent().attr('id'))
+				e.preventDefault();
+			});
+		});
+	}
+});
+
+async function getVocDetails(iri) {
+	let appendPrefixes = '';
+
+	for (const [key, value] of Object.entries(allPrefixes)) {
+		//console.log(`${key}: ${value}`);
+		appendPrefixes += `PREFIX ${key}: <${value}>\n`;
+	}
+	let query = `
+        ${appendPrefixes}
+        PREFIX dc: <http://purl.org/dc/elements/1.1/>
+        SELECT ?pred ?obj 
+        WHERE {
+            <${iri}> ?pred ?obj .
+            FILTER NOT EXISTS {
+                <${iri}> a ?obj .
+            }
+        }`
+	let detailsArray = await runQuery(query);
+	//debugger;
+	////////////////////////////////////////////
+	let parts = iri.split('/');
+	let lastEle = parts[parts.length - 1];
+	let detailHTML = `<h6 class="fw-bold">IRI</h6>
+                    <p><a href="${parts.slice(0, -1).join('/') + '/' + lastEle}" target="_blank"> ${iri} <i class="bi bi-box-arrow-up-right"></i></a></p>
+                    <table class="table table-hover">
+                    <tbody>`;
+	let label = detailsArray.filter(x => x.get('pred').value.includes('label'));
+
+	if (label.length > 0) {
+		key = label[0].get('pred').value.split('/').pop().split('#').pop().replace(/([A-Z])/g, ' $1').trim();
+		value = label[0].get('obj').id;
+		detailHTML += `
+                        <tr>
+                            <th scope="row" style="width: 20%;" class="text-capitalize">${key}</th>
+                            <td>${value}</td>
+                        </tr>
+                    `;
+	}
+
+	let description = detailsArray.filter(x => x.get('pred').value.includes('definition'));
+
+	if (description.length > 0) {
+		key = description[0].get('pred').value.split('/').pop().split('#').pop().replace(/([A-Z])/g, ' $1').trim();
+		value = description[0].get('obj').value;
+		detailHTML += `
+                        <tr>
+                            <th scope="row" style="width: 20%;" class="text-capitalize">${key}</th>
+                            <td>${value}</td>
+                        </tr>
+                    `;
+	}
+
+	for (let d of detailsArray) {
+		if (!d.get('pred').value.includes('label') && !d.get('pred').value.includes('definition')) {
+			let key, value = '';
+			if (d.get('pred').value.split('/').pop().split('#').pop() === 'subClassOf') {
+				key = 'Parent';
+				parts = d.get('obj').value.split('/');
+				lastEle = parts[parts.length - 1];
+				value = `<a href="${parts.slice(0, -1).join('/') + '/#' + lastEle}" target="_blank">${d.get('obj').value.split('/').pop().split('#').pop()} <i class="bi bi-box-arrow-up-right"></i></a>`;
+			}
+			else {
+				key = d.get('pred').value.split('/').pop().split('#').pop().replace(/([A-Z])/g, ' $1').trim();
+				value = d.get('obj').value.includes('http') ? `<a href="${d.get('obj').value}" target="_blank">${d.get('obj').value} <i class="bi bi-box-arrow-up-right"></i></a>` : d.get('obj').id;
+			}
+			detailHTML += `
+                        <tr>
+                            <th scope="row" style="width: 20%;" class="text-capitalize">
+                                ${key}
+                            </th>
+                            <td style="overflow-wrap: break-word;">${value}</td>
+                        </tr>
+                `;
+		}
+	}
+
+	detailHTML += ` </tbody>
+        </table>`;
+
+	$('.voc-details').html(detailHTML);
+
+	if ($('#divBig').css('display') === 'none') {
+		$('#btnVocDetails').click()
+	} else {
+		$('#btnVocDetailsClose').click();
+	}
+}
+
+//// Filter
+$("#myInput").on("input", async function () {
+	//debugger;
+	var value = $(this).val().toLowerCase();
+	$(".tree li").filter(function () {
+		$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+	});
+
+	if (value === '') {
+		$('#root i').removeClass('bi bi-caret-right-fill')
+		$('#root i').addClass('bi bi-caret-down-fill')
+		$('#root li').click();
+	}
+});
+
+async function updateList() {
+	let appendPrefixes = '';
+	for (const [key, value] of Object.entries(allPrefixes)) {
+		//console.log(`${key}: ${value}`);
+		appendPrefixes += `PREFIX ${key}: <${value}>\n`;
+	}
+
+	let sparql_query = `${appendPrefixes}
+                         PREFIX dc: <http://purl.org/dc/elements/1.1/>
+                         SELECT DISTINCT ?class ?label ?description
+                                WHERE { 
+                                    ?class a owl:Class .
+                                    ?class rdfs:label ?label .
+                                    ?class skos:definition ?description .
+                                    ?class rdfs:subClassOf owl:Thing .
+                            }
+                            ORDER BY ?label
+                        `;
+	//debugger;
+	let mainClasses = await runQuery(sparql_query);
+
+	sparql_query = `${appendPrefixes}
+                    PREFIX dc: <http://purl.org/dc/elements/1.1/>
+                    SELECT DISTINCT ?subject ?label ?description ?supertype
+                    WHERE {
+                        { ?subject a owl:Class . } UNION { ?individual a ?subject . } .
+                        OPTIONAL { 
+                                ?subject rdfs:subClassOf ?supertype .
+                                FILTER (str(?supertype) !='')
+                                } .
+                        OPTIONAL { 
+                                ?subject rdfs:label ?label .
+                                FILTER (str(?label) != '')
+                                }
+                        OPTIONAL { 
+                                ?subject skos:definition ?description .
+                                FILTER (str(?description) != '')
+                                }
+                    
+                    } ORDER BY ?label
+    `;
+
+	let allClasses = await runQuery(sparql_query);
+	displayMainClasses(mainClasses, allClasses);
+}
+
+async function getAllAlternateLables(iri) {
+	let allLables = await runQuery(`
+        SELECT ?altLabels 
+            WHERE {
+                <${iri}> <http://www.w3.org/2004/02/skos/core#altLabel> ?altLabels .
+            }
+        `);
+
+	let altLabels = '';
+
+	if (allLables.length > 0) {
+		// I need to combine this array to single string
+		for (let al of allLables) {
+			altLabels += al.get('altLabels').value + ', ';
+		}
+	}
+	return altLabels.slice(0, -2);
+}
+
+async function displayMainClasses(classes, allClasses) {
+	let divClasses = '';
+	for (let c of classes) {
+		let altLabels = await getAllAlternateLables(c.get('class').value);
+		divClasses += await manageParentChildRel(c.get('class').value, c.get('label').value, c.get('description').value, allClasses, altLabels);
+	}
+	$('#ulClasses').html(divClasses);
+
+	$('li').mouseover(function (e) {
+		e.stopPropagation();
+		$(this).addClass('currentHover');
+	});
+
+	$('li').mouseout(function () {
+		$(this).removeClass('currentHover');
+	});
+
+	//Initialization of treeviews
+	$('#tree').treed();
+	$('#root').first().click();
+}
+
+async function manageParentChildRel(c, label, des, allClasses, altLabels) {
+	let list = '';
+	let children = allClasses.filter(x => x.get('supertype').value === c)
+	list += `<li id="${c}">
+                    <button>
+                        ${label}
+                        <span class="d-none">${des}</span>
+                        <span class="d-none">${altLabels.length !== '' ? altLabels : ''}</span>
+                    </button>
+            `;
+	if (children.length > 0) {
+		list += `<ul>`
+		for (let ch = 0; ch < children.length; ch++) {
+			//debugger;
+			let altLabels = await getAllAlternateLables(children[ch].get('subject').value);
+			list += `<li>${await manageParentChildRel(children[ch].get('subject').value, children[ch].get('label').value, children[ch].get('description').value, allClasses, altLabels)}</li>`;
+		}
+		list += '</ul>'
+	}
+
+	list += '</li>'
+	return list;
+}
+
+async function download() {
+	$.ajaxSetup({ cache: false });
+
+	// const zip = new JSZip();
+
+	try {
+		// Wait for both files to load asynchronously
+		const file1Content = await (await fetch(fileName)).text();
+		// //const file2Content = await (await fetch(voidFileName)).text();
+
+		// // Add files to the ZIP container
+		// zip.file("Type_of_Inscription.ttl", file1Content);
+		// zip.file("VoID.ttl", file2Content);
+
+		// // Generate the ZIP file as a blob
+		// const content = await zip.generateAsync({ type: "blob" });
+
+		// // Trigger the download
+		// const a = document.createElement("a");
+		// a.href = URL.createObjectURL(content);
+		// a.download = "Type_of_Inscription.zip"; // Name of the ZIP file
+		// a.click();
+
+		// // Clean up the URL object
+		// URL.revokeObjectURL(a.href);
 
 
-// let query = encodeURIComponent(`
-// PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-// PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-// PREFIX owl: <http://www.w3.org/2002/07/owl#>
-// PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+		/// For Single File
+		const contentType = 'text/plain';
+		const a = document.createElement('a');
+		const file = new Blob([file1Content], { type: contentType });
+		const fName = `Bilingualism.ttl`;
 
-// SELECT ?child ?parent ?definition ?example
-// WHERE {
-//    ?child rdfs:subClassOf ?parent ;
-//           skos:definition ?definition ;
-//     OPTIONAL {
-//         ?child skos:example ?example .
-//     }
-// }
-// `);
+		a.href = URL.createObjectURL(file);
+		a.download = fName;
+		a.click();
 
-// let remoteURL = `https://fair.classics.ox.ac.uk/wsgi?method=sparql&repo=bilingualism&query=${query}`
-// let url = remoteURL;
-// // Send the get request
-// axios.get(url).then(response => {
-//         //console.log('GET request successful:', response.data);
-//         let bindings = response.data.results.bindings;
-//         let div = '';
-//         let prefix = 'https://ontology.inscriptiones.org/bilingualism#';
-//         for(let i = 0; i< bindings.length; i++)
-//         {
-//           let className = bindings[i].child.value.split(prefix)[1];
-//           let classIRI = bindings[i].child.value;
-//           let def = bindings[i].definition.value;
-//           let parent = bindings[i].parent.value.split(prefix);
-//           if(parent.length > 1)
-//           {
-//             parent = `<a href="#${parent[1]}">bi:${parent[1]}</a>`
-//           }
-//           else
-//           {
-//             parent = parent[0];
-//           }
+		URL.revokeObjectURL(a.href);
 
-//         div += `<a href="#bilingualism.biversion.duplicating">Duplicating</a>`;
-//           let example = bindings[i].example !== undefined ? `<p>Example: ${bindings[i].example.value} </p>` : '';
-//             div += `
-//                       <div id="${className}" class="entity">
-//                       <h4>Class: <a href="#${className}">bi:${className}</a></h4>
-//                       <p><strong>IRI: </strong><code>${classIRI}</code></p>
-//                       <div class="comment">
-//                           <p>
-//                               ${def}
-//                           </p>
-//                           ${example}
-//                       </div>
-//                       <div class="description">
-//                           <dl>
-//                               <dt>Subclass of</dt>
-//                               <dd>${parent}</dd>
-//                           </dl>
-//                       </div>
-//                   </div>
-//             `
-//         }
-//         document.getElementById('classes').innerHTML = div;
-//     })
-//     .catch(error => {
-//         console.error('Error sending POST request:', error);
-//     });
+	} catch (error) {
+		console.error(error); // Handle any error that might occur during file loading
+	}
+
+}

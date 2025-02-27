@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAIR Epigraphic Vocabularies
+    </title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="../css/bootstrap-icons.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style_toi.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<body class="overflow-auto">
+    <header class="header sticky-top bg-light">
+        <div class="logo">
+            <img src="../images/logo.png" alt="Your Logo">
+            <div class="logo-text">FAIR Epigraphy</div>
+        </div>
+        <nav class="nav-menu bg-light">
+            <ul class="menu-list">
+                <li>
+                    <a href="index.html" class="text-decoration-none text-reset">
+                        <i class="bi bi-house-door"></i> Home
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="bi bi-diagram-3"></i> Vocabularies
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/type_of_inscription/#vocabularies">Type of Inscription</a>
+                        </li>
+                        <li><a class="dropdown-item" href="/bilingualism/index.html">Bilingualism</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="bi bi-download fw-bold"></i> Download
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><span class="dropdown-item" onclick="download('type_of_inscription')">Type of
+                                Inscription</span></li>
+                        <li><span class="dropdown-item" onclick="download('bilingualism')">Bilingualism</span></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="menu-toggle" id="btnMobileMenu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mt-5" id="divContent">
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>About the FAIR Epigraphic Vocabularies
+                        <!-- <a href="http://127.0.0.1:5501/type_of_inscription/#vocabularies" target="_blank"><i class="bi bi-box-arrow-up-right fs-5"></i></a> -->
+                    </h1>
+                    <p>
+                        This website represents an improved consolidation of community-wide standards and their
+                        implementation
+                        as part of the Linked Open Data eco-system. It comprises of the two main elements: controlled
+                        vocabularies and ontology. You can currently access and test the <a
+                            href="/type_of_inscription/#vocabularies" target="_blank">first stage</a> of the development
+                        of
+                        controlled vocabularies! The updated epigraphic ontology is under development and will be
+                        released here
+                        in late 2024.
+                    </p>
+                    <h3>FAIR Vocabularies
+                        <!-- <a href="http://127.0.0.1:5501/type_of_inscription/#vocabularies" target="_blank"><i class="bi bi-box-arrow-up-right fs-5"></i></a> -->
+                    </h3>
+                    <div class="mt-2" id="controled_vocabulary">
+                        <i>What is a controlled vocabulary?
+                        </i>
+                        <p class="mt-2">
+                            Controlled vocabularies provide a consistent and objective way to describe data and define
+                            their
+                            exact meaning across projects and disciplines. They represent standardised and organised
+                            terms,
+                            often as an alphabetical list with a hierarchical structure of broader and narrower terms,
+                            their
+                            definitions and alternative labels in multiple languages. In the world of Linked Open Data,
+                            the
+                            controlled vocabulary represents a piece of authoritative information for researchers but
+                            also for
+                            project administrators, a unique and stable reference that describes a concept or a
+                            phenomenon that
+                            is being recorded.
+                        </p>
+                    </div>
+                    <div class="mt-2" id="background">
+                        <i class="mt-2">
+                            Background
+                        </i>
+                        <p class="mt-2">
+                            The creation of an updated controlled epigraphic vocabulary has been identified by the
+                            community as
+                            essential to moving forward towards the best practice of FAIR and Open Science in epigraphy
+                            (Tupman
+                            2021; <a href="https://zenodo.org/records/6610696" target="_blank">Heřmánková et al.
+                                2022</a>). The
+                            proposed FAIR epigraphic controlled vocabularies present a consolidation of work conducted
+                            by the
+                            EAGLE Europeana Project in 2013-2016 (Liuzzo et al. 2013; Liuzzo 2015; Liuzzo and
+                            Evangelisti 2021)
+                            and an alignment of current standards of partner projects of the FAIR Epigraphy Project (<a
+                                href="https://inscriptiones.org/" target="_blank">https://inscriptiones.org/</a>).
+                        </p>
+                    </div>
+                    <div class="mt-2" id="approach">
+                        <i class="mt-2">
+                            Approach
+                        </i>
+                        <p class="mt-2">
+                            The FAIR Epigraphic Vocabularies represent a ‘bottom-up’ application that employs a
+                            multifaceted
+                            hierarchic categorisation system allowing for multiple conceptual approaches while
+                            recognizing the
+                            complex and multilingual nature of inscriptions and the discipline's historiography.
+                            Furthermore,
+                            the vocabulary adheres to the principles of FAIR data, emphasizing Findability,
+                            Accessibility,
+                            Interoperability, and Reusability as their core principles (Wilkinson et al. 2016). This
+                            means that
+                            researchers can easily locate and access relevant terms, ensuring that the vocabulary is
+                            user-friendly and widely applicable.
+                        </p>
+                        <p>
+                            The controlled vocabulary is made available as a Linked Open Data (LOD) resource, accessible
+                            online
+                            with stable Uniform Resource Identifiers (URIs), hosted by the FAIR Epigraphy Project and
+                            the
+                            University of Oxford. This approach facilitates efficient collaboration, linking, and
+                            cross-referencing, enabling researchers to build upon each other's work and explore
+                            epigraphy in a
+                            structured and accessible manner across project boundaries. Overall, this initiative
+                            enhances the
+                            research landscape in epigraphy by fostering cooperation and providing a reliable and
+                            standardised
+                            resource for scholars in the field.
+                        </p>
+                    </div>
+                    <div class="mt-2" id="state">
+                        <i class="mt-2">
+                            The state of the discipline in 2020
+                        </i>
+                        <p class="mt-2">
+                            The vocabularies that are currently in use by the majority of digital projects were created
+                            in
+                            2013-2016 as a result of the EAGLE Europeana Project (Liuzzo et al. 2013; Liuzzo 2015;
+                            Liuzzo and
+                            Evangelisti 2021). The project created a digital list of several hundreds of vocabularies as
+                            they
+                            were used in several partner projects. The vocabularies are divided into seven categories,
+                            with
+                            three of them being unique to epigraphy and four of them being shared with other
+                            disciplines:
+                        <ul>
+                            <li>
+                                epigraphy specific
+                                <ul>
+                                    <li>type of inscription/function</li>
+                                    <li>object type</li>
+                                    <li>execution technique</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <ul>
+                            <li>
+                                shared with other disciplines
+                                <ul>
+                                    <li>material</li>
+                                    <li>decoration</li>
+                                    <li>date</li>
+                                    <li>state of preservation</li>
+                                    <li>language - multilingualism [newly added concept, based on work of LatinNow]</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        Each vocabulary was published online with its own stable URI and short description. Some of them
+                        also
+                        have their equivalents in other languages and links to example inscriptions.
+                        </p>
+                    </div>
+                    <div class="mt-2" id="new_vocabulary">
+                        <i class="mt-2">
+                            Why do we need a new vocabulary?
+                        </i>
+                        <p class="mt-2">
+                            During the Epigraphy.info meetings, the community concluded that the EAGLE vocabularies in
+                            their
+                            current state are not satisfactory enough for the community to move towards LOD. During the
+                            online
+                            meeting in 2020, the working group tasked to improve the EAGLE vocabularies was revived. The
+                            working
+                            group decided to investigate first the ‘type of inscription’ category, assuming it would be
+                            the
+                            easiest one to start as it represents the core of the discipline. On the contrary, it proved
+                            to be
+                            one of the most difficult ones, as due to different traditions, there is no universal
+                            consensus and
+                            almost every project tends to approach types of inscriptions differently. Subsequently, the
+                            group
+                            identified the EAGLE vocabularies suffer from the following issues:
+
+                        <ul>
+                            <li>the current vocabularies miss any hierarchic structure,</li>
+                            <li>they contain many duplicates across the various language versions as a result of a merge
+                                of
+                                vocabularies from multiple projects without aligning their terms,</li>
+                            <li>they do not contain explicit and clear explanations with multiple illustrative examples,
+                            </li>
+                            <li>the type of inscription vocabularies contains a mixture of two systems of
+                                categorisation: type
+                                of text, or rather its function, and type of inscribed monument, e.g. mosaic, graffiti,
+                                or the
+                                very problematic instrumentum domesticum,
+                            </li>
+                            <li>the current user interface is not easily searchable and accessible to people without an
+                                IT
+                                background, as there is no clear distinction between preferred terms and similar ones
+                            </li>
+                        </ul>
+
+                        The working group suggested conceptual outlines for the new system while maintaining the
+                        language
+                        diversity of vocabularies. Yet the mixing of text and object categories, duplication and missing
+                        hierarchy were identified as serious threats to the implementation of Linked Open Data
+                        principles. The
+                        discussions of the working group in 2020 and 2021 were then used as a starting point for the
+                        FAIR
+                        Epigraphy project to develop the conceptual outline into a FAIR Epigraphic vocabularies, a LOD
+                        online
+                        resource available to the entire community.
+                        </p>
+                    </div>
+                    <div class="mt-2" id="scope_new_voc">
+                        <i class="mt-2">
+                            The scope and purpose of the new vocabulary
+                        </i>
+                        <p class="mt-2">
+                            The creation of an updated controlled epigraphic vocabulary seeks to establish a
+                            standardized and
+                            comprehensive framework that draws from existing best practices, ensuring consistency and
+                            coherence
+                            in the field. This FAIR Epigraphic vocabulary is designed with a hierarchical structure,
+                            allowing
+                            for the organization of terms and concepts logically. Additionally, it employs a multimodal
+                            and
+                            multifaceted categorization system, allowing for multiple ways of categorization, and
+                            recognizing
+                            the complex nature of inscriptions and their historiography. The vocabulary accommodates not
+                            only
+                            the diversity of linguistic expressions in epigraphic material but also the multilingual
+                            nature of
+                            the epigraphic practice.
+                        </p>
+                        <p>
+                            Furthermore, the vocabulary adheres to the principles of FAIR data, emphasizing Findability,
+                            Accessibility, Interoperability, and Reusability as their core principles. This means that
+                            researchers can easily locate and access relevant terms, ensuring that the vocabulary is
+                            user-friendly and widely applicable. Crucially, this controlled vocabulary is made available
+                            as a
+                            Linked Open Data (LOD) resource, accessible online with stable Uniform Resource Identifiers
+                            (URIs).
+                            This approach facilitates efficient collaboration, linking, and cross-referencing, enabling
+                            researchers to build upon each other's work and explore epigraphy in a structured and
+                            accessible
+                            manner. Overall, this initiative enhances the research landscape in epigraphy by fostering
+                            cooperation and providing a reliable and standardized resource for scholars in the field.
+                        </p>
+                    </div>
+                    <div class="mt-2" id="usecases_voc">
+                        <i class="mt-2">
+                            Use cases for the vocabulary and the audience
+                        </i>
+                        <p class="mt-2">
+                            The application of computational and statistical methods benefits greatly from controlled
+                            vocabularies. They provide a foundation for creating structured and reliable datasets, which
+                            is
+                            crucial for rigorous analysis and large-scale comparative research.
+                        </p>
+                        <p>
+                            The vocabulary intended audience:
+                        <ul>
+                            <li>epigraphers - content creators</li>
+                            <li>IT personnel - curators of online resources</li>
+                            <li>scholars of epigraphy, archaeology, ancient history - users, research</li>
+                            <li>teachers and students of epigraphy, archaeology, and ancient history - users, teaching
+                                and
+                                learning
+                            </li>
+                            <li>GLAM sector/curators of museums - secondary content creators</li>
+                        </ul>
+                        </p>
+                    </div>
+                    <div class="mt-2" id="current_status">
+                        <i class="mt-2">
+                            Current status
+                        </i>
+                        <p class="mt-2">
+                            We have reviewed existing lists of vocabularies from 12 digital projects (ISicily, EDR, RIB,
+                            LatinNow, SEG, IGCyr, EDH, EDB, EAGLE Europeana, IOSPE, MAMA XI, IAphrodisias). We have
+                            carefully
+                            analyzed their content, structure, format, quality, and coverage of the existing
+                            vocabularies, and
+                            compared them with the scope and purpose of the new proposed vocabulary. We have identified
+                            the
+                            gaps, overlaps, inconsistencies, and ambiguities among the existing vocabularies, identified
+                            common
+                            terms and hierarchies and aligned them into a single and well-defined hierarchical
+                            structure.
+                        </p>
+                    </div>
+                    <div class="mt-2" id="thesaurus_enrichment">
+                        <i class="mt-2">
+                            Thesaurus enrichment
+                        </i>
+                        <p class="mt-2">
+                            <b>Missing concepts
+                            </b> <br />
+                            To ensure the completeness and coherence of our controlled vocabulary for epigraphy, we
+                            addressed
+                            the issue of missing terms and concepts. When we identified relevant concepts that were
+                            absent from
+                            the source projects, we added them. This proactive approach aims to provide a more
+                            comprehensive and
+                            structured vocabulary.
+                        </p>
+                        <p>
+                            <b>Metadata and Definitions</b> <br />
+                            In developing our controlled vocabulary for epigraphy, we made deliberate choices to ensure
+                            its
+                            usability and comprehensiveness. English was selected as the primary documentation language,
+                            which
+                            not only reflects your multilingual approach but also enhances accessibility for a broader
+                            academic
+                            audience. To enrich the vocabulary's utility, we provided detailed metadata for each term,
+                            including
+                            source information, creation date (where available), and relevant project references. This
+                            additional context allows users to trace the origin and historical development of terms,
+                            ensuring
+                            transparency and credibility.
+                        </p>
+                        <p>
+                            <b>Definitions of terms
+                            </b> <br />
+                            In line with the commitment to clarity, we included clear and concise definitions for each
+                            term.
+                            Recognizing that many projects lack their definitions, we extensively consulted main
+                            reference books
+                            in various languages to compile authoritative and contextually accurate definitions.
+                            Surprisingly,
+                            none of the general reference books of Latin or Greek epigraphy provided us with helpful
+                            definitions
+                            of the epigraphic type. Thus we needed to create our own definitions to become a core part
+                            of the
+                            new FAIR vocabulary.
+                        </p>
+                        <p>We have two controlled vocabularies</p>
+                        <ul class="list-unstyled">
+                            <li>
+                                <h3>Bilingualism Text Schema
+                                </h3>
+                                <p>It is a controlled vocabulary that describes the text schema of bilingual
+                                    inscriptions. The vocabulary is available in JSON format and can be viewed from the
+                                    link below.</p>
+                                <a href="bilingualism/index.html" class="btn btn-primary">View Vocabulary</a>
+                            </li>
+                            <li class="mt-2">
+                                <h3>Type of Inscription</h3>
+                                <p>It is a controlled vocabulary that describes the type of inscription. The vocabulary
+                                    is available in RDF format and can be downloaded from the link below.</p>
+                                <a href="/type_of_inscription/#vocabularies" class="btn btn-primary">View Vocabulary</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-2" id="main_reference">
+                        <i class="mt-2">
+                            List of the main reference publications:
+                        </i>
+                        <p class="mt-2">
+                        <ul>
+                            <li>Cagnat, R. (1914) Cours d’épigraphie latine. 4e. éd., revue et augmentée. Paris:
+                                Fontemoing.
+                            </li>
+                            <li>Calabi Limentani, Ida. (1991) Epigrafia latina. 4. ed. Milano: Cisalpino, Istituto
+                                Editoriale
+                                Universitario (Manuali Cisalpino ; 3). </li>
+                            <li>Cooley, A.E. (2012) The Cambridge Manual of Latin Epigraphy. 1st ed. Cambridge:
+                                Cambridge
+                                University Press. </li>
+                            <li>Di Stefano Manzella, Ivan. (1987) Mestiere di epigrafista: guida alla schedatura del
+                                materiale
+                                epigrafico lapideo. Roma: Quasar (Vetera ; 1).
+                            </li>
+                            <li>Guarducci, Margherita. (1967) Epigrafia greca. Rome: Istituto Poligrafico dello Stato,
+                                Libreria
+                                dello Stato. <a href="https://biblio.inscriptiones.org/epig10000193"
+                                    target="_blank">https://biblio.inscriptiones.org/epig10000193</a>
+                            </li>
+                            <li>Lassère, J.-Marie. (2005) Manuel d’épigraphie romaine. Paris: Picard
+                                (Antiquité/Synthèses ; 8.).
+                            </li>
+                            <li>McLean, B. (2003) An Introduction to Greek Epigraphy of the Hellenistic and Roman
+                                Periods from
+                                Alexan, An Introduction to Greek Epigraphy of the Hellenistic and Roman Periods from
+                                Alexan. Ann
+                                Arbor: The University of Michigan Press.
+                            </li>
+                            <li>Reinach, S., 1858-1932 (1885) Traité d’épigraphie grecque. France: E. Leroux, 1885.
+                            </li>
+                            <li>Woodhead, A.G. (1959) The study of Greek inscriptions. Cambridge.
+                            </li>
+                        </ul>
+                        </p>
+                    </div>
+                    <div class="mt-3">
+                        <p>The first stage, published online in April 2024, contains vocabulary describing the type of
+                            an
+                            inscription concerning its function. <b>We welcome all comments and feedback!</b>
+                        </p>
+                    </div>
+                    <div class="mt-3" id="references">
+                        <h2>
+                            References
+                        </h2>
+                        <p class="mt-2">Heřmánková, P., Horster, M., and Prag, J. (2022) “Digital Epigraphy in 2022: A
+                            Report
+                            from the Scoping Survey of the FAIR Epigraphy Project (v1.0.0)”. Zenodo. <a
+                                href="https://doi.org/10.5281/zenodo.6610696"
+                                target="_blank">https://doi.org/10.5281/zenodo.6610696</a>.
+                        </p>
+                        <p class="mt-2">Liuzzo, P.M., Fasolini, D. and Rocco, A. (2013) Content harmonisation
+                            guidelines,
+                            including GIS and terminologies - Second Release (D 2.2.2, version n 4.0). Deliverable:
+                            Europeana
+                            network of Ancient Greek and Latin Epigraphy. Available at: <a
+                                href="https://www.eagle-network.eu/wp-content/uploads/2013/06/EAGLE_D2.2.2_Content-harmonisation-guidelines-including-GIS-and-terminologies-Second-Release.pdf"
+                                target="_blank">https://www.eagle-network.eu/wp-content/uploads/2013/06/EAGLE_D2.2.2_Content-harmonisation-guidelines-including-GIS-and-terminologies-Second-Release.pdf</a>.
+                        </p>
+                        <p class="mt-2">Liuzzo, P.M. (2015) “EAGLE and EUROPEANA: Architecture Problems for Aggregation
+                            and
+                            Harmonization”, Proceedings of the Symposium on Cultural Heritage Markup. Balisage Series on
+                            Markup
+                            Technologies, 16 (<a href="http://doi.org/10.4242/BalisageVol16.Liuzzo01"
+                                target="_blank">http://doi.org/10.4242/BalisageVol16.Liuzzo01</a>).
+                        </p>
+                        <p class="mt-2">Liuzzo, P.M. and Evangelisti, S. (2021) ‘Modeling execution techniques of
+                            inscriptions’,
+                            Semantic Web. Edited by A. Bikakis et al., 12(2), pp. 181–190. Available at: <a
+                                href="https://doi.org/10.3233/SW-200395"
+                                target="_blank">https://doi.org/10.3233/SW-200395</a>.
+                        </p>
+                        <p class="mt-2">Tupman, C. (2021) ‘Where Can Our Inscriptions Take Us? Harnessing the Potential
+                            of
+                            Linked Open Data for Epigraphy’, in I. Velasquéz Soriano and D. Espinosa Espinosa (eds)
+                            Epigraphy in
+                            the Digital Age : Opportunities and Challenges in the Recording, Analysis and Dissemination
+                            of
+                            Inscriptions. Oxford: Archaeopress, pp. 115–128.
+                        </p>
+                        <p class="mt-2">Wilkinson, M.D., Dumontier, M., Aalbersberg, I.J., Appleton, G., Mons, B., et
+                            al. (2016)
+                            “The FAIR Guiding Principles for scientific data management and stewardship”, Scientific
+                            Data 3 (1),
+                            1‑9.
+                        </p>
+                        <p class="mt-2"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+    <script>
+        async function download(opt) {
+            if (opt === 'type_of_inscription') {
+                $.ajaxSetup({ cache: false });
+
+                const zip = new JSZip();
+
+                try {
+                    // Wait for both files to load asynchronously
+                    const file1Content = await (await fetch('type_of_inscription/data/rdf_data.ttl')).text();
+                    const file2Content = await (await fetch('type_of_inscription/data/VoID.ttl')).text();
+
+                    // Add files to the ZIP container
+                    zip.file("Type_of_Inscription.ttl", file1Content);
+                    zip.file("VoID.ttl", file2Content);
+
+                    // Generate the ZIP file as a blob
+                    const content = await zip.generateAsync({ type: "blob" });
+
+                    // Trigger the download
+                    const a = document.createElement("a");
+                    a.href = URL.createObjectURL(content);
+                    a.download = "Type_of_Inscription.zip"; // Name of the ZIP file
+                    a.click();
+
+                    // Clean up the URL object
+                    URL.revokeObjectURL(a.href);
+
+                } catch (error) {
+                    console.error(error); // Handle any error that might occur during file loading
+                }
+            } else if (opt === 'bilingualism') {
+                let responseTxt = await (await fetch('bilingualism/data/rdf_data.ttl')).text();
+                const contentType = 'text/plain';
+                const a = document.createElement('a');
+                const file = new Blob([responseTxt], { type: contentType });
+                const fName = `Bilingualism.ttl`;
+
+                a.href = URL.createObjectURL(file);
+                a.download = fName;
+                a.click();
+
+                URL.revokeObjectURL(a.href);
+            }
+        }
+    </script>
+</body>
+
+</html>

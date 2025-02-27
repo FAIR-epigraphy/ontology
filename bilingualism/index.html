@@ -5,44 +5,133 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bilingualism Schema</title>
+    <title>Bilingualism Schema Vocabulary</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <link href="../css/bootstrap-icons.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style_toi.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+
 </head>
 
-<body>
+<body class="overflow-auto">
+    <header class="header sticky-top bg-light">
+        <div class="logo">
+            <img src="../images/logo.png" alt="Your Logo">
+            <div class="logo-text">FAIR Epigraphy</div>
+        </div>
+        <nav class="nav-menu bg-light">
+            <ul class="menu-list">
+                <li>
+                    <a href="../index.html" class="text-decoration-none text-reset">
+                        <i class="bi bi-house-door"></i> Home
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="bi bi-diagram-3"></i> Vocabularies
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/type_of_inscription/#vocabularies">Type of Inscription</a>
+                        </li>
+                        <li><a class="dropdown-item" href="/bilingualism/index.html">Bilingualism</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <span onclick="download()" title="Download Vocabulary">
+                        <i class="bi bi-download fw-bold"></i> Download
+                    </span>
+                </li>
+            </ul>
+            <div class="menu-toggle" id="btnMobileMenu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </nav>
+    </header>
     <div class="container-fluid content">
         <div class="row">
-            <div class="col-md-12">
-                <h1>Texts reflecting bi/multilingualism Schema</h1>
-                <!-- <p>The namespace for all terms is <code>https://ontology.inscriptiones.org/bilingualism#</code></p> -->
-                <!-- <p>Download OWL ontology for this version: <a href="#">RDF/XML</a>, <a href="#">TTL</a></p> -->
-                <p></p>
-                <div>
-                    <dl>
-                        <dt>Authors:</dt>
-                        <dd>Author 1 (ORCID), Author 2 (ORCID)</dd>
-                    </dl>
-                    <dl>
-                        <dt>Contributor:</dt>
-                        <dd>Contributor 1 (ORCID), Contributor 2 (ORCID)</dd>
-                    </dl>
-                </div>
-                <div>
-                    <h3>Bilingualism Categories/Features</h3>
-                    <div id="tree-container">
-                       
+            <div class="col-md-5">
+                <div class="card overflow-auto mt-2" style="height: 85vh;">
+                    <h5 class="card-header">
+                        Texts reflecting bi/multilingualism Schema
+                        <span onclick="download()" title="Download Vocabulary"
+                            class="float-end fs-4 bi bi-download fw-bold" style="cursor: pointer;"></span>
+                    </h5>
+                    <div class="card-body">
+                        <div class="input-group mb-3">
+                            <input id="myInput" class="form-control" type="search" placeholder="Search.." />
+                            <span class="input-group-text" id="inputGroup-sizing-default">
+                                <i class="bi bi-search"></i>
+                            </span>
+                        </div>
+                        <ul id="tree">
+                            <li id="root">
+                                <!-- <button>-</button> -->
+                                <ul id="ulClasses">
+                                    <div class="text-center" style="text-align: center;
+                                    top: 45%;
+                                    bottom: 0;
+                                    left: 0;
+                                    right: 0;
+                                    position: absolute;">
+                                        <div class="spinner-border text-primary" style="width: 5rem; height: 5rem;"
+                                            role="status">
+                                            <span class="visually-hidden">Loading...</span>
+                                        </div>
+                                    </div>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
-
+                </div>
+            </div>
+            <div class="col-md-7 d-none d-sm-block d-sm-none d-md-block mt-2" id="divBig">
+                <div class="card overflow-auto" style="height: 85vh;">
+                    <h5 class="card-header">Details</h5>
+                    <div class="card-body voc-details">
+                        <p class="text-center" style="color: rgb(200 200 200);
+                        font-size: 30px;
+                        text-align: center;
+                        top: 45%;
+                        height: 1em;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        position: absolute;">Please select any type to view detail</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!-- RDF Library -->
+    <script src="../js/n3.min.js"></script>
+    <script src="../js/comunica-browser.js"></script>
     <script src="../js/script.js"></script>
+
+    <script>
+        ///////////////////////////////////////////////////////////////
+        // Menu
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menuList = document.querySelector('.menu-list');
+
+        document.addEventListener('DOMContentLoaded', function () {
+            menuToggle.addEventListener('click', function () {
+                menuToggle.classList.toggle('active');
+                menuList.classList.toggle('active');
+            });
+        });
+
+    </script>
+
+
 </body>
 
 </html>

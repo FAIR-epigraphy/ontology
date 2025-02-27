@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAIR Epigraphic Vocabularies
+    <title>Type of Inscription Vocabulary
     </title>
     <link href="../css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <link href="../css/bootstrap-icons.min.css" rel="stylesheet" crossorigin="anonymous">
@@ -22,14 +22,20 @@
         <nav class="nav-menu bg-light">
             <ul class="menu-list">
                 <li>
-                    <span onclick="navigatePage('landing', this)">
+                    <a href="../index.html" class="text-decoration-none text-reset">
                         <i class="bi bi-house-door"></i> Home
-                    </span>
+                    </a>
                 </li>
                 <li>
-                    <span onclick="navigatePage('vocabularies', this)">
-                        <i class="bi bi-diagram-3"></i>  Vocabulary
-                    </span>
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="bi bi-diagram-3"></i> Vocabularies
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/type_of_inscription/#vocabularies">Type of Inscription</a>
+                        </li>
+                        <li><a class="dropdown-item" href="/bilingualism/index.html">Bilingualism</a></li>
+                    </ul>
                 </li>
                 <li>
                     <span onclick="download()" title="Download Vocabulary">
@@ -48,9 +54,6 @@
 
     </div>
 
-
-    <div id="data" style="display:none"></div>
-
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
@@ -65,8 +68,8 @@
     <script>
         /////////////////////////////////////////////////////////////
         ////////////////// RDF 
-        var fileName = "../type_of_inscription/data/rdf_data.txt";
-        var voidFileName = "../type_of_inscription/data/VoID.txt";
+        var fileName = "../type_of_inscription/data/rdf_data.ttl";
+        var voidFileName = "../type_of_inscription/data/VoID.ttl";
         const { DataFactory } = N3;
         const { namedNode, literal, defaultGraph, quad } = DataFactory;
         const store = new N3.Store();
@@ -88,34 +91,31 @@
         }
 
         /////////////////////////////////////////////////////////////////////////////////
-        function loadData(file) {
+        async function loadData(file) {
             $.ajaxSetup({ cache: false });
-            $("#data").load(file, function (responseTxt, statusTxt, xhr) {
-                if (statusTxt == "success") {
+            let rdfData = await fetch(file);
+            let data = await rdfData.text();
+            if (data !== '') {
+                const parser_for_graphs = new N3.Parser();
+                let records = [];
 
-                    const parser_for_graphs = new N3.Parser();
-                    let records = [];
-
-                    parser_for_graphs.parse(responseTxt,
-                        async (error, quad, prefixes) => {
-                            if (quad) {
-                                store.addQuad(
-                                    quad.subject.id,
-                                    quad.predicate.id,
-                                    quad.object.id
-                                    //namedNode(graph)
-                                )
-                            }
-                            //    console.log(quad);
-                            else {
-                                allPrefixes = prefixes;
-                                isDataLoaded = true;
-                            }
-                        });
-                }
-                if (statusTxt == "error")
-                    console.log("Error: " + xhr.status + ": " + xhr.statusText + ": <br />" + responseTxt);
-            });
+                parser_for_graphs.parse(data,
+                    async (error, quad, prefixes) => {
+                        if (quad) {
+                            store.addQuad(
+                                quad.subject.id,
+                                quad.predicate.id,
+                                quad.object.id
+                                //namedNode(graph)
+                            )
+                        }
+                        //    console.log(quad);
+                        else {
+                            allPrefixes = prefixes;
+                            isDataLoaded = true;
+                        }
+                    });
+            }
         }
 
         ///////////////////////////////////////////////////////////////
@@ -140,6 +140,9 @@
                 }
             }, 100);
         }
+        // else if('/' === path) {
+        //     $('#divContent').load('main.html')
+        // }
         else if (path === '/type_of_inscription/index.html' || path === '/type_of_inscription/') {
             $('#divContent').load('landing.html')
         }
@@ -192,27 +195,27 @@
             return m ? m[0] : null;
         }
 
-        function download() {
-            $.ajaxSetup({ cache: false });
-            $("#data").load(fileName, function (responseTxt, statusTxt, xhr) {
-                if (statusTxt == "success") {
+        // function download() {
+        //     $.ajaxSetup({ cache: false });
+        //     $("#data").load(fileName, function (responseTxt, statusTxt, xhr) {
+        //         if (statusTxt == "success") {
 
-                    const contentType = 'text/plain';
-                    const a = document.createElement('a');
-                    const file = new Blob([responseTxt], { type: contentType });
-                    const fName = `Type_of_Inscription.ttl`;
+        //             const contentType = 'text/plain';
+        //             const a = document.createElement('a');
+        //             const file = new Blob([responseTxt], { type: contentType });
+        //             const fName = `Type_of_Inscription.ttl`;
 
-                    a.href = URL.createObjectURL(file);
-                    a.download = fName;
-                    a.click();
+        //             a.href = URL.createObjectURL(file);
+        //             a.download = fName;
+        //             a.click();
 
-                    URL.revokeObjectURL(a.href);
-                }
-                if (statusTxt == "error")
-                    console.log("Error: " + xhr.status + ": " + xhr.statusText + ": <br />" + responseTxt);
-            });
+        //             URL.revokeObjectURL(a.href);
+        //         }
+        //         if (statusTxt == "error")
+        //             console.log("Error: " + xhr.status + ": " + xhr.statusText + ": <br />" + responseTxt);
+        //     });
 
-        }
+        // }
     </script>
 </body>
 
