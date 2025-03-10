@@ -86,6 +86,7 @@ function callVocabulary(voc) {
     $('div#divLanding').hide();
     $('div#divVocContent').show();
     $('div#divBig').prev().show();
+    $('div#divBig').html('');
     $('div#divBig').removeClass('col-md-12');
     $('div#divBig').addClass('col-md-7');
     $('#root').html(`<ul id="ulClasses">
