@@ -83,12 +83,21 @@ $.fn.extend({
 //////////////////////////////////////////////////////////////////////////////
 
 function callVocabulary(voc) {
-    $('div#divLanding').hide();
-    $('div#divVocContent').show();
-    $('div#divBig').prev().show();
-    $('div#divBig').html('');
-    $('div#divBig').removeClass('col-md-12');
-    $('div#divBig').addClass('col-md-7');
+    $('#divLanding').hide();
+    $('#divVocContent').show();
+    $('#divBig').prev().show();
+    $('.voc-details').html(`<p class="text-center" style="color: rgb(200 200 200);
+                font-size: 30px;
+                text-align: center;
+                top: 45%;
+                height: 1em;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                position: absolute;">Please select any type to view detail</p>
+                    </div>`);
+    $('#divBig').removeClass('col-md-12');
+    $('#divBig').addClass('col-md-7');
     $('#root').html(`<ul id="ulClasses">
                                     <div class="text-center" style="text-align: center;
                             top: 45%;
