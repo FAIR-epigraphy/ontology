@@ -125,7 +125,7 @@ function callVocabulary(voc) {
     if (window.location.hash !== '') {
         let voc = '';
         if (window.location.hash.split('#').length === 3) {
-            
+
             voc = window.location.hash.split('#')[1].replace('#', '');
             fileName = `../${voc}/data/rdf_data.ttl`;
             isShowIRI = true;
@@ -146,7 +146,7 @@ function callVocabulary(voc) {
             $('#spVocHeading').text(`${voc.replaceAll('/', '').replaceAll('_', ' ')} Vocabulary`);
             $('#spVocDownload').html(`<span onclick="download('${voc}')" title="Download Vocabulary"
                                     class="float-end fs-4 bi bi-download fw-bold" style="cursor: pointer;"></span>`);
-    
+
             voc = window.location.hash.replace('#', '');
             fileName = `../${voc}/data/rdf_data.ttl`;
             voidFileName = `../${voc}/data/VoID.ttl`;
@@ -155,10 +155,9 @@ function callVocabulary(voc) {
         }
     }
     ////// Load RDF data
-    if (fileName !== "")
-    {
+    if (fileName !== "") {
         await loadData(fileName);
-        if(isShowIRI){
+        if (isShowIRI) {
             getVocDetails(window.location.href.replace('#', ''));
             $('div#divLanding').hide();
             $('div#divVocContent').show();
@@ -239,6 +238,19 @@ async function getVocDetails(iri) {
         }`
     let detailsArray = await runQuery(query);
     //debugger;
+    if (detailsArray.length === 0) {
+        let query = `
+        ${appendPrefixes}
+        PREFIX dc: <http://purl.org/dc/elements/1.1/>
+        SELECT ?pred ?obj 
+        WHERE {
+            <${iri.replace('#', '')}> ?pred ?obj .
+            FILTER NOT EXISTS {
+                <${iri}> a ?obj .
+            }
+        }`
+        detailsArray = await runQuery(query);
+    }
     ////////////////////////////////////////////
     let parts = iri.replace('#', '/').split('/');
     let lastEle = parts[parts.length - 1];
