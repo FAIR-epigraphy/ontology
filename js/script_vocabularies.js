@@ -122,6 +122,7 @@ function callVocabulary(voc) {
     if (window.location.hash !== '') {
         let voc = '';
         if (window.location.hash.split('#').length === 3) {
+            
             voc = window.location.hash.split('#')[1].replace('#', '');
             fileName = `../${voc}/data/rdf_data.ttl`;
             isShowIRI = true;
@@ -156,6 +157,11 @@ function callVocabulary(voc) {
         await loadData(fileName);
         if(isShowIRI){
             getVocDetails(window.location.href.replace('#', ''));
+            $('div#divLanding').hide();
+            $('div#divVocContent').show();
+            $('div#divBig').prev().hide();
+            $('div#divBig').removeClass('col-md-7');
+            $('div#divBig').addClass('col-md-12');
         }
     }
     else {
