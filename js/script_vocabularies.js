@@ -240,10 +240,11 @@ async function getVocDetails(iri) {
     let detailsArray = await runQuery(query);
     //debugger;
     ////////////////////////////////////////////
-    let parts = iri.split('/');
+    let parts = iri.replace('#', '/').split('/');
     let lastEle = parts[parts.length - 1];
+    let secondLastEle = parts[parts.length - 2];
     let detailHTML = `<h6 class="fw-bold">IRI</h6>
-                    <p><a href="${parts.slice(0, -1).join('/') + '/#' + lastEle}" target="_blank"> ${iri} <i class="bi bi-box-arrow-up-right"></i></a></p>
+                    <p><a href="${parts.slice(0, -2).join('/') + '/#' + secondLastEle + '/#' + lastEle}" target="_blank"> ${iri} <i class="bi bi-box-arrow-up-right"></i></a></p>
                     <table class="table table-hover">
                     <tbody>`;
     let label = detailsArray.filter(x => x.get('pred').value.includes('prefLabel'));
