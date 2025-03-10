@@ -122,8 +122,8 @@ function callVocabulary(voc) {
     if (window.location.hash !== '') {
         let voc = '';
         if (window.location.hash.split('#').length === 3) {
-            voc = window.location.hash.replace('#', '');
-            fileName = `../${voc[1]}/data/rdf_data.ttl`;
+            voc = window.location.hash.split('#')[1].replace('#', '');
+            fileName = `../${voc}/data/rdf_data.ttl`;
             isShowIRI = true;
         } else if (window.location.hash.split('#').length === 2) {
             $('#root').html(`<ul id="ulClasses">
@@ -155,7 +155,7 @@ function callVocabulary(voc) {
     {
         await loadData(fileName);
         if(isShowIRI){
-            getVocDetails(window.location.hash.replace('#', ''));
+            getVocDetails(window.location.href.replace('#', ''));
         }
     }
     else {
