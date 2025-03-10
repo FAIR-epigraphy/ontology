@@ -1,13 +1,16 @@
+/////////////////////////////////////////////////////////////
+////////////////// RDF
+const { DataFactory } = N3;
+const { namedNode, literal, defaultGraph, quad } = DataFactory;
+var store = new N3.Store();
+var allPrefixes = {};
+var fileName = "";
+var voidFileName = "";
+var isDataLoaded = false;
+var hasTree = false;
 
-///////////////////////////////////////////////////////////////////////////////////
-
-//console.log($('#divBig').css('display'))
-
-async function call() {
-    await updateList();
-}
-call();
-
+/////////////////////////////////////////////////////////////////
+// Initialize the treeview
 $.fn.extend({
     treed: function (o) {
 
@@ -25,12 +28,16 @@ $.fn.extend({
 
         //initialize each of the top levels
         var tree = $(this);
+        tree.children().off();
+
+        //tree.html('')
         tree.addClass("tree");
         tree.find('li').has("ul").each(function () {
             var branch = $(this); //li with children ul
             branch.prepend(`<i class='indicator ${closedClass}'></i>`);
             branch.addClass('branch');
             branch.on('click', function (e) {
+                e.preventDefault();
                 if (this == e.target) {
                     var icon = $(this).children('i:first');
                     icon.toggleClass(openedClass + " " + closedClass);
@@ -69,8 +76,140 @@ $.fn.extend({
                 e.preventDefault();
             });
         });
+
+        hasTree = true;
     }
 });
+//////////////////////////////////////////////////////////////////////////////
+
+function callVocabulary(voc) {
+    $('div#divLanding').hide();
+    $('div#divVocContent').show();
+    $('#root').html(`<ul id="ulClasses">
+                                    <div class="text-center" style="text-align: center;
+                            top: 45%;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            position: absolute;">
+                                        <div class="spinner-border text-primary" style="width: 5rem; height: 5rem;"
+                                            role="status">
+                                            <span class="visually-hidden">Loading...</span>
+                                        </div>
+                                    </div>
+                                </ul>`);
+    $('#spVocHeading').text(`${voc.replaceAll('/', '').replaceAll('_', ' ')} Vocabulary`);
+    $('#spVocDownload').html(`<span onclick="download('${voc}')" title="Download Vocabulary"
+                            class="float-end fs-4 bi bi-download fw-bold" style="cursor: pointer;"></span>`);
+
+    fileName = `../${voc}/data/rdf_data.ttl`;
+    voidFileName = `../${voc}/data/VoID.ttl`;
+
+
+    // Change the URL without reloading the page
+    history.pushState(null, null, `/#${voc}`);
+
+    ////// Load RDF data
+    if (fileName !== "")
+        loadData(fileName);
+    else {
+        isDataLoaded = true;
+    }
+}
+
+(async () => {
+    if (window.location.hash !== '') {
+        let voc = '';
+        let isShowIRI = false;
+        if (window.location.hash.split('#').length === 3) {
+            voc = window.location.hash.replace('#', '');
+            fileName = `../${voc[1]}/data/rdf_data.ttl`;
+            isShowIRI = true;
+        } else if (window.location.hash.split('#').length === 2) {
+            $('#root').html(`<ul id="ulClasses">
+                <div class="text-center" style="text-align: center;
+        top: 45%;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        position: absolute;">
+                    <div class="spinner-border text-primary" style="width: 5rem; height: 5rem;"
+                        role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </ul>`);
+            $('#spVocHeading').text(`${voc.replaceAll('/', '').replaceAll('_', ' ')} Vocabulary`);
+            $('#spVocDownload').html(`<span onclick="download('${voc}')" title="Download Vocabulary"
+                                    class="float-end fs-4 bi bi-download fw-bold" style="cursor: pointer;"></span>`);
+    
+            voc = window.location.hash.replace('#', '');
+            fileName = `../${voc}/data/rdf_data.ttl`;
+            voidFileName = `../${voc}/data/VoID.ttl`;
+            $('div#divLanding').hide();
+            $('div#divVocContent').show();
+        }
+    }
+    ////// Load RDF data
+    if (fileName !== "")
+    {
+        await loadData(fileName);
+        if(isShowIRI){
+            getVocDetails(window.location.hash.replace('#', ''));
+        }
+    }
+    else {
+        isDataLoaded = true;
+    }
+})();
+
+
+/////////////////////////////////////////////////
+async function runQuery(query) {
+    let myEngine = new Comunica.QueryEngine();
+    let result = await myEngine.query(query, {
+        sources: [store],
+    });
+    let bindingsStream = await result.execute();
+    const bindings = await bindingsStream.toArray();
+    return bindings;
+}
+
+/////////////////////////////////////////////////////////////////////////////////
+async function loadData(file) {
+    $.ajaxSetup({ cache: false });
+    store = new N3.Store();
+    //$('#tree').treed();
+    let rdfData = await fetch(file);
+    let data = await rdfData.text();
+    if (data !== '') {
+        const parser_for_graphs = new N3.Parser();
+        let records = [];
+
+        parser_for_graphs.parse(data,
+            async (error, quad, prefixes) => {
+                if (quad) {
+                    store.addQuad(
+                        quad.subject.id,
+                        quad.predicate.id,
+                        quad.object.id
+                        //namedNode(graph)
+                    )
+                }
+                //    console.log(quad);
+                else {
+                    allPrefixes = prefixes;
+                    isDataLoaded = true;
+                    await call();
+                }
+            });
+    }
+}
+
+async function call() {
+    await updateList();
+}
+
 
 async function getVocDetails(iri) {
     let appendPrefixes = '';
@@ -208,12 +347,12 @@ async function updateList() {
                         OPTIONAL { 
                                 ?subject skos:prefLabel ?label .
                                 FILTER (str(?label) != '')
-                                }
+                                }.
                         OPTIONAL { 
                                 ?subject skos:definition ?description .
                                 FILTER (str(?description) != '')
-                                }
-                    
+                                }.
+
                     } ORDER BY ?label
     `;
 
@@ -241,12 +380,15 @@ async function getAllAlternateLables(iri) {
 }
 
 async function displayMainClasses(classes, allClasses) {
-    let divClasses = '';
+
+    let divClasses = '<ul id="ulClasses">';
     for (let c of classes) {
         let altLabels = await getAllAlternateLables(c.get('class').value);
         divClasses += await manageParentChildRel(c.get('class').value, c.get('label').value, c.get('description').value, allClasses, altLabels);
     }
-    $('#ulClasses').html(divClasses);
+    divClasses += '</ul>';
+
+    $('#root').html(divClasses);
 
     $('li').mouseover(function (e) {
         e.stopPropagation();
@@ -285,6 +427,18 @@ async function manageParentChildRel(c, label, des, allClasses, altLabels) {
     list += '</li>'
     return list;
 }
+
+///////////////////////////////////////////////////////////////
+// Menu
+// const menuToggle = document.querySelector('.menu-toggle');
+// const menuList = document.querySelector('.menu-list');
+
+// document.addEventListener('DOMContentLoaded', function () {
+//     menuToggle.addEventListener('click', function () {
+//         menuToggle.classList.toggle('active');
+//         menuList.classList.toggle('active');
+//     });
+// });
 
 async function download() {
     $.ajaxSetup({ cache: false });

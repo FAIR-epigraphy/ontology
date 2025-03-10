@@ -31,10 +31,7 @@
                         aria-expanded="false">
                         <i class="bi bi-diagram-3"></i> Vocabularies
                     </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/type_of_inscription/#vocabularies">Type of Inscription</a>
-                        </li>
-                        <li><a class="dropdown-item" href="/bilingualism/index.html">Bilingualism</a></li>
+                    <ul class="dropdown-menu" id="menuVocList">
                     </ul>
                 </li>
                 <li>
@@ -42,10 +39,7 @@
                         aria-expanded="false">
                         <i class="bi bi-download fw-bold"></i> Download
                     </a>
-                    <ul class="dropdown-menu">
-                        <li><span class="dropdown-item" onclick="download('type_of_inscription')">Type of
-                                Inscription</span></li>
-                        <li><span class="dropdown-item" onclick="download('bilingualism')">Bilingualism</span></li>
+                    <ul class="dropdown-menu" id="menuDownload">
                     </ul>
                 </li>
             </ul>
@@ -57,7 +51,7 @@
         </nav>
     </header>
 
-    <div class="container mt-5" id="divContent">
+    <div class="container mt-5" id="divLanding">
         <div class="container mt-3">
             <div class="row">
                 <div class="col-md-12">
@@ -485,54 +479,145 @@
 
 
     </div>
+    <div class="container-fluid" id="divVocContent" style="display: none;">
+        <div class="row mt-3">
+            <div class="col-md-5">
+                <div class="card overflow-auto" style="height: 85vh;">
+                    <h5 class="card-header">
+                        <span id="spVocHeading" class="text-capitalize"> Vocabulary</span>
+                        <span id="spVocDownload"></span>
+                        
+                    </h5>
+                    <div class="card-body">
+                        <div class="input-group mb-3">
+                            <input id="myInput" class="form-control" type="search" placeholder="Search.." />
+                            <span class="input-group-text" id="inputGroup-sizing-default">
+                                <i class="bi bi-search"></i>
+                            </span>
+                        </div>
+                        <ul id="tree">
+                            <li id="root">
+                                <!-- <button>-</button> -->
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7 d-none d-sm-block d-sm-none d-md-block" id="divBig">
+                <div class="card overflow-auto" style="height: 85vh;">
+                    <h5 class="card-header">Details</h5>
+                    <div class="card-body voc-details">
+                        <p class="text-center" style="color: rgb(200 200 200);
+                font-size: 30px;
+                text-align: center;
+                top: 45%;
+                height: 1em;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                position: absolute;">Please select any type to view detail</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-block d-sm-block d-md-none" id="divSmall">
+                <button id="btnVocDetails" class="btn btn-primary d-none" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+                    Toggle static offcanvas
+                </button>
+
+                <div class="offcanvas offcanvas-end w-100" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop"
+                    aria-labelledby="staticBackdropLabel">
+                    <div class="offcanvas-header border-bottom">
+                        <h5 class="offcanvas-title" id="staticBackdropLabel">Details
+                        </h5>
+                        <button id="btnVocDetailsClose" type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <div class="voc-details" style="overflow-wrap: break-word;">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="display: none;" id="divVocDetails">
+            <div class="col-md-12 mt-3">
+                <div class="card overflow-auto" style="height: 85vh;">
+                    <h5 class="card-header" id="divVocName">Details</h5>
+                    <div class="card-body voc-details">
+                        <div class="text-center" style="text-align: center;
+                                    top: 45%;
+                                    bottom: 0;
+                                    left: 0;
+                                    right: 0;
+                                    position: absolute;">
+                            <div class="spinner-border text-primary" style="width: 5rem; height: 5rem;" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 
+    <!-- RDF Library -->
+    <script src="../js/n3.min.js"></script>
+    <script src="../js/comunica-browser.js"></script>
+    <script src="../js/script_vocabularies.js"></script>
+
     <script>
+        (async function () {
+            let menuListResp = await fetch('menu.txt');
+            let menuListText = await menuListResp.text();
+            let menuList = menuListText.split('\n');
+            if (menuList.length === 0) menuList = menuListText.split('\r\n');
+            let li = '';
+            let liDownload = '';
+            for (let menu of menuList) {
+                li += `<li><span class="dropdown-item text-capitalize" onclick="callVocabulary('${menu}')">${menu.replaceAll('/', '').replaceAll('_', ' ')}</span></li>`;
+                liDownload += `<li><span class="dropdown-item text-capitalize" onclick="download('${menu}')">${menu.replaceAll('/', '').replaceAll('_', ' ')}</span></li>`;
+            }
+            $('#menuDownload').html(liDownload);
+            $('#menuVocList').html(li);
+        })();
+
         async function download(opt) {
-            if (opt === 'type_of_inscription') {
-                $.ajaxSetup({ cache: false });
+            $.ajaxSetup({ cache: false });
+            const zip = new JSZip();
 
-                const zip = new JSZip();
+            try {
+                // Wait for both files to load asynchronously
+                const file1Content = await (await fetch(`${opt.replaceAll('/', '')}/data/rdf_data.ttl`)).text();
+                const file2Content = await (await fetch(`${opt.replaceAll('/', '')}/data/VoID.ttl`)).text();
 
-                try {
-                    // Wait for both files to load asynchronously
-                    const file1Content = await (await fetch('type_of_inscription/data/rdf_data.ttl')).text();
-                    const file2Content = await (await fetch('type_of_inscription/data/VoID.ttl')).text();
-
-                    // Add files to the ZIP container
-                    zip.file("Type_of_Inscription.ttl", file1Content);
+                // Add files to the ZIP container
+                zip.file(`${opt.replaceAll('/', '')}.ttl`, file1Content);
+                if (file2Content !== '')
                     zip.file("VoID.ttl", file2Content);
 
-                    // Generate the ZIP file as a blob
-                    const content = await zip.generateAsync({ type: "blob" });
+                // Generate the ZIP file as a blob
+                const content = await zip.generateAsync({ type: "blob" });
 
-                    // Trigger the download
-                    const a = document.createElement("a");
-                    a.href = URL.createObjectURL(content);
-                    a.download = "Type_of_Inscription.zip"; // Name of the ZIP file
-                    a.click();
-
-                    // Clean up the URL object
-                    URL.revokeObjectURL(a.href);
-
-                } catch (error) {
-                    console.error(error); // Handle any error that might occur during file loading
-                }
-            } else if (opt === 'bilingualism') {
-                let responseTxt = await (await fetch('bilingualism/data/rdf_data.ttl')).text();
-                const contentType = 'text/plain';
-                const a = document.createElement('a');
-                const file = new Blob([responseTxt], { type: contentType });
-                const fName = `Bilingualism.ttl`;
-
-                a.href = URL.createObjectURL(file);
-                a.download = fName;
+                // Trigger the download
+                const a = document.createElement("a");
+                a.href = URL.createObjectURL(content);
+                a.download = `${opt.replaceAll('/', '')}.zip`; // Name of the ZIP file
                 a.click();
 
+                // Clean up the URL object
                 URL.revokeObjectURL(a.href);
+
+            } catch (error) {
+                console.error(error); // Handle any error that might occur during file loading
             }
         }
     </script>

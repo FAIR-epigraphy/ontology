@@ -21,6 +21,10 @@ skos:definition rdf:type owl:AnnotationProperty .
 skos:example rdf:type owl:AnnotationProperty .
 
 
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+skos:prefLabel rdf:type owl:AnnotationProperty .
+
+
 #################################################################
 #    Classes
 #################################################################
@@ -28,188 +32,188 @@ skos:example rdf:type owl:AnnotationProperty .
 ###  https://ontology.inscriptiones.org/bilingualism#bilingualism.bilingual-phenomena
 <https://ontology.inscriptiones.org/bilingualism#bilingualism.bilingual-phenomena> rdf:type owl:Class ;
                                                                                    rdfs:subClassOf owl:Thing ;
-                                                                                   rdfs:label "Bilingual Phenomena" ;
-                                                                                   skos:definition "Composed in one language but showing bilingual phenomena from another" .
+                                                                                   skos:definition "Composed in one language but showing bilingual phenomena from another" ;
+                                                                                   skos:prefLabel "Bilingual Phenomena" .
 
 
 ###  https://ontology.inscriptiones.org/bilingualism#bilingualism.bilingual-phenomena.borrowing
 <https://ontology.inscriptiones.org/bilingualism#bilingualism.bilingual-phenomena.borrowing> rdf:type owl:Class ;
                                                                                              rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#bilingualism.bilingual-phenomena> ;
-                                                                                             rdfs:label "Borrowing" ;
                                                                                              skos:definition "Adoption of any linguistic element from one language into another. The items function in the adopting language as native elements, often with some degree of integration" ;
-                                                                                             skos:example "https://gis.latinnow.eu/object/190250" .
+                                                                                             skos:example "https://gis.latinnow.eu/object/190250" ;
+                                                                                             skos:prefLabel "Borrowing" .
 
 
 ###  https://ontology.inscriptiones.org/bilingualism#bilingualism.bilingual-phenomena.code-switching
 <https://ontology.inscriptiones.org/bilingualism#bilingualism.bilingual-phenomena.code-switching> rdf:type owl:Class ;
                                                                                                   rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#bilingualism.bilingual-phenomena> ;
-                                                                                                  rdfs:label "Code Switching" ;
                                                                                                   skos:definition "Full blown switch from one language into another" ;
-                                                                                                  skos:example "https://gis.latinnow.eu/object/233183" .
+                                                                                                  skos:example "https://gis.latinnow.eu/object/233183" ;
+                                                                                                  skos:prefLabel "Code Switching" .
 
 
 ###  https://ontology.inscriptiones.org/bilingualism#bilingualism.bilingual-phenomena.code-switching.inter-sentential
 <https://ontology.inscriptiones.org/bilingualism#bilingualism.bilingual-phenomena.code-switching.inter-sentential> rdf:type owl:Class ;
                                                                                                                    rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#bilingualism.bilingual-phenomena.code-switching> ;
-                                                                                                                   rdfs:label "inter-sentential" ;
                                                                                                                    skos:definition "Between sentence/clause boundaries" ;
-                                                                                                                   skos:example "https://gis.latinnow.eu/object/201464" .
+                                                                                                                   skos:example "https://gis.latinnow.eu/object/201464" ;
+                                                                                                                   skos:prefLabel "inter-sentential" .
 
 
 ###  https://ontology.inscriptiones.org/bilingualism#bilingualism.bilingual-phenomena.code-switching.intra-sentential
 <https://ontology.inscriptiones.org/bilingualism#bilingualism.bilingual-phenomena.code-switching.intra-sentential> rdf:type owl:Class ;
                                                                                                                    rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#bilingualism.bilingual-phenomena.code-switching> ;
-                                                                                                                   rdfs:label "Intra Sentential" ;
                                                                                                                    skos:definition "Within sentence/clause boundaries" ;
-                                                                                                                   skos:example "https://gis.latinnow.eu/object/212300" .
+                                                                                                                   skos:example "https://gis.latinnow.eu/object/212300" ;
+                                                                                                                   skos:prefLabel "Intra Sentential" .
 
 
 ###  https://ontology.inscriptiones.org/bilingualism#bilingualism.bilingual-phenomena.code-switching.intra-sentential.lexical
 <https://ontology.inscriptiones.org/bilingualism#bilingualism.bilingual-phenomena.code-switching.intra-sentential.lexical> rdf:type owl:Class ;
                                                                                                                            rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#bilingualism.bilingual-phenomena.code-switching.intra-sentential> ;
-                                                                                                                           rdfs:label "Lexical" .
+                                                                                                                           skos:prefLabel "Lexical" .
 
 
 ###  https://ontology.inscriptiones.org/bilingualism#bilingualism.bilingual-phenomena.code-switching.intra-sentential.morphological
 <https://ontology.inscriptiones.org/bilingualism#bilingualism.bilingual-phenomena.code-switching.intra-sentential.morphological> rdf:type owl:Class ;
                                                                                                                                  rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#bilingualism.bilingual-phenomena.code-switching.intra-sentential> ;
-                                                                                                                                 rdfs:label "Morphological" ;
-                                                                                                                                 skos:example "e.g. the ‘Greek Latin’ deployed in the res gestae or senatus consulta etc.?" .
+                                                                                                                                 skos:example "e.g. the ‘Greek Latin’ deployed in the res gestae or senatus consulta etc.?" ;
+                                                                                                                                 skos:prefLabel "Morphological" .
 
 
 ###  https://ontology.inscriptiones.org/bilingualism#bilingualism.bilingual-phenomena.code-switching.intra-sentential.phonetic
 <https://ontology.inscriptiones.org/bilingualism#bilingualism.bilingual-phenomena.code-switching.intra-sentential.phonetic> rdf:type owl:Class ;
                                                                                                                             rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#bilingualism.bilingual-phenomena.code-switching.intra-sentential> ;
-                                                                                                                            rdfs:label "Phonetic" ;
-                                                                                                                            skos:example "e.g. Lusitanian word endings in Latin texts" .
+                                                                                                                            skos:example "e.g. Lusitanian word endings in Latin texts" ;
+                                                                                                                            skos:prefLabel "Phonetic" .
 
 
 ###  https://ontology.inscriptiones.org/bilingualism#bilingualism.bilingual-phenomena.code-switching.intra-sentential.syntactic
 <https://ontology.inscriptiones.org/bilingualism#bilingualism.bilingual-phenomena.code-switching.intra-sentential.syntactic> rdf:type owl:Class ;
                                                                                                                              rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#bilingualism.bilingual-phenomena.code-switching.intra-sentential> ;
-                                                                                                                             rdfs:label "Syntactic" .
+                                                                                                                             skos:prefLabel "Syntactic" .
 
 
 ###  https://ontology.inscriptiones.org/bilingualism#bilingualism.bilingual-phenomena.code-switching.tag-switching
 <https://ontology.inscriptiones.org/bilingualism#bilingualism.bilingual-phenomena.code-switching.tag-switching> rdf:type owl:Class ;
                                                                                                                 rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#bilingualism.bilingual-phenomena.code-switching> ;
-                                                                                                                rdfs:label "Tag Switching" ;
                                                                                                                 skos:definition "Switch for e.g. a formula such as VSLM" ;
-                                                                                                                skos:example "https://gis.latinnow.eu/object/233167" .
+                                                                                                                skos:example "https://gis.latinnow.eu/object/233167" ;
+                                                                                                                skos:prefLabel "Tag Switching" .
 
 
 ###  https://ontology.inscriptiones.org/bilingualism#bilingualism.bilingual-phenomena.interference
 <https://ontology.inscriptiones.org/bilingualism#bilingualism.bilingual-phenomena.interference> rdf:type owl:Class ;
                                                                                                 rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#bilingualism.bilingual-phenomena> ;
-                                                                                                rdfs:label "Interference" ;
-                                                                                                skos:definition "Features from another language unintentionally transferred into the main language of the text" .
+                                                                                                skos:definition "Features from another language unintentionally transferred into the main language of the text" ;
+                                                                                                skos:prefLabel "Interference" .
 
 
 ###  https://ontology.inscriptiones.org/bilingualism#bilingualism.bilingual-phenomena.translingualism
 <https://ontology.inscriptiones.org/bilingualism#bilingualism.bilingual-phenomena.translingualism> rdf:type owl:Class ;
                                                                                                    rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#bilingualism.bilingual-phenomena> ;
-                                                                                                   rdfs:label "Translingualism" ;
-                                                                                                   skos:definition "When forms chosen seem to be expressing more than one language at the same time, e.g. nata. This is a tricky one because sometimes it is simply the case that we cannot work out which language to assign something to, but in some cases it seems there is a desire to use translingualism (e.g. some of the Gaulish-Latin spindle whorls)" .
+                                                                                                   skos:definition "When forms chosen seem to be expressing more than one language at the same time, e.g. nata. This is a tricky one because sometimes it is simply the case that we cannot work out which language to assign something to, but in some cases it seems there is a desire to use translingualism (e.g. some of the Gaulish-Latin spindle whorls)" ;
+                                                                                                   skos:prefLabel "Translingualism" .
 
 
 ###  https://ontology.inscriptiones.org/bilingualism#bilingualism.biscriptal
 <https://ontology.inscriptiones.org/bilingualism#bilingualism.biscriptal> rdf:type owl:Class ;
                                                                           rdfs:subClassOf owl:Thing ;
-                                                                          rdfs:label "biscriptal" ;
                                                                           skos:definition "Same language but using two script systems" ;
-                                                                          skos:example "https://gis.latinnow.eu/object/193069" .
+                                                                          skos:example "https://gis.latinnow.eu/object/193069" ;
+                                                                          skos:prefLabel "biscriptal" .
 
 
 ###  https://ontology.inscriptiones.org/bilingualism#bilingualism.biscriptal-phenomena
 <https://ontology.inscriptiones.org/bilingualism#bilingualism.biscriptal-phenomena> rdf:type owl:Class ;
                                                                                     rdfs:subClassOf owl:Thing ;
-                                                                                    rdfs:label "Biscriptal Phenomena" ;
                                                                                     skos:definition "e.g. Velleron stele is Gaulish in Greek script but with valete which is Latin written in Greek script, so that text could be tagged with Text with bilingual phenomena: Code-switching: intra-sentential: lexical AND Text with graphic phenomena: Transliteration" ;
-                                                                                    skos:example "https://gis.latinnow.eu/object/233183" .
+                                                                                    skos:example "https://gis.latinnow.eu/object/233183" ;
+                                                                                    skos:prefLabel "Biscriptal Phenomena" .
 
 
 ###  https://ontology.inscriptiones.org/bilingualism#bilingualism.biscriptal-phenomena.graphic-borrowing
 <https://ontology.inscriptiones.org/bilingualism#bilingualism.biscriptal-phenomena.graphic-borrowing> rdf:type owl:Class ;
                                                                                                       rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#bilingualism.biscriptal-phenomena> ;
-                                                                                                      rdfs:label "Graphic Borrowing" ;
-                                                                                                      skos:definition "when a script form is used from another set used to write a different language, for example to represent a sound in a name, e.g. tau gallicum forms in Gaulish names in Latin texts." .
+                                                                                                      skos:definition "when a script form is used from another set used to write a different language, for example to represent a sound in a name, e.g. tau gallicum forms in Gaulish names in Latin texts." ;
+                                                                                                      skos:prefLabel "Graphic Borrowing" .
 
 
 ###  https://ontology.inscriptiones.org/bilingualism#bilingualism.biscriptal-phenomena.graphic-interference
 <https://ontology.inscriptiones.org/bilingualism#bilingualism.biscriptal-phenomena.graphic-interference> rdf:type owl:Class ;
                                                                                                          rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#bilingualism.biscriptal-phenomena> ;
-                                                                                                         rdfs:label "Graphic Interference" ;
-                                                                                                         skos:definition "(‘accidental’) letter forms/orthographic rules from the script with which the author is more familiar intrude into the script of the text." .
+                                                                                                         skos:definition "(‘accidental’) letter forms/orthographic rules from the script with which the author is more familiar intrude into the script of the text." ;
+                                                                                                         skos:prefLabel "Graphic Interference" .
 
 
 ###  https://ontology.inscriptiones.org/bilingualism#bilingualism.biscriptal-phenomena.transliteration
 <https://ontology.inscriptiones.org/bilingualism#bilingualism.biscriptal-phenomena.transliteration> rdf:type owl:Class ;
                                                                                                     rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#bilingualism.biscriptal-phenomena> ;
-                                                                                                    rdfs:label "Transliteration" ;
-                                                                                                    skos:definition "either by choice or because author doesn’t know the other script of another language being used e.g. for code-switching in the primary" .
+                                                                                                    skos:definition "either by choice or because author doesn’t know the other script of another language being used e.g. for code-switching in the primary" ;
+                                                                                                    skos:prefLabel "Transliteration" .
 
 
 ###  https://ontology.inscriptiones.org/bilingualism#bilingualism.biversion
 <https://ontology.inscriptiones.org/bilingualism#bilingualism.biversion> rdf:type owl:Class ;
                                                                          rdfs:subClassOf owl:Thing ;
-                                                                         rdfs:label "Biversion" ;
-                                                                         skos:definition "Two separate parts in different languages and a content which is usually at least in part common to both" .
+                                                                         skos:definition "Two separate parts in different languages and a content which is usually at least in part common to both" ;
+                                                                         skos:prefLabel "Biversion" .
 
 
 ###  https://ontology.inscriptiones.org/bilingualism#bilingualism.biversion.complementary
 <https://ontology.inscriptiones.org/bilingualism#bilingualism.biversion.complementary> rdf:type owl:Class ;
                                                                                        rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#bilingualism.biversion> ;
-                                                                                       rdfs:label "Complementary" ;
                                                                                        skos:definition "Versions say different things, but part of the same text " ;
-                                                                                       skos:example "https://gis.latinnow.eu/object/189168" .
+                                                                                       skos:example "https://gis.latinnow.eu/object/189168" ;
+                                                                                       skos:prefLabel "Complementary" .
 
 
 ###  https://ontology.inscriptiones.org/bilingualism#bilingualism.biversion.duplicating
 <https://ontology.inscriptiones.org/bilingualism#bilingualism.biversion.duplicating> rdf:type owl:Class ;
                                                                                      rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#bilingualism.biversion> ;
-                                                                                     rdfs:label "Duplicating" ;
                                                                                      skos:definition "Same content in each version" ;
-                                                                                     skos:example "https://gis.latinnow.eu/object/171846" .
+                                                                                     skos:example "https://gis.latinnow.eu/object/171846" ;
+                                                                                     skos:prefLabel "Duplicating" .
 
 
 ###  https://ontology.inscriptiones.org/bilingualism#bilingualism.biversion.overlapping
 <https://ontology.inscriptiones.org/bilingualism#bilingualism.biversion.overlapping> rdf:type owl:Class ;
                                                                                      rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#bilingualism.biversion> ;
-                                                                                     rdfs:label "Overlapping" ;
                                                                                      skos:definition "Versions say different things, but part of it is the same in both" ;
-                                                                                     skos:example "https://gis.latinnow.eu/object/190250" .
+                                                                                     skos:example "https://gis.latinnow.eu/object/190250" ;
+                                                                                     skos:prefLabel "Overlapping" .
 
 
 ###  https://ontology.inscriptiones.org/bilingualism#bilingualism.biversion.partial
 <https://ontology.inscriptiones.org/bilingualism#bilingualism.biversion.partial> rdf:type owl:Class ;
                                                                                  rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#bilingualism.biversion> ;
-                                                                                 rdfs:label "Partial" ;
                                                                                  skos:definition "Versions say partly the same thing, but one says more" ;
-                                                                                 skos:example "https://gis.latinnow.eu/object/207067" .
+                                                                                 skos:example "https://gis.latinnow.eu/object/207067" ;
+                                                                                 skos:prefLabel "Partial" .
 
 
 ###  https://ontology.inscriptiones.org/bilingualism#bilingualism.mixed-language
 <https://ontology.inscriptiones.org/bilingualism#bilingualism.mixed-language> rdf:type owl:Class ;
                                                                               rdfs:subClassOf owl:Thing ;
-                                                                              rdfs:label "Mixed Language" ;
                                                                               skos:definition "In genetically mixed languages or codes that are so mixed that it is impossible to identify the dominant language." ;
-                                                                              skos:example "https://gis.latinnow.eu/object/218752" .
+                                                                              skos:example "https://gis.latinnow.eu/object/218752" ;
+                                                                              skos:prefLabel "Mixed Language" .
 
 
 ###  https://ontology.inscriptiones.org/bilingualism#bilingualism.translingual
 <https://ontology.inscriptiones.org/bilingualism#bilingualism.translingual> rdf:type owl:Class ;
                                                                             rdfs:subClassOf owl:Thing ;
-                                                                            rdfs:label "Translingual" ;
                                                                             skos:definition "Different from Text with bilingual phenomena: translingualism, as the whole text would be translingual." ;
-                                                                            skos:example "https://gis.latinnow.eu/object/233074" .
+                                                                            skos:example "https://gis.latinnow.eu/object/233074" ;
+                                                                            skos:prefLabel "Translingual" .
 
 
 ###  https://ontology.inscriptiones.org/bilingualism#bilingualism.transliterated
 <https://ontology.inscriptiones.org/bilingualism#bilingualism.transliterated> rdf:type owl:Class ;
                                                                               rdfs:subClassOf owl:Thing ;
-                                                                              rdfs:label "Transliterated" ;
                                                                               skos:definition "Whole text is in a script which is not the primary one used for that language." ;
-                                                                              skos:example "https://gis.latinnow.eu/object/145440" .
+                                                                              skos:example "https://gis.latinnow.eu/object/145440" ;
+                                                                              skos:prefLabel "Transliterated" .
 
 
 ###  Generated by the OWL API (version 4.5.13) https://github.com/owlcs/owlapi
