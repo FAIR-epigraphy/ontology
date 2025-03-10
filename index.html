@@ -563,8 +563,10 @@
             let li = '';
             let liDownload = '';
             for (let menu of menuList) {
-                li += `<li><span class="dropdown-item text-capitalize" onclick="callVocabulary('${menu}')">${menu.replaceAll('/', '').replaceAll('_', ' ')}</span></li>`;
-                liDownload += `<li><span class="dropdown-item text-capitalize" onclick="download('${menu}')">${menu.replaceAll('/', '').replaceAll('_', ' ')}</span></li>`;
+                if(menu !== ''){
+                    li += `<li><span class="dropdown-item text-capitalize" onclick="callVocabulary('${menu}')">${menu.replaceAll('/', '').replaceAll('_', ' ')}</span></li>`;
+                    liDownload += `<li><span class="dropdown-item text-capitalize" onclick="download('${menu}')">${menu.replaceAll('/', '').replaceAll('_', ' ')}</span></li>`;
+                }
             }
             $('#menuDownload').html(liDownload);
             $('#menuVocList').html(li);

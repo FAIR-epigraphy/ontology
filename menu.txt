@@ -1,2 +1,2 @@
-type_of_inscription/
-bilingualism/
+type_of_inscription
+bilingualism
