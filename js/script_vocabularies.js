@@ -85,6 +85,9 @@ $.fn.extend({
 function callVocabulary(voc) {
     $('div#divLanding').hide();
     $('div#divVocContent').show();
+    $('div#divBig').prev().show();
+    $('div#divBig').removeClass('col-md-12');
+    $('div#divBig').addClass('col-md-7');
     $('#root').html(`<ul id="ulClasses">
                                     <div class="text-center" style="text-align: center;
                             top: 45%;
