@@ -118,9 +118,9 @@ function callVocabulary(voc) {
 }
 
 (async () => {
+    let isShowIRI = false;
     if (window.location.hash !== '') {
         let voc = '';
-        let isShowIRI = false;
         if (window.location.hash.split('#').length === 3) {
             voc = window.location.hash.replace('#', '');
             fileName = `../${voc[1]}/data/rdf_data.ttl`;
