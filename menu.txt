@@ -1,2 +1,0 @@
-type_of_inscription
-bilingualism

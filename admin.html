@@ -1,0 +1,392 @@
+<!-- Button trigger modal -->
+<button type="button" id="btnAdminModal" class="btn btn-primary d-none" data-bs-toggle="modal"
+    data-bs-target="#exampleModal">
+    Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Admin Section</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    onclick="refreshPage()"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Login -->
+                <div class="container">
+                    <div class="row" id="adminLogin">
+                        <div class="col-md-12">
+                            <h2>Admin Login</h2>
+                            <div id="loginError" class="text-danger mt-2 mb-2"></div>
+
+                            <form id="loginForm">
+                                <div class="mb-3">
+                                    <label for="username" class="form-label">Username</label>
+                                    <input type="text" class="form-control" id="username" name="username" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="password" name="password" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Login</button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Admin Dashboard -->
+                    <div class="row d-none" id="adminPanel">
+                        <div class="col-md-12">
+                            <form class="row" id="addNewVocForm">
+                                <div class="col-md-4">
+                                    <label for="txtNewVoc" class="form-label">Enter Voc Name</label>
+                                    <input type="text" class="form-control" id="txtNewVoc" pattern="^[A-Za-z_]+$"
+                                        title="Folder name can only contain letters and underscores. No numbers, spaces, or special characters allowed."
+                                        placeholder="Enter new vocabulary name" required />
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label for="fileRDF" class="form-label">Select RDF Turtle (.ttl) file</label>
+                                    <input type="file" class="form-control" id="fileRDFTTL" accept=".ttl"
+                                        placeholder="Select RDF file" required />
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label for="fileRDF" class="form-label">Select VoID RDF file</label>
+                                    <input type="file" class="form-control" id="fileVoIDRDF" accept=".ttl"
+                                        placeholder="Select VoID RDF file" required>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <button type="submit" class="btn btn-primary mt-2 mb-2" id="btnAddNewVoc">Add New
+                                        Vocabualry</button>
+                                </div>
+                            </form>
+                        </div>
+                        <hr />
+                        <div class="col-md-12 mt-3">
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Vocabulary Name</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="vocTable">
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Hidden File Inputs -->
+                        <input type="file" id="fileInputRdf" accept=".ttl" style="display: none;" />
+                        <input type="file" id="fileInputVoid" accept=".ttl" style="display: none;" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="js/firebase.js"></script>
+    <script src="js/ghConfig.js"></script>
+
+    <script>
+
+        document.addEventListener('keydown', function (event) {
+            const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+
+            const isCorrectKeyCombo =
+                event.shiftKey &&
+                (isMac ? event.metaKey : event.ctrlKey) &&
+                event.key.toLowerCase() === 'x';
+
+            if (isCorrectKeyCombo) {
+                //alert('Shortcut triggered!');
+                $('#btnAdminModal').click();
+            }
+        });
+
+        async function getTopLevelFolders() {
+            try {
+                const response = await fetch(apiURL);
+                const data = await response.json();
+
+                // Filter to only include folders (directories)
+                const folders = data.filter(item => item.type === 'dir' && item.name !== 'js' && item.name !== 'css' && item.name !== 'images' && item.name !== 'fonts' && item.name !== 'admin');
+                console.log('Folders:', folders.map(folder => folder.name));
+
+                // Populate the table with folder names
+                const vocTable = document.getElementById('vocTable');
+                vocTable.innerHTML = ''; // Clear existing rows
+                folders.forEach(folder => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${folder.name}</td>
+                        <td>
+                            <i class="bi bi-trash3-fill text-danger" style="cursor: pointer;" onclick="deleteVoc('${folder.name}')"></i> |
+
+                            <!-- Icon as Dropdown Trigger -->
+                            <div class="dropdown d-inline">
+                                <i class="bi bi-pencil-square text-primary" 
+                                    style="cursor: pointer;" 
+                                    data-bs-toggle="dropdown" 
+                                    aria-expanded="false"></i>
+                                    
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <button type="button" class="dropdown-item edit-rdf-btn" id="editRdfBtn" data-folder="${folder.name}">Edit RDF Turtle (.ttl) file</button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="dropdown-item edit-void-btn" id="editVoidBtn" data-folder="${folder.name}">Edit VoID (.ttl) file</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </td>
+                    `;
+                    vocTable.appendChild(row);
+                });
+
+                return folders;
+
+            } catch (error) {
+                console.error('Error fetching repo contents:', error);
+            }
+        }
+
+        async function deleteVoc(folderName) {
+            let confirmDelete = confirm(`Are you sure you want to delete the vocabulary "${folderName}"?`);
+            if (confirmDelete) {
+                try {
+                    debugger;
+                    const files = await getFilesInFolder(folderName);
+                    if (files.length === 0) {
+                        alert('Folder is already empty or does not exist.');
+                        return;
+                    }
+
+                    for (const file of files) {
+                        await deleteFile(file.path, file.sha);
+                    }
+
+                    alert(`✅ Folder '${folderName}' deleted (all files removed).`);
+                    getTopLevelFolders(); // Refresh the folder list
+
+                } catch (error) {
+                    console.error('Error deleting vocabulary:', error);
+                }
+            }
+        }
+
+        // 1. Get all files in the folder
+        async function getFilesInFolder(path) {
+            const url = `${apiURL}${path}/data`;
+            const response = await fetch(url, { headers });
+            const data = await response.json();
+
+            // Only return files (type === 'file')
+            return data.filter(item => item.type === 'file');
+        }
+
+        // 2. Delete a file
+        async function deleteFile(filePath, sha) {
+            const url = `${apiURL}${filePath}`;
+
+            const body = {
+                message: `Delete ${filePath}`,
+                sha: sha,
+                branch: 'main' // or your branch name
+            };
+
+            const response = await fetch(url, {
+                method: 'DELETE',
+                headers: {
+                    ...headers,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(body)
+            });
+
+            if (response.ok) {
+                console.log(`✅ Deleted: ${filePath}`);
+            } else {
+                const err = await response.json();
+                console.error(`❌ Failed to delete ${filePath}:`, err.message);
+            }
+        }
+
+        // Base64 encoding for file content
+        function toBase64(str) {
+            return btoa(unescape(encodeURIComponent(str)));
+        }
+
+        // Read file content as text (Promise wrapper)
+        function readFileAsText(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = event => resolve(event.target.result);
+                reader.onerror = reject;
+                reader.readAsText(file);
+            });
+        }
+
+        // Upload a single file
+        async function uploadFileToGitHub(filePath, content, sha = '') {
+            const url = `${apiURL}${filePath}`;
+            var body = '';
+            if (sha !== '') {
+                body = {
+                    message: `Add ${filePath}`,
+                    content: toBase64(content),
+                    sha: sha,
+                    branch: 'main'
+                };
+            }
+            else {
+                body = {
+                    message: `Add ${filePath}`,
+                    content: toBase64(content),
+                    branch: 'main'
+                };
+            }
+
+            const response = await fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `Bearer ${accessToken}`,
+                    'Accept': 'application/vnd.github.v3+json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(body)
+            });
+
+            if (response.ok) {
+                console.log(`✅ Uploaded: ${filePath}`);
+            } else {
+                const error = await response.json();
+                console.error(`❌ Failed to upload ${filePath}:`, error.message);
+            }
+        }
+
+        async function getFileSHA(filePath) {
+            const url = `${apiURL}${filePath}`;
+            const response = await fetch(url, { headers });
+            const data = await response.json();
+            return data.sha;
+        }
+
+        document.getElementById('addNewVocForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            try {
+                let inputRDFTTL = document.getElementById('fileRDFTTL');
+                inputRDFTTL = inputRDFTTL.files[0];
+
+                let inputVoIDRDF = document.getElementById('fileVoIDRDF');
+                inputVoIDRDF = inputVoIDRDF.files[0];
+
+                let vocName = document.getElementById('txtNewVoc').value;
+                vocName = vocName.trim();
+
+                if (inputRDFTTL.name.endsWith('.ttl') && inputVoIDRDF.name.endsWith('.ttl')) {
+                    // loading spinner on the button addNewVoc 
+                    const btnAddNewVoc = document.getElementById('btnAddNewVoc');
+                    btnAddNewVoc.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...';
+                    btnAddNewVoc.setAttribute('disabled', 'true');
+
+
+                    const content = await readFileAsText(inputRDFTTL);
+                    const contentVoid = await readFileAsText(inputVoIDRDF);
+
+
+                    await uploadFileToGitHub(`${vocName}/data/rdf_data.ttl`, content);  // Upload RDF Turtle file
+                    await uploadFileToGitHub(`${vocName}/data/VoID.ttl`, contentVoid);  // Upload VoID RDF file
+
+                    alert(`✅ Vocabulary '${vocName}' added successfully!`);
+
+                    document.getElementById('txtNewVoc').value = '';
+                    document.getElementById('fileRDFTTL').value = '';
+                    document.getElementById('fileVoIDRDF').value = '';
+                    getTopLevelFolders(); // Refresh the folder list
+
+                } else {
+                    alert('Please select valid RDF Turtle (.ttl) files.');
+                }
+            } catch (error) {
+                console.log(error.message);
+            }
+            finally {
+                // Hide the loading spinner
+                const btnAddNewVoc = document.getElementById('btnAddNewVoc');
+                btnAddNewVoc.innerHTML = 'Add New Vocabulary';
+                btnAddNewVoc.removeAttribute('disabled');
+            }
+        });
+
+        document.addEventListener('click', function (e) {
+            // Edit RDF
+            if (e.target.classList.contains('edit-rdf-btn')) {
+                const folder = e.target.getAttribute('data-folder');
+                triggerFileInput(folder, 'rdf');
+            }
+
+            // Edit VoID
+            if (e.target.classList.contains('edit-void-btn')) {
+                const folder = e.target.getAttribute('data-folder');
+                triggerFileInput(folder, 'void');
+            }
+        });
+        function triggerFileInput(vocName, type) {
+            const input = type === 'rdf' ? document.getElementById('fileInputRdf') : document.getElementById('fileInputVoid');
+            // Set custom data if needed
+            input.setAttribute('data-vocName', vocName);
+            input.setAttribute('data-type', type);
+
+            input.click();
+        }
+
+        // Optional: handle file selection
+        document.getElementById('fileInputRdf').addEventListener('change', async function (e) {
+            const file = e.target.files[0];
+            if (file) {
+                console.log('Selected RDF file:', file.name);
+                // You can add your RDF handler here
+                const vocabularyName = e.target.getAttribute('data-vocName');
+                const content = await readFileAsText(file);
+                let sha = await getFileSHA(`${vocabularyName}/data/rdf_data.ttl`);
+                if (sha) {
+                    await uploadFileToGitHub(`${vocabularyName}/data/rdf_data.ttl`, content, sha);  // Upload VoID RDF file
+                    alert(`✅ RDF file '${file.name}' uploaded successfully!`);
+
+                } else {
+                    alert('Error: SHA not found for the file.');
+                    return;
+                }
+            }
+        });
+
+        document.getElementById('fileInputVoid').addEventListener('change', async function (e) {
+            const file = e.target.files[0];
+            debugger
+            if (file) {
+                console.log('Selected VoID file:', file.name);
+                const vocabularyName = e.target.getAttribute('data-vocName');
+                const content = await readFileAsText(file);
+                let sha = await getFileSHA(`${vocabularyName}/data/VoID.ttl`);
+                if (sha) {
+                    await uploadFileToGitHub(`${vocabularyName}/data/VoID.ttl`, content, sha);  // Upload VoID RDF file
+                    alert(`✅ RDF file '${file.name}' uploaded successfully!`);
+
+                } else {
+                    alert('Error: SHA not found for the file.');
+                    return;
+                }
+            }
+        });
+
+        refreshPage = () => {
+            location.reload();
+        }
+    </script>

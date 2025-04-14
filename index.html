@@ -9,6 +9,11 @@
     </title>
     <link href="../css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <link href="../css/bootstrap-icons.min.css" rel="stylesheet" crossorigin="anonymous">
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+
     <link rel="stylesheet" href="../css/style_toi.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
@@ -486,7 +491,7 @@
                     <h5 class="card-header">
                         <span id="spVocHeading" class="text-capitalize"> Vocabulary</span>
                         <span id="spVocDownload"></span>
-                        
+
                     </h5>
                     <div class="card-body">
                         <div class="input-group mb-3">
@@ -554,35 +559,44 @@
     <script src="../js/comunica-browser.js"></script>
     <script src="../js/script_vocabularies.js"></script>
 
+    <div id="divAdmin"></div>
+
     <script>
-        (async function () {
-            let menuListResp = await fetch('menu.txt');
-            let menuListText = await menuListResp.text();
-            let menuList = menuListText.split('\n');
-            if (menuList.length === 0) menuList = menuListText.split('\r\n');
-            let li = '';
-            let liDownload = '';
-            for (let menu of menuList) {
-                if(menu !== ''){
-                    li += `<li><span class="dropdown-item text-capitalize" onclick="callVocabulary('${menu}')">${menu.replaceAll('/', '').replaceAll('_', ' ')}</span></li>`;
-                    liDownload += `<li><span class="dropdown-item text-capitalize" onclick="download('${menu}')">${menu.replaceAll('/', '').replaceAll('_', ' ')}</span></li>`;
+        $('#divAdmin').load('admin.html', function () {
+            console.log('loaded');
+
+            (async function () {
+                let menuList = await getTopLevelFolders();
+                //let menuListResp = await fetch('menu.txt');
+                //let menuListText = await menuListResp.text();
+                let li = '';
+                let liDownload = '';
+                for (let menu of menuList) {
+                    if (menu !== '') {
+                        li += `<li><span class="dropdown-item text-capitalize" onclick="callVocabulary('${menu.name}')">${menu.name.replaceAll('/', '').replaceAll('_', ' ')}</span></li>`;
+                        liDownload += `<li><span class="dropdown-item text-capitalize" onclick="download('${menu.name}')">${menu.name.replaceAll('/', '').replaceAll('_', ' ')}</span></li>`;
+                    }
                 }
-            }
-            $('#menuDownload').html(liDownload);
-            $('#menuVocList').html(li);
-        })();
+                $('#menuDownload').html(liDownload);
+                $('#menuVocList').html(li);
+            })();
+        });
 
         async function download(opt) {
             $.ajaxSetup({ cache: false });
             const zip = new JSZip();
 
             try {
+                const repo = 'ontology'; // Replace with your repository name
+                const organization = 'FAIR-epigraphy'; // Your organization name
+
+                let url = `https://raw.githubusercontent.com/${organization}/${repo}/main/${opt}`;
                 // Wait for both files to load asynchronously
-                const file1Content = await (await fetch(`${opt.replaceAll('/', '')}/data/rdf_data.ttl`)).text();
-                const file2Content = await (await fetch(`${opt.replaceAll('/', '')}/data/VoID.ttl`)).text();
+                const file1Content = await (await fetch(`${url}/data/rdf_data.ttl`)).text();
+                const file2Content = await (await fetch(`${url}/data/VoID.ttl`)).text();
 
                 // Add files to the ZIP container
-                zip.file(`${opt.replaceAll('/', '')}.ttl`, file1Content);
+                zip.file(`${opt}.ttl`, file1Content);
                 if (file2Content !== '')
                     zip.file("VoID.ttl", file2Content);
 
@@ -592,7 +606,7 @@
                 // Trigger the download
                 const a = document.createElement("a");
                 a.href = URL.createObjectURL(content);
-                a.download = `${opt.replaceAll('/', '')}.zip`; // Name of the ZIP file
+                a.download = `${opt}.zip`; // Name of the ZIP file
                 a.click();
 
                 // Clean up the URL object
