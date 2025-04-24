@@ -20,41 +20,47 @@
 
 <body class="overflow-auto">
     <header class="header sticky-top bg-light">
-        <div class="logo">
-            <img src="../images/logo.png" alt="Your Logo">
-            <div class="logo-text">FAIR Epigraphy</div>
-        </div>
-        <nav class="nav-menu bg-light">
-            <ul class="menu-list">
-                <li>
-                    <a href="index.html" class="text-decoration-none text-reset">
-                        <i class="bi bi-house-door"></i> Home
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        <i class="bi bi-diagram-3"></i> Vocabularies
-                    </a>
-                    <ul class="dropdown-menu" id="menuVocList">
+        <nav class="navbar navbar-expand-lg bg-light w-100">
+            <div class="container-fluid">
+                <!-- Brand/Logo -->
+                <a class="navbar-brand d-flex align-items-center" href="#">
+                    <img src="../images/logo.png" alt="Your Logo" style="height: 40px;">
+                    <div class="logo-text ms-2">FAIR Epigraphy</div>
+                </a>
+    
+                <!-- Toggler -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                    aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+    
+                <!-- Navbar menu -->
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html"><i class="bi bi-house-door"></i> Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                                <i class="bi bi-diagram-3"></i> Vocabularies
+                            </a>
+                            <ul class="dropdown-menu" id="menuVocList"></ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                                <i class="bi bi-download fw-bold"></i> Download
+                            </a>
+                            <ul class="dropdown-menu" id="menuDownload"></ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://github.com/FAIR-epigraphy/ontology/issues" target="_blank"><i class="bi bi-bug-fill"></i> Issues</a>
+                        </li>
                     </ul>
-                </li>
-                <li>
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        <i class="bi bi-download fw-bold"></i> Download
-                    </a>
-                    <ul class="dropdown-menu" id="menuDownload">
-                    </ul>
-                </li>
-            </ul>
-            <div class="menu-toggle" id="btnMobileMenu">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
+                </div>
             </div>
         </nav>
     </header>
+    
 
     <div class="container mt-5" id="divLanding">
         <div class="container mt-3">
@@ -375,13 +381,13 @@
                                 <p>It is a controlled vocabulary that describes the text schema of bilingual
                                     inscriptions. The vocabulary is available in JSON format and can be viewed from the
                                     link below.</p>
-                                <a href="bilingualism/index.html" class="btn btn-primary">View Vocabulary</a>
+                                <a href="/#bilingualism" class="btn btn-primary">View Vocabulary</a>
                             </li>
                             <li class="mt-2">
                                 <h3>Type of Inscription</h3>
                                 <p>It is a controlled vocabulary that describes the type of inscription. The vocabulary
                                     is available in RDF format and can be downloaded from the link below.</p>
-                                <a href="/type_of_inscription/#vocabularies" class="btn btn-primary">View Vocabulary</a>
+                                <a href="/#type_of_inscription" class="btn btn-primary">View Vocabulary</a>
                             </li>
                         </ul>
                     </div>
