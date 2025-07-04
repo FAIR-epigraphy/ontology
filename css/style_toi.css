@@ -9,18 +9,18 @@ body{
 /* ADDED: Smaller heading styles */
 h1 {
     font-size: 24px; /* ADDED: Smaller h3 font size */
-    margin-bottom: 0.8em;
+    margin-bottom: 1.2em;
     margin-top: 1.2em;
 }
 
 h2 {
     font-size: 22px; /* ADDED: Smaller h4 font size */
-    margin-bottom: 0.6em;
+    margin-bottom: 1em;
     margin-top: 1em;
 }
 h3 {
     font-size: 20px; /* ADDED: Smaller h3 font size */
-    margin-bottom: 0.8em;
+    margin-bottom: 1em;
     margin-top: 1.2em;
 }
 
@@ -29,6 +29,17 @@ h4 {
     margin-bottom: 0.6em;
     margin-top: 1em;
 }
+
+.card {
+    background-color: #f8f9fa; /* ADDED: Light gray background */
+    border: 1px solid #dee2e6; /* ADDED: Optional border */
+    border-radius: 8px; /* ADDED: Rounded corners */
+    padding: 20px; /* ADDED: Inner spacing */
+    margin-bottom: 20px; /* ADDED: Space between cards */
+}
+
+
+
 
 /* Header Styles */
 .header {
