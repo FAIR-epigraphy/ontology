@@ -669,6 +669,17 @@
                         }
                     }
                 }
+
+                // Now handle redirect and resolve
+                const redirect = new URLSearchParams(window.location.search).get("redirect");
+
+                if (redirect) {
+                    history.replaceState(null, '', redirect);
+                    setTimeout(() => router.resolve(), 0);
+                } else {
+                    router.resolve();
+                }
+                
                 $('#menuDownload').html(liDownload);
                 $('#menuVocList').html(li);
             })();
