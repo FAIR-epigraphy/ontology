@@ -644,16 +644,17 @@
                 let liDownload = '';
                 for (let menu of menuList) {
                     if (menu !== '') {
-                        li += `<li><a class="dropdown-item text-capitalize" href="/${menu.name}/" data-navigo>${menu.name.replaceAll('/', '').replaceAll('_', ' ')}</a></li>`;
+                        li += `<li><a class="dropdown-item text-capitalize" href="/${menu.name}" data-navigo>${menu.name.replaceAll('/', '').replaceAll('_', ' ')}</a></li>`;
                         liDownload += `<li><span class="dropdown-item text-capitalize" onclick="download('${menu.name}')">${menu.name.replaceAll('/', '').replaceAll('_', ' ')}</span></li>`;
 
+                        debugger;
                         // Setup routes
                         router
                             .on("/", () => {
                                 $('#divLanding').show();
                                 $('#divVocContent').hide();
                             })
-                            .on(`/${menu.name}/`, () => {
+                            .on(`/${menu.name}`, () => {
                                 callVocabulary(menu.name)
                             })
                             .notFound(() => {

@@ -1,5 +1,5 @@
 const base = "/";
-const router = new Navigo(base, { hash: false }); // repo name as base path
+const router = new Navigo(base, { hash: false, trailingSlash: false }); // repo name as base path
 const routingApp = document.getElementById("divLanding");
 
 // Handle redirect (GitHub Pages fallback)
