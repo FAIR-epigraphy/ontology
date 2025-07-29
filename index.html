@@ -642,24 +642,31 @@
                 //let menuListText = await menuListResp.text();
                 let li = '';
                 let liDownload = '';
+                // Register static routes
+                router
+                    .on("/", () => {
+                        $('#divLanding').show();
+                        $('#divVocContent').hide();
+                    })
+                    .notFound(() => {
+                        routingApp.innerHTML = "<h2>404 Not Found</h2>";
+                    });
+
                 for (let menu of menuList) {
                     if (menu !== '') {
                         li += `<li><a class="dropdown-item text-capitalize" href="/${menu.name}" data-navigo>${menu.name.replaceAll('/', '').replaceAll('_', ' ')}</a></li>`;
                         liDownload += `<li><span class="dropdown-item text-capitalize" onclick="download('${menu.name}')">${menu.name.replaceAll('/', '').replaceAll('_', ' ')}</span></li>`;
 
                         debugger;
-                        // Setup routes
-                        router
-                            .on("/", () => {
-                                $('#divLanding').show();
-                                $('#divVocContent').hide();
-                            })
-                            .on(`/${menu.name}`, () => {
-                                callVocabulary(menu.name)
-                            })
-                            .notFound(() => {
-                                routingApp.innerHTML = "<h2>404 Not Found</h2>";
+                        // Register route dynamically
+                        const routeName = menu.name;
+                        const routeExists = router.routes.some(r => r.path === routeName);
+
+                        if (!routeExists) {
+                            router.on(`/${routeName}`, () => {
+                                callVocabulary(routeName);
                             });
+                        }
                     }
                 }
                 $('#menuDownload').html(liDownload);
