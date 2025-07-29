@@ -5,7 +5,10 @@
   <meta charset="UTF-8">
   <title>Redirecting...</title>
   <script>
-    const fullPath = window.location.pathname + window.location.search + window.location.hash;
+    function normalizePath(path) {
+      return path !== '/' ? path.replace(/\/+$/, '') : path;
+    }
+    const fullPath = normalizePath(window.location.pathname);
     debugger;
     const newUrl = "/index.html?redirect=" + encodeURIComponent(fullPath);
     window.location.replace(newUrl);
