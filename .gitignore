@@ -1,2 +1,6 @@
 
 .vscode/settings.json
+# Ignore all .DS_Store files anywhere in the repo
+**/.DS_Store
+type_of_inscription/.DS_Store
+.DS_Store
