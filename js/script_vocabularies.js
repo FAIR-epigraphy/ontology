@@ -120,7 +120,7 @@ function callVocabulary(voc) {
 
 
     // Change the URL without reloading the page
-    history.pushState(null, null, `/#${voc}`);
+    //history.pushState(null, null, `/#${voc}`);
 
     ////// Load RDF data
     if (fileName !== "")
@@ -134,12 +134,12 @@ function callVocabulary(voc) {
     let isShowIRI = false;
     if (window.location.hash !== '') {
         let voc = '';
-        if (window.location.hash.split('#').length === 3) {
+        if (window.location.hash.split('#').length === 2) {
 
             voc = window.location.hash.split('#')[1].replace('#', '');
             fileName = `../${voc}/data/rdf_data.ttl`;
             isShowIRI = true;
-        } else if (window.location.hash.split('#').length === 2) {
+        } else {
             $('#root').html(`<ul id="ulClasses">
                 <div class="text-center" style="text-align: center;
         top: 45%;

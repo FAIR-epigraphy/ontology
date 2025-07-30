@@ -41,31 +41,35 @@ async function compareHashes(password, hashToCompare) {
     return generatedHash === hashToCompare;
 }
 
-if (document.getElementById('loginForm')) {
-    // Login form submission
-    document.getElementById('loginForm').addEventListener('submit', async function (e) {
-        e.preventDefault();
+let interval = setInterval(() => {
+    if (document.getElementById('loginForm')) {
+        clearInterval(interval);
+        // Login form submission
+        document.getElementById('loginForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
 
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-        const errorElement = document.getElementById('loginError');
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorElement = document.getElementById('loginError');
 
-        try {
-            // Reference to the collection
-            const querySnapshot = await db.collection('admin').get();
+            try {
+                // Reference to the collection
+                const querySnapshot = await db.collection('admin').get();
 
-            // Iterate through the documents in the collection
-            querySnapshot.forEach(async (doc) => {
-                //console.log(doc.id, " => ", doc.data());
-                if (doc.data().username == username && await compareHashes(password, doc.data().password)) {
-                    $('#adminLogin').addClass('d-none');
-                    $('#adminPanel').removeClass('d-none');
-                } else {
-                    errorElement.textContent = 'Invalid username or password';
-                }
-            });
-        } catch (error) {
-            errorElement.textContent = error.message;
-        }
-    });
-}
+                // Iterate through the documents in the collection
+                querySnapshot.forEach(async (doc) => {
+                    //console.log(doc.id, " => ", doc.data());
+                    if (doc.data().username == username && await compareHashes(password, doc.data().password)) {
+                        $('#adminLogin').addClass('d-none');
+                        $('#adminPanel').removeClass('d-none');
+                    } else {
+                        errorElement.textContent = 'Invalid username or password';
+                    }
+                });
+            } catch (error) {
+                errorElement.textContent = error.message;
+            }
+        });
+    }
+}, 1000);
+

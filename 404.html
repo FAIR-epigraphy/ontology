@@ -8,7 +8,7 @@
     function normalizePath(path) {
       return path !== '/' ? path.replace(/\/+$/, '') : path;
     }
-    const fullPath = normalizePath(window.location.pathname);
+    const fullPath = normalizePath(window.location.pathname + window.location.hash);
     debugger;
     const newUrl = "/index.html?redirect=" + encodeURIComponent(fullPath);
     window.location.replace(newUrl);

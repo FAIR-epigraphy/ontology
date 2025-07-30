@@ -642,15 +642,6 @@
                 //let menuListText = await menuListResp.text();
                 let li = '';
                 let liDownload = '';
-                // Register static routes
-                router
-                    .on("/", () => {
-                        $('#divLanding').show();
-                        $('#divVocContent').hide();
-                    })
-                    .notFound(() => {
-                        routingApp.innerHTML = "<h2>404 Not Found</h2>";
-                    });
 
                 for (let menu of menuList) {
                     if (menu !== '') {
