@@ -254,7 +254,7 @@ async function getVocDetails(iri) {
         PREFIX dc: <http://purl.org/dc/elements/1.1/>
         SELECT ?pred ?obj 
         WHERE {
-            <${iri.replace('#', '/')}> ?pred ?obj .
+            <${iri}> ?pred ?obj .
             FILTER NOT EXISTS {
                 <${iri}> a ?obj .
             }
@@ -262,11 +262,10 @@ async function getVocDetails(iri) {
         detailsArray = await runQuery(query);
     }
     ////////////////////////////////////////////
-    let parts = iri.replace('#', '/').split('/');
+    let parts = iri.split('/');
     let lastEle = parts[parts.length - 1];
-    let secondLastEle = parts[parts.length - 2];
     let detailHTML = `<h6 class="fw-bold">IRI</h6>
-                    <p><a href="${parts.slice(0, -2).join('/') + '/#' + secondLastEle + '#' + lastEle}" target="_blank"> ${iri} <i class="bi bi-box-arrow-up-right"></i></a></p>
+                    <p><a href="${iri}" target="_blank"> ${iri} <i class="bi bi-box-arrow-up-right"></i></a></p>
                     <table class="table table-hover">
                     <tbody>`;
     let label = detailsArray.filter(x => x.get('pred').value.includes('prefLabel'));
