@@ -657,20 +657,29 @@
                             router.on(`/${routeName}`, async () => {
                                 if (window.location.hash !== '') {
                                     if (window.location.hash.split('#').length === 2) {
-                                        let fileName = `../${menu.name}/data/rdf_data.ttl`;
-                                        await loadData(fileName);
-                                        getVocDetails(window.location.href);
                                         $('div#divLanding').hide();
                                         $('div#divVocContent').show();
                                         $('div#divBig').prev().hide();
                                         $('div#divBig').removeClass('col-md-7');
                                         $('div#divBig').addClass('col-md-12');
+                                        let fileName = `../${menu.name}/data/rdf_data.ttl`;
+                                        await loadData(fileName);
+                                        getVocDetails(window.location.href);
                                     }
                                 }
                                 else {
                                     callVocabulary(routeName);
                                 }
-                            });
+                            }).on(`/${routeName}/:className`, async ({ data }) => {
+                                $('div#divLanding').hide();
+                                $('div#divVocContent').show();
+                                $('div#divBig').prev().hide();
+                                $('div#divBig').removeClass('col-md-7');
+                                $('div#divBig').addClass('col-md-12');
+                                let fileName = `../${menu.name}/data/rdf_data.ttl`;
+                                await loadData(fileName);
+                                getVocDetails(window.location.href);
+                            })
                         }
                     }
                 }

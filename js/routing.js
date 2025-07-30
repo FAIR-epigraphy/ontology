@@ -23,6 +23,8 @@ router
 //   router.resolve();
 // }
 
+
+
 // Handle client-side navigation
 document.addEventListener("click", e => {
   const link = e.target.closest("a[data-navigo]");
