@@ -658,7 +658,7 @@
                                 if (window.location.hash !== '') {
                                     if (window.location.hash.split('#').length === 2) {
                                         voc = window.location.hash.split('#')[1].replace('#', '');
-                                        fileName = `../${voc}/data/rdf_data.ttl`;
+                                        let fileName = `../${menu.name}/data/rdf_data.ttl`;
                                         await loadData(fileName);
                                         getVocDetails(window.location.href.replace('#', ''));
                                         $('div#divLanding').hide();
