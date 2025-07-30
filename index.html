@@ -654,8 +654,23 @@
                         const routeExists = router.routes.some(r => r.path === routeName);
 
                         if (!routeExists) {
-                            router.on(`/${routeName}`, () => {
-                                callVocabulary(routeName);
+                            router.on(`/${routeName}`, async () => {
+                                if (window.location.hash !== '') {
+                                    if (window.location.hash.split('#').length === 2) {
+                                        voc = window.location.hash.split('#')[1].replace('#', '');
+                                        fileName = `../${voc}/data/rdf_data.ttl`;
+                                        await loadData(fileName);
+                                        getVocDetails(window.location.href.replace('#', ''));
+                                        $('div#divLanding').hide();
+                                        $('div#divVocContent').show();
+                                        $('div#divBig').prev().hide();
+                                        $('div#divBig').removeClass('col-md-7');
+                                        $('div#divBig').addClass('col-md-12');
+                                    } Ï
+                                }
+                                else {
+                                    callVocabulary(routeName);
+                                }
                             });
                         }
                     }
@@ -670,7 +685,7 @@
                 } else {
                     router.resolve();
                 }
-                
+
                 $('#menuDownload').html(liDownload);
                 $('#menuVocList').html(li);
             })();
