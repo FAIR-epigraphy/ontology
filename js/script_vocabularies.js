@@ -119,9 +119,6 @@ function callVocabulary(voc) {
     voidFileName = `../${voc}/data/VoID.ttl`;
 
 
-    // Change the URL without reloading the page
-    //history.pushState(null, null, `/#${voc}`);
-
     ////// Load RDF data
     if (fileName !== "")
         loadData(fileName);
@@ -301,7 +298,7 @@ async function getVocDetails(iri) {
                 key = 'Parent';
                 parts = d.get('obj').value.split('/');
                 lastEle = parts[parts.length - 1];
-                value = `<a href="${parts.slice(0, -1).join('/') + '/#' + lastEle}" target="_blank">${d.get('obj').value.split('/').pop().split('#').pop()} <i class="bi bi-box-arrow-up-right"></i></a>`;
+                value = `<a href="${d.get('obj').value}" target="_blank">${d.get('obj').value.split('/').pop().split('#').pop()} <i class="bi bi-box-arrow-up-right"></i></a>`;
             }
             else {
                 key = d.get('pred').value.split('/').pop().split('#').pop().replace(/([A-Z])/g, ' $1').trim();
