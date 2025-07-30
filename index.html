@@ -657,10 +657,9 @@
                             router.on(`/${routeName}`, async () => {
                                 if (window.location.hash !== '') {
                                     if (window.location.hash.split('#').length === 2) {
-                                        voc = window.location.hash.split('#')[1].replace('#', '');
                                         let fileName = `../${menu.name}/data/rdf_data.ttl`;
                                         await loadData(fileName);
-                                        getVocDetails(window.location.href.replace('#', ''));
+                                        getVocDetails(window.location.href);
                                         $('div#divLanding').hide();
                                         $('div#divVocContent').show();
                                         $('div#divBig').prev().hide();
