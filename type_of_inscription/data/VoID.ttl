@@ -8,11 +8,14 @@
 :FAIR_Type_of_Inscription  a void:Dataset ;
     foaf:homepage <https://ontology.inscriptiones.org/type_of_inscription/> ;
     dcterms:license <https://creativecommons.org/licenses/by-sa/4.0/>;
+    dcterms:identifier <https://doi.org/10.5281/zenodo.17454135>;
     dcterms:publisher :FAIR_Epigraphy;
     dcterms:title "FAIR Type of Inscription";
     dcterms:description "Classification of inscriptions by their type with a special focus on their societal function.";
-    void:triples "73"^^xsd:integer ;
-    void:classes "17"^^xsd:integer ;
+    rdfs:comment "Version 1.0.0: First stable release of the vocabulary, incorporating community feedback and standardisation work since April 2024.";
+    rdfs:seeAlso <https://inscriptiones.org/> ;
+    void:triples "2032"^^xsd:integer ;
+    void:classes "138"^^xsd:integer ;
     dcterms:creator :Petra_Heřmánková;
     dcterms:contributor :Imran_Asif;
     dcterms:contributor :Jonathan_Prag;
@@ -29,7 +32,9 @@
     dcterms:contributor :Simona_Stoyanova;
     dcterms:contributor :Aaron_Hershkowitz;
     dcterms:created "2024-04-01"^^xsd:date;
-    dcterms:issued "2025-02-07"^^xsd:date .
+    dcterms:issued "2025-10-27"^^xsd:date;
+    dcterms:modified "2025-10-27"^^xsd:date;
+    dcterms:hasVersion "1.0.0" .
 
 :FAIR_Epigraphy a foaf:Organization;
     rdfs:label "FAIR Epigraphy Project";
