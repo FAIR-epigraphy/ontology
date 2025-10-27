@@ -91,7 +91,7 @@ skos:relatedMatch rdf:type owl:AnnotationProperty ;
              rdfs:subClassOf :Writing_practice ;
              skos:altLabel "Abecedary"@en ,
                            "Alphabet"@en ;
-             skos:closeMatch <http://www.eagle-network.eu/voc/typeins/lod/112.html> ;
+             skos:closeMatch <http://www.eagle-network.eu/voc/typeins/lod/112> ;
              skos:definition "Inscription that consists of the letters of an alphabet serving as a tool for teaching or practicing writing skills. The inscription abecedarium may be found on various objects, such as stone tablets, walls, pot sherds, or other durable materials."@en ;
              skos:example <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR140209> ,
                           <http://sicily.classics.ox.ac.uk/inscription/ISic020442> ,
@@ -105,7 +105,8 @@ skos:relatedMatch rdf:type owl:AnnotationProperty ;
                           <https://romaninscriptionsofbritain.org/inscriptions/TabLondBloomberg79> ,
                           <https://romaninscriptionsofbritain.org/inscriptions/2131> ,
                           <https://romaninscriptionsofbritain.org/inscriptions/2491.136> ;
-             skos:prefLabel "Abecedarium"@en .
+             skos:prefLabel "Abecedarium"@en ;
+             skos:relatedMatch <https://www.wikidata.org/wiki/Q595801> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Acclamation
@@ -114,9 +115,14 @@ skos:relatedMatch rdf:type owl:AnnotationProperty ;
                              :Honorific ;
              skos:altLabel "Aclamación"@es ,
                            "Akklamation"@de ,
-                           "Titulus acclamatorius"@la ;
+                           "Titulus acclamatorius"@la ,
+                           "acclamation"@fr ,
+                           "acclamazione"@it ;
              skos:closeMatch <http://www.eagle-network.eu/voc/typeins/lod/73> ,
-                             <https://www.eagle-network.eu/voc/typeins/lod/243.html> ;
+                             <https://ark.mom.fr/ark:/76609/epvknk87g9bgn> ,
+                             <https://www.eagle-network.eu/voc/typeins/lod/243.html> ,
+                             <https://www.wikidata.org/wiki/Q126733425> ,
+                             <https://www.wikidata.org/wiki/Q83390> ;
              skos:definition "Inscriptions expressing enthusiastic praise or admiration, often in a public or ceremonial context. Acclamations are often short texts praising either an individual or deity, wishing well and success, and can include honorific aspects."@en ;
              skos:example <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR175430> ,
                           <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR071917> ,
@@ -127,7 +133,9 @@ skos:relatedMatch rdf:type owl:AnnotationProperty ;
                           <https://insaph.kcl.ac.uk/ala2004/inscription/eAla055.html> ,
                           <https://www.edb.uniba.it/epigraph/17076> ;
              skos:narrowMatch <https://www.eagle-network.eu/voc/typeins/lod/74.html> ,
-                              <https://www.eagle-network.eu/voc/typeins/lod/75.html> ;
+                              <https://www.eagle-network.eu/voc/typeins/lod/75.html> ,
+                              <https://www.wikidata.org/wiki/Q126733421> ,
+                              <https://www.wikidata.org/wiki/Q126733422> ;
              skos:prefLabel "Acclamation"@en .
 
 
@@ -137,9 +145,12 @@ skos:relatedMatch rdf:type owl:AnnotationProperty ;
           <http://purl.org/dc/terms/bibliographicCitation> "McLean, Bradley. 2003. An Introduction to Greek Epigraphy of the Hellenistic and Roman Periods from Alexander the Great Down to the Reign of Constantine (323 B.C.-A.D. 337). Ann Arbor: The University of Michigan Press. https://doi.org/10.3998/mpub.23012."^^xsd:string ;
           skos:altLabel "Account"@en ,
                         "Expenses"@en ,
+                        "Konto"@de ,
                         "Rendiconto"@it ,
                         "Report"@en ;
-          skos:closeMatch <http://vocab.getty.edu/page/aat/300145802> ;
+          skos:closeMatch <http://vocab.getty.edu/page/aat/300145802> ,
+                          <https://ark.mom.fr/ark:/76609/epv1971b6kv27> ,
+                          <https://ark.mom.fr/ark:/76609/epvxgkt99kw29> ;
           skos:definition "Inscriptions recording financial transactions, expenditures, or balances, used for administrative, financial, or commercial purposes, providing a systematic record of financial activities over a specific period. Lists detailing expenditures, costs, detailing individual expenses or categories of expenses without providing a broader financial context. Accounts may include building accounts, tribute lists, and treasury inventories. Maintained by magistrates for official audits, they ensured transparency during office transitions. For example, temple treasury inventories included formal declarations of responsibility transfer. Building accounts, often serving honorific purposes, preserved the names of contributors rather than ensuring precise financial accuracy [McLean 2002, 198-200]."@en ;
           skos:example <http://sicily.classics.ox.ac.uk/inscription/ISic001247> ,
                        <http://sicily.classics.ox.ac.uk/inscription/ISic001249> ,
@@ -154,7 +165,10 @@ skos:relatedMatch rdf:type owl:AnnotationProperty ;
           skos:narrowMatch <http://www.eagle-network.eu/voc/typeins/lod/410.html> ,
                            <https://www.eagle-network.eu/voc/typeins/lod/56> ,
                            <https://www.eagle-network.eu/voc/typeins/lod/57> ;
-          skos:prefLabel "Accounts"@en .
+          skos:prefLabel "Accounts"@en ;
+          skos:relatedMatch <https://ark.mom.fr/ark:/76609/epvxk7wq7d10v> ,
+                            <https://www.wikidata.org/wiki/Q4116214> ,
+                            <https://www.wikidata.org/wiki/Q508295> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Advertisement
@@ -170,7 +184,8 @@ skos:relatedMatch rdf:type owl:AnnotationProperty ;
                             <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR072534> ,
                             <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR151521> ,
                             <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD002959> ;
-               skos:prefLabel "Advertisement"@en .
+               skos:prefLabel "Advertisement"@en ;
+               skos:relatedMatch <https://www.wikidata.org/wiki/Q30515> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Age
@@ -184,7 +199,8 @@ skos:relatedMatch rdf:type owl:AnnotationProperty ;
                   <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD080263> ,
                   <https://romaninscriptionsofbritain.org/inscriptions/2494.1> ,
                   <https://romaninscriptionsofbritain.org/inscriptions/2494.2> ;
-     skos:prefLabel "Age"@en .
+     skos:prefLabel "Age"@en ;
+     skos:relatedMatch <https://www.wikidata.org/wiki/Q185836> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Agonistic_inscription
@@ -199,7 +215,9 @@ skos:relatedMatch rdf:type owl:AnnotationProperty ;
                                     <https://www.atticinscriptions.com/inscription/IGII34/614> ,
                                     "SEG 42-462"^^xsd:string ,
                                     "SEG 43-788"^^xsd:string ;
-                       skos:prefLabel "Agonistic inscription"@en .
+                       skos:prefLabel "Agonistic inscription"@en ;
+                       skos:relatedMatch <https://www.wikidata.org/wiki/Q126733444> ,
+                                         <https://www.wikidata.org/wiki/Q126733485> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Anepigraphic
@@ -207,7 +225,8 @@ skos:relatedMatch rdf:type owl:AnnotationProperty ;
               rdfs:subClassOf owl:Thing ;
               skos:altLabel "Anepígrafa"@es ,
                             "Uninscribed"@en ;
-              skos:closeMatch <https://www.eagle-network.eu/voc/typeins/lod/141> ;
+              skos:closeMatch <https://www.eagle-network.eu/voc/typeins/lod/141> ,
+                              <https://www.wikidata.org/wiki/Q126763015> ;
               skos:definition "Objects or their fragments, that are typically identified as inscriptions, or associated with inscriptions, but which lack visible text or lettering. Such objects may instead contain images, paintings or other decorative elements. Despite the absence of written characters, anepigraphic objects share characteristics similar to epigraphic artefacts, such as their form, layout, execution, material, and context."@en ;
               skos:example <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR145943> ,
                            <http://mama.csad.ox.ac.uk/monuments/MAMA-XI-012.html> ,
@@ -217,7 +236,8 @@ skos:relatedMatch rdf:type owl:AnnotationProperty ;
                            <https://ancientgraffiti.org/Graffiti/graffito/AGP-EDR167841> ,
                            <https://romaninscriptionsofbritain.org/inscriptions/3032> ,
                            <https://romaninscriptionsofbritain.org/inscriptions/3370> ;
-              skos:prefLabel "Anepigraphic"@en .
+              skos:prefLabel "Anepigraphic"@en ;
+              skos:relatedMatch <https://www.wikidata.org/wiki/Q7810277> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Announcement
@@ -232,7 +252,8 @@ skos:relatedMatch rdf:type owl:AnnotationProperty ;
                            <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD014570> ,
                            <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD053407> ,
                            <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD053409> ;
-              skos:prefLabel "Announcement"@en .
+              skos:prefLabel "Announcement"@en ;
+              skos:relatedMatch <https://www.wikidata.org/wiki/Q567303> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Apotropaic_text
@@ -245,7 +266,8 @@ skos:relatedMatch rdf:type owl:AnnotationProperty ;
                               <https://iospe.kcl.ac.uk/5.43.html> ,
                               <https://romaninscriptionsofbritain.org/inscriptions/Brit.44.21> ;
                  skos:prefLabel "Apotropaic text"@en ;
-                 skos:related <http://vocab.getty.edu/page/aat/300264705> .
+                 skos:relatedMatch <http://vocab.getty.edu/page/aat/300264705> ,
+                                   <https://www.wikidata.org/wiki/Q620591> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Arbitration
@@ -253,8 +275,14 @@ skos:relatedMatch rdf:type owl:AnnotationProperty ;
              rdfs:subClassOf :Legal ;
              skos:altLabel "Arbitrato"@it ,
                            "Contrat d’arbitrage"@fr ,
-                           "Contrato de arbitraje"@es ;
-             skos:closeMatch <https://www.eagle-network.eu/voc/typeins/lod/59> ;
+                           "Contrato de arbitraje"@es ,
+                           "Schlichtung"@de ,
+                           "arbitraggio"@it ,
+                           "arbitration"@fr ;
+             skos:closeMatch <https://ark.mom.fr/ark:/76609/epv238n3j86rn> ,
+                             <https://www.eagle-network.eu/voc/typeins/lod/59> ,
+                             <https://www.wikidata.org/wiki/Q126733435> ,
+                             <https://www.wikidata.org/wiki/Q207946> ;
              skos:definition "Legal inscriptions pertaining to the settlement of disputes through arbitration."@en ;
              skos:example <https://gis.latinnow.eu/object/174854> ,
                           <https://www.atticinscriptions.com/inscription/IGII31/997> ;
@@ -264,7 +292,8 @@ skos:relatedMatch rdf:type owl:AnnotationProperty ;
 ###  https://ontology.inscriptiones.org/type_of_inscription/Aretalogy
 :Aretalogy rdf:type owl:Class ;
            rdfs:subClassOf :Religious ;
-           skos:closeMatch "urn:cite:brill:inscriptionType:0000017" ;
+           skos:closeMatch <https://www.wikidata.org/wiki/Q643148> ,
+                           "urn:cite:brill:inscriptionType:0000017" ;
            skos:definition "Inscriptions containing a narrative of the miraculous deeds of a god or hero."@en ;
            skos:example <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD003062> ,
                         <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD050350> ;
@@ -283,10 +312,12 @@ skos:relatedMatch rdf:type owl:AnnotationProperty ;
                       "Sculptor's signature"@en ,
                       "Signature d’artiste"@fr ;
         skos:closeMatch <http://www.eagle-network.eu/voc/typeins/lod/110.html> ,
+                        <https://ark.mom.fr/ark:/76609/epv0m1hxrwntm> ,
                         <https://www.eagle-network.eu/voc/typeins/lod/109.html> ,
                         <https://www.eagle-network.eu/voc/typeins/lod/115.html> ,
                         <https://www.eagle-network.eu/voc/typeins/lod/333.html> ,
-                        <https://www.eagle-network.eu/voc/typeins/lod/374.html> ;
+                        <https://www.eagle-network.eu/voc/typeins/lod/374.html> ,
+                        <https://www.wikidata.org/wiki/Q126733488> ;
         skos:definition "Signatures of artists or craftsmen or short texts indicating authorship often produced ad hoc along with the piece of art (not mass-produced nor standardised in shape and execution). In stone inscriptions, the artist's signatures are typically placed on the base's anterior face beneath the main inscription, they may also appear on other parts of the base, the statue itself, or, in later periods, the plinth. The signatures often use the customary verb in a specific tense, shifting from aorist in earlier times to imperfect in the imperial period. The basic format includes the artist's ethnic, patronymic, and demotic details, though variations are common. Signatures sometimes mention the artist’s teacher or indicate collaborative works. They can also record restorations and the craftsmen who prepared materials. Interpretation can be complex due to copied statues and reused bases [McLean 2002, 208-210]."@en ;
         skos:example <http://sicily.classics.ox.ac.uk/inscription/ISic000834> ,
                      <http://sicily.classics.ox.ac.uk/inscription/ISic020471> ,
@@ -310,7 +341,9 @@ skos:relatedMatch rdf:type owl:AnnotationProperty ;
                       skos:altLabel "Ley de asociación"@es ,
                                     "Loi d’association"@fr ,
                                     "Private Association"@en ;
-                      skos:closeMatch <https://www.eagle-network.eu/voc/typeins/lod/7.html> ;
+                      skos:closeMatch <https://www.eagle-network.eu/voc/typeins/lod/7.html> ,
+                                      <https://www.wikidata.org/wiki/Q126733437> ,
+                                      <https://www.wikidata.org/wiki/Q126733470> ;
                       skos:definition "Legal inscriptions detailing the statutes or regulations of associations or clubs. Decrees concerning the establishment, regulation, or dissolution of private associations or clubs."@en ;
                       skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR171003> ,
                                    <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD000715> ,
@@ -339,7 +372,8 @@ skos:relatedMatch rdf:type owl:AnnotationProperty ;
                    skos:definition "Inscriptions containing information related to astronomical observations, celestial events, or celestial phenomena."@en ;
                    skos:example <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD000716> ,
                                 <https://epigraphy.packhum.org/text/139465> ;
-                   skos:prefLabel "Astronomical text"@en .
+                   skos:prefLabel "Astronomical text"@en ;
+                   skos:relatedMatch <https://www.wikidata.org/wiki/Q188518> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Attribution
@@ -351,7 +385,9 @@ skos:relatedMatch rdf:type owl:AnnotationProperty ;
                            "Production / ownership"@en ;
              skos:broadMatch <http://www.eagle-network.eu/voc/typeins/lod/105> ;
              skos:closeMatch <http://vocab.getty.edu/page/aat/300028705> ,
-                             <https://www.eagle-network.eu/voc/typeins/lod/311.html> ;
+                             <https://www.eagle-network.eu/voc/typeins/lod/311.html> ,
+                             <https://www.wikidata.org/wiki/Q1373131> ,
+                             <https://www.wikidata.org/wiki/Q230768> ;
              skos:definition "Inscriptions attributing the authorship or ownership of an object, alternatively indicating a person or workshop responsible for production.  In Latin, names can appear in the nominative case (as in 'fecit'), possessive genitive, or occasionally accusative."@en ;
              skos:example <http://sicily.classics.ox.ac.uk/inscription/ISic020607> ,
                           <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR006648> ,
@@ -360,7 +396,11 @@ skos:relatedMatch rdf:type owl:AnnotationProperty ;
                           <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD006115> ,
                           <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD018233> ,
                           <https://igcyr.unibo.it/igcyr064920> ;
-             skos:prefLabel "Attribution"@en .
+             skos:narrowMatch <https://ark.mom.fr/ark:/76609/epvmmxmg134mx> ,
+                              <https://www.wikidata.org/wiki/Q126733479> ;
+             skos:prefLabel "Attribution"@en ;
+             skos:relatedMatch <https://ark.mom.fr/ark:/76609/epvt59d3s9185> ,
+                               <https://www.wikidata.org/wiki/Q126733476> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Boundary_dispute
@@ -396,12 +436,16 @@ skos:relatedMatch rdf:type owl:AnnotationProperty ;
                                "ὅρος"@el ;
                  skos:broadMatch <https://www.eagle-network.eu/voc/typeins/lod/96> ;
                  skos:closeMatch <http://vocab.getty.edu/page/aat/300006962> ,
+                                 <https://ark.mom.fr/ark:/76609/epvx3dbt5dfb3> ,
                                  <https://www.eagle-network.eu/voc/objtyp/lod/1466.html> ,
                                  <https://www.eagle-network.eu/voc/objtyp/lod/1468.html> ,
                                  <https://www.eagle-network.eu/voc/objtyp/lod/92.html> ,
                                  <https://www.eagle-network.eu/voc/typeins/lod/100.html> ,
                                  <https://www.eagle-network.eu/voc/typeins/lod/425> ,
-                                 <https://www.eagle-network.eu/voc/typeins/lod/47.html> ;
+                                 <https://www.eagle-network.eu/voc/typeins/lod/47.html> ,
+                                 <https://www.wikidata.org/wiki/Q125323565> ,
+                                 <https://www.wikidata.org/wiki/Q521813> ,
+                                 <https://www.wikidata.org/wiki/Q921099> ;
                  skos:definition """Inscriptions specifically designed to mark the boundaries or termination points of land parcels or territorial divisions of various zones such as states, military areas, sanctuaries, temple estates, and private properties [Woodhead 1959, 47]. They often bear inscriptions indicating their purpose, such as restricting access, defining property lines, or marking mortgaged land. The inscriptions can vary in length and detail, ranging from simple declarations of ownership to elaborate sacred laws.
 In the Greek context known as horos, it is often associated with sacred or legal boundaries. Herms, stone quadrangular pillars with a bust of Hermes, a boundary guardian, were placed in various public locations and inscribed with riddles, moral precepts, or names of warriors [McLean 2002, 189].
 In the Latin context, they appear on columnar, but mostly cuboid cippi with a broader base. They often contain inscriptions of republican magistrates or emperors who were responsible for the demarcations and also maintenance measures such as the renewal of the boundary stones [Schmidt 2004, 64; McLean 2002, 186-187]."""@en ;
@@ -427,7 +471,10 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                                                                        "Schmidt, Manfred G. 2004. Einführung in Die Lateinische Epigraphik. Darmstadt: Wissenschaftliche Buchgesellschaft."^^xsd:string ;
                       skos:altLabel "Bauinschrift"@de ,
                                     "Titulus apparatus"@la ;
-                      skos:closeMatch <https://www.eagle-network.eu/voc/typeins/lod/86.html> ,
+                      skos:closeMatch <https://ark.mom.fr/ark:/76609/epv6v8m1124d5> ,
+                                      <https://ark.mom.fr/ark:/76609/epvrww8kb983q> ,
+                                      <https://www.eagle-network.eu/voc/typeins/lod/86.html> ,
+                                      <https://www.wikidata.org/wiki/Q90766967> ,
                                       "https://www.eagle-network.eu/voc/typeins/lod/261.html"@de ,
                                       "https://www.eagle-network.eu/voc/typeins/lod/263.html"@la ,
                                       "https://www.eagle-network.eu/voc/typeins/lod/264.html"@la ;
@@ -444,7 +491,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                                    <https://romaninscriptionsofbritain.org/inscriptions/1574> ,
                                    <https://romaninscriptionsofbritain.org/inscriptions/2171> ,
                                    <https://romaninscriptionsofbritain.org/inscriptions/455> ;
-                      skos:prefLabel "Building inscription"@en .
+                      skos:prefLabel "Building inscription"@en ;
+                      skos:relatedMatch <https://www.wikidata.org/wiki/Q126733495> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Cadastral
@@ -455,12 +503,14 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
            skos:broadMatch <http://vocab.getty.edu/page/aat/300027247> ,
                            <http://vocab.getty.edu/page/aat/300136962> ;
            skos:closeMatch <http://www.eagle-network.eu/voc/typeins/lod/48.html> ,
-                           <https://www.eagle-network.eu/voc/typeins/lod/97.html> ;
+                           <https://www.eagle-network.eu/voc/typeins/lod/97.html> ,
+                           <https://www.wikidata.org/wiki/Q126733427> ;
            skos:definition "Inscriptions related to land surveying or property registration, often used for administrative purposes. Cadastral inscriptions delineated property lines and land divisions, often found in rural and urban areas of the Roman Empire. They provided a permanent and authoritative reference for land management and legal matters."@en ;
            skos:example <http://sicily.classics.ox.ac.uk/inscription/ISic001174> ,
                         <http://sicily.classics.ox.ac.uk/inscription/ISic003651> ,
                         <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD023104> ;
-           skos:prefLabel "Cadastral"@en .
+           skos:prefLabel "Cadastral"@en ;
+           skos:relatedMatch <https://www.wikidata.org/wiki/Q126733428> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Calendar
@@ -468,10 +518,14 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
           rdfs:subClassOf :Time_recording ;
           skos:altLabel "Calendario"@it ,
                         "Calendrier"@fr ,
-                        "Kalender"@de ;
+                        "Kalender"@de ,
+                        "calendarium"@it ;
           skos:closeMatch <http://vocab.getty.edu/page/aat/300026741> ,
                           <http://www.eagle-network.eu/voc/typeins/lod/3.html> ,
-                          <https://www.eagle-network.eu/voc/typeins/lod/163.html> ;
+                          <https://ark.mom.fr/ark:/76609/epvg1jmbrf4rf> ,
+                          <https://www.eagle-network.eu/voc/typeins/lod/163.html> ,
+                          <https://www.wikidata.org/wiki/Q12132> ,
+                          <https://www.wikidata.org/wiki/Q1365679> ;
           skos:definition "Inscriptions providing information about the organization of time, including dates, months, and years, often in chronological order."@en ;
           skos:example <http://sicily.classics.ox.ac.uk/inscription/ISic000320> ,
                        <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR078788> ,
@@ -492,7 +546,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
           skos:altLabel "Volume" ;
           skos:closeMatch <http://vocab.getty.edu/page/aat/300404430> ,
                           <https://www.eagle-network.eu/voc/objtyp/lod/161.html> ,
-                          <https://www.eagle-network.eu/voc/typeins/lod/125.html> ;
+                          <https://www.eagle-network.eu/voc/typeins/lod/125.html> ,
+                          <https://www.wikidata.org/wiki/Q126733480> ;
           skos:definition "Inscriptions indicating the capacity or volume of a container or space."@en ;
           skos:example <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD016205> ,
                        <https://romaninscriptionsofbritain.org/inscriptions/Brit.33.8> ,
@@ -505,7 +560,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
 :Centurial_stone rdf:type owl:Class ;
                  rdfs:subClassOf :Building_inscription ;
                  skos:altLabel "Centural stone"@en ;
-                 skos:closeMatch <https://www.eagle-network.eu/voc/typeins/lod/356.html> ;
+                 skos:closeMatch <https://www.eagle-network.eu/voc/typeins/lod/356.html> ,
+                                 <https://www.wikidata.org/wiki/Q111325717> ;
                  skos:definition "Inscriptions identifying a military officer (centurio) in charge of the building activity, for example building of the section of the Hadrian's wall in Britain. These type of inscriptions is common in the Great Britain."@en ;
                  skos:example <https://romaninscriptionsofbritain.org/inscriptions/1843> ,
                               <https://romaninscriptionsofbritain.org/inscriptions/1856> ,
@@ -519,19 +575,21 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                rdfs:subClassOf :Regulatory ;
                skos:broadMatch <http://vocab.getty.edu/page/aat/300077114> ,
                                <http://vocab.getty.edu/page/aat/300155319> ;
+               skos:closeMatch <https://www.wikidata.org/wiki/Q374814> ;
                skos:definition "Inscriptions that serve as official endorsements, authorizations, or certifications issued by governmental or authoritative bodies. These inscriptions validate the authenticity, legality, or compliance of certain actions, documents, or individuals within a regulatory framework. They may include seals, stamps, or written declarations confirming adherence to specific standards, qualifications, or requirements established by relevant authorities."@en ;
                skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR007312> ,
                             <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR134158> ,
                             <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD006699> ,
                             <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD074177> ;
                skos:prefLabel "Certification"@en ;
-               skos:related <http://vocab.getty.edu/page/aat/300037334> .
+               skos:relatedMatch <http://vocab.getty.edu/page/aat/300037334> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Citizens
 :Citizens rdf:type owl:Class ;
           rdfs:subClassOf :Names ;
           skos:broadMatch <http://vocab.getty.edu/page/aat/300027179> ;
+          skos:closeMatch <https://www.wikidata.org/wiki/Q1021393> ;
           skos:definition "Lists of individuals recognized as citizens of a particular city or state."@en ;
           skos:example <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD039267> ,
                        <https://inscriptions.packhum.org/text/252247?bookid=511&location=1688> ,
@@ -539,13 +597,14 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                        <https://www.atticinscriptions.com/inscription/AIUK46/80> ,
                        <https://www.atticinscriptions.com/inscription/LambertPitt2024/1> ;
           skos:prefLabel "Citizens"@en ;
-          skos:related <http://vocab.getty.edu/page/aat/300386295> .
+          skos:relatedMatch <http://vocab.getty.edu/page/aat/300386295> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Citizenship
 :Citizenship rdf:type owl:Class ;
              rdfs:subClassOf :Decree ;
-             skos:closeMatch "urn:cite:brill:inscriptionType:0000003" ;
+             skos:closeMatch <https://ark.mom.fr/ark:/76609/epvbq7nx4dm54> ,
+                             "urn:cite:brill:inscriptionType:0000003" ;
              skos:definition "Decrees pertaining to the granting or revocation of citizenship rights."@en ;
              skos:example <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD000102> ,
                           <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD000885> ,
@@ -554,14 +613,17 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                           <https://www.atticinscriptions.com/inscription/IGII31/1078> ,
                           <https://www.atticinscriptions.com/inscription/IGII31/1390> ,
                           <https://www.atticinscriptions.com/inscription/IGII31/333> ;
-             skos:prefLabel "Citizenship"@en .
+             skos:prefLabel "Citizenship"@en ;
+             skos:relatedMatch <https://ark.mom.fr/ark:/76609/epv56k9nvpr3j> ,
+                               <https://www.wikidata.org/wiki/Q841440> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Civic_alotment
 :Civic_alotment rdf:type owl:Class ;
                 rdfs:subClassOf :Regulatory ;
                 skos:altLabel "Ostrakon"@en ;
-                skos:closeMatch "urn:cite:brill:inscriptionType:0000010" ;
+                skos:closeMatch <https://www.wikidata.org/wiki/Q834459> ,
+                                "urn:cite:brill:inscriptionType:0000010" ;
                 skos:definition "Inscriptions related to the allocation or distribution of civic resources, privileges, or responsibilities within a community or city-state. Texts or inscriptions are often found on fragments of pottery or stone, known as ostraka (singular: ostrakon), which were used in ancient Greece for various purposes, including voting in ostracism procedures. Ostracism was a political process in which citizens could vote to banish a prominent individual from the city-state for ten years. Ostraka were used as voting tokens, with citizens writing the name of the person they wished to ostracize on the fragment (process known as ostrakophoria)."@en ;
                 skos:example <http://sicily.classics.ox.ac.uk/inscription/ISic020386> ,
                              <https://epigraphy.packhum.org/text/1783?hs=42-50> ,
@@ -574,7 +636,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
 :Coin_legend rdf:type owl:Class ;
              rdfs:subClassOf :Certification ;
              <http://purl.org/dc/elements/1.1/description> "Inscriptions on coins indicating their issuing authority, or other relevant information." ;
-             skos:closeMatch <http://nomisma.org/ontology#hasLegend> ;
+             skos:closeMatch <http://nomisma.org/ontology#hasLegend> ,
+                             <https://www.wikidata.org/wiki/Q61132822> ;
              skos:example <https://numismatics.org/ocre/id/ric.4.mcs.79> ,
                           <https://www.corpus-nummorum.eu/coins/45551> ,
                           <https://www.corpus-nummorum.eu/coins/56639> ,
@@ -593,13 +656,17 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                             <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD075822> ,
                             <https://iospe.kcl.ac.uk/5.328.html> ,
                             <https://iospe.kcl.ac.uk/5.89.html> ;
-               skos:prefLabel "Commemorative"@en .
+               skos:prefLabel "Commemorative"@en ;
+               skos:relatedMatch <https://www.wikidata.org/wiki/Q104777120> ,
+                                 <https://www.wikidata.org/wiki/Q721747> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Confession
 :Confession rdf:type owl:Class ;
             rdfs:subClassOf :Religious ;
-            skos:closeMatch "urn:cite:brill:inscriptionType:0000018" ;
+            skos:closeMatch <https://www.wikidata.org/wiki/Q183959> ,
+                            <https://www.wikidata.org/wiki/Q847337> ,
+                            "urn:cite:brill:inscriptionType:0000018" ;
             skos:definition "Inscriptions involving the admission or declaration of sins, faults, or wrongdoings, often associated with religious rituals or practices."@en ;
             skos:prefLabel "Confession"@en .
 
@@ -625,16 +692,29 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
 :Contract rdf:type owl:Class ;
           rdfs:subClassOf :Legal ;
           skos:altLabel <https://www.atticinscriptions.com/inscription/IGII2/2496> ,
-                        "Contratto"@it ;
+                        "Contratto"@it ,
+                        "Vertrag"@de ;
           skos:broadMatch <http://vocab.getty.edu/page/aat/300027649> ;
-          skos:closeMatch <https://www.eagle-network.eu/voc/typeins/lod/375.html> ;
+          skos:closeMatch <https://ark.mom.fr/ark:/76609/epv13w2s6gjnc> ,
+                          <https://www.eagle-network.eu/voc/typeins/lod/375.html> ,
+                          <https://www.wikidata.org/wiki/Q93288> ;
           skos:definition "Legal agreements or contracts between parties."@en ;
           skos:example <http://sicily.classics.ox.ac.uk/inscription/ISic030001> ,
                        <http://sicily.classics.ox.ac.uk/inscription/ISic030051> ,
                        <https://romaninscriptionsofbritain.org/inscriptions/Brit.34.22> ,
                        <https://romaninscriptionsofbritain.org/inscriptions/TabLondBloomberg45> ,
                        <https://www.atticinscriptions.com/inscription/AIUK43A/4> ;
-          skos:prefLabel "Contract"@en .
+          skos:narrowMatch <https://ark.mom.fr/ark:/76609/epv707hb573ts> ,
+                           <https://ark.mom.fr/ark:/76609/epvhpvbmb9m07> ,
+                           <https://ark.mom.fr/ark:/76609/epvjd6pjr98v1> ,
+                           <https://ark.mom.fr/ark:/76609/epvqkmm4gg88r> ,
+                           <https://ark.mom.fr/ark:/76609/epvxgzkcx70nc> ,
+                           <https://ark.mom.fr/ark:/76609/epvxv85tbmqh6> ,
+                           <https://ark.mom.fr/ark:/76609/epvz0hprrg79b> ,
+                           <https://www.wikidata.org/wiki/Q126733434> ,
+                           <https://www.wikidata.org/wiki/Q126734845> ;
+          skos:prefLabel "Contract"@en ;
+          skos:relatedMatch <https://www.wikidata.org/wiki/Q93288> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Date
@@ -651,7 +731,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                    <https://gis.latinnow.eu/object/180621> ,
                    <https://romaninscriptionsofbritain.org/inscriptions/2493.7> ;
       skos:narrowMatch <http://vocab.getty.edu/page/aat/300374978> ;
-      skos:prefLabel "Date"@en .
+      skos:prefLabel "Date"@en ;
+      skos:relatedMatch <https://www.wikidata.org/wiki/Q205892> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Decree
@@ -664,7 +745,12 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                       "Prostagma"@el ;
         skos:closeMatch <http://vocab.getty.edu/page/aat/300026925> ,
                         <http://www.eagle-network.eu/voc/typeins/lod/384.html> ,
-                        <https://www.eagle-network.eu/voc/typeins/lod/406.html> ;
+                        <https://ark.mom.fr/ark:/76609/epvb4pbdqn52v> ,
+                        <https://ark.mom.fr/ark:/76609/epvm16vqgfm4v> ,
+                        <https://ark.mom.fr/ark:/76609/epvmc4hz152b6> ,
+                        <https://www.eagle-network.eu/voc/typeins/lod/406.html> ,
+                        <https://www.wikidata.org/wiki/Q1284645> ,
+                        <https://www.wikidata.org/wiki/Q2571972> ;
         skos:definition "Specific order, decision, or judgment issued by an executive, administrative, or judicial authority in response to a particular matter or situation. While decrees may have legal effects and enforceability, they are usually more focused and specific than laws, addressing individual cases or issues rather than establishing general principles or regulations applicable to a wider scope of circumstances. The language of a decree is often formulaic and structured, typically including an invocation, dating formula, name of the formal mover, preamble explaining the background and motives, enactment formula indicating its passage by relevant authorities, the formal motion text, any amendments, and instructions for engraving and exhibition [McLean 2002, 183, 215-227]."@en ;
         skos:example <http://sicily.classics.ox.ac.uk/inscription/ISic000668> ,
                      <http://sicily.classics.ox.ac.uk/inscription/ISic001077> ,
@@ -674,7 +760,16 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                      <https://igcyr.unibo.it/igcyr010800> ,
                      <https://igcyr.unibo.it/igcyr062810> ,
                      <https://igcyr.unibo.it/igcyr062820> ;
-        skos:prefLabel "Decree"@en .
+        skos:narrowMatch <https://ark.mom.fr/ark:/76609/epv2n06b0w9zt> ,
+                         <https://ark.mom.fr/ark:/76609/epv647pxtt47c> ,
+                         <https://ark.mom.fr/ark:/76609/epvwjvjn0qc6x> ,
+                         <https://www.wikidata.org/wiki/Q126733438> ,
+                         <https://www.wikidata.org/wiki/Q126733439> ,
+                         <https://www.wikidata.org/wiki/Q126733441> ,
+                         <https://www.wikidata.org/wiki/Q126733442> ,
+                         <https://www.wikidata.org/wiki/Q126733443> ;
+        skos:prefLabel "Decree"@en ;
+        skos:relatedMatch <https://www.wikidata.org/wiki/Q88398998> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Dedication
@@ -689,9 +784,14 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                           "Votive dedication"@en ,
                           "Weihischrift"@de ;
             skos:closeMatch <http://vocab.getty.edu/page/aat/300404460> ,
+                            <https://ark.mom.fr/ark:/76609/epv1sbdf33tz7> ,
+                            <https://ark.mom.fr/ark:/76609/epvz21qm9q6dk> ,
                             <https://www.eagle-network.eu/voc/typeins/lod/80> ,
                             <https://www.eagle-network.eu/voc/typeins/lod/83.html> ,
-                            <https://www.eagle-network.eu/voc/typeins/lod/88.html> ;
+                            <https://www.eagle-network.eu/voc/typeins/lod/88.html> ,
+                            <https://www.wikidata.org/wiki/Q126733445> ,
+                            <https://www.wikidata.org/wiki/Q1365135> ,
+                            <https://www.wikidata.org/wiki/Q1762010> ;
             skos:definition "Inscriptions dedicating an object, structure, or offering to a deity or religious entity. Dedications often contain a name of the dedicant or recipient, reason for making the dedication and details of the financial provisions. The Latin inscriptions often end with the formula \"votum solvit\" (has honoured the vow) [Schmidt 2004, 44-48]. These inscriptions are often found on or near the dedicated object, which could range from statues and altars to more personal items like body part representations or symbolic objects [McLean 2002, 184, 246-259]."@en ;
             skos:example <http://mama.csad.ox.ac.uk/monuments/MAMA-XI-069.html> ,
                          <http://sicily.classics.ox.ac.uk/inscription/ISic000029> ,
@@ -700,8 +800,10 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                          <https://iospe.kcl.ac.uk/1.17.html> ,
                          <https://romaninscriptionsofbritain.org/inscriptions/Brit.32.20> ,
                          <https://www.edb.uniba.it/epigraph/35429> ;
-            skos:narrowMatch <http://vocab.getty.edu/page/aat/300178243> ;
-            skos:prefLabel "Dedication"@en .
+            skos:narrowMatch <http://vocab.getty.edu/page/aat/300178243> ,
+                             <https://www.wikidata.org/wiki/Q126733444> ;
+            skos:prefLabel "Dedication"@en ;
+            skos:relatedMatch <https://ark.mom.fr/ark:/76609/epvcw3dpg2dt0> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Defixio
@@ -710,13 +812,17 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
          <http://purl.org/dc/terms/bibliographicCitation> "Schmidt, Manfred G. 2004. Einführung in Die Lateinische Epigraphik. Darmstadt: Wissenschaftliche Buchgesellschaft."^^xsd:string ;
          skos:altLabel "Curse"@en ,
                        "Curse tablet"@en ,
+                       "Fluch"@de ,
                        "Fluchtafel"@de ,
                        "Imprecation"@en ,
                        "Imprécation"@es ,
-                       "Tabula defixionis"@la ;
+                       "Tabula defixionis"@la ,
+                       "maledizione"@it ;
          skos:closeMatch <http://vocab.getty.edu/page/aat/300410443> ,
+                         <https://ark.mom.fr/ark:/76609/epv124fvq5bhw> ,
                          <https://www.eagle-network.eu/voc/typeins/lod/76.html> ,
-                         <https://www.eagle-network.eu/voc/typeins/lod/77.html> ;
+                         <https://www.eagle-network.eu/voc/typeins/lod/77.html> ,
+                         <https://www.wikidata.org/wiki/Q1430557> ;
          skos:definition "Curse tablets or binding spells, aimed at causing harm to others or seeking revenge. These thin lead tablets, often pierced with a nail and usually rolled up, contain curses of people or animals, written in cursive script and labelled with magical signs. They were found on riverbanks, in wells and especially in graves. The anonymous texts are not addressed to the public, but to chthonic deities such as Hecate or the dii inferi. Despite their formulaic wording, these tablets offer scope for personalisation [Schmidt 2004, 48-50]."@en ;
          skos:example <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR180308> ,
                       <http://sicily.classics.ox.ac.uk/inscription/ISic030009> ,
@@ -740,6 +846,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
 ###  https://ontology.inscriptiones.org/type_of_inscription/Description
 :Description rdf:type owl:Class ;
              rdfs:subClassOf :Identification ;
+             skos:broadMatch <https://www.wikidata.org/wiki/Q126733483> ,
+                             <https://www.wikidata.org/wiki/Q1969455> ;
              skos:closeMatch <http://vocab.getty.edu/page/aat/300411780> ;
              skos:definition "Texts identifying the physical characteristics of the inscribed object and its function, contents or dimensions."@en ;
              skos:example <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD024627> ,
@@ -757,19 +865,22 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
             skos:example <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR140039> ,
                          <http://ancientgraffiti.org/Graffiti/graffito/AGP-SMYTP1007> ,
                          <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD001458> ;
-            skos:prefLabel "Didascalic"@en .
+            skos:prefLabel "Didascalic"@en ;
+            skos:relatedMatch <https://www.wikidata.org/wiki/Q115160295> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Dikastic_tablet
 :Dikastic_tablet rdf:type owl:Class ;
                  rdfs:subClassOf :Certification ;
                  <http://purl.org/dc/terms/bibliographicCitation> "Kroll, John H. 1972. Athenian Bronze Allotment Plates. Harvard."^^xsd:string ;
-                 skos:closeMatch "urn:cite:brill:inscriptionType:0000009" ;
+                 skos:closeMatch <https://www.wikidata.org/wiki/Q57487600> ,
+                                 "urn:cite:brill:inscriptionType:0000009" ;
                  skos:definition "Inscription serving as a certification of the dikastai, judges or jurors in ancient Athens. The bronze tablet was inscribed with one of the first ten letters of the alphabet, corresponding with the juror's assigned seating section in the dikasterion (court) and the juror's name."@en ;
                  skos:example <https://epigraphy.packhum.org/text/230519> ,
                               <https://epigraphy.packhum.org/text/230520> ,
                               <https://epigraphy.packhum.org/text/4073?hs=45-58> ,
-                              <https://epigraphy.packhum.org/text/4080?hs=52-79> ;
+                              <https://epigraphy.packhum.org/text/4080?hs=52-79> ,
+                              <https://www.wikidata.org/wiki/Q116295872> ;
                  skos:prefLabel "Dikastic tablet"@en .
 
 
@@ -783,7 +894,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                             <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD040729> ,
                             <https://romaninscriptionsofbritain.org/inscriptions/2173> ,
                             <https://romaninscriptionsofbritain.org/inscriptions/2200> ;
-               skos:prefLabel "Distance slab"@en .
+               skos:prefLabel "Distance slab"@en ;
+               skos:relatedMatch <https://ark.mom.fr/ark:/76609/epv5m6n560rm2> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Elogium
@@ -791,8 +903,10 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
          rdfs:subClassOf :Commemorative ,
                          :Honorific ;
          skos:altLabel "Eulogy"@en ,
-                       "Laudatio"@la ;
-         skos:closeMatch <https://www.eagle-network.eu/voc/typeins/lod/70> ;
+                       "Laudatio"@la ,
+                       "éloge"@fr ;
+         skos:closeMatch <https://ark.mom.fr/ark:/76609/epvfxvs3bdgnc> ,
+                         <https://www.eagle-network.eu/voc/typeins/lod/70> ;
          skos:definition "Commemorative inscriptions praising or celebrating the accomplishments, virtues, or qualities of a deceased individual or group of people, most typically one's ancestors. Elogia were displayed either privately, or publicly on public monuments, but not necessarily at the place of the funeral. Elogia can be sometimes considered as a commemorative and sometimes honorific texts, depending on their context."@en ;
          skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR001755> ,
                       <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR071711> ,
@@ -801,7 +915,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                       <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD002919> ,
                       <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD024284> ,
                       <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD030304> ;
-         skos:prefLabel "Elogium"@en .
+         skos:prefLabel "Elogium"@en ;
+         skos:relatedMatch <https://www.wikidata.org/wiki/Q9252945> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Endownment
@@ -814,7 +929,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
             skos:example <https://www.atticinscriptions.com/inscription/IEleus/489> ,
                          <https://www.atticinscriptions.com/inscription/Puech/1> ,
                          <https://www.atticinscriptions.com/inscription/SEG/50168> ;
-            skos:prefLabel "Endownment"@en .
+            skos:prefLabel "Endownment"@en ;
+            skos:relatedMatch <https://www.wikidata.org/wiki/Q17518217> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Entertainment
@@ -831,7 +947,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                             <https://romaninscriptionsofbritain.org/inscriptions/Brit.32.41> ,
                             "SEG 36-310"^^xsd:string ,
                             "SEG 38-914"^^xsd:string ;
-               skos:prefLabel "Entertainment"@en .
+               skos:prefLabel "Entertainment"@en ;
+               skos:relatedMatch <https://www.wikidata.org/wiki/Q1258741> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Ephebes
@@ -839,13 +956,15 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
          rdfs:subClassOf :Names ;
          <http://purl.org/dc/terms/bibliographicCitation> "Guarducci, M. 1969. Epigrafia greca. II: Epigrafi di carattere pubblico. Vol. 2. 4 vols. Epigrafia greca. Rome: Istituto Poligrafico dello Stato; Libreria dello Stato. https://www.worldcat.org/title/1120929896."^^xsd:string ;
          skos:altLabel "Ephebic list"@en ;
-         skos:closeMatch <https://www.eagle-network.eu/voc/typeins/lod/419.html> ;
+         skos:closeMatch <https://ark.mom.fr/ark:/76609/epv29gnbr8htn> ,
+                         <https://www.eagle-network.eu/voc/typeins/lod/419.html> ;
          skos:definition "Lists of male individuals undergoing military training or education (ephebia) in ancient Greece. Lists drafted by the deme, reviewed and approved by the council, and then published, dated with the eponymous archon [Guarducci 1969, 383-384]."@en ;
          skos:example <https://igcyr.unibo.it/igcyr015200> ,
                       <https://igcyr.unibo.it/igcyr103900> ,
                       <https://igcyr.unibo.it/igcyr126700> ,
                       <https://www.atticinscriptions.com/inscription/IGII2/1996> ;
-         skos:prefLabel "Ephebes"@en .
+         skos:prefLabel "Ephebes"@en ;
+         skos:relatedMatch <https://www.wikidata.org/wiki/Q546690> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Exhortation
@@ -864,7 +983,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                           <https://romaninscriptionsofbritain.org/inscriptions/2441.7> ,
                           <https://romaninscriptionsofbritain.org/inscriptions/3118> ,
                           <https://romaninscriptionsofbritain.org/inscriptions/647> ;
-             skos:prefLabel "Exhortation"@en .
+             skos:prefLabel "Exhortation"@en ;
+             skos:relatedMatch <https://www.wikidata.org/wiki/Q2132873> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Explicit
@@ -875,6 +995,7 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                         "Obscene"@en ;
           skos:closeMatch <http://vocab.getty.edu/page/aat/300451088> ,
                           <https://www.eagle-network.eu/voc/typeins/lod/134.html> ,
+                          <https://www.wikidata.org/wiki/Q126733490> ,
                           "urn:cite:brill:inscriptionType:0000023"^^xsd:string ;
           skos:definition "Inscriptions containing explicit, obscene or vulgar language, gestures, or imagery related to sexuality or sensuality."@en ;
           skos:example <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR168048> ,
@@ -905,7 +1026,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                          <https://romaninscriptionsofbritain.org/inscriptions/1124> ,
                          <https://romaninscriptionsofbritain.org/inscriptions/2421.50> ,
                          <https://romaninscriptionsofbritain.org/inscriptions/2433.7> ;
-            skos:prefLabel "Expressive"@en .
+            skos:prefLabel "Expressive"@en ;
+            skos:relatedMatch <https://www.wikidata.org/wiki/Q115836764> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Fasti
@@ -914,7 +1036,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                        :Record_keeping ;
        <http://purl.org/dc/terms/bibliographicCitation> "Meyer, Ernst. 1973. Einführung in Die Lateinische Epigraphik. Darmstadt: Wissenschaftliche Buchgesellschaft."^^xsd:string ;
        skos:altLabel "Fasten"@de ;
-       skos:closeMatch <https://www.eagle-network.eu/voc/typeins/lod/2.html> ;
+       skos:closeMatch <https://www.eagle-network.eu/voc/typeins/lod/2.html> ,
+                       <https://www.wikidata.org/wiki/Q1236466> ;
        skos:definition "Inscriptions specifically detailing religious or civic calendars of ancient Rome often included important festivals, events, or ceremonies in chronological order, often in the form of a list. The fasti are calendrical and chronological records from ancient Rome that document sacred as well as state and private aspects of Roman life. These records categorise the days of the year into \"fasti\" (on which profane activities were permitted) and \"nefasti\" (on which such activities were forbidden, usually for religious or festive reasons). In addition to marking the qualities of the day and festivals, the fasti often contained the names of the magistrates of the respective year, important historical events and lists of consuls, priests and other officials and soldiers [Meyer 1973, 53-58]."@en ;
        skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR003059> ,
                     <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR071856> ,
@@ -929,9 +1052,10 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
             skos:example <https://igcyr.unibo.it/igcyr097300> ,
                          <https://www.atticinscriptions.com/inscription/AIO/1191> ;
             skos:prefLabel "Foreigners"@en ;
-            skos:related <http://vocab.getty.edu/page/aat/300027179> ,
-                         <http://vocab.getty.edu/page/aat/300138855> ,
-                         <http://vocab.getty.edu/page/aat/300448919> .
+            skos:relatedMatch <http://vocab.getty.edu/page/aat/300027179> ,
+                              <http://vocab.getty.edu/page/aat/300138855> ,
+                              <http://vocab.getty.edu/page/aat/300448919> ,
+                              <https://www.wikidata.org/wiki/Q473741> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Funerary
@@ -947,10 +1071,15 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                         "Sepulcralis"@la ,
                         "Sírfelirat"@hu ,
                         "Titulus sepulcralis"@la ;
+          skos:broadMatch <https://www.wikidata.org/wiki/Q126733487> ;
           skos:closeMatch <http://vocab.getty.edu/page/aat/300028729> ,
+                          <https://ark.mom.fr/ark:/76609/epv5wp770wb40> ,
                           <https://www.eagle-network.eu/voc/typeins/lod/283.html> ,
                           <https://www.eagle-network.eu/voc/typeins/lod/284.html> ,
-                          <https://www.eagle-network.eu/voc/typeins/lod/92> ;
+                          <https://www.eagle-network.eu/voc/typeins/lod/92> ,
+                          <https://www.wikidata.org/wiki/Q121614747> ,
+                          <https://www.wikidata.org/wiki/Q126733430> ,
+                          <https://www.wikidata.org/wiki/Q1772> ;
           skos:definition "Inscriptions commemorating an individual or individuals who have passed away, typically found on a gravestone, tomb, sarcophagus, altar memorial marker or burial-related structure. These inscriptions often include the name of the deceased, and may also contain additional details such as age at the time of death, origin, occupation and life achievements, but also information about their relatives, or commissioners of the inscription/grave. Some inscriptions may contain verse epigrams, quotes or tributes to the departed. The language of funerary inscriptions is often formulaic, with repetitive phrases such as the invocation of the underworld deities 'Dis Manibus'  or its abbreviation \"DMS/DM\", or well wishes to the deceased. The inscriptions may contain benedictory closing formulas such as \"sit tibi terra levis\" (\"may the earth be light to you\") or \"ossa bene quiescant\" (\"may your bones rest well\"). In Christian inscriptions, formulas such as \"hic requiescit in pace\" (\"here rests in peace\") are common. Occupation-specific details, such as the number of years of service for soldiers or the number of victories for gladiators, are also common. Inscriptions sometimes include curses against tomb violators and specify legal repercussions for unauthorized interments. [Schmidt 2004, 65-73; McLean 2002, 184, 260-288]"@en ;
           skos:example <http://mama.csad.ox.ac.uk/monuments/MAMA-XI-216.html> ,
                        <http://sicily.classics.ox.ac.uk/inscription/ISic000001> ,
@@ -966,7 +1095,9 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                        <https://romaninscriptionsofbritain.org/inscriptions/684> ,
                        <https://romaninscriptionsofbritain.org/inscriptions/758> ,
                        <https://www.edb.uniba.it/epigraph/27244> ;
-          skos:narrowMatch <https://www.eagle-network.eu/voc/typeins/lod/354.html> ;
+          skos:narrowMatch <https://ark.mom.fr/ark:/76609/epvsm6j0xgq1z> ,
+                           <https://www.eagle-network.eu/voc/typeins/lod/354.html> ,
+                           <https://www.wikidata.org/wiki/Q126733446> ;
           skos:prefLabel "Funerary"@en .
 
 
@@ -975,6 +1106,7 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                 rdfs:subClassOf :Entertainment ;
                 skos:altLabel "Gaming token"@en ,
                               "Tessera lusus"@la ;
+                skos:closeMatch <https://www.wikidata.org/wiki/Q3449901> ;
                 skos:definition "Inscriptions detailing elements or components of games, such as rules, inscribed pieces, tokens, or scoring systems."@en ;
                 skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR001468> ,
                              <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR073604> ,
@@ -1005,7 +1137,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                        <https://romaninscriptionsofbritain.org/inscriptions/Brit.20.28> ,
                        <https://romaninscriptionsofbritain.org/inscriptions/2419.1> ,
                        <https://romaninscriptionsofbritain.org/inscriptions/2421.50> ;
-          skos:prefLabel "Greeting"@en .
+          skos:prefLabel "Greeting"@en ;
+          skos:relatedMatch <https://www.wikidata.org/wiki/Q45594> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Healing_text
@@ -1039,7 +1172,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
            skos:closeMatch <http://www.eagle-network.eu/voc/typeins/lod/69.html> ,
                            <https://www.eagle-network.eu/voc/typeins/lod/231.html> ,
                            <https://www.eagle-network.eu/voc/typeins/lod/232.html> ,
-                           <https://www.eagle-network.eu/voc/typeins/lod/233.html> ;
+                           <https://www.eagle-network.eu/voc/typeins/lod/233.html> ,
+                           <https://www.wikidata.org/wiki/Q125323109> ;
            skos:definition "Texts praising or honouring individuals, groups, or entities for their achievements, contributions, services or extraordinary status. Texts often express the reasons for receiving the honours, the individual's achievements and the nature of the honour, such as a statue or crown, but without detailing the entire decree process [McLean 2002, 183-184, 228-245]. The language can be formulaic and follow a customary structure, highlighting the recipient and the entity bestowing the honour. Inscriptions of honour are erected either during a person's lifetime or posthumously, both in the public and private sphere. They are an integral part of the honouring ceremony and can be artistically elaborate [Schmidt 2004, 50-56]."@en ;
            skos:example <http://sicily.classics.ox.ac.uk/inscription/ISic000508> ,
                         <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR000067> ,
@@ -1052,8 +1186,13 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                         <https://romaninscriptionsofbritain.org/inscriptions/1909> ,
                         <https://romaninscriptionsofbritain.org/inscriptions/8> ,
                         <https://www.edb.uniba.it/epigraph/34452> ;
-           skos:narrowMatch "urn:cite:brill:inscriptionType:0000001"^^xsd:string ;
-           skos:prefLabel "Honorific"@en .
+           skos:narrowMatch <https://ark.mom.fr/ark:/76609/epv620h3n6591> ,
+                            <https://www.wikidata.org/wiki/Q126733450> ,
+                            "urn:cite:brill:inscriptionType:0000001"^^xsd:string ;
+           skos:prefLabel "Honorific"@en ;
+           skos:relatedMatch <https://ark.mom.fr/ark:/76609/epvr80cmhgtm5> ,
+                             <https://www.wikidata.org/wiki/Q126733496> ,
+                             <https://www.wikidata.org/wiki/Q88398998> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Hospitality_agreement
@@ -1072,7 +1211,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                                     <https://gis.latinnow.eu/object/177436> ,
                                     <https://gis.latinnow.eu/object/183426> ,
                                     <https://gis.latinnow.eu/object/219626> ;
-                       skos:prefLabel "Hospitality agreement"@en .
+                       skos:prefLabel "Hospitality agreement"@en ;
+                       skos:relatedMatch <https://www.wikidata.org/wiki/Q1690307> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Hymn
@@ -1080,7 +1220,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
       rdfs:subClassOf :Religious ;
       skos:altLabel "Hymne"@fr ;
       skos:closeMatch <http://vocab.getty.edu/page/aat/300167054> ,
-                      <https://www.eagle-network.eu/voc/typeins/lod/65> ;
+                      <https://www.eagle-network.eu/voc/typeins/lod/65> ,
+                      <https://www.wikidata.org/wiki/Q484692> ;
       skos:definition "Inscriptions containing songs or poems of praise, devotion, or worship, often dedicated to a deity or divine figure."@en ;
       skos:example <https://igcyr.unibo.it/gvcyr041> ,
                    <https://iospe.kcl.ac.uk/3.172.html> ,
@@ -1097,7 +1238,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                              <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR006377> ,
                              <https://epigraphy.packhum.org/text/328131?hs=19-27> ,
                              <https://epigraphy.packhum.org/text/358558?hs=127-135> ;
-                skos:prefLabel "Identification"@en .
+                skos:prefLabel "Identification"@en ;
+                skos:relatedMatch <https://www.wikidata.org/wiki/Q82799> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Insult
@@ -1114,15 +1256,21 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                      <https://romaninscriptionsofbritain.org/inscriptions/2447.28> ,
                      <https://romaninscriptionsofbritain.org/inscriptions/2450.3> ,
                      <https://romaninscriptionsofbritain.org/inscriptions/2491.157> ;
-        skos:prefLabel "Insult"@en .
+        skos:prefLabel "Insult"@en ;
+        skos:relatedMatch <https://www.wikidata.org/wiki/Q1054330> ,
+                          <https://www.wikidata.org/wiki/Q571571> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Inventories
 :Inventories rdf:type owl:Class ;
              rdfs:subClassOf :Record_keeping ;
-             skos:altLabel "Inventory"@en ,
-                           "Production list"@en ;
-             skos:closeMatch <http://vocab.getty.edu/page/aat/300027045> ;
+             skos:altLabel "Inventar"@de ,
+                           "Inventory"@en ,
+                           "Production list"@en ,
+                           "inventario"@it ;
+             skos:closeMatch <http://vocab.getty.edu/page/aat/300027045> ,
+                             <https://ark.mom.fr/ark:/76609/epv4f12xkv000> ,
+                             <https://www.wikidata.org/wiki/Q126733455> ;
              skos:definition "Inventories of items, goods, or assets, often in the form of an enumeration or a list. Lists detailing the production process or materials used in the creation of an object."@en ;
              skos:example <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR154044> ,
                           <http://sicily.classics.ox.ac.uk/inscription/ISic000613> ,
@@ -1132,6 +1280,10 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                           <https://romaninscriptionsofbritain.org/inscriptions/2491.2> ,
                           <https://www.atticinscriptions.com/inscription/AIUK44/3> ,
                           <https://www.atticinscriptions.com/inscription/IGI3/329> ;
+             skos:narrowMatch <https://ark.mom.fr/ark:/76609/epvf7t3snrkfq> ,
+                              <https://www.wikidata.org/wiki/Q126733454> ,
+                              <https://www.wikidata.org/wiki/Q126733458> ,
+                              <https://www.wikidata.org/wiki/Q126733467> ;
              skos:prefLabel "Inventories"@en .
 
 
@@ -1139,11 +1291,16 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
 :Invocation rdf:type owl:Class ;
             rdfs:subClassOf :Religious ;
             skos:altLabel "Gebet"@de ,
+                          "Invokation"@de ,
                           "Prayer"@en ,
-                          "Supplicatory"@en ;
+                          "Supplicatory"@en ,
+                          "invocazione"@it ;
             skos:closeMatch <http://vocab.getty.edu/page/aat/300026452> ,
                             <http://www.eagle-network.eu/voc/typeins/lod/85.html> ,
-                            <https://www.eagle-network.eu/voc/typeins/lod/387> ;
+                            <https://ark.mom.fr/ark:/76609/epv6h0hbh74ch> ,
+                            <https://www.eagle-network.eu/voc/typeins/lod/387> ,
+                            <https://www.wikidata.org/wiki/Q126733449> ,
+                            <https://www.wikidata.org/wiki/Q1671839> ;
             skos:definition "Inscriptions invoking divine or supernatural powers for assistance or protection, petitions or requests addressed to a deity or divine entity." ;
             skos:example <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR128050> ,
                          <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR168048> ,
@@ -1152,6 +1309,7 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                          <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD029715> ,
                          <https://insaph.kcl.ac.uk/ala2004/inscription/eAla036.html> ,
                          <https://iospe.kcl.ac.uk/5.45.html> ;
+            skos:narrowMatch <https://ark.mom.fr/ark:/76609/epvpd770s12n0> ;
             skos:prefLabel "Invocation"@en .
 
 
@@ -1159,7 +1317,9 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
 :Itinerary rdf:type owl:Class ;
            rdfs:subClassOf :Space_organisation ;
            <http://purl.org/dc/terms/bibliographicCitation> "Meyer, Ernst. 1973. Einführung in Die Lateinische Epigraphik. Darmstadt: Wissenschaftliche Buchgesellschaft."^^xsd:string ;
-           skos:closeMatch <http://vocab.getty.edu/page/aat/300027086> ;
+           skos:altLabel "Itinerarium"@la ;
+           skos:closeMatch <http://vocab.getty.edu/page/aat/300027086> ,
+                           <https://www.wikidata.org/wiki/Q1675302> ;
            skos:definition "Inscriptions providing directions, distances, or routes for travellers, commonly found on ancient roads or pathways. Excerpts from itineraries, providing a description of a geographic area, with distances and main settlements and geographic features to help the traveller. These inscriptions typically list places and road stations along Roman roads and often contain distances between important points. They served as a guide for travellers and today provide valuable historical information about the ancient transport network [Meyer 1973, p. 61-64]."@en ;
            skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR152601> ,
                         <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD040729> ;
@@ -1178,18 +1338,24 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                    <https://ancientgraffiti.org/Graffiti/graffito/AGP-EDR112869> ,
                    <https://ancientgraffiti.org/Graffiti/graffito/AGP-EDR153355> ,
                    <https://romaninscriptionsofbritain.org/inscriptions/2448.6> ;
-      skos:prefLabel "Joke"@en .
+      skos:prefLabel "Joke"@en ;
+      skos:relatedMatch <https://www.wikidata.org/wiki/Q131138> ,
+                        <https://www.wikidata.org/wiki/Q165740> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Label
 :Label rdf:type owl:Class ;
        rdfs:subClassOf :Description ;
        skos:altLabel "Beischrift"@de ,
-                     "Caption"@en ;
+                     "Caption"@en ,
+                     "légende"@fr ,
+                     "étiquette"@fr ;
        skos:broadMatch "https://www.eagle-network.eu/voc/typeins/lod/105.html"@la ;
        skos:closeMatch <http://vocab.getty.edu/page/aat/300191074> ,
                        <http://vocab.getty.edu/page/aat/300426409> ,
-                       <https://www.eagle-network.eu/voc/typeins/lod/109.html> ;
+                       <https://ark.mom.fr/ark:/76609/epvhv1s5df0n4> ,
+                       <https://www.eagle-network.eu/voc/typeins/lod/109.html> ,
+                       <https://www.wikidata.org/wiki/Q722218> ;
        skos:definition "Inscriptions providing descriptions or identifying information for objects, artifacts, or images. Typically found on objects of artistic value, such as mosaics, painted pottery, statues, placed within images etc. Labels can also have the form of simple names, representing gladiators, deities, or other public figures."@en ;
        skos:example <http://sicily.classics.ox.ac.uk/inscription/ISic020539> ,
                     <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR000939> ,
@@ -1203,6 +1369,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                     <https://igcyr.unibo.it/igcyr084210> ,
                     <https://insaph.kcl.ac.uk/ala2004/inscription/eAla251.html> ,
                     <https://romaninscriptionsofbritain.org/inscriptions/2106> ;
+       skos:narrowMatch <https://www.wikidata.org/wiki/Q126733459> ,
+                        <https://www.wikidata.org/wiki/Q126733489> ;
        skos:prefLabel "Label"@en .
 
 
@@ -1217,14 +1385,19 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                    "Ley"@es ,
                    "Loi"@dr ,
                    "Regulation"@en ;
-     skos:closeMatch <https://www.eagle-network.eu/voc/typeins/lod/4.html> ;
+     skos:closeMatch <https://ark.mom.fr/ark:/76609/epvr3c3d4wp62> ,
+                     <https://www.eagle-network.eu/voc/typeins/lod/4.html> ;
      skos:definition "Legal codes or statutes enacted by governing authorities. Rules or regulations established by a government or governing authority that are binding and enforceable within a particular jurisdiction. Laws are typically enacted through legislative processes, such as the passage of bills by a legislative body, and they often apply to a broad range of circumstances or situations (compared to decrees that are more situational and focused on a specific case)."^^xsd:string ;
      skos:example <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD000270> ,
                   <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD000674> ,
                   <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD003788> ,
                   <https://epigraphy.packhum.org/text/200508> ,
                   <https://www.atticinscriptions.com/inscription/AIO/819> ;
-     skos:prefLabel "Law"@en .
+     skos:narrowMatch <https://www.wikidata.org/wiki/Q11703741> ,
+                      <https://www.wikidata.org/wiki/Q126733469> ,
+                      <https://www.wikidata.org/wiki/Q126733472> ;
+     skos:prefLabel "Law"@en ;
+     skos:relatedMatch <https://www.wikidata.org/wiki/Q126733436> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Legal
@@ -1243,8 +1416,12 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                     <https://gis.latinnow.eu/object/179468> ,
                     <https://gis.latinnow.eu/object/189570> ,
                     <https://igcyr.unibo.it/igcyr125500> ;
-       skos:narrowMatch <https://www.eagle-network.eu/voc/typeins/lod/4.html> ;
-       skos:prefLabel "Legal text"@en .
+       skos:narrowMatch <https://ark.mom.fr/ark:/76609/epv8vhqktt02n> ,
+                        <https://ark.mom.fr/ark:/76609/epvm99zqp1d7c> ,
+                        <https://ark.mom.fr/ark:/76609/epvnsk9g07t5p> ,
+                        <https://www.eagle-network.eu/voc/typeins/lod/4.html> ;
+       skos:prefLabel "Legal text"@en ;
+       skos:relatedMatch <https://www.wikidata.org/wiki/Q216200> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Letter
@@ -1253,9 +1430,11 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
         skos:altLabel "Brief"@de ,
                       "Carta"@es ,
                       "Epistola"@it ,
-                      "Lettre"@fr ;
+                      "Lettre"@fr ,
+                      "epistula"@la ;
         skos:broadMatch <http://vocab.getty.edu/page/aat/300026879> ;
-        skos:closeMatch <http://www.eagle-network.eu/voc/typeins/lod/402.html> ;
+        skos:closeMatch <http://www.eagle-network.eu/voc/typeins/lod/402.html> ,
+                        <https://ark.mom.fr/ark:/76609/epvctjqn7xjdw> ;
         skos:definition "Text of a letter, either preserved on portable objects made of wood, papyrus, metal etc., containing the original text of the message, or an epigraphic reproduction of a letter on a non-portable (most often in stone, or metal) object, sometimes displayed in a public palace. The letter conveys messages between individuals, groups, or entities. The text can concern municipal or civic matters, communication with the representative of a political entity, such as an emperor or king, a representative of an institution, or it can contain communication between private individuals."@en ;
         skos:example <http://sicily.classics.ox.ac.uk/inscription/ISic000827> ,
                      <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD008966> ,
@@ -1271,9 +1450,14 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                      <https://romaninscriptionsofbritain.org/inscriptions/TabVindol291> ,
                      <https://www.eagle-network.eu/voc/typeins/lod/30> ;
         skos:narrowMatch <https://www.eagle-network.eu/voc/typeins/lod/31.html> ,
+                         <https://www.wikidata.org/wiki/Q126733460> ,
+                         <https://www.wikidata.org/wiki/Q126733462> ,
+                         <https://www.wikidata.org/wiki/Q126733463> ,
+                         <https://www.wikidata.org/wiki/Q126733464> ,
                          "urn:cite:brill:inscriptionType:0000006"^^xsd:string ,
                          "urn:cite:brill:inscriptionType:0000007"^^xsd:string ;
-        skos:prefLabel "Letter"@en .
+        skos:prefLabel "Letter"@en ;
+        skos:relatedMatch <https://www.wikidata.org/wiki/Q133492> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Lex_sacra
@@ -1287,6 +1471,7 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                          "Sacred law"@en ;
            skos:broadMatch <http://vocab.getty.edu/page/aat/300220519> ;
            skos:closeMatch <http://www.eagle-network.eu/voc/typeins/lod/10.html> ,
+                           <https://www.wikidata.org/wiki/Q126733473> ,
                            "urn:cite:brill:inscriptionType:0000015"^^xsd:string ;
            skos:definition "Religious laws or regulations with legal or binding authority within a religious context, detailing the religious regulations and requirements governing civic cults and voluntary religious associations. These laws address various aspects of cultic practices, including the conduct of rituals, participation criteria, duties of religious officials, and the imposition of fines for non-compliance. Unlike sacred decrees, sacred laws do not provide information on their enactment processes but are believed to be enforced by priests, state officials, or founders of the associations. Often inscribed at the entrances of sacred enclosures, these laws also prescribe purity requirements, specifying prohibited actions, substances, or contacts that would render a person ritually impure and thus barred from participating in religious activities [McLean 2002, 189-192]."@en ;
            skos:example <http://sicily.classics.ox.ac.uk/inscription/ISic001424> ,
@@ -1307,7 +1492,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                     <http://sicily.classics.ox.ac.uk/inscription/ISic030317> ,
                     <https://romaninscriptionsofbritain.org/inscriptions/Brit.49.38> ,
                     <https://romaninscriptionsofbritain.org/inscriptions/706> ;
-       skos:prefLabel "Magic"@en .
+       skos:prefLabel "Magic"@en ;
+       skos:relatedMatch <https://www.wikidata.org/wiki/Q81741> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Magistrates
@@ -1316,7 +1502,9 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
              skos:altLabel "List of magistrates"@en ,
                            "Lista de magistrados"@es ,
                            "Liste de magistrats"@fr ;
-             skos:closeMatch <https://www.eagle-network.eu/voc/typeins/lod/32> ;
+             skos:closeMatch <https://ark.mom.fr/ark:/76609/epvqccgngqhp8> ,
+                             <https://www.eagle-network.eu/voc/typeins/lod/32> ,
+                             <https://www.wikidata.org/wiki/Q126733465> ;
              skos:definition "Lists of individuals holding official positions or roles within a governmental or administrative structure. The text sometimes species a given period or year when the office was held."@en ;
              skos:example <http://sicily.classics.ox.ac.uk/inscription/ISic001033> ,
                           <http://sicily.classics.ox.ac.uk/inscription/ISic001034> ,
@@ -1331,7 +1519,9 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
 :Maker rdf:type owl:Class ;
        rdfs:subClassOf :Production ;
        skos:altLabel "Maker's mark"@en ;
-       skos:closeMatch <http://vocab.getty.edu/page/aat/300256090> ;
+       skos:closeMatch <http://vocab.getty.edu/page/aat/300256090> ,
+                       <https://ark.mom.fr/ark:/76609/epvn98xfz2th4> ,
+                       <https://www.wikidata.org/wiki/Q57248774> ;
        skos:definition "Marks or short texts identifying the maker or manufacturer of an object, often accompanied by a symbol. Maker's marks are often produced in large quantities, along with the produced goods or their containing vessels/material. Their shape and execution are typically standardised to some extent."@en ;
        skos:example <https://gis.latinnow.eu/object/154512> ,
                     <https://gis.latinnow.eu/object/158780> ,
@@ -1348,7 +1538,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                            "Acte d'affranchissement"@fr ,
                            "Atto di manumissione"@it ;
              skos:broadMatch <http://vocab.getty.edu/page/aat/300185680> ;
-             skos:closeMatch <https://www.eagle-network.eu/voc/typeins/lod/51> ;
+             skos:closeMatch <https://www.eagle-network.eu/voc/typeins/lod/51> ,
+                             <https://www.wikidata.org/wiki/Q126733424> ;
              skos:definition "Manumission inscriptions refer to public records of the liberation of slaves in ancient societies, particularly in the Roman and Hellenistic worlds. These inscriptions documented the legal and social process of freeing a slave and were inscribed on durable materials like stone to ensure the freed person's new status was widely recognized and legally protected. These records could include details such as the name of the slave and master, the conditions of the manumission, the price paid, and any guarantees or witnesses involved. Manumission inscriptions served both as a public declaration and a legal safeguard, often involving religious or formal legal ceremonies to reinforce the freed person's new status and protect against future re-enslavement [McLean 2002, 184-185, 289-299]."@en ;
              skos:example <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD020895> ,
                           <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD028577> ,
@@ -1356,7 +1547,9 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                           <https://www.atticinscriptions.com/inscription/Meyer2010/1> ,
                           <https://www.atticinscriptions.com/inscription/Meyer2010/17> ,
                           <https://www.trismegistos.org/text/888768> ;
-             skos:prefLabel "Manumission"@en .
+             skos:prefLabel "Manumission"@en ;
+             skos:relatedMatch <https://www.wikidata.org/wiki/Q1454489> ,
+                               <https://www.wikidata.org/wiki/Q3287079> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Mason
@@ -1370,7 +1563,9 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
        skos:closeMatch <http://vocab.getty.edu/page/aat/300264553> ,
                        <http://www.eagle-network.eu/voc/typeins/lod/121> ,
                        <http://www.eagle-network.eu/voc/typeins/lod/390.html> ,
-                       <https://www.eagle-network.eu/voc/typeins/lod/394> ;
+                       <https://ark.mom.fr/ark:/76609/epvqjjqn82035> ,
+                       <https://www.eagle-network.eu/voc/typeins/lod/394> ,
+                       <https://www.wikidata.org/wiki/Q126733475> ;
        skos:definition "Marks indicating the mason or quarry responsible for stone or building materials, marks related to the manufacturing process in the quarry, or inscriptions made by quarry workers. Quarry and masons’ marks are inscriptions found on stones hewn from quarries or on lead seals attached to these stones. The inscriptions include a variety of letters and numbers serving different purposes. Quarry marks typically document aspects of the quarrying process such as serial numbers, consular dates, quarry sectors, and names of officials and inspectors. They can range from detailed records to simple identifiers. Masons' marks, on the other hand, provide instructions for shaping the stone into its final architectural form and for its assembly, often including the names or initials of the masons responsible. These marks vary significantly in size, depth, and lettering style, reflecting their practical use in construction [McLean 2002, 204-205]."@en ;
        skos:example <http://sicily.classics.ox.ac.uk/inscription/ISic001548> ,
                     <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR108752> ,
@@ -1389,6 +1584,7 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
 :Measure rdf:type owl:Class ;
          rdfs:subClassOf :Description ;
          skos:broadMatch <http://vocab.getty.edu/page/aat/300386648> ;
+         skos:closeMatch <https://ark.mom.fr/ark:/76609/epvhj0x6mqjc9> ;
          skos:definition "Inscriptions related to measurements, quantities, or values."@en ;
          skos:example <http://sicily.classics.ox.ac.uk/inscription/ISic020551> ,
                       <http://sicily.classics.ox.ac.uk/inscription/ISic020770> ,
@@ -1403,7 +1599,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                       <https://insaph.kcl.ac.uk/ala2004/inscription/eAla215.html> ,
                       <https://romaninscriptionsofbritain.org/inscriptions/Brit.28.20> ,
                       <https://romaninscriptionsofbritain.org/inscriptions/Brit.34.35> ;
-         skos:prefLabel "Measure"@en .
+         skos:prefLabel "Measure"@en ;
+         skos:relatedMatch <https://www.wikidata.org/wiki/Q192276> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Milestone
@@ -1421,7 +1618,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                            <https://www.eagle-network.eu/voc/typeins/lod/102.html> ,
                            <https://www.eagle-network.eu/voc/typeins/lod/305.html> ,
                            <https://www.eagle-network.eu/voc/typeins/lod/306.html> ,
-                           <https://www.eagle-network.eu/voc/typeins/lod/307.html> ;
+                           <https://www.eagle-network.eu/voc/typeins/lod/307.html> ,
+                           <https://www.wikidata.org/wiki/Q10145> ;
            skos:definition "Inscriptions placed along roads to mark distances, typically indicating the distance to a specific location or city. The inscriptions on the milestones provided important information for the traveller, including the starting point of the mileage count, often a town (caput viae), and the distance in miles, indicated by \"MP\" for milia passuum (1000 double steps = 1 Roman mile) in Latin and M or MI in Greek. Under the Republic, milestones often featured the names of officials involved in road construction or repair, while in the Principate, they usually cited the reigning emperor. These inscriptions were often in the nominative and later in the dative or ablative. Verbs such as \"munivit\" (has fortified), \"fecit\" (has made) or \"restituit\" (has restored) described the emperor's building activities [Schmidt 2004, 61-64]. The letters on milestones were large for readability from a distance, though the curved surface made them harder to read than modern signs. The stones were mass-produced with a tabula ansata for inscriptions, often necessitating text outside this panel due to space constraints. Initially set up at intervals of one Roman mile on military roads, the system expanded significantly under the Empire [McLean 2002, 187-188]. Sometimes new inscriptions were placed on older stones, making them important sources for the history of road construction. In the Gallic and Germanic provinces, the Gallic measure \"leuga\" was sometimes used from Traian onwards [Meyer 1973, 61-64]."@en ;
            skos:example <http://mama.csad.ox.ac.uk/monuments/MAMA-XI-009.html> ,
                         <http://sicily.classics.ox.ac.uk/inscription/ISic000610> ,
@@ -1450,6 +1648,7 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                                <https://romaninscriptionsofbritain.org/inscriptions/Brit.48.7> ,
                                <https://romaninscriptionsofbritain.org/inscriptions/2401.1> ,
                                <https://romaninscriptionsofbritain.org/inscriptions/2401.7> ;
+                  skos:narrowMatch <https://www.wikidata.org/wiki/Q1754258> ;
                   skos:prefLabel "Military diploma"@en .
 
 
@@ -1468,18 +1667,23 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                                  <https://igcyr.unibo.it/igcyr109000> ,
                                  <https://romaninscriptionsofbritain.org/inscriptions/3016> ;
                     skos:prefLabel "Military personnel"@en ;
-                    skos:related <http://vocab.getty.edu/page/aat/300192315> .
+                    skos:related <http://vocab.getty.edu/page/aat/300192315> ;
+                    skos:relatedMatch <https://www.wikidata.org/wiki/Q47064> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Mortgage_stone
 :Mortgage_stone rdf:type owl:Class ;
                 rdfs:subClassOf :Legal ;
                 <http://purl.org/dc/terms/bibliographicCitation> "Woodhead, A. G. 1959. The Study of Greek Inscriptions. Cambridge: Cambridge University Press."^^xsd:string ;
-                skos:closeMatch <http://vocab.getty.edu/page/aat/300027251> ;
+                skos:altLabel "Hypothekenstein"@de ,
+                              "cippo ipotecario"@it ;
+                skos:closeMatch <http://vocab.getty.edu/page/aat/300027251> ,
+                                <https://ark.mom.fr/ark:/76609/epvg86w1x09v8> ;
                 skos:definition "Inscriptions indicating a legal contract that such private property has been pledged as security on a dowry or a loan [Woodhead 1959, 47]. Relatively rarely occurring."@en ;
                 skos:example <https://www.atticinscriptions.com/inscription/AgoraXIX/h84> ,
                              <https://www.atticinscriptions.com/inscription/IGII2/2721> ;
-                skos:prefLabel "Mortgage stone"@en .
+                skos:prefLabel "Mortgage stone"@en ;
+                skos:relatedMatch <https://ark.mom.fr/ark:/76609/epvcnhtx5f4wx> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Names
@@ -1489,7 +1693,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
        skos:altLabel "Catalogue of names"@en ,
                      "List of names"@en ,
                      "Name"@en ;
-       skos:closeMatch "urn:cite:brill:inscriptionType:0000013" ;
+       skos:closeMatch <https://www.wikidata.org/wiki/Q11884534> ,
+                       "urn:cite:brill:inscriptionType:0000013" ;
        skos:definition "Single or multiple names of individuals, groups, or entities, often in the form of a list or enumeration. When engraved into stones, these lists were used for public record-keeping and honorific recognition, leaving space on the inscribed medium for future additions and utilizing preambles and organizational aids, such as sequential letters, for clarity and structure [McLean 2002, 198-200]. When a single name is present, further interpretation might be difficult, or sometimes impossible."@en ;
        skos:example <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR128560> ,
                     <http://sicily.classics.ox.ac.uk/inscription/ISic003438> ,
@@ -1499,6 +1704,7 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                     <https://romaninscriptionsofbritain.org/inscriptions/2417.9> ,
                     <https://romaninscriptionsofbritain.org/inscriptions/2491.78> ,
                     <https://www.atticinscriptions.com/inscription/AIUK43B/1> ;
+       skos:narrowMatch <https://ark.mom.fr/ark:/76609/epv6sm5gxsh6h> ;
        skos:prefLabel "Names"@en .
 
 
@@ -1512,7 +1718,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                           <https://ancientgraffiti.org/Graffiti/graffito/AGP-EDR142440> ,
                           <https://romaninscriptionsofbritain.org/inscriptions/2503.95> ,
                           <https://romaninscriptionsofbritain.org/inscriptions/706> ;
-             skos:prefLabel "Non-lexical"@en .
+             skos:prefLabel "Non-lexical"@en ;
+             skos:relatedMatch <https://www.wikidata.org/wiki/Q600499> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Oath
@@ -1520,27 +1727,32 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
       rdfs:subClassOf :Religious ;
       skos:altLabel "Giuramento"@la ;
       skos:closeMatch <http://vocab.getty.edu/page/aat/300027206> ,
+                      <https://ark.mom.fr/ark:/76609/epvrmwv3pdscj> ,
                       <https://www.eagle-network.eu/voc/typeins/lod/409.html> ;
       skos:definition "Inscriptions involving a solemn promise or commitment, often made in a religious or sacred context."@en ;
       skos:example <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR076755> ,
                    <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD000047> ,
                    <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD000346> ,
                    <https://iospe.kcl.ac.uk/3.100.html> ;
-      skos:prefLabel "Oath"@en .
+      skos:prefLabel "Oath"@en ;
+      skos:relatedMatch <https://www.wikidata.org/wiki/Q381045> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Oracle
 :Oracle rdf:type owl:Class ;
         rdfs:subClassOf :Religious ;
         skos:altLabel "Inquiry"@en ,
-                      "Oracolo"@it ;
+                      "Oracolo"@it ,
+                      "Orakel"@de ;
         skos:closeMatch <http://www.eagle-network.eu/voc/typeins/lod/429.html> ,
+                        <https://ark.mom.fr/ark:/76609/epvcmc7m1hjkh> ,
+                        <https://www.wikidata.org/wiki/Q217123> ,
                         "urn:cite:brill:inscriptionType:0000016" ;
         skos:definition "Inscriptions related to the consultation or response of an oracle, typically providing guidance, prophecy, or advice, or containing the oracle inquiry, referring to the act or process of seeking guidance or advice from an oracle."@en ;
         skos:example <http://sicily.classics.ox.ac.uk/inscription/ISic002754> ,
                      <http://sicily.classics.ox.ac.uk/inscription/ISic003367> ;
         skos:prefLabel "Oracle"@en ;
-        skos:related <http://vocab.getty.edu/page/aat/300451675> .
+        skos:relatedMatch <http://vocab.getty.edu/page/aat/300451675> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Origin
@@ -1559,7 +1771,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                      <https://romaninscriptionsofbritain.org/inscriptions/Brit.32.39> ,
                      <https://romaninscriptionsofbritain.org/inscriptions/2492.18> ,
                      <https://romaninscriptionsofbritain.org/inscriptions/2493.12> ;
-        skos:prefLabel "Origin"@en .
+        skos:prefLabel "Origin"@en ;
+        skos:relatedMatch <https://www.wikidata.org/wiki/Q3885844> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Orphic_text
@@ -1570,7 +1783,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
              skos:definition "Inscriptions associated with Orphic religious beliefs or practices, often containing instructions or rituals for the afterlife."@en ;
              skos:example <https://epigraphy.packhum.org/text/297218> ,
                           <https://epigraphy.packhum.org/text/297219> ;
-             skos:prefLabel "Orphic text"@en .
+             skos:prefLabel "Orphic text"@en ;
+             skos:relatedMatch <https://www.wikidata.org/wiki/Q1313790> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Ownership
@@ -1582,6 +1796,7 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                          "Owner inscription"@en ,
                          "Owner's sign"@en ;
            skos:closeMatch <http://vocab.getty.edu/page/aat/300028772> ,
+                           <https://ark.mom.fr/ark:/76609/epvp11pxf7bpb> ,
                            <https://www.eagle-network.eu/voc/typeins/lod/104.html> ,
                            <https://www.eagle-network.eu/voc/typeins/lod/110.html> ,
                            <https://www.eagle-network.eu/voc/typeins/lod/313.html> ,
@@ -1595,7 +1810,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                         <https://iospe.kcl.ac.uk/5.342.html> ,
                         <https://romaninscriptionsofbritain.org/inscriptions/Brit.21.39> ,
                         <https://romaninscriptionsofbritain.org/inscriptions/Brit.22.30> ;
-           skos:prefLabel "Ownership"@en .
+           skos:prefLabel "Ownership"@en ;
+           skos:relatedMatch <https://www.wikidata.org/wiki/Q6498684> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Patronage
@@ -1604,7 +1820,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
            <http://purl.org/dc/terms/bibliographicCitation> "Schmidt, Manfred G. 2004. Einführung in Die Lateinische Epigraphik. Darmstadt: Wissenschaftliche Buchgesellschaft."^^xsd:string ;
            skos:altLabel "Patronatstafel"@de ,
                          "Tabula patronatus"@la ;
-           skos:closeMatch <https://www.eagle-network.eu/voc/typeins/lod/129.html> ;
+           skos:closeMatch <https://www.eagle-network.eu/voc/typeins/lod/129.html> ,
+                           <https://www.wikidata.org/wiki/Q56881933> ;
            skos:definition "Legal regulations governing the relationship between patrons and clients in ancient societies. The tabulae patronatus are inscriptions that attest to the admission of a community, municipium, family association (gens) or collegium to the clientele of a patron. Such plaques were placed in prominent locations, such as at shrines or in the patron's house, and publicly documented the relationship between patron and client. They are important evidence of the social and political structure of Roman society, as they document the formal patronage and protection that a patron granted his clients [Schmidt 2004, 42-43]."@en ;
            skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR015124> ,
                         <https://cil.bbaw.de/ace/id/KO0001411> ,
@@ -1615,7 +1832,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                         <https://gis.latinnow.eu/object/173625> ,
                         <https://gis.latinnow.eu/object/181672> ,
                         <https://gis.latinnow.eu/object/205796> ;
-           skos:prefLabel "Patronage"@en .
+           skos:prefLabel "Patronage"@en ;
+           skos:relatedMatch <https://www.wikidata.org/wiki/Q19862699> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Pragmatic
@@ -1625,7 +1843,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
            skos:definition "A written declaration of a fact, opinion, or belief. A statement aimed at conveying specific messages, directives, or information to an audience in a direct and straightforward manner."@en ;
            skos:example <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR151867> ,
                         <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD014915> ;
-           skos:prefLabel "Pragmatic"@en .
+           skos:prefLabel "Pragmatic"@en ;
+           skos:relatedMatch <https://www.wikidata.org/wiki/Q2620826> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Price
@@ -1643,7 +1862,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                     <https://igcyr.unibo.it/igcyr088000> ,
                     <https://romaninscriptionsofbritain.org/inscriptions/2494.91> ,
                     <https://romaninscriptionsofbritain.org/inscriptions/2504.8> ;
-       skos:prefLabel "Price"@en .
+       skos:prefLabel "Price"@en ;
+       skos:relatedMatch <https://www.wikidata.org/wiki/Q160151> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Priesthood_sale
@@ -1660,13 +1880,15 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
          skos:altLabel "Catalogo di sacerdoti"@it ,
                        "Lista de sacerdotes"@es ,
                        "Liste de prêtres"@fr ;
-         skos:closeMatch <https://www.eagle-network.eu/voc/typeins/lod/33.html> ;
+         skos:closeMatch <https://www.eagle-network.eu/voc/typeins/lod/33.html> ,
+                         <https://www.wikidata.org/wiki/Q126733466> ;
          skos:definition "Lists of individuals holding religious or priestly offices or titles."@en ;
          skos:example <http://sicily.classics.ox.ac.uk/inscription/ISic000829> ,
                       <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD001735> ,
                       <https://igcyr.unibo.it/igcyr109300> ,
                       <https://igcyr.unibo.it/igcyr129600> ;
-         skos:prefLabel "Priests"@en .
+         skos:prefLabel "Priests"@en ;
+         skos:relatedMatch <https://www.wikidata.org/wiki/Q42603> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Production
@@ -1705,7 +1927,9 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                          <https://romaninscriptionsofbritain.org/inscriptions/2487.8.i> ;
             skos:narrowMatch <http://vocab.getty.edu/page/aat/300195926> ,
                              <http://vocab.getty.edu/page/aat/300195985> ;
-            skos:prefLabel "Production"@en .
+            skos:prefLabel "Production"@en ;
+            skos:relatedMatch <https://www.wikidata.org/wiki/Q126733482> ,
+                              <https://www.wikidata.org/wiki/Q126733497> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Proskynema
@@ -1724,7 +1948,9 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
 :Proxeny rdf:type owl:Class ;
          rdfs:subClassOf :Decree ,
                          :Hospitality_agreement ;
-         skos:closeMatch "urn:cite:brill:inscriptionType:0000002" ;
+         skos:broadMatch <https://www.wikidata.org/wiki/Q975148> ;
+         skos:closeMatch <https://ark.mom.fr/ark:/76609/epvmmxxcd6t1s> ,
+                         "urn:cite:brill:inscriptionType:0000002" ;
          skos:definition "Decrees concerning the institution or regulation of proxeny, a system of reciprocal hospitality and diplomatic privileges in ancient Greek poleis."@en ;
          skos:example <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD000275> ,
                       <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD051603> ,
@@ -1737,15 +1963,18 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
 ###  https://ontology.inscriptiones.org/type_of_inscription/Public_subscription
 :Public_subscription rdf:type owl:Class ;
                      rdfs:subClassOf :Names ;
-                     skos:altLabel "ἐπίδοσις"@el ;
-                     skos:closeMatch "urn:cite:brill:inscriptionType:0000008" ;
+                     skos:altLabel "Beitrag"@de ,
+                                   "ἐπίδοσις"@el ;
+                     skos:closeMatch <https://ark.mom.fr/ark:/76609/epvg9fr70hjdg> ,
+                                     "urn:cite:brill:inscriptionType:0000008" ;
                      skos:definition "Lists of individuals who contributed to a public fund or initiative through voluntary subscription. Voluntary contribution to the state, benevolence, benefaction, charitable endownment."@en ;
                      skos:example <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD000869> ,
                                   <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD003737> ,
                                   <https://epigraphy.packhum.org/text/4568> ,
                                   <https://epigraphy.packhum.org/text/4570?hs=87-104> ,
                                   <https://www.atticinscriptions.com/inscription/IGII31/1011> ;
-                     skos:prefLabel "Public subscription"@en .
+                     skos:prefLabel "Public subscription"@en ;
+                     skos:relatedMatch <https://www.wikidata.org/wiki/Q101242908> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Quantity
@@ -1762,7 +1991,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                        <https://romaninscriptionsofbritain.org/inscriptions/2491.52.i> ,
                        <https://romaninscriptionsofbritain.org/inscriptions/2491.53> ;
           skos:narrowMatch <http://vocab.getty.edu/page/aat/300434328> ;
-          skos:prefLabel "Quantity"@en .
+          skos:prefLabel "Quantity"@en ;
+          skos:relatedMatch <https://www.wikidata.org/wiki/Q309314> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Quotation
@@ -1771,8 +2001,10 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
            skos:altLabel "Citation littéraire"@fr ,
                          "Free composition"@en ,
                          "Literary citation"@en ,
-                         "Literary quotation"@en ;
-           skos:closeMatch <https://www.eagle-network.eu/voc/typeins/lod/55.html> ;
+                         "Literary quotation"@en ,
+                         "Literary quote"@en ;
+           skos:closeMatch <https://www.eagle-network.eu/voc/typeins/lod/55> ,
+                           <https://www.wikidata.org/wiki/Q126733433> ;
            skos:definition "Inscriptions containing quoted passages or excerpts from literary works, or sometimes original composition (often in verse)."@en ;
            skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR080387> ,
                         <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR081355> ,
@@ -1786,7 +2018,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                         "SEG 53-1970"^^xsd:string ,
                         "SEG 57-1800"^^xsd:string ;
            skos:narrowMatch "urn:cite:brill:inscriptionType:0000039"^^xsd:string ;
-           skos:prefLabel "Quotation"@en .
+           skos:prefLabel "Quotation"@en ;
+           skos:relatedMatch <https://www.wikidata.org/wiki/Q206287> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Record_keeping
@@ -1800,8 +2033,12 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                 skos:closeMatch <http://vocab.getty.edu/page/aat/300026059> ,
                                 <http://vocab.getty.edu/page/aat/300027119> ,
                                 <http://www.eagle-network.eu/voc/typeins/lod/108.html> ,
+                                <https://ark.mom.fr/ark:/76609/epv80kpr4j2nx> ,
                                 <https://www.eagle-network.eu/voc/typeins/lod/331.html> ,
-                                <https://www.eagle-network.eu/voc/typeins/lod/362.html> ;
+                                <https://www.eagle-network.eu/voc/typeins/lod/362.html> ,
+                                <https://www.wikidata.org/wiki/Q12139612> ,
+                                <https://www.wikidata.org/wiki/Q126733492> ,
+                                <https://www.wikidata.org/wiki/Q2352616> ;
                 skos:definition "Texts related to organizing and storing information for administrative and financial purposes, often presenting information in the form of a catalog, enumeration, list of items."@en ;
                 skos:example <http://sicily.classics.ox.ac.uk/inscription/ISic001035> ,
                              <http://sicily.classics.ox.ac.uk/inscription/ISic003345> ,
@@ -1819,6 +2056,7 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
 :Regulatory rdf:type owl:Class ;
             rdfs:subClassOf owl:Thing ;
             skos:broadMatch <http://vocab.getty.edu/page/aat/300027842> ;
+            skos:closeMatch <https://ark.mom.fr/ark:/76609/epvgv2gwvtmnv> ;
             skos:definition "Texts related to regulations, rules, or instructions governing behavior or conduct."@en ;
             skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR154513> ,
                          <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR161485> ,
@@ -1828,8 +2066,13 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                          <https://insaph.kcl.ac.uk/ala2004/inscription/eAla220.html> ,
                          <https://iospe.kcl.ac.uk/3.109.html> ,
                          <https://iospe.kcl.ac.uk/3.110.html> ;
-            skos:narrowMatch "urn:cite:brill:inscriptionType:0000015"^^xsd:string ;
-            skos:prefLabel "Regulatory"@en .
+            skos:narrowMatch <https://ark.mom.fr/ark:/76609/epvv9t998ndjv> ,
+                             <https://www.wikidata.org/wiki/Q126733468> ,
+                             <https://www.wikidata.org/wiki/Q126733486> ,
+                             "urn:cite:brill:inscriptionType:0000015"^^xsd:string ;
+            skos:prefLabel "Regulatory"@en ;
+            skos:relatedMatch <https://ark.mom.fr/ark:/76609/epvfn07q3dts3> ,
+                              <https://www.wikidata.org/wiki/Q428148> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Religious
@@ -1842,7 +2085,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                          "Sacer"@la ,
                          "Titulus sacer"@la ;
            skos:closeMatch <http://vocab.getty.edu/page/aat/300220519> ,
-                           <https://www.eagle-network.eu/voc/typeins/lod/79> ;
+                           <https://www.eagle-network.eu/voc/typeins/lod/79> ,
+                           <https://www.wikidata.org/wiki/Q125323760> ;
            skos:definition "Texts associated with religious practices, beliefs, rituals, or conduct of religious institutions."@en ;
            skos:example <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR168048> ,
                         <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR000864> ,
@@ -1870,7 +2114,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
               skos:closeMatch <http://vocab.getty.edu/page/aat/300211849> ;
               skos:definition "Inscriptions related to the construction, maintenance and travel along the road network system."@en ;
               skos:example <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD002722> ;
-              skos:prefLabel "Road network"@en .
+              skos:prefLabel "Road network"@en ;
+              skos:relatedMatch <https://www.wikidata.org/wiki/Q358078> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Road_signpost
@@ -1878,7 +2123,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                rdfs:subClassOf :Road_network ;
                skos:altLabel "Street sign"@en ;
                skos:closeMatch <http://vocab.getty.edu/page/aat/300003909> ,
-                               <https://www.eagle-network.eu/voc/typeins/lod/380> ;
+                               <https://www.eagle-network.eu/voc/typeins/lod/380> ,
+                               <https://www.wikidata.org/wiki/Q22812402> ;
                skos:definition "Inscriptions providing directional information or guidance to travelers, often found at intersections or crossroads."@en ;
                skos:example <https://igcyr.unibo.it/igcyr030800> ,
                             <https://igcyr.unibo.it/igcyr107350> ;
@@ -1895,7 +2141,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                                <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD020431> ,
                                <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD027208> ,
                                <https://gis.latinnow.eu/object/160937> ,
-                               <https://www.edb.uniba.it/epigraph/42638> ;
+                               <https://www.edb.uniba.it/epigraph/42638> ,
+                               <https://www.wikidata.org/wiki/Q134084158> ;
                   skos:prefLabel "Seat inscription"@en .
 
 
@@ -1903,11 +2150,13 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
 :Signaculum rdf:type owl:Class ;
             rdfs:subClassOf :Certification ;
             skos:altLabel "Signaculum medicorum"@en ;
+            skos:closeMatch <https://www.wikidata.org/wiki/Q5806032> ;
             skos:definition "Inscriptions serving as official certification or seal, usually on a portable object, for example related to medical professionals."@en ;
             skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR071869> ,
                          <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD012156> ,
                          <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD036701> ,
                          <https://gis.latinnow.eu/object/195090> ;
+            skos:narrowMatch <https://www.wikidata.org/wiki/Q115407727> ;
             skos:prefLabel "Signaculum"@la .
 
 
@@ -1920,7 +2169,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                      <https://inscriptions.packhum.org/text/4593> ,
                      <https://www.atticinscriptions.com/inscription/IGII34/633> ;
         skos:prefLabel "Slaves"@en ;
-        skos:related <http://vocab.getty.edu/page/aat/300230899> .
+        skos:relatedMatch <http://vocab.getty.edu/page/aat/300230899> ,
+                          <https://www.wikidata.org/wiki/Q12773225> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Souvenir_inscription
@@ -1932,7 +2182,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                                     "Tessera monumentum"@la ,
                                     "Texte turistique"@fr ,
                                     "Touristic text"@en ;
-                      skos:closeMatch <https://www.eagle-network.eu/voc/typeins/lod/135.html> ;
+                      skos:closeMatch <https://www.eagle-network.eu/voc/typeins/lod/135.html> ,
+                                      <https://www.wikidata.org/wiki/Q126733491> ;
                       skos:definition """Inscription marking the occasion and preserving the memory of the event, often detailing the date, purpose and key figures involved in the construction or dedication of the structure. Often found on a portable object, such as a tessera, a flask or a plaque, that served as a souvenir, a tangible reminder of an event, a place. Alternatively, inscriptions recording the visit to a given place by tourists or visitors can be found often found at historical sites, monuments, or landmarks. [Woodhead 1959, 47]. 
 They are meant to mark the occasion and preserve the memory of the event, providing participants with a tangible memento that encapsulates the historical and cultural significance of the monument or building, or an occasion of a visit."""^^xsd:string ;
                       skos:example <http://ancientgraffiti.org/Graffiti/graffito/AGP-EDR127234> ,
@@ -1970,7 +2221,8 @@ They are meant to mark the occasion and preserve the memory of the event, provid
                                <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD002496> ,
                                <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD010235> ,
                                <https://insaph.kcl.ac.uk/ala2004/inscription/eAla196.html> ;
-                  skos:prefLabel "Space allocation"@en .
+                  skos:prefLabel "Space allocation"@en ;
+                  skos:relatedMatch <https://www.wikidata.org/wiki/Q149013> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Space_delimitation
@@ -1981,13 +2233,13 @@ They are meant to mark the occasion and preserve the memory of the event, provid
                     skos:definition "Texts marking the allocation of space including its boundaries, its use and distribution between private and public entities, having a regulatory aspect."@en ;
                     skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR075677> ,
                                  <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD065913> ;
-                    skos:prefLabel "Space delimitation"@en .
+                    skos:prefLabel "Space delimitation"@en ;
+                    skos:relatedMatch <https://www.wikidata.org/wiki/Q3241107> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Space_organisation
 :Space_organisation rdf:type owl:Class ;
                     rdfs:subClassOf owl:Thing ;
-                    <http://purl.org/dc/elements/1.1/relation> <https://www.eagle-network.eu/voc/typeins/lod/96.html> ;
                     skos:broadMatch <http://vocab.getty.edu/page/aat/300424649> ;
                     skos:closeMatch <http://vocab.getty.edu/page/aat/300429472> ,
                                     "term. non sep."@la ;
@@ -1995,7 +2247,10 @@ They are meant to mark the occasion and preserve the memory of the event, provid
                     skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR075677> ,
                                  <https://www.atticinscriptions.com/inscription/IGI3/1023> ;
                     skos:prefLabel "Space organisation"@en ;
-                    skos:related <http://vocab.getty.edu/page/aat/300262796> .
+                    skos:relatedMatch <http://vocab.getty.edu/page/aat/300262796> ,
+                                      <https://www.eagle-network.eu/voc/typeins/lod/96.html> ,
+                                      <https://www.wikidata.org/wiki/Q126733483> ,
+                                      <https://www.wikidata.org/wiki/Q1969455> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Tessera_frumentaria
@@ -2055,7 +2310,9 @@ They are meant to mark the occasion and preserve the memory of the event, provid
                         <https://igcyr.unibo.it/igcyr011200> ,
                         <https://insaph.kcl.ac.uk/ala2004/inscription/eAla091.html> ,
                         <https://romaninscriptionsofbritain.org/inscriptions/Brit.35.27> ;
-           skos:prefLabel "Testament"@en .
+           skos:prefLabel "Testament"@en ;
+           skos:relatedMatch <https://ark.mom.fr/ark:/76609/epvmw5bvzd482> ,
+                             <https://www.wikidata.org/wiki/Q155656> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Time_recording
@@ -2070,7 +2327,8 @@ They are meant to mark the occasion and preserve the memory of the event, provid
                              <https://romaninscriptionsofbritain.org/inscriptions/Brit.49.32> ,
                              <https://www.atticinscriptions.com/inscription/SEG/50168> ;
                 skos:prefLabel "Time recording"@en ;
-                skos:related <http://vocab.getty.edu/page/aat/300133089> .
+                skos:relatedMatch <http://vocab.getty.edu/page/aat/300133089> ,
+                                  <https://www.wikidata.org/wiki/Q126733451> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Tomb_regulation
@@ -2093,14 +2351,17 @@ They are meant to mark the occasion and preserve the memory of the event, provid
 :Treaty rdf:type owl:Class ;
         rdfs:subClassOf :Legal ;
         skos:altLabel "Trattato"@it ;
-        skos:closeMatch <https://www.eagle-network.eu/voc/typeins/lod/420.html> ;
+        skos:closeMatch <https://ark.mom.fr/ark:/76609/epv8dtmx5z1qh> ,
+                        <https://www.eagle-network.eu/voc/typeins/lod/420.html> ;
         skos:definition "Inscriptions concerning treaties or formal agreement or contract between two or more sovereign states or political entities. It establishes legal obligations and commitments between the parties involved and is typically negotiated and ratified through diplomatic channels. Treaties can cover a wide range of subjects, including peace agreements or trade agreements."@en ;
         skos:example <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD033614> ,
                      <https://iospe.kcl.ac.uk/3.103.html> ,
                      <https://www.atticinscriptions.com/inscription/IGII31/299> ,
                      <https://www.atticinscriptions.com/inscription/IGII31/318> ,
                      <https://www.atticinscriptions.com/inscription/Matthaiou2019/97-116> ;
-        skos:prefLabel "Treaty"@en .
+        skos:narrowMatch <https://ark.mom.fr/ark:/76609/epv73ffnh2dzt> ;
+        skos:prefLabel "Treaty"@en ;
+        skos:relatedMatch <https://www.wikidata.org/wiki/Q131569> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Unable_to_determine
@@ -2135,7 +2396,8 @@ They are meant to mark the occasion and preserve the memory of the event, provid
 :Victors rdf:type owl:Class ;
          rdfs:subClassOf :Names ;
          skos:altLabel "Winners"@en ;
-         skos:closeMatch <https://www.eagle-network.eu/voc/typeins/lod/369> ;
+         skos:closeMatch <https://ark.mom.fr/ark:/76609/epvbvnb6k1bmt> ,
+                         <https://www.eagle-network.eu/voc/typeins/lod/369> ;
          skos:definition "Lists of individuals who achieved victory or success in contests, competitions, or eventually battles. For individual winners, not presented in the form of a list, see agonistic inscription."@en ;
          skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR186309> ,
                       <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR188179> ,
@@ -2144,7 +2406,8 @@ They are meant to mark the occasion and preserve the memory of the event, provid
                       <https://epigraphy.packhum.org/text/4562?bookid=5&location=1699> ,
                       <https://www.atticinscriptions.com/inscription/IGII34/555> ;
          skos:prefLabel "Victors"@en ;
-         skos:related <http://vocab.getty.edu/page/aat/300207894> .
+         skos:relatedMatch <http://vocab.getty.edu/page/aat/300207894> ,
+                           <https://www.wikidata.org/wiki/Q18560095> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Warning
@@ -2156,7 +2419,8 @@ They are meant to mark the occasion and preserve the memory of the event, provid
          skos:example <https://insaph.kcl.ac.uk/ala2004/inscription/eAla111.html> ,
                       <https://insaph.kcl.ac.uk/ala2004/inscription/eAla112.html> ,
                       <https://insaph.kcl.ac.uk/ala2004/inscription/eAla129.html> ;
-         skos:prefLabel "Warning"@en .
+         skos:prefLabel "Warning"@en ;
+         skos:relatedMatch <https://www.wikidata.org/wiki/Q1759104> .
 
 
 ###  https://ontology.inscriptiones.org/type_of_inscription/Weight
@@ -2166,6 +2430,7 @@ They are meant to mark the occasion and preserve the memory of the event, provid
                       "Weight marks"@en ;
         skos:closeMatch <http://vocab.getty.edu/page/aat/300056240> ,
                         <http://www.eagle-network.eu/voc/typeins/lod/123.html> ,
+                        <https://www.wikidata.org/wiki/Q126733477> ,
                         "urn:cite:brill:inscriptionType:0000027" ;
         skos:definition "Inscriptions indicating the weight or mass of an object."@en ;
         skos:example <http://sicily.classics.ox.ac.uk/inscription/ISic003498> ,
