@@ -41,14 +41,17 @@ skos:prefLabel rdf:type owl:AnnotationProperty .
 skos:scopeNote rdf:type owl:AnnotationProperty .
 
 
-###  https://ontology.inscriptiones.org/bilingualism/bibliographicalCitation
-<https://ontology.inscriptiones.org/bilingualism/bibliographicalCitation> rdf:type owl:AnnotationProperty ;
-                                                                          rdfs:label "bibliographicalCitation"@en .
+###  http://purl.org/dc/terms/bibliographicCitation
+<http://purl.org/dc/terms/bibliographicCitation> rdf:type owl:AnnotationProperty ;
+                                                 rdfs:label "bibliographicCitation"@en .
 
 
-###  https://ontology.inscriptiones.org/bilingualism/related
-<https://ontology.inscriptiones.org/bilingualism/related> rdf:type owl:AnnotationProperty ;
-                                                          rdfs:label "related"@en .
+###  http://www.w3.org/2004/02/skos/core#related
+skos:related rdf:type owl:AnnotationProperty ;
+             rdfs:subPropertyOf <http://purl.org/dc/terms/bibliographicCitation> .
+
+
+
 
 
 #################################################################
