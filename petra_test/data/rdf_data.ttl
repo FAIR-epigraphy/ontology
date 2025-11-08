@@ -1,0 +1,89 @@
+@prefix : <https://ontology.inscriptiones.org/bilingualism/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@base <https://ontology.inscriptiones.org/bilingualism/> .
+
+<https://ontology.inscriptiones.org/bilingualism/> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/source
+<http://purl.org/dc/elements/1.1/source> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#altLabel
+skos:altLabel rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+skos:definition rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#example
+skos:example rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#note
+skos:note rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+skos:prefLabel rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#scopeNote
+skos:scopeNote rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/bibliographicCitation
+<http://purl.org/dc/terms/bibliographicCitation> rdf:type owl:AnnotationProperty ;
+                                                 rdfs:label "bibliographicCitation"@en .
+
+
+###  http://www.w3.org/2004/02/skos/core#related
+skos:related rdf:type owl:AnnotationProperty ;
+             rdfs:subPropertyOf <http://purl.org/dc/terms/bibliographicCitation> .
+
+
+
+
+
+#################################################################
+#    Classes
+#################################################################
+
+
+###  https://ontology.inscriptiones.org/bilingualism/Bilingualism
+:Bilingualism rdf:type owl:Class ;
+                                                               <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1093/9780191994760.005.0001> ;
+                                                               skos:altLabel "Multilingualism in epigraphy"@en ;
+                                                               skos:definition "The concurrent use, or evidence of the presence of, two or more languages within epigraphic texts, for example Latin/Greek/'indigenous' languages, which may reflect societal and/or individual bilingualism/multilingualism."@en ;
+                                                               skos:prefLabel "Bilingualism in epigraphy"@en ;
+                                                               <https://ontology.inscriptiones.org/bilingualism/bibliographicalCitation> "Adams, J N (2003a). Bilingualism and the Latin Language. Cambridge."^^xsd:string ,
+                                                                                                                                         "Mullen, A (2013). Southern Gaul and the Mediterranean: Multilingualism and Multiple Identities in the Iron Age and Roman Periods. Cambridge."^^xsd:string ,
+                                                                                                                                         "Mullen, A, and James, P (2012) (eds). Multilingualism in the Graeco-Roman Worlds. Cambridge."^^xsd:string .
+
+###  https://ontology.inscriptiones.org/bilingualism/Language-focused
+:Language-focused rdf:type owl:Class ;
+                                                                   rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism/Bilingualism> ;
+                                                                   <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1093/9780191994760.005.0001> ;
+                                                                   skos:definition "Evidence of bilingualism in epigraphy can be grouped into features which can be described as 'language-focused' alongside 'script-focused' features. Texts may exhibit examples of both."^^xsd:string ;
+                                                                   skos:prefLabel "Language-focused"@en .
+
+
+###  https://ontology.inscriptiones.org/bilingualism/Script-focused
+:Script-focused rdf:type owl:Class ;
+                                                                 rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism/Bilingualism> ;
+                                                                 <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1093/9780191994760.005.0001> ;
+                                                                 skos:definition "Evidence of bilingualism in epigraphy can be grouped into features which can be described as 'script-focused' alongside 'language-focused' features. Texts may exhibit examples of both."@en ;
+                                                                 skos:prefLabel "Script-focused"@en ;
+                                                                 skos:scopeNote "This schema does not attempt to cover all graphic phenomena, e.g. stonecutters’ errors, just ones related to the interaction of different graphic systems."@en .
+                                                                   
+
+###  Generated by the OWL API (version 4.5.13) https://github.com/owlcs/owlapi
