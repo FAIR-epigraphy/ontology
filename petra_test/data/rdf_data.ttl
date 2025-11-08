@@ -41,49 +41,332 @@ skos:prefLabel rdf:type owl:AnnotationProperty .
 skos:scopeNote rdf:type owl:AnnotationProperty .
 
 
-###  http://purl.org/dc/terms/bibliographicCitation
-<http://purl.org/dc/terms/bibliographicCitation> rdf:type owl:AnnotationProperty ;
-                                                 rdfs:label "bibliographicCitation"@en .
+###  https://ontology.inscriptiones.org/bilingualism#bibliographicalCitation
+<https://ontology.inscriptiones.org/bilingualism#bibliographicalCitation> rdf:type owl:AnnotationProperty ;
+                                                                          rdfs:label "bibliographicalCitation"@en .
 
 
-###  http://www.w3.org/2004/02/skos/core#related
-skos:related rdf:type owl:AnnotationProperty ;
-             rdfs:subPropertyOf <http://purl.org/dc/terms/bibliographicCitation> .
-
-
-
+###  https://ontology.inscriptiones.org/bilingualism#related
+<https://ontology.inscriptiones.org/bilingualism#related> rdf:type owl:AnnotationProperty ;
+                                                          rdfs:label "related"@en .
 
 
 #################################################################
 #    Classes
 #################################################################
 
+###  https://ontology.inscriptiones.org/bilingualism#Bi-version_bilingual_text
+<https://ontology.inscriptiones.org/bilingualism#Bi-version_bilingual_text> rdf:type owl:Class ;
+                                                                            rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#Language-focused> ;
+                                                                            <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1093/9780191994760.005.0001> ;
+                                                                            skos:definition "An epigraphic text comprising two parts in different languages, where the content is either wholly or partially shared between versions, or where the sections provide complementary information."@en ;
+                                                                            skos:prefLabel "Bi-version bilingual text"@en ;
+                                                                            skos:scopeNote "Note: Tri- etc. can be switched in for bi- as appropriate."^^xsd:string ,
+                                                                                           "There are awkward cases to consider; for example, texts with versions that have different authors and/or are not contemporary (e.g. an Old English addition to a Roman inscription from Lincoln: https://gis.latinnow.eu/object/300262). Alessandro Palumbo reports this experience with post-medieval inscriptions on objects with medieval inscriptions. The contemporaneity issue will need to be addressed by researchers on a case-by-case basis: if we are treating a text that has had subsequent generations add to it, we may wish to count it as a multiple version text (e.g. funerary epigraphic text), but, for an object that has multiple non-contemporaneous inscriptions by unrelated authors, we will probably want to edit each text separately (e.g. Colossus of Memnon). Even if the value of the text may be reduced for thinking about individual bilingualism, it may still be relevant for community bilingualism. It is undesirable to set 'rules' for these issues."^^xsd:string .
 
-###  https://ontology.inscriptiones.org/bilingualism/Bilingualism
-:Bilingualism rdf:type owl:Class ;
+
+###  https://ontology.inscriptiones.org/bilingualism#Bilingualism
+<https://ontology.inscriptiones.org/bilingualism#Bilingualism> rdf:type owl:Class ;
+                                                               rdfs:subClassOf owl:Thing ;
                                                                <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1093/9780191994760.005.0001> ;
                                                                skos:altLabel "Multilingualism in epigraphy"@en ;
                                                                skos:definition "The concurrent use, or evidence of the presence of, two or more languages within epigraphic texts, for example Latin/Greek/'indigenous' languages, which may reflect societal and/or individual bilingualism/multilingualism."@en ;
                                                                skos:prefLabel "Bilingualism in epigraphy"@en ;
-                                                               <https://ontology.inscriptiones.org/bilingualism/bibliographicalCitation> "Adams, J N (2003a). Bilingualism and the Latin Language. Cambridge."^^xsd:string ,
+                                                               <https://ontology.inscriptiones.org/bilingualism#bibliographicalCitation> "Adams, J N (2003a). Bilingualism and the Latin Language. Cambridge."^^xsd:string ,
                                                                                                                                          "Mullen, A (2013). Southern Gaul and the Mediterranean: Multilingualism and Multiple Identities in the Iron Age and Roman Periods. Cambridge."^^xsd:string ,
                                                                                                                                          "Mullen, A, and James, P (2012) (eds). Multilingualism in the Graeco-Roman Worlds. Cambridge."^^xsd:string .
 
-###  https://ontology.inscriptiones.org/bilingualism/Language_focused
-:Language-focused rdf:type owl:Class ;
-                                                                   rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism/Bilingualism> ;
+
+###  https://ontology.inscriptiones.org/bilingualism#Biscriptal_text
+<https://ontology.inscriptiones.org/bilingualism#Biscriptal_text> rdf:type owl:Class ;
+                                                                  rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#Script-focused> ;
+                                                                  <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1093/9780191994760.005.0001> ;
+                                                                  skos:definition "A text composed in a single language but written using two different script systems (e.g. the Saint-Germain-Source-Seine inscription, written in Gaulish using both Latin and Greek scripts)."@en ;
+                                                                  skos:example <https://gis.latinnow.eu/object/193069> ;
+                                                                  skos:prefLabel "Biscriptal text"@en ;
+                                                                  skos:scopeNote "It has been useful to some scholars to deploy the subcategories of bi-version texts here (duplicating, partial, overlapping, complementary, etc.) to describe the nature of the sections that are represented by the two different scripts."@en ,
+                                                                                 "See Bunčić, D, Lippert, S, and Rabus, A (2016). Biscriptality: A Sociolinguistic Typology. Heidelberg. ‘Bigraphic’ has also been used, but, since biscriptal seems to have widespread use, we prefer this, plus bigraphic already has an established other use in computing, etc. Of course, a bi-version bilingual text in Greek and Latin that uses the standard scripts for each is, in a sense, biscriptal, but we would not tend to flag this."@en ;
+                                                                  <https://ontology.inscriptiones.org/bilingualism#bibliographicalCitation> "Bunčić, D, Lippert, S, and Rabus, A (2016). Biscriptality: A Sociolinguistic Typology. Heidelberg."^^xsd:string .
+
+
+###  https://ontology.inscriptiones.org/bilingualism#Borrowing
+<https://ontology.inscriptiones.org/bilingualism#Borrowing> rdf:type owl:Class ;
+                                                            rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#Text_with_bilingual_phenomena> ;
+                                                            <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1093/9780191994760.005.0001> ;
+                                                            skos:definition "The adoption of linguistic elements from one language into another. The items function in the adopting language as native elements, often with some degree of integration."@en ;
+                                                            skos:prefLabel "Borrowing"@en .
+
+
+###  https://ontology.inscriptiones.org/bilingualism#Calque
+<https://ontology.inscriptiones.org/bilingualism#Calque> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#Borrowing> ;
+                                                         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1093/9780191994760.005.0001> ;
+                                                         skos:definition "The translation of a foreign expression into a native form that replicates the source language, e.g. English skyscraper → French gratte-ciel."@en ;
+                                                         skos:prefLabel "Calque"@en .
+
+
+###  https://ontology.inscriptiones.org/bilingualism#Code-switching
+<https://ontology.inscriptiones.org/bilingualism#Code-switching> rdf:type owl:Class ;
+                                                                 rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#Text_with_bilingual_phenomena> ;
+                                                                 <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1093/9780191994760.005.0001> ;
+                                                                 skos:definition "A 'full-blown' switch from one language into another within a single text (Adams 2003, 19)."@en ;
+                                                                 skos:example <https://gis.latinnow.eu/object/201107> ,
+                                                                              <https://gis.latinnow.eu/object/233183> ;
+                                                                 skos:prefLabel "Code-switching"@en ;
+                                                                 skos:scopeNote "Note that, in the case of bi-version bilingual texts, this would refer only to any switch within a single version of a bi-version bilingual text, rather than the fact of having two versions in different languages (i.e. we do not usually view the switch between versions as a code-switch per se). A text can, however, have a mixture of these attribute values, e.g. Bi-version bilingual text and  Text with bilingual phenomena."@en ;
+                                                                 <https://ontology.inscriptiones.org/bilingualism#bibliographicalCitation> "Adams, J N (2003). Bilingualism and the Latin Language. Cambridge."^^xsd:string ,
+                                                                                                                                           "Gardner-Chloros, P. (2009). Code-switching. Cambridge. https://doi.org/10.1017/CBO9780511609787"^^xsd:string .
+
+
+###  https://ontology.inscriptiones.org/bilingualism#Complementary
+<https://ontology.inscriptiones.org/bilingualism#Complementary> rdf:type owl:Class ;
+                                                                rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#Bi-version_bilingual_text> ;
+                                                                <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1093/9780191994760.005.0001> ;
+                                                                skos:definition "The sections of the text contain distinct content that together form a unified communication."@en ;
+                                                                skos:example <https://gis.latinnow.eu/object/189168> ,
+                                                                             <https://gis.latinnow.eu/object/282270> ;
+                                                                skos:prefLabel "Complementary"@en .
+
+
+###  https://ontology.inscriptiones.org/bilingualism#Duplicating
+<https://ontology.inscriptiones.org/bilingualism#Duplicating> rdf:type owl:Class ;
+                                                              rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#Bi-version_bilingual_text> ;
+                                                              <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1093/9780191994760.005.0001> ;
+                                                              skos:definition "Each version presents the same content."@en ;
+                                                              skos:example <https://gis.latinnow.eu/object/171846> ,
+                                                                           <https://gis.latinnow.eu/object/173028> ;
+                                                              skos:prefLabel "Duplicating"@en ;
+                                                              skos:scopeNote "An additional specification would be the addition of ‘identical’ or ‘equivalent’ to the content that is the same in both versions. A duplicating and equivalent bi-version bilingual text could include the use of idiomatic funerary formulae in the different versions, for example, which essentially convey the same content."^^xsd:string .
+
+
+###  https://ontology.inscriptiones.org/bilingualism#Graphic_interference
+<https://ontology.inscriptiones.org/bilingualism#Graphic_interference> rdf:type owl:Class ;
+                                                                       rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#Text_with_biscriptal_phenomena> ;
+                                                                       <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1093/9780191994760.005.0001> ;
+                                                                       skos:definition "The intrusion of letter forms, orthographic conventions, or palaeographic features (e.g. serifs, letter shapes) from a script with which the author is more familiar into the script used for the text."@en ;
+                                                                       skos:example <https://gis.latinnow.eu/object/233646> ;
+                                                                       skos:prefLabel "Graphic interference"@en .
+
+
+###  https://ontology.inscriptiones.org/bilingualism#Inter-sentential
+<https://ontology.inscriptiones.org/bilingualism#Inter-sentential> rdf:type owl:Class ;
+                                                                   rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#Code-switching> ;
+                                                                   <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1093/9780191994760.005.0001> ;
+                                                                   skos:definition "Code-switching that occurs between sentence or clause boundaries."@en ;
+                                                                   skos:example <https://gis.latinnow.eu/object/173003> ,
+                                                                                <https://gis.latinnow.eu/object/201464> ;
+                                                                   skos:prefLabel "Inter-sentential"@en .
+
+
+###  https://ontology.inscriptiones.org/bilingualism#Intra-sentential
+<https://ontology.inscriptiones.org/bilingualism#Intra-sentential> rdf:type owl:Class ;
+                                                                   rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#Code-switching> ;
+                                                                   <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1093/9780191994760.005.0001> ;
+                                                                   skos:definition "Code-switching that occurs within sentence or clause boundaries."@en ;
+                                                                   skos:example <https://gis.latinnow.eu/object/212300> ;
+                                                                   skos:prefLabel "Intra-sentential"@en .
+
+
+###  https://ontology.inscriptiones.org/bilingualism#Language-focused
+<https://ontology.inscriptiones.org/bilingualism#Language-focused> rdf:type owl:Class ;
+                                                                   rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#Bilingualism> ;
                                                                    <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1093/9780191994760.005.0001> ;
                                                                    skos:definition "Evidence of bilingualism in epigraphy can be grouped into features which can be described as 'language-focused' alongside 'script-focused' features. Texts may exhibit examples of both."^^xsd:string ;
                                                                    skos:prefLabel "Language-focused"@en .
 
 
-###  https://ontology.inscriptiones.org/bilingualism/Script_focused
-:Script-focused rdf:type owl:Class ;
-                                                                 rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism/Bilingualism> ;
+###  https://ontology.inscriptiones.org/bilingualism#Lexical
+<https://ontology.inscriptiones.org/bilingualism#Lexical> rdf:type owl:Class ;
+                                                          rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#Intra-sentential> ;
+                                                          <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1093/9780191994760.005.0001> ;
+                                                          skos:definition "A switch to use individual word(s) from one language in a text composed in another language."@en ;
+                                                          skos:prefLabel "Lexical"@en .
+
+
+###  https://ontology.inscriptiones.org/bilingualism#Lexical_borrowing
+<https://ontology.inscriptiones.org/bilingualism#Lexical_borrowing> rdf:type owl:Class ;
+                                                                    rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#Borrowing> ;
+                                                                    <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1093/9780191994760.005.0001> ;
+                                                                    skos:definition "The adoption of word(s) from one language into another. The borrowed item usually is integrated, to greater or lesser extent, into the borrowing language"@en ;
+                                                                    skos:note "Once a borrowing is fully integrated and used widely by users of the language, it will only be an indicator of an earlier state of bilingualism. It can be hard to tell how integrated borrowings are in communities in the ancient world in the absence of sufficient evidence."@en ;
+                                                                    skos:prefLabel "Lexical borrowing"@en ;
+                                                                    <https://ontology.inscriptiones.org/bilingualism#bibliographicalCitation> "Elder, O. and Mullen, A. 2019 The language of letters, Cambridge. Chapter 1."^^xsd:string .
+
+
+###  https://ontology.inscriptiones.org/bilingualism#Loan-shifting
+<https://ontology.inscriptiones.org/bilingualism#Loan-shifting> rdf:type owl:Class ;
+                                                                rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#Borrowing> ;
+                                                                <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1093/9780191994760.005.0001> ;
+                                                                skos:definition "The semantic extension of an existing native word based on the meaning of a foreign counterpart, without adopting the foreign form itself."@en ;
+                                                                skos:prefLabel "Loan-shifting"@en ;
+                                                                skos:scopeNote "Calque and loan-shifting could alternatively be subcategories of borrowing: lexical."@en .
+
+
+###  https://ontology.inscriptiones.org/bilingualism#Mixed-language_text
+<https://ontology.inscriptiones.org/bilingualism#Mixed-language_text> rdf:type owl:Class ;
+                                                                      rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#Language-focused> ;
+                                                                      <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1093/9780191994760.005.0001> ;
+                                                                      skos:definition "A text exhibiting such extensive integration of more than one language that no obviously 'main' language can be identified (e.g. some defixiones; pottery firing lists from La Graufesenque)."@en ;
+                                                                      skos:example <https://gis.latinnow.eu/object/218752> ;
+                                                                      skos:prefLabel "Mixed-language text"@en ;
+                                                                      skos:scopeNote "Note that we might also include texts composed in genetically mixed languages (pidgins, creoles, bilingual mixed languages) in this category, as in Mullen 2024 Appendix 1, though it seems sensible to restrict this category to texts which show a mixture which directly indicates a combination of languages, rather than the use of a mixed language. The latter might be indicated by 'text composed in a mixed language'."^^xsd:string .
+
+
+###  https://ontology.inscriptiones.org/bilingualism#Morphological
+<https://ontology.inscriptiones.org/bilingualism#Morphological> rdf:type owl:Class ;
+                                                                rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#Intra-sentential> ;
+                                                                <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1093/9780191994760.005.0001> ;
+                                                                skos:definition "A switch to use inflectional or derivational morphemes from one language in a text primarily composed in another, e.g. Lusitanian word endings in Latin texts."@en ;
+                                                                skos:example <https://gis.latinnow.eu/object/172409> ;
+                                                                skos:prefLabel "Morphological"@en .
+
+
+###  https://ontology.inscriptiones.org/bilingualism#Morphological_borrowing
+<https://ontology.inscriptiones.org/bilingualism#Morphological_borrowing> rdf:type owl:Class ;
+                                                                          rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#Borrowing> ;
+                                                                          <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1093/9780191994760.005.0001> ;
+                                                                          skos:definition "The adoption of inflectional or derivational morphology from one language into another, where the borrowed morphemes combine with native stems."@en ;
+                                                                          skos:prefLabel "Morphological borrowing"@en .
+
+
+###  https://ontology.inscriptiones.org/bilingualism#Overlapping
+<https://ontology.inscriptiones.org/bilingualism#Overlapping> rdf:type owl:Class ;
+                                                              rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#Bi-version_bilingual_text> ;
+                                                              <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1093/9780191994760.005.0001> ;
+                                                              skos:definition "The text versions contain distinct content as well as some part that is shared."@en ;
+                                                              skos:example <https://gis.latinnow.eu/object/190250> ;
+                                                              skos:prefLabel "Overlapping"@en .
+
+
+###  https://ontology.inscriptiones.org/bilingualism#Partial
+<https://ontology.inscriptiones.org/bilingualism#Partial> rdf:type owl:Class ;
+                                                          rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#Bi-version_bilingual_text> ;
+                                                          <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1093/9780191994760.005.0001> ;
+                                                          skos:definition "One version contains identical content to the other whilst providing additional content."@en ;
+                                                          skos:example <https://gis.latinnow.eu/object/207067> ,
+                                                                       <https://gis.latinnow.eu/object/301072> ;
+                                                          skos:prefLabel "Partial"@en .
+
+
+###  https://ontology.inscriptiones.org/bilingualism#Phonetic
+<https://ontology.inscriptiones.org/bilingualism#Phonetic> rdf:type owl:Class ;
+                                                           rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#Intra-sentential> ;
+                                                           <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1093/9780191994760.005.0001> ;
+                                                           skos:definition "A code-switch which involves the use of phonological features from one language within a text primarily composed in another language."@en ;
+                                                           skos:prefLabel "Phonetic"@en ;
+                                                           skos:scopeNote "Some of these categories are here for completeness but would not necessarily be used for epigraphic texts."@en .
+
+
+###  https://ontology.inscriptiones.org/bilingualism#Phonetic_borrowing
+<https://ontology.inscriptiones.org/bilingualism#Phonetic_borrowing> rdf:type owl:Class ;
+                                                                     rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#Borrowing> ;
+                                                                     <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1093/9780191994760.005.0001> ;
+                                                                     skos:definition "The adoption of phonological features (sounds, phonemes, or prosodic patterns) from one language into another."@en ;
+                                                                     skos:prefLabel "Phonetic borrowing"@en .
+
+
+###  https://ontology.inscriptiones.org/bilingualism#Script-focused
+<https://ontology.inscriptiones.org/bilingualism#Script-focused> rdf:type owl:Class ;
+                                                                 rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#Bilingualism> ;
                                                                  <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1093/9780191994760.005.0001> ;
                                                                  skos:definition "Evidence of bilingualism in epigraphy can be grouped into features which can be described as 'script-focused' alongside 'language-focused' features. Texts may exhibit examples of both."@en ;
                                                                  skos:prefLabel "Script-focused"@en ;
                                                                  skos:scopeNote "This schema does not attempt to cover all graphic phenomena, e.g. stonecutters’ errors, just ones related to the interaction of different graphic systems."@en .
+
+
+###  https://ontology.inscriptiones.org/bilingualism#Syntactic
+<https://ontology.inscriptiones.org/bilingualism#Syntactic> rdf:type owl:Class ;
+                                                            rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#Intra-sentential> ;
+                                                            <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1093/9780191994760.005.0001> ;
+                                                            skos:definition "A switch to use syntactic structures or word-order patterns from one language within a text primarily composed in another language."@en ;
+                                                            skos:prefLabel "Syntactic"@en .
+
+
+###  https://ontology.inscriptiones.org/bilingualism#Syntactic_borrowing
+<https://ontology.inscriptiones.org/bilingualism#Syntactic_borrowing> rdf:type owl:Class ;
+                                                                      rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#Borrowing> ;
+                                                                      <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1093/9780191994760.005.0001> ;
+                                                                      skos:definition "The adoption of syntactic structures or word-order patterns from one language into another."@en ;
+                                                                      skos:prefLabel "Syntactic borrowing"@en .
+
+
+###  https://ontology.inscriptiones.org/bilingualism#Tag_switching
+<https://ontology.inscriptiones.org/bilingualism#Tag_switching> rdf:type owl:Class ;
+                                                                rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#Code-switching> ;
+                                                                <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1093/9780191994760.005.0001> ;
+                                                                skos:definition "A switch to use fixed expressions or formulae from one language in a text composed in another, e.g. formula VSLM in non-Latin texts."@en ;
+                                                                skos:example <https://gis.latinnow.eu/object/201107> ,
+                                                                             <https://gis.latinnow.eu/object/233167> ;
+                                                                skos:prefLabel "Tag switching"@en .
+
+
+###  https://ontology.inscriptiones.org/bilingualism#Text_with_bilingual_phenomena
+<https://ontology.inscriptiones.org/bilingualism#Text_with_bilingual_phenomena> rdf:type owl:Class ;
+                                                                                rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#Language-focused> ;
+                                                                                <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1093/9780191994760.005.0001> ;
+                                                                                skos:definition "A text composed in one language but exhibiting linguistic features from another language."^^xsd:string ;
+                                                                                skos:prefLabel "Text with bilingual phenomena"@en ;
+                                                                                skos:scopeNote "Note that, of course, there is difficulty in some cases in deciding where the line is drawn between texts with a code-switch into another language and bi-version bilingual texts. Once again, it is hard to create guidelines on how to treat such texts; contextual and culture-specific information will need to be deployed by the author to decide (aspects such as length and layout of texts on the object, etc., may all be relevant)."^^xsd:string .
+
+
+###  https://ontology.inscriptiones.org/bilingualism#Text_with_biscriptal_phenomena
+<https://ontology.inscriptiones.org/bilingualism#Text_with_biscriptal_phenomena> rdf:type owl:Class ;
+                                                                                 rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#Script-focused> ;
+                                                                                 <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1093/9780191994760.005.0001> ;
+                                                                                 skos:definition "A text which displays biscriptal phenomena, whether graphic code-switching, graphic borrowing, graphic interference or transliteration. This may entail the combination of different script systems, but need not, since if the text includes a code-switch into a language which usually would trigger a change of script, but no change occurs, we have a segment of transliteration within a text rendered in only one script (e.g. the Velleron stele, written in Gaulish using Greek script, contains the Latin code-switch valete also in Greek script)."@en ;
+                                                                                 skos:example <https://gis.latinnow.eu/object/233183> ;
+                                                                                 skos:prefLabel "Text with biscriptal phenomena"@en ;
+                                                                                 skos:scopeNote "Texts with biscriptal phenomena may simultaneously exhibit bilingual phenomena. For instance, the Velleron stele can be tagged as both: Text with bilingual phenomena > Code-switching > Intra-sentential > Lexical (Latin valete in Gaulish text) AND Text with biscriptal phenomena > Transliteration (Latin rendered in Greek script)"@en .
+
+
+###  https://ontology.inscriptiones.org/bilingualism#Translingual_text
+<https://ontology.inscriptiones.org/bilingualism#Translingual_text> rdf:type owl:Class ;
+                                                                    rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#Language-focused> ;
+                                                                    <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1093/9780191994760.005.0001> ;
+                                                                    skos:definition "A text composed entirely of translingual forms that systematically function across more than one language simultaneously. This is different from 'Text with bilingual phenomena: translingualism', as the whole text is translingual."@en ;
+                                                                    skos:example <https://gis.latinnow.eu/object/233074> ;
+                                                                    skos:prefLabel "Translingual text"@en ;
+                                                                    <https://ontology.inscriptiones.org/bilingualism#bibliographicalCitation> "Mullen, A (2022). ‘Materializing Epigraphy: Archaeological and Sociolinguistic Approaches to Roman Inscribed Spindle Whorls’, in E Cousins (ed.), Dynamic Epigraphy: New Approaches to Inscriptions. Oxford, 39–64."^^xsd:string .
+
+
+###  https://ontology.inscriptiones.org/bilingualism#Translingualism
+<https://ontology.inscriptiones.org/bilingualism#Translingualism> rdf:type owl:Class ;
+                                                                  rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#Text_with_bilingual_phenomena> ;
+                                                                  <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1093/9780191994760.005.0001> ;
+                                                                  skos:definition "The use of forms that simultaneously express more than one language, exploiting convergences in the languages (e.g. nata 'girl', which functions as both Latin and Gaulish in the Gaulish–Latin spindle whorls), within a text which can otherwise be assigned to one of those languages."@en ;
+                                                                  skos:prefLabel "Translingualism"@en ;
+                                                                  skos:scopeNote "This is an awkward category, because often it is simply the case that we as modern interpreters cannot work out which language to assign something to, especially when we are dealing with closely-related languages. Nevertheless in some cases we can detect a desire to deploy translingualism."@en ;
+                                                                  <https://ontology.inscriptiones.org/bilingualism#bibliographicalCitation> "Mullen, A (2022). ‘Materializing Epigraphy: Archaeological and Sociolinguistic Approaches to Roman Inscribed Spindle Whorls’, in E  Cousins (ed.), Dynamic Epigraphy: New Approaches to Inscriptions. Oxford, 39–64."^^xsd:string .
+
+
+###  https://ontology.inscriptiones.org/bilingualism#Transliterated_text
+<https://ontology.inscriptiones.org/bilingualism#Transliterated_text> rdf:type owl:Class ;
+                                                                      rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#Script-focused> ;
+                                                                      <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1093/9780191994760.005.0001> ;
+                                                                      skos:definition "A text written entirely in a script other than the one conventionally used for that language (e.g. Latin written in Greek script)."@en ;
+                                                                      skos:example <https://gis.latinnow.eu/object/115387> ,
+                                                                                   <https://gis.latinnow.eu/object/302962> ;
+                                                                      skos:prefLabel "Transliterated text"@en ;
+                                                                      skos:scopeNote "As Alessandro Palumbo notes this is problematic for written cultures ‘where several alphabets are used and where combinations of languages and scripts shift between being “marked” and “unmarked” depending on text type, chronology, geography, social stratum, etc. For example, the relations runes–vernacular and Roman alphabet–Latin were the typical ones when Latin first was adopted in Scandinavia, but quite soon the Roman alphabet was used to write in the vernacular, and runes were also used quite often to write Latin.’ This is, of course, correct, but, with careful attention to such changing cultural environments, users may find this a useful categorization to make for some contexts: for example, for Greek written in Latin script in the Roman Empire."@en .
+
+
+###  https://ontology.inscriptiones.org/bilingualism#Transliteration
+<https://ontology.inscriptiones.org/bilingualism#Transliteration> rdf:type owl:Class ;
+                                                                  rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#Text_with_biscriptal_phenomena> ;
+                                                                  <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1093/9780191994760.005.0001> ;
+                                                                  skos:definition "The rendering in a text of linguistic material from one language in the script conventionally associated with another language, either by deliberate choice or because the author lacks knowledge of the conventional script for that language (e.g. code-switched elements written in the matrix text's script)."@en ;
+                                                                  skos:example <https://gis.latinnow.eu/object/189869> ,
+                                                                               <https://gis.latinnow.eu/object/303403> ;
+                                                                  skos:prefLabel "Transliteration"@en .
+
+
+###  https://ontology.inscriptiones.org/bilingualism#Graphic_borrowing_or_code-switching
+<https://ontology.inscriptiones.org/bilingualism#Graphic_borrowing_or_code-switching> rdf:type owl:Class ;
+                                                                                     rdfs:subClassOf <https://ontology.inscriptiones.org/bilingualism#Text_with_biscriptal_phenomena> ;
+                                                                                     <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1093/9780191994760.005.0001> ;
+                                                                                     skos:definition "The use of letter forms from a script system associated with one language to represent specific sounds or elements in another language (e.g. tau gallicum forms used for Gaulish names in Latin texts)."@en ;
+                                                                                     skos:example <https://gis.latinnow.eu/object/156290> ;
+                                                                                     skos:prefLabel "Graphic borrowing/code-switching"@en .
 
 
 ###  Generated by the OWL API (version 4.5.13) https://github.com/owlcs/owlapi
