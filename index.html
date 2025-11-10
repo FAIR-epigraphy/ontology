@@ -708,6 +708,8 @@
                                 $('div#divBig').prev().hide();
                                 $('div#divBig').removeClass('col-md-7');
                                 $('div#divBig').addClass('col-md-12');
+                                var vocTab = new bootstrap.Tab($('#nav-tab button').eq(1));
+                                vocTab.show();
                                 let fileName = `../${menu.name}/data/rdf_data.ttl`;
                                 await loadData(fileName);
                                 getVocDetails(window.location.href);
