@@ -548,36 +548,51 @@
 
 
     </div>
-    <div class="container-fluid" id="divVocContent" style="display: none;">
-        <div class="row mt-3">
-            <div class="col-md-5">
-                <div class="card overflow-auto" style="height: 85vh;">
-                    <h5 class="card-header">
-                        <span id="spVocHeading" class="text-capitalize"> Vocabulary</span>
-                        <span id="spVocDownload"></span>
 
-                    </h5>
-                    <div class="card-body">
-                        <div class="input-group mb-3">
-                            <input id="myInput" class="form-control" type="search" placeholder="Search.." />
-                            <span class="input-group-text" id="inputGroup-sizing-default">
-                                <i class="bi bi-search"></i>
-                            </span>
-                        </div>
-                        <ul id="tree">
-                            <li id="root">
-                                <!-- <button>-</button> -->
-
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+    <div style="display: none;">
+        <nav class="p-4">
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-about-tab" data-bs-toggle="tab" data-bs-target="#nav-about"
+                    type="button" role="tab">About</button>
+                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-voc"
+                    type="button" role="tab">Vocabulary</button>
             </div>
-            <div class="col-md-7 d-none d-sm-block d-sm-none d-md-block" id="divBig">
-                <div class="card overflow-auto" style="height: 85vh;">
-                    <h5 class="card-header">Details</h5>
-                    <div class="card-body voc-details">
-                        <p class="text-center" style="color: rgb(200 200 200);
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active p-4" id="nav-about">
+
+            </div>
+            <div class="tab-pane fade" id="nav-voc">
+                <div class="container-fluid" id="divVocContent" style="display: none;">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="card overflow-auto" style="height: 80vh;">
+                                <h5 class="card-header">
+                                    <span id="spVocHeading" class="text-capitalize"> Vocabulary</span>
+                                    <span id="spVocDownload"></span>
+
+                                </h5>
+                                <div class="card-body">
+                                    <div class="input-group mb-3">
+                                        <input id="myInput" class="form-control" type="search" placeholder="Search.." />
+                                        <span class="input-group-text" id="inputGroup-sizing-default">
+                                            <i class="bi bi-search"></i>
+                                        </span>
+                                    </div>
+                                    <ul id="tree">
+                                        <li id="root">
+                                            <!-- <button>-</button> -->
+
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7 d-none d-sm-block d-sm-none d-md-block" id="divBig">
+                            <div class="card overflow-auto" style="height: 80vh;">
+                                <h5 class="card-header">Details</h5>
+                                <div class="card-body voc-details">
+                                    <p class="text-center" style="color: rgb(200 200 200);
                 font-size: 30px;
                 text-align: center;
                 top: 45%;
@@ -586,27 +601,31 @@
                 left: 0;
                 right: 0;
                 position: absolute;">Please select any type to view detail</p>
-                    </div>
-                </div>
-            </div>
+                                </div>
+                            </div>
+                        </div>
 
-            <div class="d-block d-sm-block d-md-none" id="divSmall">
-                <button id="btnVocDetails" class="btn btn-primary d-none" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
-                    Toggle static offcanvas
-                </button>
+                        <div class="d-block d-sm-block d-md-none" id="divSmall">
+                            <button id="btnVocDetails" class="btn btn-primary d-none" type="button"
+                                data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop"
+                                aria-controls="staticBackdrop">
+                                Toggle static offcanvas
+                            </button>
 
-                <div class="offcanvas offcanvas-end w-100" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop"
-                    aria-labelledby="staticBackdropLabel">
-                    <div class="offcanvas-header border-bottom">
-                        <h5 class="offcanvas-title" id="staticBackdropLabel">Details
-                        </h5>
-                        <button id="btnVocDetailsClose" type="button" class="btn-close" data-bs-dismiss="offcanvas"
-                            aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <div class="voc-details" style="overflow-wrap: break-word;">
+                            <div class="offcanvas offcanvas-end w-100" data-bs-backdrop="static" tabindex="-1"
+                                id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+                                <div class="offcanvas-header border-bottom">
+                                    <h5 class="offcanvas-title" id="staticBackdropLabel">Details
+                                    </h5>
+                                    <button id="btnVocDetailsClose" type="button" class="btn-close"
+                                        data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                </div>
+                                <div class="offcanvas-body">
+                                    <div class="voc-details" style="overflow-wrap: break-word;">
 
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -658,6 +677,7 @@
                                 if (window.location.hash !== '') {
                                     if (window.location.hash.split('#').length === 2) {
                                         $('div#divLanding').hide();
+                                        $('div#divLanding').next().show();
                                         $('div#divVocContent').show();
                                         $('div#divBig').prev().hide();
                                         $('div#divBig').removeClass('col-md-7');
@@ -665,13 +685,25 @@
                                         let fileName = `../${menu.name}/data/rdf_data.ttl`;
                                         await loadData(fileName);
                                         getVocDetails(window.location.href);
+                                        // Load the about page
+                                        $('#nav-about').load(`../${menu.name}/about.html`);
                                     }
                                 }
                                 else {
                                     callVocabulary(routeName);
+                                    $('#nav-about').load(`../${routeName}/about.html`, function (e) {
+                                        if (e.toLowerCase().includes('error')) {
+                                            $('#nav-about').html('<p>No content found</p>');
+                                        }
+                                        else {
+                                            var firstTab = new bootstrap.Tab($('#nav-tab button:first'));
+                                            firstTab.show();
+                                        }
+                                    });
                                 }
                             }).on(`/${routeName}/:className`, async ({ data }) => {
                                 $('div#divLanding').hide();
+                                $('div#divLanding').next().show();
                                 $('div#divVocContent').show();
                                 $('div#divBig').prev().hide();
                                 $('div#divBig').removeClass('col-md-7');

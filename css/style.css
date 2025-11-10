@@ -1,8 +1,8 @@
-body{
+body {
   font-size: 16px;
 }
 
-.entity{
+.entity {
   border: 1px solid navy;
   padding: 5px;
   margin: 5px 0;
@@ -11,16 +11,18 @@ body{
 .entity h1,
 .entity h2,
 .entity h3,
-.entity h4{
+.entity h4 {
   border-bottom: 1px solid navy;
 }
-.description{
+
+.description {
   border-top: 1px dashed gray;
   border-bottom: 1px dashed gray;
   background-color: rgb(242, 243, 244);
   margin-top: 5px;
   padding-bottom: 5px;
 }
+
 .description dl dd {
   margin-left: 1em;
 }
@@ -28,6 +30,7 @@ body{
 h5[aria-expanded=true] .bi-chevron-right {
   display: none !important;
 }
+
 h5[aria-expanded=false] .bi-chevron-down {
   display: none !important;
 }
@@ -48,3 +51,5 @@ hr.rounded {
   border-top: 1px solid #bbb;
   border-radius: 5px;
 }
+
+

@@ -84,6 +84,7 @@ $.fn.extend({
 
 function callVocabulary(voc) {
     $('#divLanding').hide();
+    $('div#divLanding').next().show();
     $('#divVocContent').show();
     $('#divBig').prev().show();
     $('.voc-details').html(`<p class="text-center" style="color: rgb(200 200 200);
@@ -158,6 +159,7 @@ function callVocabulary(voc) {
             fileName = `../${voc}/data/rdf_data.ttl`;
             voidFileName = `../${voc}/data/VoID.ttl`;
             $('div#divLanding').hide();
+            $('div#divLanding').next().show();
             $('div#divVocContent').show();
         }
     }
@@ -167,6 +169,7 @@ function callVocabulary(voc) {
         if (isShowIRI) {
             getVocDetails(window.location.href.replace('#', ''));
             $('div#divLanding').hide();
+            $('div#divLanding').next().show();
             $('div#divVocContent').show();
             $('div#divBig').prev().hide();
             $('div#divBig').removeClass('col-md-7');

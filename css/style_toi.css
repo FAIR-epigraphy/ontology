@@ -1,41 +1,54 @@
-body{
-    font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-    overflow: hidden;
-    font-size: 18px;
-    margin: 0; /* ADDED: Remove default margins */
-    padding: 0; /* ADDED: Remove default padding */
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  overflow: hidden;
+  font-size: 95%;
+  /* reduces all text by 20% */
+  margin: 0;
+  /* ADDED: Remove default margins */
+  padding: 0;
+  /* ADDED: Remove default padding */
 }
 
 /* ADDED: Smaller heading styles */
 h1 {
-    font-size: 36px; /* ADDED: Smaller h1 font size */
-    margin-bottom: 0.6em;
-    margin-top: 0.8em;
+  font-size: 36px;
+  /* ADDED: Smaller h1 font size */
+  margin-bottom: 0.6em;
+  margin-top: 0.8em;
 }
 
 h2 {
-    font-size: 22px; /* ADDED: Smaller h2 font size */
-    margin-bottom: 1em;
-    margin-top: 1em;
+  font-size: 22px;
+  /* ADDED: Smaller h2 font size */
+  margin-bottom: 1em;
+  margin-top: 1em;
 }
+
 h3 {
-    font-size: 20px; /* ADDED: Smaller h3 font size */
-    margin-bottom: 1em;
-    margin-top: 1.2em;
+  font-size: 20px;
+  /* ADDED: Smaller h3 font size */
+  margin-bottom: 1em;
+  margin-top: 1.2em;
 }
 
 h4 {
-    font-size: 18px; /* ADDED: Smaller h4 font size */
-    margin-bottom: 0.6em;
-    margin-top: 1em;
+  font-size: 18px;
+  /* ADDED: Smaller h4 font size */
+  margin-bottom: 0.6em;
+  margin-top: 1em;
 }
 
 .card {
-    background-color: #ffffff; /* ADDED: Light blue background */
-    border: 1px solid #dee2e6; /* ADDED: Optional border */
-    border-radius: 8px; /* ADDED: Rounded corners */
-    padding: 20px; /* ADDED: Inner spacing */
-    margin-bottom: 20px; /* ADDED: Space between cards */
+  background-color: #ffffff;
+  /* ADDED: Light blue background */
+  border: 1px solid #dee2e6;
+  /* ADDED: Optional border */
+  border-radius: 8px;
+  /* ADDED: Rounded corners */
+  padding: 20px;
+  /* ADDED: Inner spacing */
+  margin-bottom: 20px;
+  /* ADDED: Space between cards */
 }
 
 
@@ -43,194 +56,230 @@ h4 {
 
 /* Header Styles */
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .logo {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo img {
-    width: 60px;
-    /* Adjust the width as needed */
-    height: auto;
-    margin-right: 10px;
-    /* Add some spacing between image and text */
-  }
-  
-  .logo-text {
-    font-size: 24px;
-    /* Adjust font size as needed */
-    font-weight: bold;
-  }
-  
-  .nav-menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #ffffff; /* Set the background color as needed */
-  }
-  
-  .menu-list {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .menu-list li span {
-    text-decoration: none;
-    color: #333333;
-    font-size: 16px;
-    transition: color 0.3s;
-    cursor: pointer;
-  }
-  
-  .menu-list li span:hover {
-    color: #007bff;
-  }
-  
-  .menu-toggle {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-  }
-  
-  
-  .bar {
-    width: 30px;
-    height: 3px;
-    background-color: #333333;
-    margin: 3px 0;
-    transition: background-color 0.3s;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-.tree, .tree ul {
-    margin:0;
-    padding:0;
-    list-style:none
+.logo {
+  display: flex;
+  align-items: center;
 }
+
+.logo img {
+  width: 60px;
+  /* Adjust the width as needed */
+  height: auto;
+  margin-right: 10px;
+  /* Add some spacing between image and text */
+}
+
+.logo-text {
+  font-size: 24px;
+  /* Adjust font size as needed */
+  font-weight: bold;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #ffffff;
+  /* Set the background color as needed */
+}
+
+.menu-list {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-list li span {
+  text-decoration: none;
+  color: #333333;
+  font-size: 16px;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+.menu-list li span:hover {
+  color: #007bff;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+
+.bar {
+  width: 30px;
+  height: 3px;
+  background-color: #333333;
+  margin: 3px 0;
+  transition: background-color 0.3s;
+}
+
+.tree,
 .tree ul {
-    margin-left:1em;
-    position:relative
+  margin: 0;
+  padding: 0;
+  list-style: none
 }
+
+.tree ul {
+  margin-left: 1em;
+  position: relative
+}
+
 .tree ul ul {
-    margin-left:.5em
+  margin-left: .5em
 }
+
 .tree ul:before {
-    content:"";
-    display:block;
-    width:0;
-    position:absolute;
-    top:0;
-    bottom:0;
-    left:0;
-    border-left:1px solid
+  content: "";
+  display: block;
+  width: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  border-left: 1px solid
 }
+
 .tree li {
-    margin:0;
-    padding:0 1em;
-    line-height:2em;
-    color:#212529;
-    font-weight:700;
-    position:relative;
-    cursor: pointer;
+  margin: 0;
+  padding: 0 1em;
+  line-height: 2em;
+  color: #212529;
+  font-weight: 700;
+  position: relative;
+  cursor: pointer;
 }
+
 .tree ul li:before {
-    content:"";
-    display:block;
-    width:10px;
-    height:0;
-    border-top:1px solid;
-    margin-top:-1px;
-    position:absolute;
-    top:1em;
-    left:0
+  content: "";
+  display: block;
+  width: 10px;
+  height: 0;
+  border-top: 1px solid;
+  margin-top: -1px;
+  position: absolute;
+  top: 1em;
+  left: 0
 }
+
 .tree ul li:last-child:before {
-    background:#fff;
-    height:auto;
-    top:1em;
-    bottom:0
+  background: #fff;
+  height: auto;
+  top: 1em;
+  bottom: 0
 }
 
 /* .tree ul li:hover {
     background-color: lightblue;
   } */
 
-.currentHover button{
-    background-color: #ffffff !important;
-}
-li.currentHover ul button{
-    background-color: white !important;
+.currentHover button {
+  background-color: #ffffff !important;
 }
 
-.tree button{
-    width: 80%;
-    text-align: left;
+li.currentHover ul button {
+  background-color: white !important;
 }
 
-.tree button.active{
-    color: #fff !important;
-    background-color: #56aeff !important;
+.tree button {
+  width: 80%;
+  text-align: left;
+}
+
+.tree button.active {
+  color: #fff !important;
+  background-color: #56aeff !important;
 }
 
 .indicator {
-    margin-right:5px;
+  margin-right: 5px;
 }
+
 .tree li a {
-    text-decoration: none;
-    color:#212529;
+  text-decoration: none;
+  color: #212529;
 }
-.tree li button, .tree li button:active, .tree li button:focus {
-    text-decoration: none;
-    color:#212529;
-    border:none;
-    background:transparent;
-    margin:0px 0px 0px 0px;
-    padding:0px 0px 0px 0px;
-    outline: 0;
+
+.tree li button,
+.tree li button:active,
+.tree li button:focus {
+  text-decoration: none;
+  color: #212529;
+  border: none;
+  background: transparent;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+  outline: 0;
 }
 
 /* Media Queries for Responsiveness */
 @media screen and (max-width: 768px) {
-    .menu-list {
-      display: none;
-      flex-direction: column;
-      background-color: #ffffff;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-  
-    .menu-list.active {
-      display: flex;
-    }
-  
-    .menu-toggle {
-      display: flex;
-    }
-  
-    .menu-toggle.active .bar {
-      background-color: #007bff;
-    }
-  
-    .logo {
-      font-size: 1.2rem;
-    }
-  
-    .cta-button {
-      font-size: 0.9rem;
-    }
+  .menu-list {
+    display: none;
+    flex-direction: column;
+    background-color: #ffffff;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
+
+  .menu-list.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .menu-toggle.active .bar {
+    background-color: #007bff;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .cta-button {
+    font-size: 0.9rem;
+  }
+}
+
+
+.section-title {
+  border-bottom: 2px solid #dee2e6;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.badge-custom {
+  background-color: #f8f9fa;
+  color: #212529;
+  border: 1px solid #dee2e6;
+}
+
+.project-link {
+  color: #212529;
+  text-decoration: none;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.project-link:hover {
+  border-bottom-color: #212529;
+}

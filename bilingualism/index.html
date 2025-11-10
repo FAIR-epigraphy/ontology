@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+  <script>
+    function normalizePath(path) {
+      return path !== '/' ? path.replace(/\/+$/, '') : path;
+    }
+    const fullPath = normalizePath(window.location.pathname) + window.location.hash;
+    const newUrl = "/index.html?redirect=" + encodeURIComponent(fullPath);
+    window.location.replace(newUrl);
+  </script>
+</head>
+
+<body>
+  <p>Redirecting...</p>
+</body>
+
+</html>
