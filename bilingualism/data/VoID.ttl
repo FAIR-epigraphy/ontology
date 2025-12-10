@@ -22,7 +22,8 @@
     dcterms:contributor :Imran_Asif;
     dcterms:language "eng";
     dcterms:created "2024-04-01"^^xsd:date;
-    dcterms:modified "2025-11-07"^^xsd:date.
+    dcterms:modified "2025-11-07"^^xsd:date;
+    dcterms:modified "2025-12-10"^^xsd:date.
      
 :FAIR_Epigraphy a foaf:Organization;
     rdfs:label "FAIR Epigraphy Project";
@@ -37,7 +38,6 @@
     foaf:mbox <mailto:Alex.Mullen@nottingham.ac.uk>;
     foaf:account <https://orcid.org/0000-0002-9110-4678/> 
     .
-    
     
 :James_Clackson a foaf:Person;
     rdfs:label "James Clackson";
@@ -59,4 +59,3 @@
     foaf:account <https://orcid.org/0000-0002-1144-6265/> 
     .
 
-   
