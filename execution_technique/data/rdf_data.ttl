@@ -1,0 +1,1188 @@
+@prefix : <https://ontology.inscriptiones.org/execution_technique/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@base <https://ontology.inscriptiones.org/execution_technique/> .
+
+<https://ontology.inscriptiones.org/execution_technique/> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/source
+<http://purl.org/dc/elements/1.1/source> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/bibliographicCitation
+<http://purl.org/dc/terms/bibliographicCitation> rdf:type owl:AnnotationProperty ;
+                                                 rdfs:label "dcterms:bibliographicCitation"@en .
+
+
+###  http://www.w3.org/2004/02/skos/core#altLabel
+skos:altLabel rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#broadMatch
+skos:broadMatch rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+skos:definition rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#example
+skos:example rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+skos:prefLabel rdf:type owl:AnnotationProperty .
+
+
+###     http://www.w3.org/2004/02/skos/core#closeMatch
+skos:closeMatch rdf:type owl:AnnotationProperty .
+
+
+###     http://www.w3.org/2004/02/skos/core#related
+skos:related rdf:type owl:AnnotationProperty .
+
+
+###     http://www.w3.org/2004/02/skos/core#relatedMatch
+skos:relatedMatch rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#exactMatch
+skos:exactMatch rdf:type owl:AnnotationProperty .
+
+###  http://www.w3.org/2004/02/skos/core#scopeNote
+skos:scopeNote rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://ontology.inscriptiones.org/execution_technique/Additive_technique
+:Additive_technique rdf:type owl:Class ;
+                    rdfs:subClassOf :Writing_Technique ;
+                    skos:altLabel "Ars Addictiva"@la ,
+                                  "Material Addition Technique"@en ;
+                    skos:definition "Writing techniques that create text by applying or adding material to the writing surface, including painting, inlay work, and relief construction."@en ;
+                    skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR108760> ,
+                                 <https://usepigraphy.brown.edu/projects/usep/inscription/NY.NY.MMA.L.11.91.4/> ;
+                    skos:prefLabel "Additive Technique"@en ;
+                    :closeMatch <http://vocab.getty.edu/page/aat/300229467> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Application
+:Application rdf:type owl:Class ;
+             rdfs:subClassOf :Additive_technique ;
+             skos:definition "Technique using implements used to apply liquid or semi-liquid materials such as pigments, inks, or other marking substances to the surface."@en ;
+             skos:prefLabel "Application"@en ;
+             :related <http://vocab.getty.edu/page/aat/300162803> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Applied_Letters
+:Applied_Letters rdf:type owl:Class ;
+                 rdfs:subClassOf :Attachment ;
+                 rdfs:label "Applied Letters"@en ;
+                 skos:altLabel "Litteris Applicitis"@la ,
+                               "aufgesetzt"@de ,
+                               "lettres appliquées"@fr ;
+                 skos:definition "Letters created as independent, pre-formed elements that are subsequently mounted, attached, or affixed to the inscriptional surface through mechanical or adhesive means. This technique involves separate letter production followed by installation, allowing for standardized letter forms, different materials, and enhanced visual contrast between the letters and substrate background."@en ;
+                 skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR025329> ,
+                              <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR074215> ,
+                              <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR103378> ,
+                              <https://usepigraphy.brown.edu/projects/usep/inscription/CA.Malibu.JPGM.L.80.AE.44/> ;
+                 :related <http://vocab.getty.edu/page/aat/300003584> ,
+                          <https://www.eagle-network.eu/voc/writing/lod/41> ;
+                 :exactMatch <https://www.eagle-network.eu/voc/writing/lod/6> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Attachment
+:Attachment rdf:type owl:Class ;
+            rdfs:subClassOf :Additive_technique ;
+            skos:definition "An additive technique involving the mounting of separately created elements onto the surface. Executed using mechanical fasteners with pre-formed letters or decorative elements (e.g., metal letters, inlays, or plaques). These methods reflect technological choices and can inform dating, provenance, and restoration history."@en ;
+            skos:example <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD002826> ,
+                         <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD004825> ;
+            skos:prefLabel "Attachment"@en ;
+            :closeMatch <http://vocab.getty.edu/page/aat/300419475> ;
+            :relatedMatch <http://vocab.getty.edu/page/aat/300419475> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Attachment_Materials
+:Attachment_Materials rdf:type owl:Class ;
+                      rdfs:subClassOf :Attachment ;
+                      skos:definition "Usually metallic materials formed into the letter shape and attached to the surface using mechanical fasteners."@en ;
+                      skos:prefLabel "Attachment Materials"@en .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Awl
+:Awl rdf:type owl:Class ;
+     rdfs:subClassOf :Drilling ;
+     skos:altLabel "Subula"@la ;
+     skos:definition "A sharp-pointed cutting tool, traditionally used for making holes, adapted for inscriptional purposes to create letter forms through puncturing and material removal. The subula produces distinctive marks characterized by small holes or dots that can be combined to form text patterns."^^xsd:string ;
+     skos:prefLabel "Awl"@en ;
+     :closeMatch <http://vocab.getty.edu/page/aat/300024663> ,
+                 <https://www.wikidata.org/wiki/Q400406> ;
+     :exactMatch <https://www.eagle-network.eu/voc/writing/lod/187> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Bimetallic_Inlay
+:Bimetallic_Inlay rdf:type owl:Class ;
+                  rdfs:subClassOf :Mixed_technique ;
+                  skos:altLabel "Ad gemina metalla"@la ;
+                  skos:definition "A specialized inlay technique involving the insertion of one metal into channels or recesses cut into another metal surface, creating contrasting visual effects through the use of different metallic materials."@en ;
+                  skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EEDR032760> ;
+                  skos:prefLabel "Bimetallic Inlay"@en ;
+                  :exactMatch <https://www.eagle-network.eu/voc/writing/lod/193> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Black_Pigment
+:Black_Pigment rdf:type owl:Class ;
+               rdfs:subClassOf :Colorants ;
+               skos:definition "Black colourants are commonly used for both primary text creation and enhancement of existing carved letterforms, providing strong contrast and readability,"@en ;
+               skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR137815> ;
+               skos:prefLabel "Black Pigment"@en ;
+               :closeMatch <http://vocab.getty.edu/page/aat/300013135> ,
+                           <https://www.wikidata.org/wiki/Q114839865> ;
+               :related <https://www.eagle-network.eu/voc/writing/lod/209> ,
+                        "Nigro"@la .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Brush
+:Brush rdf:type owl:Class ;
+       rdfs:subClassOf :Application ,
+                       :Painting ;
+       skos:altLabel "Penicillo"@la ,
+                     "Penicillus"^^xsd:string ;
+       skos:definition "An application tool consisting of bristles, hair, or fibers attached to a handle, used to apply pigments, inks, or other liquid marking substances to create letter forms and decorative elements on the inscription surface."@en ;
+       skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR000150> ,
+                    <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR137815> ,
+                    <https://usepigraphy.brown.edu/projects/usep/inscription/CA.Malibu.JPGM.G.82.AI.76.16/> ,
+                    <https://usepigraphy.brown.edu/projects/usep/inscription/Il.Chi.UC.SMA.G.1967.115.260/> ;
+       skos:prefLabel "Brush"@en ;
+       :closeMatch <http://vocab.getty.edu/page/aat/300433344> ,
+                   <https://www.eagle-network.eu/voc/writing/lod/175.html> ,
+                   <https://www.wikidata.org/wiki/Q193897> ;
+       :exactMatch <https://www.eagle-network.eu/voc/writing/lod/192.html> ,
+               <https://www.eagle-network.eu/voc/writing/lod/225.html> ,
+               <https://www.eagle-network.eu/voc/writing/lod/227.html> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Capitals
+:Capitals rdf:type owl:Class ;
+          rdfs:subClassOf :Letter_Forms ;
+          skos:definition "Text inscribed entirely in capital (uppercase) letters, typically characterized by uniform height and often used for emphasis or formal inscriptions."@en ;
+          skos:example <https://romaninscriptionsofbritain.org/inscriptions/60> ;
+          skos:prefLabel "Capitals"@en ;
+          :closeMatch <http://vocab.getty.edu/page/aat/300055061> ,
+                      <https://www.wikidata.org/wiki/Q98912> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Cavity_Fill_Lettering
+:Cavity_Fill_Lettering rdf:type owl:Class ;
+                       rdfs:subClassOf :Mixed_technique ;
+                       skos:altLabel "Alveolis repletis"@la ;
+                       skos:definition "A mixed technique involving the deliberate carving or cutting of recessed letter forms and decorative elements into a surface, which are then filled with contrasting materials to create visual emphasis and durability. The filled material typically sits flush with or slightly above the original surface level."^^xsd:string ;
+                       skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR092946> ,
+                                    <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR109855> ;
+                       skos:prefLabel "Cavity Fill Lettering"@en ;
+                       :related <http://vocab.getty.edu/page/aat/300053092> ;
+                       :exactMatch <https://www.eagle-network.eu/voc/writing/lod/194> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Cavity_Insertion
+:Cavity_Insertion rdf:type owl:Class ;
+                  rdfs:subClassOf :Filling ;
+                  skos:altLabel "In alveolis insertis"@la ;
+                  skos:definition "A mechanical attachment method involving the precise cutting of recesses, cavities, or sockets into the receiving surface, into which pre-formed letters are inserted and secured. This technique requires careful dimensional planning to ensure proper fit and alignment, with the cavities typically shaped to accommodate specific letter dimensions and attachment requirements."@en ;
+                  skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR003014> ,
+                               <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR003126> ;
+                  skos:prefLabel "Cavity Insertion"@en ;
+                  :related <http://vocab.getty.edu/page/aat/300123227> ;
+                  :exactMatch <https://www.eagle-network.eu/voc/writing/lod/201> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Charcoal
+:Charcoal rdf:type owl:Class ;
+          rdfs:subClassOf :Colorants ;
+          skos:altLabel "Carbo"@en ;
+          skos:definition "A colorant technique involving text created using coal or charcoal as the marking medium. This readily available material was commonly employed in informal inscriptions such as graffiti, providing a convenient and accessible means of creating temporary or casual text."@en ;
+          skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR108760> ,
+                       <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR154500> ;
+          skos:prefLabel "Charcoal"@en ;
+          :closeMatch <http://vocab.getty.edu/page/aat/300012862> ;
+          :related <https://www.eagle-network.eu/voc/writing/lod/163> ,
+                   <https://www.eagle-network.eu/voc/writing/lod/18> ,
+                   <https://www.eagle-network.eu/voc/writing/lod/216> ,
+                   "Carbone"@la ;
+          :relatedMatch <https://www.wikidata.org/wiki/Q1424515> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Chisel
+:Chisel rdf:type owl:Class ;
+        rdfs:subClassOf :Incision ;
+        skos:altLabel "Scalpro"@la ,
+                      "Scalprum"@la ;
+        skos:definition "A cutting tool consisting of a sharp-edged metal blade used to remove material from the inscriptional surface through controlled cutting and carving actions. The scalpro creates letter forms by systematically removing material to form incised grooves, typically producing the characteristic V-shaped profiles associated with formal stone inscriptions."@en ;
+        skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR000006> ,
+                     <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR132130> ,
+                     <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR135906> ;
+        skos:prefLabel "Chisel"@en ;
+        :closeMatch <http://vocab.getty.edu/page/aat/300024665> ,
+                    <https://www.wikidata.org/wiki/Q474188> ;
+        :related <https://www.eagle-network.eu/voc/writing/lod/1> ,
+                 <https://www.eagle-network.eu/voc/writing/lod/113> ,
+                 <https://www.eagle-network.eu/voc/writing/lod/114> ,
+                 "Chiselled"@en ,
+                 "Incised"@en ,
+                 "Insculptus"@la ,
+                 "eingemeißelt"@de ;
+        :exactMatch <https://www.eagle-network.eu/voc/writing/lod/115> ,
+                <https://www.eagle-network.eu/voc/writing/lod/232> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Clay
+:Clay rdf:type owl:Class ;
+      rdfs:subClassOf :Clay_and_Similar ;
+      skos:altLabel "Creta"@la ;
+      skos:definition "Natural clay used as a marking or coloring medium in inscriptional work. Clay's plasticity and natural earth tones made it suitable for temporary markings and informal inscriptional applications."@en ;
+      skos:prefLabel "Clay"@en ;
+      :closeMatch <http://vocab.getty.edu/page/aat/300010439> ;
+      :exactMatch <https://www.eagle-network.eu/voc/writing/lod/190> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Clay_and_Similar
+:Clay_and_Similar rdf:type owl:Class ;
+                  rdfs:subClassOf :Colorants ;
+                  skos:altLabel "Inorganic material"@en ;
+                  skos:definition "A colorant category encompassing clay-based and related mineral substances and inorganic materials used as pigments or marking materials for creating inscriptions. These naturally occurring materials provided accessible coloring options for various inscriptional applications."@en ;
+                  skos:prefLabel "Clay and Similar"@en ;
+                  :closeMatch <http://vocab.getty.edu/page/aat/300010360> ,
+                              <https://www.wikidata.org/wiki/Q42302> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Colorants
+:Colorants rdf:type owl:Class ;
+           rdfs:subClassOf :Application ;
+           skos:definition "Pigments, dyes, inks, and coloring substances applied to inscriptional surfaces to create or enhance letterforms through the addition of color, either as the primary marking medium or as enhancement to existing carved or formed text."@en ;
+           skos:prefLabel "Colorants"@en ;
+           :closeMatch <http://vocab.getty.edu/page/aat/300013026> ,
+                       <https://www.wikidata.org/wiki/Q911922> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Coloured_Letters
+:Coloured_Letters rdf:type owl:Class ;
+                  rdfs:subClassOf :Painting ;
+                  skos:altLabel "Dipinto"@la ,
+                                "Gemalt"@de ,
+                                "Pictus"@la ;
+                  skos:definition "Letters enhanced, emphasized, or entirely created through the application of pigments, paints, dyes, or other coloring substances. This technique may involve primary letter creation through paint application or secondary enhancement of existing carved, scratched, or formed letters through color addition. The coloring provides visual contrast, aesthetic enhancement, or symbolic emphasis to the inscriptional text."@en ;
+                  skos:prefLabel "Coloured Letters"@en ;
+                  :exactMatch <https://www.eagle-network.eu/voc/writing/lod/96> ,
+                          <https://www.eagle-network.eu/voc/writing/lod/97> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Copper
+:Copper rdf:type owl:Class ;
+        rdfs:subClassOf :Inlay_Materials ;
+        skos:definition "Metallic material used to create contrasting inscriptional text or ornamental designs. Copper's workability and distinctive reddish colour made it suitable for creating visible contrast in various substrates."@en ;
+        skos:prefLabel "Copper"@en ;
+        :closeMatch <http://vocab.getty.edu/page/aat/300011020> ,
+                    <https://www.wikidata.org/wiki/Q753> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Copper_Alloy
+:Copper_Alloy rdf:type owl:Class ;
+              rdfs:subClassOf :Copper ;
+              skos:altLabel "Brass"@en ,
+                            "Bronze"@en ;
+              skos:definition "Metallic material of bronze or brass alloys used to create contrasting inscriptional text or ornamental designs. These alloys offered durability and distinctive colouration for decorative inlay work."@en ;
+              skos:prefLabel "Copper Alloy"@en ;
+              :closeMatch <http://vocab.getty.edu/page/aat/300010942> ,
+                          <http://vocab.getty.edu/page/aat/300010946> ,
+                          <http://vocab.getty.edu/page/aat/300010957> ,
+                          <https://www.wikidata.org/wiki/Q34095> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Cursive
+:Cursive rdf:type owl:Class ;
+         rdfs:subClassOf :Letter_Forms ;
+         skos:definition "Text inscribed in a flowing, handwritten style, where letters may be connected. Commonly used for informal or personal inscriptions."@en ;
+         skos:example <https://romaninscriptionsofbritain.org/inscriptions/TabVindol178> ;
+         skos:prefLabel "Cursive"@en ;
+         :related <http://vocab.getty.edu/page/aat/300209772> ,
+                  <http://vocab.getty.edu/page/aat/300209776> ,
+                  <https://www.eagle-network.eu/voc/writing/lod/186> ;
+         :relatedMatch <https://www.wikidata.org/wiki/Q1079418> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Damascening
+:Damascening rdf:type owl:Class ;
+             rdfs:subClassOf :Inlay ;
+             skos:altLabel "Litteris Ageminatis"@la ;
+             skos:definition "A specialized inlay attachment technique involving the cutting of precise channels or grooves into a base metal surface, followed by the hammering, pressing, or otherwise securing of contrasting metal (typically precious metals such as gold or silver) into these prepared channels. This technique creates permanent attachment through mechanical deformation and produces distinctive metallic contrast for decorative inscriptional applications."@en ;
+             skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR032760> ,
+                          <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR072011> ;
+             skos:prefLabel "Damascening"@en ;
+             :related <http://vocab.getty.edu/page/aat/300054019> ;
+             :exactMatch <https://www.eagle-network.eu/voc/writing/lod/5> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Direct_Attachment
+:Direct_Attachment rdf:type owl:Class ;
+                   rdfs:subClassOf :Attachment ;
+                   skos:altLabel "Ipsae lapidi"@la ;
+                   skos:definition "A mechanical attachment method involving the direct mounting of pre-formed letters onto the substrate surface without the use of prepared recesses, typically employing mechanical fasteners, adhesives, or other bonding methods. This technique allows for surface-level letter placement while maintaining structural integrity and proper alignment."@en ;
+                   skos:prefLabel "Direct Attachment"@en ;
+                   :related <http://vocab.getty.edu/page/aat/300234049> ;
+                   :exactMatch <https://www.eagle-network.eu/voc/writing/lod/202> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Dotted_Letters
+:Dotted_Letters rdf:type owl:Class ;
+                rdfs:subClassOf :Drilling ,
+                                :Incision ;
+                skos:definition "Letters constructed through systematic arrangement of individual dots, points, or small holes that combine to define letter form boundaries and internal structure. This technique employs pointed tools or drilling implements to create discrete marking points that, when properly spaced and aligned, produce recognizable letter shapes through accumulated dot patterns. The technique allows for precise control and standardized letter reproduction."@en ;
+                skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR071974> ,
+                             <https://usepigraphy.brown.edu/projects/usep/inscription/CA.Malibu.JPGM.G.84.AC.11/> ;
+                skos:prefLabel "Dotted Letters"@en ;
+                :related <http://vocab.getty.edu/page/aat/300053378> ,
+                         <http://vocab.getty.edu/page/aat/300235631> ,
+                         <https://www.eagle-network.eu/voc/writing/lod/11> ,
+                         <https://www.eagle-network.eu/voc/writing/lod/145> ,
+                         "Punctim"@la .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Drill
+:Drill rdf:type owl:Class ;
+       rdfs:subClassOf :Drilling ;
+       skos:altLabel "Terebrus"@la ;
+       skos:definition "A rotating cutting tool used to create letterforms through drilling and perforation of the substrate material. The terebro produces circular holes or dots that can be arranged to form text patterns, commonly employed in techniques such as punctim (dotted lettering) where letter forms are built up through systematic perforation."@en ;
+       skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR073598> ;
+       skos:prefLabel "Drill"@en ;
+       :closeMatch <http://vocab.getty.edu/page/aat/300024679> ,
+                   <https://www.wikidata.org/wiki/Q58964> ;
+       :relatedMatch <https://www.eagle-network.eu/voc/writing/lod/15> ,
+                     "Perforated"@en ,
+                     "Terebro"@la ;
+       :exactMatch <https://www.eagle-network.eu/voc/writing/lod/229> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Drilling
+:Drilling rdf:type owl:Class ;
+          rdfs:subClassOf :Subtractive_technique ;
+          skos:altLabel "Perforating"@en ;
+          skos:definition "A subtractive technique involving the creation of holes or dots in the surface to form letterforms. Typically executed using terebro (drill) or subula (awl)."@en ;
+          skos:example <https://romaninscriptionsofbritain.org/inscriptions/1228> ;
+          skos:prefLabel "Drilling"@en ;
+          :closeMatch <http://vocab.getty.edu/page/aat/300053151> ,
+                      <https://www.eagle-network.eu/voc/writing/lod/15> ;
+          :relatedMatch <https://www.wikidata.org/wiki/Q890886> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Engraving_Tool
+:Engraving_Tool rdf:type owl:Class ;
+                rdfs:subClassOf :Incision ,
+                                :Scratching ;
+                skos:altLabel "Burin"@en ,
+                              "Caelo"@la ;
+                skos:definition "A specialised cutting tool, including chisels, burins, or gravers, designed for creating precise incised lines and letter forms through controlled cutting into the surface material. The caelo removes material to form permanent marks below the original surface level, typically producing crisp, fine lines with characteristic tool marks that reflect the craftsperson's skill and technique."@en ;
+                skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR005754> ,
+                             <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR029470> ,
+                             <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR071974> ;
+                skos:prefLabel "Engraving Tool"@en ;
+                :closeMatch <http://vocab.getty.edu/page/aat/300022994> ,
+                            <https://www.wikidata.org/wiki/Q111509431> ;
+                :relatedMatch <https://www.eagle-network.eu/voc/writing/lod/23> ,
+                              "eingraviert"@de ,
+                              "engraved"@en ;
+                :exactMatch <https://www.eagle-network.eu/voc/writing/lod/3> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Execution_Technique
+:Execution_Technique rdf:type owl:Class ;
+                     rdfs:subClassOf owl:Thing ;
+                     <http://purl.org/dc/elements/1.1/source> <https://www.eagle-network.eu/voc/writing.html> ;
+                     <http://purl.org/dc/terms/bibliographicCitation> "Evangelisti, Silvia. 2017. ‘Scrittura Epigraphica, Alcune Riflessioni’. In Colonie e Municipi Nell’era Digitale. Documentazione Epigrafica per La Conoscenza Delle Città Antiche. Atti Del Convegno Di Studi (Macerata, 10-12 Dicembre 2015), edited by Simona Antolini, Silvia Maria Marengo, and Gianfranco Paci. Edizioni TORED. https://hdl.handle.net/11393/241391."@en ,
+                                                                      "Liuzzo, Pietro Maria, and Silvia Evangelisti. 2021. ‘Modeling Execution Techniques of Inscriptions’. Semantic Web 12 (2): 181–90. https://doi.org/10.3233/SW-200395."@en ;
+                     skos:definition "Hierarchical classification system that categorises inscriptions according to the technique or tools used to execute the text of the inscription."@en ;
+                     skos:prefLabel "Execution_Technique"@en .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Filling
+:Filling rdf:type owl:Class ;
+         rdfs:subClassOf :Additive_technique ;
+         skos:definition "An additive technique involving the filling of previously carved recesses with contrasting materials. Executed using various application tools with materials such as plumbo (lead), crusta (stucco), vitro (glass), or stannum (tin)."@en ;
+         skos:example <https://romaninscriptionsofbritain.org/inscriptions/Brit.32.41> ;
+         skos:prefLabel "Filling"@en ;
+         :closeMatch <http://vocab.getty.edu/page/aat/300053092> ;
+         :relatedMatch <https://www.wikidata.org/wiki/Q11629> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Filling_Materials
+:Filling_Materials rdf:type owl:Class ;
+                   rdfs:subClassOf :Filling ;
+                   skos:definition "Substances used to fill carved recesses, grooves, or cavities in inscriptional surfaces to create visual contrast, enhance durability, or improve readability of letterforms through the application of contrasting materials."@en ;
+                   skos:prefLabel "Filling Materials"@en ;
+                   :closeMatch <http://vocab.getty.edu/page/aat/300015132> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Finger
+:Finger rdf:type owl:Class ;
+        rdfs:subClassOf :Impression ;
+        skos:altLabel "Digitus"@la ;
+        skos:definition "The human finger used as a forming tool to create letter forms directly in soft, malleable materials. Produces characteristic rounded impressions and is typically employed while the substrate remains in a workable state."@en ;
+        skos:prefLabel "Finger"@en ;
+        :closeMatch <http://vocab.getty.edu/page/aat/300310194> ;
+        :relatedMatch <https://www.eagle-network.eu/voc/writing/lod/198.html> ,
+                      <https://www.wikidata.org/wiki/Q620207> ,
+                      "Digito"@la ;
+        :exactMatch <https://www.eagle-network.eu/voc/writing/lod/218.html> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Form
+:Form rdf:type owl:Class ;
+      rdfs:subClassOf :Moulding ;
+      skos:altLabel "Forma"@la ,
+                    "Mould"@en ;
+      skos:definition "A shaped template or mould used to create standardized letter forms and decorative elements by pressing into soft material. Enables consistent reproduction of identical letters and maintains uniform sizing and styling."@en ;
+      skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR134212> ;
+      skos:prefLabel "Form"@en ;
+      :closeMatch <http://vocab.getty.edu/page/aat/300024814> ,
+                  <https://www.wikidata.org/wiki/Q1941820> ;
+      :exactMatch <https://www.eagle-network.eu/voc/writing/lod/219> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Glass
+:Glass rdf:type owl:Class ;
+       rdfs:subClassOf :Filling_Materials ;
+       skos:altLabel "Vitrum"@la ;
+       skos:definition "Filling of carved recesses with glass paste, ground glass mixed with binding agents, or fitted glass pieces to create luminous, translucent lettering. This specialized method produces distinctive optical effects and light-reflecting properties, often employed for decorative emphasis in interior applications."@en ;
+       skos:prefLabel "Glass"@en ;
+       :closeMatch <http://vocab.getty.edu/page/aat/300010803> ,
+                   <https://www.wikidata.org/wiki/Q3411508> ;
+       :relatedMatch <http://vocab.getty.edu/page/aat/300010797> ,
+                <https://www.eagle-network.eu/voc/writing/lod/213> ,
+                "Vitro"@la .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Gold
+:Gold rdf:type owl:Class ;
+      rdfs:subClassOf :Inlay_Materials ;
+      skos:definition "A precious yellow metallic element (Latin: aurum; symbol: Au) used in epigraphy for high-status inscriptions, letter inlays, and decorative applications due to its prestige, durability, and resistance to corrosion. This prestigious technique creates the highest visual contrast and was reserved for the most important inscriptions due to gold's value and permanence."@en ;
+      skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR029447> ;
+      skos:prefLabel "Gold"@en ;
+      :closeMatch <http://vocab.getty.edu/page/aat/300011021> ,
+                  <https://www.wikidata.org/wiki/Q897> ;
+      :related <https://www.eagle-network.eu/voc/writing/lod/214> ,
+               "Auro"@la .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Granules
+:Granules rdf:type owl:Class ;
+          rdfs:subClassOf :Overlay ;
+          skos:altLabel "Granula"@la ,
+                        "Granulis"@la ;
+          skos:definition "A specialized overlay technique involving the application of small granules or particles to a surface as decorative enhancement, often used in conjunction with inscribed text."@en ;
+          skos:prefLabel "Granules"@en ;
+          :closeMatch <https://www.eagle-network.eu/voc/writing/lod/191> ,
+                      <https://www.eagle-network.eu/voc/writing/lod/224> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Groove_Profiles
+:Groove_Profiles rdf:type owl:Class ;
+                 rdfs:subClassOf :Visual_Characteristics ;
+                 skos:definition "The cross-sectional shapes of incised letter grooves, reflecting the tools and techniques used in the carving process. Groove profiles can aid in identifying inscriptional styles, workshops, or chronological phases."@en ;
+                 skos:prefLabel "Groove Profiles"@en .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Hot_Seal
+:Hot_Seal rdf:type owl:Class ;
+          rdfs:subClassOf :Stamp ;
+          skos:altLabel "Impressed with hot seal"@en ,
+                        "Signaculo Candente"@la ;
+          skos:definition "A heated stamp or seal used to create impressions through the application of both pressure and heat. The elevated temperature allows for more durable impressions and enables working with harder materials that would resist cold stamping."@en ;
+          skos:example "G. Baratta, in XII Congressus Internationalis Epigraphiae Grecae et Latinae, Barcelona 2007, fig. 8."^^xsd:string ;
+          skos:prefLabel "Hot Seal"@en ;
+          :related <https://www.eagle-network.eu/voc/writing/lod/211> ;
+          :exactMatch <https://www.eagle-network.eu/voc/writing/lod/165> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Impression
+:Impression rdf:type owl:Class ;
+            rdfs:subClassOf :Plastic_technique ;
+            skos:definition "A plastic technique involving pressing into soft material to create letterforms. Most often executed using signaculo (stamp), digito (finger), or spathula (spatula)."@en ;
+            skos:example <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD000210> ,
+                         <https://romaninscriptionsofbritain.org/inscriptions/Brit.54.17> ,
+                         <https://usepigraphy.brown.edu/projects/usep/inscription/NY.NY.MMA.G.24.97.19/> ,
+                         <https://www.edb.uniba.it/epigraph/42692> ;
+            skos:prefLabel "Impression"@en ;
+            :closeMatch <http://vocab.getty.edu/page/aat/300233405> ,
+                        <http://vocab.getty.edu/page/aat/300239001> ,
+                        <https://www.eagle-network.eu/voc/writing/lod/166> ,
+                        "Impressing"@en ;
+            :relatedMatch <https://www.wikidata.org/wiki/Q115640974> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Incision
+:Incision rdf:type owl:Class ;
+          rdfs:subClassOf :Subtractive_technique ;
+          skos:altLabel "Carving"@en ;
+          skos:definition "A subtractive technique involving cutting into the surface to create grooves and letterforms. Commonly executed with tools such as scalpro (chisel), caelo (engraving tool), stilo (stylus), cultello (knife), or acu (needle)."@en ;
+          skos:example <http://sicily.classics.ox.ac.uk/inscription/ISic000003> ,
+                       <http://sicily.classics.ox.ac.uk/inscription/ISic000639> ,
+                       <http://sicily.classics.ox.ac.uk/inscription/ISic004448> ,
+                       <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD000319> ,
+                       <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD002725> ,
+                       <https://romaninscriptionsofbritain.org/inscriptions/Brit.46.65> ,
+                       <https://usepigraphy.brown.edu/projects/usep/inscription/MA.Bos.MFA.G.01.7515/> ;
+          skos:prefLabel "Incision"@en ;
+          :closeMatch <http://vocab.getty.edu/page/aat/300053847> ,
+                      <https://www.wikidata.org/wiki/Q106822736> ,
+                      <https://www.wikidata.org/wiki/Q6014696> ;
+          :relatedMatch <https://ark.mom.fr/ark:/76609/epvdd7z3jf7kp> ,
+                        <https://www.eagle-network.eu/voc/writing/lod/1.html> ;
+          :exactMatch <https://www.eagle-network.eu/voc/writing/lod/168.html> ,
+                  "Engraving"@en .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Ink
+:Ink rdf:type owl:Class ;
+     rdfs:subClassOf :Colorants ;
+     skos:definition "Ink or similar liquid writing media, applied with appropriate implements such as reed pens or brushes to execute or enhance the letter forms. Ink provided fluid application and precise control for creating detailed letter forms on suitable surfaces."@en ;
+     skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR000150> ,
+                  <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR073897> ,
+                  <https://usepigraphy.brown.edu/projects/usep/inscription/CA.Malibu.JPGM.G.82.AI.76.16/> ;
+     skos:prefLabel "Ink"@en ;
+     :closeMatch <http://vocab.getty.edu/page/aat/300015015> ,
+                 <https://www.wikidata.org/wiki/Q127418> ;
+     :related <https://www.eagle-network.eu/voc/writing/lod/2> ,
+              <https://www.eagle-network.eu/voc/writing/lod/217> ,
+              "Attramento"@la ,
+              "Inked"@en .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Inlay
+:Inlay rdf:type owl:Class ;
+       rdfs:subClassOf :Additive_technique ;
+       skos:definition "An additive technique involving the embedding of contrasting materials into prepared recesses or channels. Executed using specialized inlay tools with materials such as metals (gold, silver, copper, bronze), crustis (decorative pieces), or tessellis (mosaic)."@en ;
+       skos:example <http://sicily.classics.ox.ac.uk/inscription/ISic003458> ,
+                    <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR010609> ,
+                    <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR133660> ,
+                    <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR133661> ,
+                    <https://romaninscriptionsofbritain.org/inscriptions/Brit.24.17> ,
+                    <https://usepigraphy.brown.edu/projects/usep/inscription/MD.Balt.JHU.L.40/> ,
+                    <https://www.edb.uniba.it/epigraph/15426> ;
+       skos:prefLabel "Inlay"@en ;
+       :closeMatch <http://vocab.getty.edu/page/aat/300053850> ,
+                   <https://www.eagle-network.eu/voc/writing/lod/34> ,
+                   <https://www.eagle-network.eu/voc/writing/lod/4.html> ,
+                   <https://www.wikidata.org/wiki/Q1281067> ,
+                   <https://www.wikidata.org/wiki/Q2295879> ,
+                   "Crustis"@la .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Inlay_Materials
+:Inlay_Materials rdf:type owl:Class ;
+                 rdfs:subClassOf :Inlay ;
+                 skos:definition "Precious or contrasting materials embedded into prepared channels, recesses, or cavities cut into a base surface to create decorative inscriptional text through the visual contrast between the inlaid material and the substrate."@en ;
+                 skos:prefLabel "Inlay Materials"@en ;
+                 :related <http://vocab.getty.edu/page/aat/300053850> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Iron
+:Iron rdf:type owl:Class ;
+      rdfs:subClassOf :Attachment_Materials ,
+                      :Inlay_Materials ;
+      skos:definition "A common greyish metallic element (Latin: ferrum; symbol: Fe) used as a writing surface for inscriptions, particularly in military contexts (weapons, tools) and for durable implements, though prone to corrosion. Iron's strength and distinctive dark appearance provided effective contrast in specialised applications."@en ;
+      skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR092946> ,
+                   <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR103378> ,
+                   <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR109855> ;
+      skos:prefLabel "Iron"@en ;
+      :closeMatch <http://vocab.getty.edu/page/aat/300011002> ,
+                  <https://www.wikidata.org/wiki/Q677> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Knife
+:Knife rdf:type owl:Class ;
+       rdfs:subClassOf :Incision ,
+                       :Scratching ;
+       skos:altLabel "Cultello"@la ;
+       skos:definition "A sharp-bladed cutting tool used to cut or scratch letterf orms into inscriptional surfaces through controlled material removal. The cultello typically features a single cutting edge and is employed for creating incised text on various materials, particularly where precise cutting control is required."@en ;
+       skos:prefLabel "Knife"@en ;
+       :closeMatch <http://vocab.getty.edu/page/aat/300024668> ,
+                   <https://www.wikidata.org/wiki/Q32489> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Lead
+:Lead rdf:type owl:Class ;
+      rdfs:subClassOf :Filling_Materials ;
+      skos:altLabel "Plumbum"@la ;
+      skos:broadMatch <https://www.wikidata.org/wiki/Q708> ;
+      skos:definition "Application of molten or malleable lead into carved recesses to form letters and decorative elements. Lead's workability, malleability, and weather resistance made this technique particularly popular for exterior stone inscriptions and architectural lettering, creating durable, long-lasting contrast against stone surfaces."@en ;
+      skos:prefLabel "Lead"@en ;
+      :closeMatch <http://vocab.getty.edu/page/aat/300011022> ;
+      :relatedMatch <https://www.eagle-network.eu/voc/writing/lod/212> ,
+                    "Plumbo"@la .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Letter_Forms
+:Letter_Forms rdf:type owl:Class ;
+              rdfs:subClassOf :Visual_Characteristics ;
+              skos:definition "Physical and stylistic characteristics of inscribed letters, reflecting the technique used to form them on the surface. These forms can indicate artistic intent, inscription function, or chronological and regional variation."@en ;
+              skos:prefLabel "Letter Forms"@en ;
+              :closeMatch <http://vocab.getty.edu/page/aat/300387689> ;
+              :relatedMatch <https://www.wikidata.org/wiki/Q6533641> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Ligature
+:Ligature rdf:type owl:Class ;
+          rdfs:subClassOf :Letter_Forms ;
+          skos:definition "A single glyph formed by combining two or more letters into one character, used to enhance visual harmony, save space, or improve the flow of writing."@en ;
+          skos:prefLabel "Ligature"@en ;
+          :closeMatch <http://vocab.getty.edu/page/aat/300195902> ,
+                      <https://www.wikidata.org/wiki/Q188725> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Metal_Plate
+:Metal_Plate rdf:type owl:Class ;
+             rdfs:subClassOf :Overlay ;
+             skos:altLabel "Brattea"@la ;
+             skos:definition "A specialized overlay technique using thin sheets of metal, typically gold but potentially other metals, applied to a surface as decorative overlay or to enhance the visibility of inscribed text."@en ;
+             skos:example <https://www.edb.uniba.it/epigraph/25790> ,
+                          <https://www.edb.uniba.it/epigraph/42693> ;
+             skos:prefLabel "Metal Plate"@en ;
+             :closeMatch <http://vocab.getty.edu/page/aat/300053991> ,
+                         <https://www.wikidata.org/wiki/Q1193988> ;
+             :exactMatch <https://www.eagle-network.eu/voc/writing/lod/188> ,
+                     <https://www.eagle-network.eu/voc/writing/lod/221> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Mixed_technique
+:Mixed_technique rdf:type owl:Class ;
+                 rdfs:subClassOf :Writing_Technique ;
+                 skos:altLabel "Ars Mixta"@la ,
+                               "Combined Technique"@en ;
+                 skos:definition "Writing techniques that employ multiple approaches simultaneously, combining subtractive and additive processes or utilising various complementary techniques."@en ;
+                 skos:prefLabel "Mixed Technique"@en .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Moulding
+:Moulding rdf:type owl:Class ;
+          rdfs:subClassOf :Plastic_technique ;
+          skos:altLabel "Moulded"@la ;
+          skos:definition "A plastic technique involving shaping letterforms using forms or moulds. Executed using forma (mould/form) on soft materials such as clay, wax, or plaster."@en ;
+          skos:example <https://romaninscriptionsofbritain.org/inscriptions/2404.46> ,
+                       <https://usepigraphy.brown.edu/projects/usep/inscription/CA.Malibu.JPGM.L.82.AC.22.14/> ;
+          skos:prefLabel "Moulding"@en ;
+          :closeMatch <http://vocab.getty.edu/page/aat/300053130> ,
+                      <https://www.eagle-network.eu/voc/writing/lod/78.html> ,
+                      <https://www.wikidata.org/wiki/Q1055732> ,
+                      "ex forma"@la ;
+          :exactMatch <https://www.eagle-network.eu/voc/writing/lod/172.html> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Needle
+:Needle rdf:type owl:Class ;
+        rdfs:subClassOf :Incision ,
+                        :Scratching ;
+        skos:altLabel "Acu"@la ;
+        skos:definition "A very fine, sharp-pointed cutting tool used to create inscriptional text through minimal material removal. The acu produces very fine lines and delicate letter forms, typically employed for detailed work or inscriptions on soft materials where precise, thin strokes are required."@en ;
+        skos:prefLabel "Needle"@en ;
+        :closeMatch <http://vocab.getty.edu/page/aat/300429495> ;
+        :relatedMatch <https://www.wikidata.org/wiki/Q142690> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Other_Filling_Material
+:Other_Filling_Material rdf:type owl:Class ;
+                        rdfs:subClassOf :Filling_Materials ;
+                        skos:definition "Use of materials other than traditional stucco, lead, tin, or glass to fill carved letter cavities. This category encompasses bronze, copper, wood, resin, composite materials, or other substances employed to achieve specific aesthetic, functional, or economic requirements in inscriptional applications."@en ;
+                        skos:prefLabel "Other Filling Material"@en .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Other_Metal
+:Other_Metal rdf:type owl:Class ;
+             rdfs:subClassOf :Inlay_Materials ;
+             skos:definition "Metallic material not otherwise categorised as a base material to create contrasting inscriptional text or ornamental designs. This encompasses specialised alloys, mixed metals, or regional materials used for decorative inlay applications."@en ;
+             skos:prefLabel "Other Metal"@en ;
+             :related <http://vocab.getty.edu/page/aat/300010900> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Other_Sharp_Instruments
+:Other_Sharp_Instruments rdf:type owl:Class ;
+                         rdfs:subClassOf :Incision ,
+                                         :Scratching ;
+                         skos:altLabel "Aliis instrumentis acutis"@la ;
+                         skos:definition "A category encompassing various pointed or sharp-edged cutting implements not otherwise specified in the classification system. Used for scratching, incising, scraping, etching or cutting inscriptional text through material removal techniques."^^xsd:string ;
+                         skos:prefLabel "Other Sharp Instruments"@en ;
+                         :closeMatch <http://vocab.getty.edu/page/aat/300024662> ,
+                                     <https://www.wikidata.org/wiki/Q1760958> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Other_Stone
+:Other_Stone rdf:type owl:Class ;
+             rdfs:subClassOf :Clay_and_Similar ;
+             skos:definition "Various stone-based pigments or marking substances not otherwise categorized."@en ;
+             skos:prefLabel "Other Stone"@en ;
+             :closeMatch <http://vocab.getty.edu/page/aat/300428777> ;
+             :related <http://vocab.getty.edu/page/aat/300375550> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Overlay
+:Overlay rdf:type owl:Class ;
+         rdfs:subClassOf :Additive_technique ;
+         skos:definition "An additive technique involving the application of surface coverings to create or enhance letterforms. Executed using application tools with materials such as brattea (metal plate) or granulis (granules)."@en ;
+         skos:prefLabel "Overlay"@en ;
+         :closeMatch <http://vocab.getty.edu/page/aat/300457650> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Painting
+:Painting rdf:type owl:Class ;
+          rdfs:subClassOf :Additive_technique ;
+          skos:altLabel "Pictura"@la ;
+          skos:definition "An additive technique involving the application of liquid color to create letterforms. Executed using penicillo (brush) or calamo (reed pen) with materials such as pigments, atramento (ink), or colore (various colors)."@en ;
+          skos:example <http://sicily.classics.ox.ac.uk/inscription/ISic000613> ,
+                       <http://sicily.classics.ox.ac.uk/inscription/ISic004469> ,
+                       <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR000921> ,
+                       <https://ancientgraffiti.org/Graffiti/graffito/AGP-EDR151890> ,
+                       <https://ancientgraffiti.org/Graffiti/graffito/AGP-EDR156782> ,
+                       <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD000955> ,
+                       <https://romaninscriptionsofbritain.org/inscriptions/2492.9> ,
+                       <https://usepigraphy.brown.edu/projects/usep/inscription/CA.Berk.UC.HMA.X.8-3/> ,
+                       <https://www.edb.uniba.it/epigraph/23607> ;
+          skos:prefLabel "Painting"@en ;
+          :closeMatch <http://vocab.getty.edu/page/aat/300149157> ,
+                      <https://ark.mom.fr/ark:/76609/epv3jmvm5k6mg> ,
+                      <https://www.eagle-network.eu/voc/writing/lod/10.html> ;
+          :relatedMatch <https://www.wikidata.org/wiki/Q11629> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Plaster
+:Plaster rdf:type owl:Class ;
+         rdfs:subClassOf :Clay_and_Similar ;
+         skos:altLabel "Gypsum"@la ;
+         skos:definition "Gypsum-based plaster used for marking or as a contrasting medium in inscriptions. Plaster's white color and smooth application properties made it effective for creating contrast against darker substrates."@en ;
+         skos:prefLabel "Plaster"@en ;
+         :closeMatch <http://vocab.getty.edu/page/aat/300014922> ,
+                     <http://vocab.getty.edu/page/aat/300014925> ,
+                     <https://www.wikidata.org/wiki/Q82658> ;
+         :related <https://www.eagle-network.eu/voc/writing/lod/195> ,
+                  "Gypso"@la .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Plastic_technique
+:Plastic_technique rdf:type owl:Class ;
+                   rdfs:subClassOf :Writing_Technique ;
+                   skos:altLabel "Ars Plastica"@la ,
+                                 "Surface Modification Technique"@en ;
+                   skos:definition "Writing techniques that reshape or remodel the support material without significant material removal or addition, typically through pressing, molding, or forming processes. Various implements are used to shape or mold the support material through pressing, stamping, or impression techniques."@en ;
+                   skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR134212> ;
+                   skos:prefLabel "Plastic Technique"@en ;
+                   :closeMatch <http://vocab.getty.edu/page/aat/300053098> ;
+                   :relatedMatch <http://vocab.getty.edu/page/aat/300425945> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Punch
+:Punch rdf:type owl:Class ;
+       rdfs:subClassOf :Punching ;
+       skos:altLabel "Typus"@la ;
+       skos:definition "A shaped forming tool designed to create letterforms through impact or pressure application. Used to produce impressed or raised characters by striking or pressing the tool against the surface, often creating standardised letter forms."@en ;
+       skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR106761> ,
+                    <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR119006> ,
+                    <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR120922> ;
+       skos:prefLabel "Punch"@en ;
+       :related <http://vocab.getty.edu/page/aat/300235489> ,
+                <https://www.eagle-network.eu/voc/writing/lod/161> ,
+                <https://www.eagle-network.eu/voc/writing/lod/17> ,
+                "Typo"@la ;
+       :exactMatch <https://www.eagle-network.eu/voc/writing/lod/226> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Punching
+:Punching rdf:type owl:Class ;
+          rdfs:subClassOf :Plastic_technique ;
+          skos:altLabel "Punched"@en ,
+                        "gepunzt"@de ,
+                        "pointillé"@fr ;
+          skos:definition "A plastic technique involving impressing the surface with shaped tools to create letter forms. Usually executed using typo (punch) or signaculo (stamp)."@en ;
+          skos:example <http://sicily.classics.ox.ac.uk/inscription/ISic001130> ,
+                       <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR005753> ,
+                       <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR007417> ,
+                       <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR032795> ,
+                       <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR071974> ,
+                       <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD001012> ,
+                       <https://romaninscriptionsofbritain.org/inscriptions/2412.2> ,
+                       <https://usepigraphy.brown.edu/projects/usep/inscription/CA.Malibu.JPGM.G.84.AC.11/> ,
+                       <https://www.edb.uniba.it/epigraph/32739> ;
+          skos:prefLabel "Punching"@en ;
+          :closeMatch <http://vocab.getty.edu/page/aat/300235631> ,
+                      <http://vocab.getty.edu/page/aat/300239001> ,
+                      <https://www.eagle-network.eu/voc/writing/lod/11.html> ,
+                      <https://www.wikidata.org/wiki/Q11750728> ,
+                      "punctim"@la ;
+          :related <https://www.eagle-network.eu/voc/writing/lod/170.html> ,
+                   <https://www.eagle-network.eu/voc/writing/lod/174.html> ,
+                   "Chasing"@en ,
+                   "In points"^^xsd:string ,
+                   "repouss"@en .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Red_Pigment
+:Red_Pigment rdf:type owl:Class ;
+             rdfs:subClassOf :Colorants ;
+             skos:definition "Red pigments were commonly used to enhance letter forms for emphasis, decoration, or as the primary marking medium in painted inscriptions, often indicating importance or special significance."@en ;
+             skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR137815> ;
+             skos:prefLabel "Red Pigment"@en ;
+             :closeMatch <http://vocab.getty.edu/page/aat/300013533> ,
+                         <https://www.wikidata.org/wiki/Q113988025> ;
+             :related <https://www.eagle-network.eu/voc/writing/lod/208> ,
+                      "Rubro"@la .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Red_Stone
+:Red_Stone rdf:type owl:Class ;
+           rdfs:subClassOf :Clay_and_Similar ;
+           skos:definition "Red-colored stone material used as a marking medium or colorant."@en ;
+           skos:prefLabel "Red Stone"@en ;
+           :related <https://www.eagle-network.eu/voc/writing/lod/196> ,
+                    "Lapide rubro"@en .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Reed_Pen
+:Reed_Pen rdf:type owl:Class ;
+          rdfs:subClassOf :Application ;
+          skos:altLabel "Calamo"@la ,
+                        "Calamus"@la ;
+          skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR073897> ;
+          skos:prefLabel "Reed Pen"@en ;
+          :closeMatch <http://vocab.getty.edu/page/aat/300022464> ,
+                      <https://www.wikidata.org/wiki/Q1349162> ;
+          :exactMatch <https://www.eagle-network.eu/voc/writing/lod/189.html> ,
+                  <https://www.eagle-network.eu/voc/writing/lod/222.html> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Relief_Formation
+:Relief_Formation rdf:type owl:Class ;
+                  rdfs:subClassOf :Subtractive_technique ;
+                  skos:definition "A plastic technique involving the creation of raised surfaces to form letter forms. Executed using various forming tools on malleable substrates, including stone."@en ;
+                  skos:example <https://romaninscriptionsofbritain.org/inscriptions/2431.1> ,
+                               <https://usepigraphy.brown.edu/projects/usep/inscription/CA.Malibu.JPGM.G.83.AN.257.26/> ;
+                  skos:prefLabel "Relief Formation"@en ;
+                  :closeMatch <http://vocab.getty.edu/page/aat/300053826> ,
+                              <https://www.eagle-network.eu/voc/writing/lod/44> ,
+                              <https://www.wikidata.org/wiki/Q125418677> ,
+                              "Embossing"@en .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Relief_Letters
+:Relief_Letters rdf:type owl:Class ;
+                rdfs:subClassOf :Moulding ,
+                                :Relief_Formation ,
+                                :Stamp ;
+                skos:altLabel "Gestempelt"@de ,
+                              "Letters in relief"@en ,
+                              "Litteris Eminentibus"@la ,
+                              "Litteris ex forma"@la ,
+                              "Moulded Letters"@en ,
+                              "Stamped Letters"@en ;
+                skos:definition "Letters that appear raised above the surrounding surface level, created either through systematic removal of background material to leave letterforms standing in relief, or through additive processes that build up letter forms above the original surface (stamps, moulds). This creates strong shadow effects and a dimensional appearance, with letter forms projecting outward from the substrate to enhance visibility and create a prestigious visual impact. The use of stamps and moulds enables consistent reproduction of identical letter forms through repeated impression or forming processes, ensuring uniform sizing, styling, and proportional relationships across the entire inscription."@en ;
+                skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR005000> ,
+                             <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR005706> ,
+                             <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR015716> ,
+                             <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR029540> ,
+                             <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR073900> ,
+                             <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR115514> ,
+                             <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR134212> ;
+                skos:prefLabel "Relief Letters"@en ;
+                :closeMatch <http://vocab.getty.edu/page/aat/300239001> ;
+                :related <http://vocab.getty.edu/page/aat/300053134> ,
+                         <http://vocab.getty.edu/page/aat/300053622> ,
+                         <http://vocab.getty.edu/page/aat/300053826> ,
+                         <https://www.eagle-network.eu/voc/writing/lod/173> ,
+                         <https://www.eagle-network.eu/voc/writing/lod/69> ;
+                :exactMatch <https://www.eagle-network.eu/voc/writing/lod/172> ,
+                        <https://www.eagle-network.eu/voc/writing/lod/7> ,
+                        <https://www.eagle-network.eu/voc/writing/lod/77> ,
+                        <https://www.eagle-network.eu/voc/writing/lod/78> ,
+                        <https://www.eagle-network.eu/voc/writing/lod/8> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Rough_Grooves
+:Rough_Grooves rdf:type owl:Class ;
+               rdfs:subClassOf :Groove_Profiles ;
+               skos:altLabel "litt. sulcis rudibus"@la ;
+               skos:definition "Letters characterised by irregular, unfinished, or crudely executed grooves that display inconsistent depth, width, or profile consistency. This groove formation may result from informal execution methods, less skilled craftsmanship, deteriorated tools, or deliberate rough aesthetic choices. The irregular profiles create varied shadow effects and inconsistent visual weight, often indicating informal or expedient inscription practices."@en ;
+               skos:prefLabel "Rough Grooves"@en ;
+               :exactMatch <https://www.eagle-network.eu/voc/writing/lod/206> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Rubrication
+:Rubrication rdf:type owl:Class ;
+             rdfs:subClassOf :Coloured_Letters ;
+             skos:altLabel "Rubricatura"@la ,
+                           "litt. rubricatis"@la ;
+             skos:definition "Evidence of ancient red coloring preserved within letter strokes, often indicating original decorative enhancement or emphasis of inscriptional text."@en ;
+             skos:prefLabel "Rubrication"@en ;
+             :closeMatch <http://vocab.getty.edu/page/aat/300196121> ,
+                         <https://www.wikidata.org/wiki/Q1365156> ;
+             :exactMatch <https://www.eagle-network.eu/voc/writing/lod/207> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/SIlver
+:SIlver rdf:type owl:Class ;
+        rdfs:subClassOf :Inlay_Materials ;
+        skos:definition "A precious white metallic element (Latin: argentum; symbol: Ag) used in epigraphy for prestigious inscriptions, tabular documents, and letter inlays, valued for its reflective appearance and malleability despite susceptibility to tarnishing."@en ;
+        skos:prefLabel "SIlver"@en ;
+        :closeMatch <http://vocab.getty.edu/page/aat/300011029> ,
+                    <https://www.wikidata.org/wiki/Q1090> ;
+        :related <https://www.eagle-network.eu/voc/writing/lod/233> ,
+                 "Argento"@la .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Scratched_Letters
+:Scratched_Letters rdf:type owl:Class ;
+                   rdfs:subClassOf :Scratching ;
+                   skos:altLabel "Litterae scariphatis"@la ;
+                   skos:definition "Letters created through surface abrasion using sharp implements, typically producing shallow, narrow marks characterized by minimal depth penetration and fine line quality. This technique results from light pressure application with pointed tools, creating letter forms through controlled scratching rather than deep cutting. The shallow marks often display characteristic tool marks and irregular depth variations."@en ;
+                   skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR000142> ;
+                   skos:prefLabel "Scratched Letters"@en ;
+                   :closeMatch <https://www.eagle-network.eu/voc/writing/lod/89> ;
+                   :related <http://vocab.getty.edu/page/aat/300379457> ,
+                            <https://www.eagle-network.eu/voc/writing/lod/88> ;
+                   :exactMatch <https://www.eagle-network.eu/voc/writing/lod/9> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Scratching
+:Scratching rdf:type owl:Class ;
+            rdfs:subClassOf :Subtractive_technique ;
+            skos:altLabel "Etching"@en ;
+            skos:definition "A subtractive technique involving surface abrasion with sharp tools to create letterforms. Commonly executed using stilo (stylus), acu (needle), or other sharp instruments."@en ;
+            skos:example <https://ancientgraffiti.org/Graffiti/graffito/AGP-EDR140135> ,
+                         <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD000597> ,
+                         <https://romaninscriptionsofbritain.org/inscriptions/Brit.51.57> ,
+                         <https://usepigraphy.brown.edu/projects/usep/inscription/CA.Malibu.JPGM.G.79.AI.169/> ;
+            skos:prefLabel "Scratching"@en ;
+            :closeMatch <http://vocab.getty.edu/page/aat/300379457> ,
+                        <https://www.eagle-network.eu/voc/writing/lod/167> ;
+            :relatedMatch <https://ark.mom.fr/ark:/76609/epv07bd41gn5d> ,
+                          <https://www.wikidata.org/wiki/Q3567529> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Spatula
+:Spatula rdf:type owl:Class ;
+         rdfs:subClassOf :Impression ;
+         skos:altLabel "Spathula"@la ;
+         skos:definition "A flat, broad-bladed forming tool used to shape and manipulate soft materials to create letter forms and decorative strokes. Typically employed through spreading, smoothing, or sculpting actions on malleable surfaces."@en ;
+         skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR126949> ;
+         skos:prefLabel "Spatula"@en ;
+         :closeMatch <http://vocab.getty.edu/page/aat/300435312> ;
+         :relatedMatch <https://www.wikidata.org/wiki/Q15148> ;
+         :exactMatch <https://www.eagle-network.eu/voc/writing/lod/200> ,
+                 <https://www.eagle-network.eu/voc/writing/lod/220> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Square_Grooves
+:Square_Grooves rdf:type owl:Class ;
+                rdfs:subClassOf :Groove_Profiles ;
+                skos:altLabel "litt. sulcis rectis"@la ;
+                skos:definition "Letters characterised by rectangular-section grooves that create straight-sided channels with flat bottoms and perpendicular walls. This groove formation results from specialized cutting techniques that maintain consistent width and depth, producing uniform channel profiles. The straight-sided walls create distinct shadow lines and consistent visual weight throughout the letter forms."@en ;
+                skos:prefLabel "Square Grooves"@en ;
+                :exactMatch <https://www.eagle-network.eu/voc/writing/lod/205> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Stamp
+:Stamp rdf:type owl:Class ;
+       rdfs:subClassOf :Impression ,
+                       :Punching ;
+       skos:altLabel "Seal"@en ,
+                     "Signaculus"@la ;
+       skos:definition "A forming tool featuring raised or recessed designs, used to transfer text or symbols to a receiving surface through pressure application. Creates impressed letter forms by deforming the surface material rather than removing it."@en ;
+       skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR071673> ,
+                    <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR072564> ,
+                    <https://usepigraphy.brown.edu/projects/usep/inscription/CA.Berk.UC.HMA.L.8-2330/> ;
+       skos:prefLabel "Stamp"@en ;
+       :closeMatch <http://vocab.getty.edu/page/aat/300024819> ,
+                   <https://www.eagle-network.eu/voc/writing/lod/125> ;
+       :related "Impressed"@en ;
+       :relatedMatch <https://www.eagle-network.eu/voc/writing/lod/13> ,
+                     <https://www.wikidata.org/wiki/Q162919> ,
+                     "Signaculo"@la ;
+       :exactMatch <https://www.eagle-network.eu/voc/writing/lod/231> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Stucco
+:Stucco rdf:type owl:Class ;
+        rdfs:subClassOf :Filling_Materials ;
+        skos:altLabel "Crusta"@la ;
+        skos:definition "Stucco, lime mortar, or similar plaster-based compounds used to fill carved letter cavities. This method provides weather resistance and creates strong visual contrast against the base material, commonly employed in architectural inscriptions and monumental lettering where durability and visibility are essential."@en ;
+        skos:prefLabel "Stucco"@en ;
+        :closeMatch <http://vocab.getty.edu/page/aat/300014966> ;
+        :relatedMatch <https://www.wikidata.org/wiki/Q33526> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Stylus
+:Stylus rdf:type owl:Class ;
+        rdfs:subClassOf :Incision ,
+                        :Scratching ;
+        skos:altLabel "Stilus"@la ;
+        skos:definition "A sharp, pointed cutting tool used to scratch or incise surfaces through light material removal. The stylus typically produces thin, precise strokes and shallow grooves, making it suitable for creating fine letter forms on softer materials or for preliminary marking on harder surfaces."@en ;
+        skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR000146> ,
+                     <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR005003> ,
+                     <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR010003> ,
+                     <https://romaninscriptionsofbritain.org/inscriptions/215> ;
+        skos:prefLabel "Stylus"@en ;
+        :closeMatch <http://vocab.getty.edu/page/aat/300022483> ,
+                    <https://www.wikidata.org/wiki/Q1227035> ;
+        :relatedMatch <https://www.eagle-network.eu/voc/writing/lod/132> ,
+                      <https://www.eagle-network.eu/voc/writing/lod/14> ;
+        :exactMatch <https://www.eagle-network.eu/voc/writing/lod/230> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Subtractive_technique
+:Subtractive_technique rdf:type owl:Class ;
+                       rdfs:subClassOf :Writing_Technique ;
+                       skos:altLabel "Ars Subractiva"@la ,
+                                     "Material Removal Technique"@en ;
+                       skos:definition "Writing techniques that create text by removing material from the writing surface through cutting, carving, scraping, or etching processes."@en ;
+                       skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR071974> ,
+                                    <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR132130> ,
+                                    <https://usepigraphy.brown.edu/projects/usep/inscription/Auct.Christies.L.12.06.08-Lot210/> ;
+                       skos:prefLabel "Subtractive Technique"@en ;
+                       :closeMatch <http://vocab.getty.edu/page/aat/300229471> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Tesselae
+:Tesselae rdf:type owl:Class ;
+          rdfs:subClassOf :Inlay ;
+          skos:altLabel "Mosaic stone"@en ,
+                        "Teselis"@it ,
+                        "Tesselis"@la ;
+          skos:definition "A specialized inlay technique involving the incorporation of tesserae (small mosaic pieces) into a surface to create decorative patterns or enhance inscriptional text through contrasting materials and colors."@en ;
+          skos:example <http://sicily.classics.ox.ac.uk/inscription/ISic000321> ,
+                       <http://sicily.classics.ox.ac.uk/inscription/ISic001674> ,
+                       <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR000253> ,
+                       <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR000939> ,
+                       <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR111029> ,
+                       <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD001190> ,
+                       <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD001222> ,
+                       <https://romaninscriptionsofbritain.org/inscriptions/2448.5> ,
+                       <https://usepigraphy.brown.edu/projects/usep/inscription/VA.Norf.CMA.G.71.2262D/> ,
+                       <https://www.edb.uniba.it/epigraph/42126> ;
+          skos:prefLabel "Tesselae"@en ;
+          :closeMatch <http://vocab.getty.edu/page/aat/300138684> ,
+                      <https://ark.mom.fr/ark:/76609/epvxddmfj6z80> ,
+                      <https://www.eagle-network.eu/voc/writing/lod/153> ,
+                      <https://www.eagle-network.eu/voc/writing/lod/16> ;
+          :relatedMatch <https://www.eagle-network.eu/voc/writing/lod/152> ,
+                        <https://www.eagle-network.eu/voc/writing/lod/228> ,
+                        <https://www.wikidata.org/wiki/Q133067> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Tin
+:Tin rdf:type owl:Class ;
+     rdfs:subClassOf :Filling_Materials ;
+     skos:altLabel "Stannum"@la ;
+     skos:broadMatch <https://www.wikidata.org/wiki/Q1096> ;
+     skos:definition "Use of tin or tin-based alloys as filling material for carved letter forms. This method creates bright, reflective contrast against darker base materials and offers corrosion resistance, though it is less commonly encountered than lead filling in epigraphic applications."@en ;
+     skos:prefLabel "Tin"@en ;
+     :closeMatch <http://vocab.getty.edu/page/aat/300133748> ,
+                 <http://vocab.getty.edu/page/aat/300241468> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/U-shaped_Grooves
+:U-shaped_Grooves rdf:type owl:Class ;
+                  rdfs:subClassOf :Groove_Profiles ;
+                  skos:altLabel "litt. sulcis incurvatis"@la ;
+                  skos:definition "Letters characterised by rounded or curved-section grooves that create smooth, flowing profiles with gentle transitional edges. This groove formation results from tool techniques that produce curved channel walls, creating softer visual effects than angular cutting. The rounded profile reduces harsh shadow lines and produces more gentle light transitions, often indicating different tool usage or deliberate aesthetic choices."@en ;
+                  skos:prefLabel "U-shaped Grooves"@en ;
+                  :relatedMatch <https://www.wikidata.org/wiki/Q107426454> ;
+                  :exactMatch <https://www.eagle-network.eu/voc/writing/lod/204> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Unable_to_Determine
+:Unable_to_Determine rdf:type owl:Class ;
+                     rdfs:subClassOf :Execution_Technique ;
+                     skos:altLabel "Ignoratur"@la ,
+                                   "Unknown"@en ,
+                                   "sconosciuto"@it ;
+                     skos:definition "Execution techniques, tools, or physical descriptions of inscribed letters that remain unclear or cannot be determined through available evidence or analysis."@en ;
+                     skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR005402> ;
+                     skos:prefLabel "Unable to Determine"@en ;
+                     :closeMatch <https://www.eagle-network.eu/voc/writing/lod/164> ,
+                                 <https://www.eagle-network.eu/voc/writing/lod/21> ;
+                     :relatedMatch <https://www.eagle-network.eu/voc/writing/lod/20> ,
+                                   "Cetera"@la ;
+                     :exactMatch <https://www.eagle-network.eu/voc/writing/lod/19> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Unassigned
+:Unassigned rdf:type owl:Class ;
+            rdfs:subClassOf :Execution_Technique ;
+            skos:definition "Inscriptions that were not yet categorised and will be revisited in the future. The editors signal to the reader that they have not yet attempted interpretation of the inscription."@en ;
+            skos:prefLabel "Unassigned"@en .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/V-shaped_Grooves
+:V-shaped_Grooves rdf:type owl:Class ;
+                  rdfs:subClassOf :Groove_Profiles ;
+                  skos:altLabel "litt. sulcis angulatis"@la ;
+                  skos:definition "Letters characterised by triangular-section grooves that create sharp, angular profiles with distinct ridged edges. This groove formation results from controlled chisel work where the tool creates precise V-shaped channels, with each stroke producing characteristic angular walls that meet at a sharp bottom edge. The technique produces high contrast through shadow effects and was the standard method for formal stone inscriptions, particularly prevalent through the 4th century AD."@en ;
+                  skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR132130> ;
+                  skos:prefLabel "V-shaped Grooves"@en ;
+                  :related <http://vocab.getty.edu/page/aat/300263474> ;
+                  :relatedMatch <https://www.wikidata.org/wiki/Q107426456> ;
+                  :exactMatch <https://www.eagle-network.eu/voc/writing/lod/203> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Visual_Characteristics
+:Visual_Characteristics rdf:type owl:Class ;
+                        rdfs:subClassOf :Execution_Technique ;
+                        <http://purl.org/dc/terms/bibliographicCitation> "Evangelisti, Silvia. 2017. ‘Scrittura Epigraphica, Alcune Riflessioni’. In Colonie e Municipi Nell’era Digitale. Documentazione Epigrafica per La Conoscenza Delle Città Antiche. Atti Del Convegno Di Studi (Macerata, 10-12 Dicembre 2015), edited by Simona Antolini, Silvia Maria Marengo, and Gianfranco Paci. Edizioni TORED. https://hdl.handle.net/11393/241391."^^xsd:string ,
+                                                                         "Liuzzo, Pietro Maria, and Silvia Evangelisti. 2021. ‘Modeling Execution Techniques of Inscriptions’. Semantic Web 12 (2): 181–90. https://doi.org/10.3233/SW-200395."^^xsd:string ;
+                        skos:definition "Objective visual and physical properties of inscribed letters, typically resulting from specific execution techniques and tool applications."^^xsd:string ;
+                        skos:prefLabel "Visual Characteristics"@en ;
+                        :related <http://vocab.getty.edu/page/aat/300435452> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/White_Pigment
+:White_Pigment rdf:type owl:Class ;
+               rdfs:subClassOf :Colorants ;
+               skos:definition "White pigments used to execute or enhance letter forms, particularly effective on darker substrates, providing high contrast and visibility in appropriate applications."@en ;
+               skos:prefLabel "White Pigment"@en ;
+               :closeMatch <http://vocab.getty.edu/page/aat/300013723> ,
+                           <https://www.wikidata.org/wiki/Q68090935> ;
+               :related <https://www.eagle-network.eu/voc/writing/lod/210> ,
+                        "Albo"@la .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Writing_Technique
+:Writing_Technique rdf:type owl:Class ;
+                   rdfs:subClassOf :Execution_Technique ;
+                   <http://purl.org/dc/terms/bibliographicCitation> "Evangelisti, Silvia. 2017. ‘Scrittura Epigraphica, Alcune Riflessioni’. In Colonie e Municipi Nell’era Digitale. Documentazione Epigrafica per La Conoscenza Delle Città Antiche. Atti Del Convegno Di Studi (Macerata, 10-12 Dicembre 2015), edited by Simona Antolini, Silvia Maria Marengo, and Gianfranco Paci. Edizioni TORED. https://hdl.handle.net/11393/241391."^^xsd:string ,
+                                                                    "Liuzzo, Pietro Maria, and Silvia Evangelisti. 2021. ‘Modeling Execution Techniques of Inscriptions’. Semantic Web 12 (2): 181–90. https://doi.org/10.3233/SW-200395."^^xsd:string ;
+                   skos:definition "The techniques of writing, describing the effect of the tool on the support material of the inscribed object, based on its specific nature, quality and morphology. The techniques can be further specified by the tools and implements employed in the physical creation of the text of an inscription, encompassing the instruments used, the implementation methods or the materials applied during the execution process (further down in the hierarchy of the vocabulary)."@en ;
+                   skos:prefLabel "Writing Technique"@en ;
+                   :closeMatch <http://vocab.getty.edu/page/aat/300168224> ,
+                               <http://vocab.getty.edu/page/aat/300404590> ,
+                               <http://vocab.getty.edu/page/aat/300404794> ,
+                               <https://www.wikidata.org/wiki/Q121916> ,
+                               <https://www.wikidata.org/wiki/Q125400578> ;
+                   :relatedMatch <http://vocab.getty.edu/page/aat/300010357> ,
+                                 <https://www.wikidata.org/wiki/Q214609> .
+
+
+###  https://ontology.inscriptiones.org/execution_technique/Yellow_Stone
+:Yellow_Stone rdf:type owl:Class ;
+              rdfs:subClassOf :Clay_and_Similar ;
+              skos:definition "Yellow-colored stone material used as a marking medium or colorant."@en ;
+              skos:prefLabel "Yellow Stone"@en ;
+              :related <https://www.eagle-network.eu/voc/writing/lod/197> ,
+                       "Lapide Fulvo"@la .
+
+
+###  Generated by the OWL API (version 4.5.13) https://github.com/owlcs/owlapi
