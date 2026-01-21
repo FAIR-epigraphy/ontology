@@ -9,7 +9,7 @@
 :FAIR_Execution_technique  a void:Dataset ;
     foaf:homepage <https://ontology.inscriptiones.org/execution_technique/> ;
     dcterms:license <https://creativecommons.org/licenses/by-sa/4.0/>;
-    dcterms:identifier <https://doi.org/10.5281/zenodo.XXXXXX>;
+    dcterms:identifier <https://doi.org/10.5281/zenodo.18325072>;
     dcterms:publisher :FAIR_Epigraphy;
     dcterms:title "Execution technique in epigraphy";
     dcterms:bibliographicCitation "Evangelisti, Silvia. 2017. ‘Scrittura Epigraphica, Alcune Riflessioni’. In Colonie e Municipi Nell’era Digitale. Documentazione Epigrafica per La Conoscenza Delle Città Antiche. Atti Del Convegno Di Studi (Macerata, 10-12 Dicembre 2015), edited by Simona Antolini, Silvia Maria Marengo, and Gianfranco Paci. Edizioni TORED. https://hdl.handle.net/11393/241391.";
@@ -24,7 +24,7 @@
     dcterms:contributor :Pietro_Liuzzo;
     dcterms:contributor :Imran_Asif;
     dcterms:language "eng";
-    dcterms:created "2026-01-20"^^xsd:date;
+    dcterms:created "2026-01-21"^^xsd:date;
     dcterms:hasVersion "1.0.0" .
  
 :FAIR_Epigraphy a foaf:Organization;
