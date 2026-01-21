@@ -43,7 +43,7 @@
 
 :Silvia_Evangelisti a foaf:Person;
     rdfs:label "Silvia Evangelisti";
-    foaf:account <https://orcid.org/0000-0001-6699-7286/>  .
+    foaf:account <https://orcid.org/0000-0002-7186-9518/>  .
 
 :Pietro_Liuzzo a foaf:Person;
     rdfs:label "Pietro Maria Liuzzo";
