@@ -16,7 +16,7 @@
     dcterms:bibliographicCitation "Liuzzo, Pietro Maria, and Silvia Evangelisti. 2021. ‘Modeling Execution Techniques of Inscriptions’. Semantic Web 12 (2): 181–90. https://doi.org/10.3233/SW-200395.";
     dcterms:description "Hierarchical classification system that categorises inscriptions according to the technique or tools used to execute the text of the inscription.";
     rdfs:comment "Version 1.0.0: First stable release of the vocabulary, incorporating community feedback and standardisation work since April 2021.";
-    void:triples "873"^^xsd:integer ; 
+    void:triples "872"^^xsd:integer ; 
     void:classes "87"^^xsd:integer ;  
     dcterms:creator :Petra_Heřmánková;
     dcterms:rightsHolder :Petra_Heřmánková; 
@@ -24,7 +24,7 @@
     dcterms:contributor :Pietro_Liuzzo;
     dcterms:contributor :Imran_Asif;
     dcterms:language "eng";
-    dcterms:created "2026-01-21"^^xsd:date;
+    dcterms:created "2026-01-22"^^xsd:date;
     dcterms:hasVersion "1.0.0" .
  
 :FAIR_Epigraphy a foaf:Organization;
@@ -43,7 +43,7 @@
 
 :Silvia_Evangelisti a foaf:Person;
     rdfs:label "Silvia Evangelisti";
-    foaf:account <https://orcid.org/0000-0002-7186-9518/>  .
+    foaf:account <https://orcid.org/0000-0001-6699-7286/>  .
 
 :Pietro_Liuzzo a foaf:Person;
     rdfs:label "Pietro Maria Liuzzo";
