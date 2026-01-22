@@ -1165,6 +1165,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                    <http://purl.org/dc/terms/bibliographicCitation> "Evangelisti, Silvia. 2017. ‘Scrittura Epigraphica, Alcune Riflessioni’. In Colonie e Municipi Nell’era Digitale. Documentazione Epigrafica per La Conoscenza Delle Città Antiche. Atti Del Convegno Di Studi (Macerata, 10-12 Dicembre 2015), edited by Simona Antolini, Silvia Maria Marengo, and Gianfranco Paci. Edizioni TORED. https://hdl.handle.net/11393/241391."^^xsd:string ,
                                                                     "Liuzzo, Pietro Maria, and Silvia Evangelisti. 2021. ‘Modeling Execution Techniques of Inscriptions’. Semantic Web 12 (2): 181–90. https://doi.org/10.3233/SW-200395."^^xsd:string ;
                    skos:definition "The techniques of writing, describing the effect of the tool on the support material of the inscribed object, based on its specific nature, quality and morphology. The techniques can be further specified by the tools and implements employed in the physical creation of the text of an inscription, encompassing the instruments used, the implementation methods or the materials applied during the execution process (further down in the hierarchy of the vocabulary)."@en ;
+                   skos:prefLabel "Writing Technique"@en ;
                    :closeMatch <http://vocab.getty.edu/page/aat/300168224> ,
                                <http://vocab.getty.edu/page/aat/300404590> ,
                                <http://vocab.getty.edu/page/aat/300404794> ,
