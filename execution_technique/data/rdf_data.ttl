@@ -99,7 +99,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                               <https://usepigraphy.brown.edu/projects/usep/inscription/CA.Malibu.JPGM.L.80.AE.44/> ;
                  :related <http://vocab.getty.edu/page/aat/300003584> ,
                           <https://www.eagle-network.eu/voc/writing/lod/41> ;
-                 :exactMatch <https://www.eagle-network.eu/voc/writing/lod/6> .
+                 :sameAs <https://www.eagle-network.eu/voc/writing/lod/6> .
 
 
 ###  https://ontology.inscriptiones.org/execution_technique/Attachment
@@ -128,7 +128,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
      skos:prefLabel "Awl"@en ;
      :closeMatch <http://vocab.getty.edu/page/aat/300024663> ,
                  <https://www.wikidata.org/wiki/Q400406> ;
-     :exactMatch <https://www.eagle-network.eu/voc/writing/lod/187> .
+     :sameAs <https://www.eagle-network.eu/voc/writing/lod/187> .
 
 
 ###  https://ontology.inscriptiones.org/execution_technique/Bimetallic_Inlay
@@ -138,7 +138,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                   skos:definition "A specialized inlay technique involving the insertion of one metal into channels or recesses cut into another metal surface, creating contrasting visual effects through the use of different metallic materials."@en ;
                   skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EEDR032760> ;
                   skos:prefLabel "Bimetallic Inlay"@en ;
-                  :exactMatch <https://www.eagle-network.eu/voc/writing/lod/193> .
+                  :sameAs <https://www.eagle-network.eu/voc/writing/lod/193> .
 
 
 ###  https://ontology.inscriptiones.org/execution_technique/Black_Pigment
@@ -168,7 +168,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
        :closeMatch <http://vocab.getty.edu/page/aat/300433344> ,
                    <https://www.eagle-network.eu/voc/writing/lod/175.html> ,
                    <https://www.wikidata.org/wiki/Q193897> ;
-       :exactMatch <https://www.eagle-network.eu/voc/writing/lod/192.html> ,
+       :sameAs <https://www.eagle-network.eu/voc/writing/lod/192.html> ,
                <https://www.eagle-network.eu/voc/writing/lod/225.html> ,
                <https://www.eagle-network.eu/voc/writing/lod/227.html> .
 
@@ -192,7 +192,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                                     <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR109855> ;
                        skos:prefLabel "Cavity Fill Lettering"@en ;
                        :related <http://vocab.getty.edu/page/aat/300053092> ;
-                       :exactMatch <https://www.eagle-network.eu/voc/writing/lod/194> .
+                       :sameAs <https://www.eagle-network.eu/voc/writing/lod/194> .
 
 
 ###  https://ontology.inscriptiones.org/execution_technique/Cavity_Insertion
@@ -204,7 +204,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                                <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR003126> ;
                   skos:prefLabel "Cavity Insertion"@en ;
                   :related <http://vocab.getty.edu/page/aat/300123227> ;
-                  :exactMatch <https://www.eagle-network.eu/voc/writing/lod/201> .
+                  :sameAs <https://www.eagle-network.eu/voc/writing/lod/201> .
 
 
 ###  https://ontology.inscriptiones.org/execution_technique/Charcoal
@@ -242,7 +242,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                  "Incised"@en ,
                  "Insculptus"@la ,
                  "eingemeißelt"@de ;
-        :exactMatch <https://www.eagle-network.eu/voc/writing/lod/115> ,
+        :sameAs <https://www.eagle-network.eu/voc/writing/lod/115> ,
                 <https://www.eagle-network.eu/voc/writing/lod/232> .
 
 
@@ -253,7 +253,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
       skos:definition "Natural clay used as a marking or coloring medium in inscriptional work. Clay's plasticity and natural earth tones made it suitable for temporary markings and informal inscriptional applications."@en ;
       skos:prefLabel "Clay"@en ;
       :closeMatch <http://vocab.getty.edu/page/aat/300010439> ;
-      :exactMatch <https://www.eagle-network.eu/voc/writing/lod/190> .
+      :sameAs <https://www.eagle-network.eu/voc/writing/lod/190> .
 
 
 ###  https://ontology.inscriptiones.org/execution_technique/Clay_and_Similar
@@ -283,7 +283,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                                 "Pictus"@la ;
                   skos:definition "Letters enhanced, emphasized, or entirely created through the application of pigments, paints, dyes, or other coloring substances. This technique may involve primary letter creation through paint application or secondary enhancement of existing carved, scratched, or formed letters through color addition. The coloring provides visual contrast, aesthetic enhancement, or symbolic emphasis to the inscriptional text."@en ;
                   skos:prefLabel "Coloured Letters"@en ;
-                  :exactMatch <https://www.eagle-network.eu/voc/writing/lod/96> ,
+                  :sameAs <https://www.eagle-network.eu/voc/writing/lod/96> ,
                           <https://www.eagle-network.eu/voc/writing/lod/97> .
 
 
@@ -330,7 +330,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                           <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR072011> ;
              skos:prefLabel "Damascening"@en ;
              :related <http://vocab.getty.edu/page/aat/300054019> ;
-             :exactMatch <https://www.eagle-network.eu/voc/writing/lod/5> .
+             :sameAs <https://www.eagle-network.eu/voc/writing/lod/5> .
 
 
 ###  https://ontology.inscriptiones.org/execution_technique/Direct_Attachment
@@ -340,13 +340,12 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                    skos:definition "A mechanical attachment method involving the direct mounting of pre-formed letters onto the substrate surface without the use of prepared recesses, typically employing mechanical fasteners, adhesives, or other bonding methods. This technique allows for surface-level letter placement while maintaining structural integrity and proper alignment."@en ;
                    skos:prefLabel "Direct Attachment"@en ;
                    :related <http://vocab.getty.edu/page/aat/300234049> ;
-                   :exactMatch <https://www.eagle-network.eu/voc/writing/lod/202> .
+                   :sameAs <https://www.eagle-network.eu/voc/writing/lod/202> .
 
 
 ###  https://ontology.inscriptiones.org/execution_technique/Dotted_Letters
 :Dotted_Letters rdf:type owl:Class ;
-                rdfs:subClassOf :Drilling ,
-                                :Incision ;
+                rdfs:subClassOf :Visual_Characteristics ;
                 skos:definition "Letters constructed through systematic arrangement of individual dots, points, or small holes that combine to define letter form boundaries and internal structure. This technique employs pointed tools or drilling implements to create discrete marking points that, when properly spaced and aligned, produce recognizable letter shapes through accumulated dot patterns. The technique allows for precise control and standardized letter reproduction."@en ;
                 skos:example <http://www.edr-edr.it/edr_programmi/res_complex_comune.php?do=book&id_nr=EDR071974> ,
                              <https://usepigraphy.brown.edu/projects/usep/inscription/CA.Malibu.JPGM.G.84.AC.11/> ;
@@ -370,7 +369,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
        :relatedMatch <https://www.eagle-network.eu/voc/writing/lod/15> ,
                      "Perforated"@en ,
                      "Terebro"@la ;
-       :exactMatch <https://www.eagle-network.eu/voc/writing/lod/229> .
+       :sameAs <https://www.eagle-network.eu/voc/writing/lod/229> .
 
 
 ###  https://ontology.inscriptiones.org/execution_technique/Drilling
@@ -401,7 +400,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                 :relatedMatch <https://www.eagle-network.eu/voc/writing/lod/23> ,
                               "eingraviert"@de ,
                               "engraved"@en ;
-                :exactMatch <https://www.eagle-network.eu/voc/writing/lod/3> .
+                :sameAs <https://www.eagle-network.eu/voc/writing/lod/3> .
 
 
 ###  https://ontology.inscriptiones.org/execution_technique/Execution_Technique
@@ -442,7 +441,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
         :relatedMatch <https://www.eagle-network.eu/voc/writing/lod/198.html> ,
                       <https://www.wikidata.org/wiki/Q620207> ,
                       "Digito"@la ;
-        :exactMatch <https://www.eagle-network.eu/voc/writing/lod/218.html> .
+        :sameAs <https://www.eagle-network.eu/voc/writing/lod/218.html> .
 
 
 ###  https://ontology.inscriptiones.org/execution_technique/Form
@@ -455,7 +454,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
       skos:prefLabel "Form"@en ;
       :closeMatch <http://vocab.getty.edu/page/aat/300024814> ,
                   <https://www.wikidata.org/wiki/Q1941820> ;
-      :exactMatch <https://www.eagle-network.eu/voc/writing/lod/219> .
+      :sameAs <https://www.eagle-network.eu/voc/writing/lod/219> .
 
 
 ###  https://ontology.inscriptiones.org/execution_technique/Glass
@@ -466,7 +465,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
        skos:prefLabel "Glass"@en ;
        :closeMatch <http://vocab.getty.edu/page/aat/300010803> ,
                    <https://www.wikidata.org/wiki/Q3411508> ;
-       :relatedMatch <http://vocab.getty.edu/page/aat/300010797> ,
+       :related <http://vocab.getty.edu/page/aat/300010797> ,
                 <https://www.eagle-network.eu/voc/writing/lod/213> ,
                 "Vitro"@la .
 
@@ -510,7 +509,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
           skos:example "G. Baratta, in XII Congressus Internationalis Epigraphiae Grecae et Latinae, Barcelona 2007, fig. 8."^^xsd:string ;
           skos:prefLabel "Hot Seal"@en ;
           :related <https://www.eagle-network.eu/voc/writing/lod/211> ;
-          :exactMatch <https://www.eagle-network.eu/voc/writing/lod/165> .
+          :sameAs <https://www.eagle-network.eu/voc/writing/lod/165> .
 
 
 ###  https://ontology.inscriptiones.org/execution_technique/Impression
@@ -547,7 +546,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                       <https://www.wikidata.org/wiki/Q6014696> ;
           :relatedMatch <https://ark.mom.fr/ark:/76609/epvdd7z3jf7kp> ,
                         <https://www.eagle-network.eu/voc/writing/lod/1.html> ;
-          :exactMatch <https://www.eagle-network.eu/voc/writing/lod/168.html> ,
+          :sameAs <https://www.eagle-network.eu/voc/writing/lod/168.html> ,
                   "Engraving"@en .
 
 
@@ -659,7 +658,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
              skos:prefLabel "Metal Plate"@en ;
              :closeMatch <http://vocab.getty.edu/page/aat/300053991> ,
                          <https://www.wikidata.org/wiki/Q1193988> ;
-             :exactMatch <https://www.eagle-network.eu/voc/writing/lod/188> ,
+             :sameAs <https://www.eagle-network.eu/voc/writing/lod/188> ,
                      <https://www.eagle-network.eu/voc/writing/lod/221> .
 
 
@@ -684,7 +683,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                       <https://www.eagle-network.eu/voc/writing/lod/78.html> ,
                       <https://www.wikidata.org/wiki/Q1055732> ,
                       "ex forma"@la ;
-          :exactMatch <https://www.eagle-network.eu/voc/writing/lod/172.html> .
+          :sameAs <https://www.eagle-network.eu/voc/writing/lod/172.html> .
 
 
 ###  https://ontology.inscriptiones.org/execution_technique/Needle
@@ -800,7 +799,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                 <https://www.eagle-network.eu/voc/writing/lod/161> ,
                 <https://www.eagle-network.eu/voc/writing/lod/17> ,
                 "Typo"@la ;
-       :exactMatch <https://www.eagle-network.eu/voc/writing/lod/226> .
+       :sameAs <https://www.eagle-network.eu/voc/writing/lod/226> .
 
 
 ###  https://ontology.inscriptiones.org/execution_technique/Punching
@@ -862,7 +861,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
           skos:prefLabel "Reed Pen"@en ;
           :closeMatch <http://vocab.getty.edu/page/aat/300022464> ,
                       <https://www.wikidata.org/wiki/Q1349162> ;
-          :exactMatch <https://www.eagle-network.eu/voc/writing/lod/189.html> ,
+          :sameAs <https://www.eagle-network.eu/voc/writing/lod/189.html> ,
                   <https://www.eagle-network.eu/voc/writing/lod/222.html> .
 
 
@@ -905,7 +904,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                          <http://vocab.getty.edu/page/aat/300053826> ,
                          <https://www.eagle-network.eu/voc/writing/lod/173> ,
                          <https://www.eagle-network.eu/voc/writing/lod/69> ;
-                :exactMatch <https://www.eagle-network.eu/voc/writing/lod/172> ,
+                :sameAs <https://www.eagle-network.eu/voc/writing/lod/172> ,
                         <https://www.eagle-network.eu/voc/writing/lod/7> ,
                         <https://www.eagle-network.eu/voc/writing/lod/77> ,
                         <https://www.eagle-network.eu/voc/writing/lod/78> ,
@@ -918,7 +917,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                skos:altLabel "litt. sulcis rudibus"@la ;
                skos:definition "Letters characterised by irregular, unfinished, or crudely executed grooves that display inconsistent depth, width, or profile consistency. This groove formation may result from informal execution methods, less skilled craftsmanship, deteriorated tools, or deliberate rough aesthetic choices. The irregular profiles create varied shadow effects and inconsistent visual weight, often indicating informal or expedient inscription practices."@en ;
                skos:prefLabel "Rough Grooves"@en ;
-               :exactMatch <https://www.eagle-network.eu/voc/writing/lod/206> .
+               :sameAs <https://www.eagle-network.eu/voc/writing/lod/206> .
 
 
 ###  https://ontology.inscriptiones.org/execution_technique/Rubrication
@@ -930,7 +929,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
              skos:prefLabel "Rubrication"@en ;
              :closeMatch <http://vocab.getty.edu/page/aat/300196121> ,
                          <https://www.wikidata.org/wiki/Q1365156> ;
-             :exactMatch <https://www.eagle-network.eu/voc/writing/lod/207> .
+             :sameAs <https://www.eagle-network.eu/voc/writing/lod/207> .
 
 
 ###  https://ontology.inscriptiones.org/execution_technique/SIlver
@@ -954,7 +953,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                    :closeMatch <https://www.eagle-network.eu/voc/writing/lod/89> ;
                    :related <http://vocab.getty.edu/page/aat/300379457> ,
                             <https://www.eagle-network.eu/voc/writing/lod/88> ;
-                   :exactMatch <https://www.eagle-network.eu/voc/writing/lod/9> .
+                   :sameAs <https://www.eagle-network.eu/voc/writing/lod/9> .
 
 
 ###  https://ontology.inscriptiones.org/execution_technique/Scratching
@@ -982,7 +981,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
          skos:prefLabel "Spatula"@en ;
          :closeMatch <http://vocab.getty.edu/page/aat/300435312> ;
          :relatedMatch <https://www.wikidata.org/wiki/Q15148> ;
-         :exactMatch <https://www.eagle-network.eu/voc/writing/lod/200> ,
+         :sameAs <https://www.eagle-network.eu/voc/writing/lod/200> ,
                  <https://www.eagle-network.eu/voc/writing/lod/220> .
 
 
@@ -992,7 +991,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                 skos:altLabel "litt. sulcis rectis"@la ;
                 skos:definition "Letters characterised by rectangular-section grooves that create straight-sided channels with flat bottoms and perpendicular walls. This groove formation results from specialized cutting techniques that maintain consistent width and depth, producing uniform channel profiles. The straight-sided walls create distinct shadow lines and consistent visual weight throughout the letter forms."@en ;
                 skos:prefLabel "Square Grooves"@en ;
-                :exactMatch <https://www.eagle-network.eu/voc/writing/lod/205> .
+                :sameAs <https://www.eagle-network.eu/voc/writing/lod/205> .
 
 
 ###  https://ontology.inscriptiones.org/execution_technique/Stamp
@@ -1012,7 +1011,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
        :relatedMatch <https://www.eagle-network.eu/voc/writing/lod/13> ,
                      <https://www.wikidata.org/wiki/Q162919> ,
                      "Signaculo"@la ;
-       :exactMatch <https://www.eagle-network.eu/voc/writing/lod/231> .
+       :sameAs <https://www.eagle-network.eu/voc/writing/lod/231> .
 
 
 ###  https://ontology.inscriptiones.org/execution_technique/Stucco
@@ -1040,7 +1039,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                     <https://www.wikidata.org/wiki/Q1227035> ;
         :relatedMatch <https://www.eagle-network.eu/voc/writing/lod/132> ,
                       <https://www.eagle-network.eu/voc/writing/lod/14> ;
-        :exactMatch <https://www.eagle-network.eu/voc/writing/lod/230> .
+        :sameAs <https://www.eagle-network.eu/voc/writing/lod/230> .
 
 
 ###  https://ontology.inscriptiones.org/execution_technique/Subtractive_technique
@@ -1101,7 +1100,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                   skos:definition "Letters characterised by rounded or curved-section grooves that create smooth, flowing profiles with gentle transitional edges. This groove formation results from tool techniques that produce curved channel walls, creating softer visual effects than angular cutting. The rounded profile reduces harsh shadow lines and produces more gentle light transitions, often indicating different tool usage or deliberate aesthetic choices."@en ;
                   skos:prefLabel "U-shaped Grooves"@en ;
                   :relatedMatch <https://www.wikidata.org/wiki/Q107426454> ;
-                  :exactMatch <https://www.eagle-network.eu/voc/writing/lod/204> .
+                  :sameAs <https://www.eagle-network.eu/voc/writing/lod/204> .
 
 
 ###  https://ontology.inscriptiones.org/execution_technique/Unable_to_Determine
@@ -1117,7 +1116,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                                  <https://www.eagle-network.eu/voc/writing/lod/21> ;
                      :relatedMatch <https://www.eagle-network.eu/voc/writing/lod/20> ,
                                    "Cetera"@la ;
-                     :exactMatch <https://www.eagle-network.eu/voc/writing/lod/19> .
+                     :sameAs <https://www.eagle-network.eu/voc/writing/lod/19> .
 
 
 ###  https://ontology.inscriptiones.org/execution_technique/Unassigned
@@ -1136,7 +1135,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                   skos:prefLabel "V-shaped Grooves"@en ;
                   :related <http://vocab.getty.edu/page/aat/300263474> ;
                   :relatedMatch <https://www.wikidata.org/wiki/Q107426456> ;
-                  :exactMatch <https://www.eagle-network.eu/voc/writing/lod/203> .
+                  :sameAs <https://www.eagle-network.eu/voc/writing/lod/203> .
 
 
 ###  https://ontology.inscriptiones.org/execution_technique/Visual_Characteristics
@@ -1166,7 +1165,6 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                    <http://purl.org/dc/terms/bibliographicCitation> "Evangelisti, Silvia. 2017. ‘Scrittura Epigraphica, Alcune Riflessioni’. In Colonie e Municipi Nell’era Digitale. Documentazione Epigrafica per La Conoscenza Delle Città Antiche. Atti Del Convegno Di Studi (Macerata, 10-12 Dicembre 2015), edited by Simona Antolini, Silvia Maria Marengo, and Gianfranco Paci. Edizioni TORED. https://hdl.handle.net/11393/241391."^^xsd:string ,
                                                                     "Liuzzo, Pietro Maria, and Silvia Evangelisti. 2021. ‘Modeling Execution Techniques of Inscriptions’. Semantic Web 12 (2): 181–90. https://doi.org/10.3233/SW-200395."^^xsd:string ;
                    skos:definition "The techniques of writing, describing the effect of the tool on the support material of the inscribed object, based on its specific nature, quality and morphology. The techniques can be further specified by the tools and implements employed in the physical creation of the text of an inscription, encompassing the instruments used, the implementation methods or the materials applied during the execution process (further down in the hierarchy of the vocabulary)."@en ;
-                   skos:prefLabel "Writing Technique"@en ;
                    :closeMatch <http://vocab.getty.edu/page/aat/300168224> ,
                                <http://vocab.getty.edu/page/aat/300404590> ,
                                <http://vocab.getty.edu/page/aat/300404794> ,
