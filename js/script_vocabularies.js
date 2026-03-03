@@ -301,13 +301,15 @@ async function getVocDetails(iri) {
                 key = 'Parent';
                 parts = d.get('obj').value.split('/');
                 lastEle = parts[parts.length - 1];
-                value = `<a href="${d.get('obj').value}" target="_blank">${d.get('obj').value.split('/').pop().split('#').pop()} <i class="bi bi-box-arrow-up-right"></i></a>`;
+                value = `<a href="${d.get('obj').value}" target="_blank">${await getResourceLabel(d.get('obj').value)} <i class="bi bi-box-arrow-up-right"></i></a>`;
             }
             else {
                 key = d.get('pred').value.split('/').pop().split('#').pop().replace(/([A-Z])/g, ' $1').trim();
                 value = d.get('obj').value.includes('http') ? `<a href="${d.get('obj').value}" target="_blank">${d.get('obj').value} <i class="bi bi-box-arrow-up-right"></i></a>` : d.get('obj').id;
             }
-            detailHTML += `
+
+            if (!value.includes('owl#Thing')) {
+                detailHTML += `
                         <tr>
                             <th scope="row" style="width: 20%;" class="text-capitalize">
                                 ${key}
@@ -315,11 +317,130 @@ async function getVocDetails(iri) {
                             <td style="overflow-wrap: break-word;">${value}</td>
                         </tr>
                 `;
+            }
         }
     }
 
     detailHTML += ` </tbody>
         </table>`;
+
+    // ── 3. OPTIONAL — Properties where this class is the DOMAIN ─────────────
+    //    i.e. "what can I assert about instances of this class?"
+    let outPropQuery = `
+        ${appendPrefixes}
+        SELECT ?prop ?propLabel ?propDef ?range ?rangeLabel
+        WHERE {
+            ?prop a owl:ObjectProperty .
+            ?prop rdfs:domain <${iri}> .
+            OPTIONAL { ?prop skos:prefLabel  ?propLabel  . FILTER(LANG(?propLabel)  = 'en') }
+            OPTIONAL { ?prop skos:definition ?propDef    . FILTER(LANG(?propDef)    = 'en') }
+            OPTIONAL {
+                ?prop rdfs:range ?range .
+                OPTIONAL { ?range skos:prefLabel ?rangeLabel . FILTER(LANG(?rangeLabel) = 'en') }
+            }
+        } ORDER BY ?propLabel`;
+
+    let outProps = await runQuery(outPropQuery);
+
+    if (outProps.length > 0) {
+        detailHTML += `
+            <h6 class="fw-bold mt-4">
+                Properties
+                <span class="badge bg-secondary fw-normal ms-1">${outProps.length}</span>
+            </h6>
+            <p class="text-muted small mb-2">Properties whose domain is this class — what you can assert about its instances.</p>
+            <table class="table table-hover table-sm">
+                <thead class="table-light">
+                    <tr>
+                        <th style="width:22%;">Property</th>
+                        <th style="width:20%;">Range</th>
+                        <th>Definition</th>
+                    </tr>
+                </thead>
+                <tbody>`;
+
+        for (let p of outProps) {
+            let propIri = p.get('prop').value;
+            let propLabel = p.get('propLabel') ? p.get('propLabel').value : propIri.split('/').pop().split('#').pop();
+            let propDef = p.get('propDef') ? p.get('propDef').value : '';
+            let rangeIri = p.get('range') ? p.get('range').value : '';
+            let rangeLabel = p.get('rangeLabel') ? p.get('rangeLabel').value : (rangeIri ? rangeIri.split('/').pop().split('#').pop() : '—');
+
+            let rangeCell = rangeIri
+                ? `<a href="${rangeIri}" target="_blank">${rangeLabel} <i class="bi bi-box-arrow-up-right"></i></a>`
+                : '—';
+
+            detailHTML += `
+                <tr>
+                    <td>
+                        <a href="${propIri}" target="_blank" class="fw-semibold text-decoration-none">
+                            ${propLabel}
+                        </a>
+                    </td>
+                    <td>${rangeCell}</td>
+                    <td class="text-muted small">${propDef}</td>
+                </tr>`;
+        }
+
+        detailHTML += `</tbody></table>`;
+    }
+
+    // ── 4. OPTIONAL — Properties where this class is the RANGE ──────────────
+    //    i.e. "what properties point to this class?"
+    let inPropQuery = `
+        ${appendPrefixes}
+        SELECT ?prop ?propLabel ?domain ?domainLabel
+        WHERE {
+            ?prop a owl:ObjectProperty .
+            ?prop rdfs:range <${iri}> .
+            OPTIONAL { ?prop skos:prefLabel ?propLabel   . FILTER(LANG(?propLabel)   = 'en') }
+            OPTIONAL {
+                ?prop rdfs:domain ?domain .
+                OPTIONAL { ?domain skos:prefLabel ?domainLabel . FILTER(LANG(?domainLabel) = 'en') }
+            }
+        } ORDER BY ?propLabel`;
+
+    let inProps = await runQuery(inPropQuery);
+
+    if (inProps.length > 0) {
+        detailHTML += `
+            <h6 class="fw-bold mt-4">
+                Incoming Properties
+                <span class="badge bg-secondary fw-normal ms-1">${inProps.length}</span>
+            </h6>
+            <p class="text-muted small mb-2">Properties whose range is this class — what other classes link to it.</p>
+            <table class="table table-hover table-sm">
+                <thead class="table-light">
+                    <tr>
+                        <th style="width:22%;">Property</th>
+                        <th>Domain (source class)</th>
+                    </tr>
+                </thead>
+                <tbody>`;
+
+        for (let p of inProps) {
+            let propIri = p.get('prop').value;
+            let propLabel = p.get('propLabel') ? p.get('propLabel').value : propIri.split('/').pop().split('#').pop();
+            let domainIri = p.get('domain') ? p.get('domain').value : '';
+            let domainLabel = p.get('domainLabel') ? p.get('domainLabel').value : (domainIri ? domainIri.split('/').pop().split('#').pop() : '—');
+
+            let domainCell = domainIri
+                ? `<a href="${domainIri}" target="_blank">${domainLabel} <i class="bi bi-box-arrow-up-right"></i></a>`
+                : '—';
+
+            detailHTML += `
+                <tr>
+                    <td>
+                        <a href="${propIri}" target="_blank" class="fw-semibold text-decoration-none">
+                            ${propLabel}
+                        </a>
+                    </td>
+                    <td>${domainCell}</td>
+                </tr>`;
+        }
+
+        detailHTML += `</tbody></table>`;
+    }
 
     $('.voc-details').html(detailHTML);
 
@@ -410,6 +531,20 @@ async function getAllAlternateLables(iri) {
     return altLabels.slice(0, -2);
 }
 
+async function getResourceLabel(iri) {
+    let label = await runQuery(`
+        SELECT ?label
+        WHERE {
+            <${iri}> <http://www.w3.org/2004/02/skos/core#prefLabel> ?label .
+        }
+    `);
+
+    if (label.length > 0) {
+        return label[0].get('label').value;
+    }
+    return iri;
+}
+
 async function displayMainClasses(classes, allClasses) {
 
     let divClasses = '<ul id="ulClasses">';
@@ -450,7 +585,7 @@ async function manageParentChildRel(c, label, des, allClasses, altLabels) {
         for (let ch = 0; ch < children.length; ch++) {
             //debugger;
             let altLabels = await getAllAlternateLables(children[ch].get('subject').value);
-            list += `<li>${await manageParentChildRel(children[ch].get('subject').value, children[ch].get('label').value, children[ch].get('description').value, allClasses, altLabels)}</li>`;
+            list += `<li>${await manageParentChildRel(children[ch].get('subject').value, children[ch].get('label')?.value ?? '', children[ch].get('description')?.value ?? '', allClasses, altLabels)}</li>`;
         }
         list += '</ul>'
     }
