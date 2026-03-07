@@ -776,7 +776,12 @@
                                         }
                                     });
                                 }
-
+                                if (routeName.includes('epont')) {
+                                    $('#nav-profile-tab').html(`<i class="bi bi-share"></i> Ontology`);
+                                }
+                                else {
+                                    $('#nav-profile-tab').html(`<i class="bi bi-diagram-3"></i> Vocabulary`);
+                                }
                             }).on(`/${routeName}/:className`, async ({ data }) => {
                                 $('div#divLanding').hide();
                                 $('div#divLanding').next().show();
@@ -785,6 +790,13 @@
                                 $('#nav-about').load(`../${menu.name}/about.html`);
                                 $('#spVocDownload').html(`<span onclick="download('${routeName}')" title="Download Vocabulary"
                             class="float-end fs-4 bi bi-download fw-bold" style="cursor: pointer;"></span>`);
+
+                                if (routeName.includes('epont')) {
+                                    $('#nav-profile-tab').html(`<i class="bi bi-share"></i> Ontology`);
+                                }
+                                else {
+                                    $('#nav-profile-tab').html(`<i class="bi bi-diagram-3"></i> Vocabulary`);
+                                }
 
                                 // THE FIX: Show the tree column instead of hiding it
                                 $('div#divBig').prev().show();
@@ -802,12 +814,6 @@
                                 let currentIri = window.location.href.split('#')[0];
                                 expandAndSelectTreeNode(currentIri);
                             })
-                            if (routeName.includes('epont')) {
-                                $('#nav-profile-tab').html(`<i class="bi bi-share"></i> Ontology`);
-                            }
-                            else {
-                                $('#nav-profile-tab').html(`<i class="bi bi-diagram-3"></i> Vocabulary`);
-                            }
                         }
                     }
                 }
