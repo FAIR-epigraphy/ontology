@@ -1,0 +1,649 @@
+@prefix : <https://ontology.inscriptiones.org/epont#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix epont: <https://ontology.inscriptiones.org/epont/> .
+@base <https://ontology.inscriptiones.org/epont#> .
+
+<https://ontology.inscriptiones.org/epont> rdf:type owl:Ontology ;
+                                            dc:creator "FAIR Epigraphy Project"@en ;
+                                            dc:description "User-friendly ontology for epigraphic data extending CIDOC-CRM."@en ;
+                                            dc:title "FAIR Epigraphy Ontology (EPONT)"@en ;
+                                            owl:versionInfo "1.0" ;
+                                            skos:prefLabel "FAIR Epigraphy Ontology"@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/creator
+dc:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/description
+dc:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+dc:title rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+skos:definition rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+skos:prefLabel rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.cidoc-crm.org/cidoc-crm/P12i_was_present_at
+cidoc:P12i_was_present_at rdf:type owl:ObjectProperty ;
+                          rdfs:domain epont:autopsy_and_provenance ;
+                          rdfs:range cidoc:E24_Physical_Human-Made_Thing ;
+                          skos:definition "Connects autopsy and provenance to: Reproduction (creation). Maps to CRM property: P12 was present at. Shortcut for: P12→E12 Production→P108 has produced→E24 Physical Human-Made Thing."@en ;
+                          skos:prefLabel "P12 was present at"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P130i_features_are_also_found_on
+cidoc:P130i_features_are_also_found_on rdf:type owl:ObjectProperty ;
+                                       rdfs:domain epont:autopsy_and_provenance ;
+                                       rdfs:range cidoc:E55_Type ;
+                                       skos:definition "Connects autopsy and provenance to: Reproduction (relation). Maps to CRM property: P130 features are also found on. Shortcut for: P130→TX1 Written Text→P130.1 kind of similarity→E55 Type."@en ;
+                                       skos:prefLabel "P130 features are also found on"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P138i_has_representation
+cidoc:P138i_has_representation rdf:type owl:ObjectProperty ;
+                               rdfs:domain epont:autopsy_and_provenance ;
+                               rdfs:range cidoc:E36_Visual_Item ;
+                               skos:definition "Connects autopsy and provenance to: image. Maps to CRM property: P138 has representation. Shortcut for: P138→E36 Visual Item→P138.1 mode of representation→E55 Type."@en ;
+                               skos:prefLabel "P138 has representation"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P2_has_type
+cidoc:P2_has_type rdf:type owl:ObjectProperty ;
+                  rdfs:domain epont:Inscription_as_text_nonphysical ;
+                  rdfs:range cidoc:E55_Type ;
+                  skos:definition "Connects Inscription as text (nonphysical) to: inscription type. Maps to CRM property: P2 has type. Direct CRM property P2 has type, range E55 Type."@en ;
+                  skos:prefLabel "P2 has type"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P43_has_dimension
+cidoc:P43_has_dimension rdf:type owl:ObjectProperty ;
+                        rdfs:domain epont:ObjectSupport ;
+                        rdfs:range cidoc:E54_Dimension ;
+                        skos:definition "Connects Object/Support to: Dimensions. Maps to CRM property: P43 has dimension. Direct CRM property P43 has dimension, range E54 Dimension."@en ;
+                        skos:prefLabel "P43 has dimension"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P48_has_preferred_identifier
+cidoc:P48_has_preferred_identifier rdf:type owl:ObjectProperty ;
+                                   rdfs:domain epont:Inscription_as_physical_inst ,
+                                               epont:ObjectSupport ;
+                                   rdfs:range cidoc:E42_Identifier ;
+                                   skos:definition "Connects Inscription (as physical inst.) to: Preferred identifier. Maps to CRM property: P48 has preferred identifier. Direct CRM property P48 has preferred identifier, range E42 Identifier."@en ,
+                                                   "Connects Object/Support to: Preferred identifier. Maps to CRM property: P48 has preferred identifier. Direct CRM property P48 has preferred identifier, range E42 Identifier."@en ;
+                                   skos:prefLabel "P48 has preferred identifier"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P55_has_current_location
+cidoc:P55_has_current_location rdf:type owl:ObjectProperty ;
+                               rdfs:domain epont:ObjectSupport ;
+                               rdfs:range cidoc:E53_Place ;
+                               skos:definition "Connects Object/Support to: Current Location. Maps to CRM property: P55 has current location. Direct CRM property P55 has current location, range E53 Place."@en ;
+                               skos:prefLabel "P55 has current location"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P56_bears_feature
+cidoc:P56_bears_feature rdf:type owl:ObjectProperty ;
+                        rdfs:domain epont:ObjectSupport ;
+                        rdfs:range <http://www.cidoc-crm.org/extensions/crmtex/TX4_Writing_Field> ;
+                        skos:definition "Connects Object/Support to: Epigraphic Field. Maps to CRM property: P56 bears feature. Direct CRM property P56 bears feature, range TX4 Writing Field."@en ;
+                        skos:prefLabel "P56 bears feature"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P72_has_language
+cidoc:P72_has_language rdf:type owl:ObjectProperty ;
+                       rdfs:domain epont:Inscription_as_physical_inst ,
+                                   epont:Inscription_as_text_nonphysical ;
+                       rdfs:range cidoc:E56_Language ;
+                       skos:definition "Connects Inscription (as physical inst.) to: Language. Maps to CRM property: P72 has language. Direct CRM property P72 has language, range E56 Language."@en ,
+                                       "Connects Inscription as text (nonphysical) to: Language. Maps to CRM property: P72 has language. Direct CRM property P72 has language, range E56 Language."@en ;
+                       skos:prefLabel "P72 has language"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P92i_was_brought_into_existence_by
+cidoc:P92i_was_brought_into_existence_by rdf:type owl:ObjectProperty ;
+                                         rdfs:domain epont:ObjectSupport ;
+                                         rdfs:range cidoc:E52_Time-Span ;
+                                         skos:definition "Connects Object/Support to: Object Date. Maps to CRM property: P92 was brought into existence by. Shortcut for: P92→E63 Beginning of Existence→P4→E52 Time-Span→P82→E61 Time Primitive."@en ;
+                                         skos:prefLabel "P92 was brought into existence by"@en .
+
+
+###  http://www.cidoc-crm.org/extensions/crmsci/O19i_was_object_encountered_through
+<http://www.cidoc-crm.org/extensions/crmsci/O19i_was_object_encountered_through> rdf:type owl:ObjectProperty ;
+                                                                                 rdfs:domain epont:ObjectSupport ,
+                                                                                             epont:autopsy_and_provenance ;
+                                                                                 rdfs:range cidoc:E53_Place ,
+                                                                                            <http://www.cidoc-crm.org/extensions/crmsci/S19_Encounter_Event> ;
+                                                                                 skos:definition "Connects autopsy and provenance to: Observation. Maps to CRM property: O19 was object encountered through. Direct CRM property O19, range S19 Encounter Event."@en ,
+                                                                                                 "Connects Object/Support to: Findspot. Maps to CRM property: O19 was object encountered through. Shortcut for: O19→S19 Encounter Event→O21 encountered at→E53 Place." ;
+                                                                                 skos:prefLabel "O19 was object encountered through"@en .
+
+
+###  http://www.cidoc-crm.org/extensions/crmtex/TXP10i_was_deciphered_by
+<http://www.cidoc-crm.org/extensions/crmtex/TXP10i_was_deciphered_by> rdf:type owl:ObjectProperty ;
+                                                                      rdfs:domain epont:autopsy_and_provenance ;
+                                                                      rdfs:range <http://www.cidoc-crm.org/extensions/crmtex/TX5_Text_Recognition> ;
+                                                                      skos:definition "Connects autopsy and provenance to: autopsy, Transcription. Maps to CRM property: TXP10 was deciphered by. CRM-Tex property TXP10 was deciphered by, range TX5 Text Recognition."@en ;
+                                                                      skos:prefLabel "TXP10 was deciphered by"@en .
+
+
+###  http://www.cidoc-crm.org/extensions/crmtex/TXP4_has_segment
+<http://www.cidoc-crm.org/extensions/crmtex/TXP4_has_segment> rdf:type owl:ObjectProperty ;
+                                                              rdfs:domain epont:Inscription_as_physical_inst ;
+                                                              rdfs:range cidoc:E55_Type ;
+                                                              skos:definition "Connects Inscription (as physical inst.) to: Letter forms. Maps to CRM property: TXP4 has segment. Shortcut for: TXP4→TX7→TXP8→TX9 Glyph→P65→idiograph/allograph→P2→E55 Type."@en ;
+                                                              skos:prefLabel "TXP4 has segment"@en .
+
+
+###  http://www.cidoc-crm.org/extensions/crmtex/TXP5i_was_written_by
+<http://www.cidoc-crm.org/extensions/crmtex/TXP5i_was_written_by> rdf:type owl:ObjectProperty ;
+                                                                  rdfs:domain epont:Inscription_as_physical_inst ;
+                                                                  rdfs:range cidoc:E55_Type ;
+                                                                  skos:definition "Connects Inscription (as physical inst.) to: Execution Technique, Inscription date, Dating evidence. Maps to CRM property: TXP5 was written by. Shortcut for: TXP5→TX2 Writing→P32 used general technique→E55 Type."@en ;
+                                                                  skos:prefLabel "TXP5 was written by"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/hasLetterHeight
+epont:hasLetterHeight rdf:type owl:ObjectProperty ;
+                      rdfs:domain epont:Inscription_as_physical_inst ;
+                      rdfs:range cidoc:E54_Dimension ;
+                      skos:definition "Connects Inscription (as physical inst.) to: Letter heights. Maps to CRM property: TXP4 has segment. Shortcut for: TXP4→TX7 Written Text Segment→P43→E54 Dimension."@en ;
+                      skos:prefLabel "hasLetterHeight"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/hasOrigPlace
+epont:hasOrigPlace rdf:type owl:ObjectProperty ;
+                   rdfs:domain epont:Inscription_as_physical_inst ;
+                   rdfs:range cidoc:E53_Place ;
+                   skos:definition "Connects Inscription (as physical inst.) to: Place of origin. Maps to CRM property: TXP5 was written by. Shortcut for: TXP5→TX2 Writing→P7 took place at→E53 Place."@en ;
+                   skos:prefLabel "hasOrigPlace"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/hasSupportConditionState
+epont:hasSupportConditionState rdf:type owl:ObjectProperty ;
+                               rdfs:domain epont:ObjectSupport ;
+                               rdfs:range cidoc:E3_Condition_State ;
+                               skos:definition "Connects Object/Support to: Object condition. Maps to CRM property: P34 was assessed by. Shortcut for: P34→E14 Condition Assessment→P35→E3 Condition State→P2→E55 Type."@en ;
+                               skos:prefLabel "hasSupportConditionState"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/hasSupportMaterial
+epont:hasSupportMaterial rdf:type owl:ObjectProperty ;
+                         rdfs:domain epont:ObjectSupport ;
+                         rdfs:range cidoc:E57_Material ;
+                         skos:definition "Connects Object/Support to: Material. Maps to CRM property: P45 consists of. Direct CRM property P45 consists of, range E57 Material."@en ;
+                         skos:prefLabel "hasSupportMaterial"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/hasSupportType
+epont:hasSupportType rdf:type owl:ObjectProperty ;
+                     rdfs:domain epont:ObjectSupport ;
+                     rdfs:range cidoc:E55_Type ;
+                     skos:definition "Connects Object/Support to: Object Type. Maps to CRM property: P2 has type. Shortcut for CRM property P2 has type, range E55 Type."@en ;
+                     skos:prefLabel "hasSupportType"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/has_genre
+epont:has_genre rdf:type owl:ObjectProperty ;
+                rdfs:domain epont:Inscription_as_text_nonphysical ;
+                skos:definition "Connects Inscription as text (nonphysical) to: genre. Maps to CRM property: has_genre. Custom EPONT property: has_genre points to Text_Genre controlled vocabulary."@en ;
+                skos:prefLabel "has_genre"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/has_linguistic_property
+epont:has_linguistic_property rdf:type owl:ObjectProperty ;
+                              rdfs:domain epont:Inscription_as_text_nonphysical ;
+                              skos:definition "Connects Inscription as text (nonphysical) to: bilingualism features. Maps to CRM property: has_linguistic_property. Custom EPONT property for bilingualism (to be refined)."@en ;
+                              skos:prefLabel "has_linguistic_property"@en .
+
+
+###  https://ontome.net/ontology/p2243
+<https://ontome.net/ontology/p2243> rdf:type owl:ObjectProperty ;
+                                    rdfs:domain epont:Editing ;
+                                    rdfs:range <https://ontome.net/ontology/c1276> ;
+                                    rdfs:isDefinedBy "http://iflastandards.info/ns/lrm/lrmoo/R76" ;
+                                    skos:definition "Connects Editing to: Edition, Translation. Maps to CRM property: R76 has derivative. Shortcut for: F2 Expression→R76→F2=E33 Linguistic Object→R4→F3 Manifestation."@en ;
+                                    skos:prefLabel "R76 has derivative"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.cidoc-crm.org/cidoc-crm/E24_Physical_Human-Made_Thing
+cidoc:E24_Physical_Human-Made_Thing rdf:type owl:Class ;
+                                    rdfs:isDefinedBy cidoc: ;
+                                    skos:definition ""@en ;
+                                    skos:prefLabel "E24 Physical Human Made Thing"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E33_Linguistic_Object
+cidoc:E33_Linguistic_Object rdf:type owl:Class ;
+                            rdfs:isDefinedBy cidoc: ;
+                            skos:definition ""@en ;
+                            skos:prefLabel "E33 Linguistic Object"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E36_Visual_Item
+cidoc:E36_Visual_Item rdf:type owl:Class ;
+                      rdfs:isDefinedBy cidoc: ;
+                      skos:definition ""@en ;
+                      skos:prefLabel "E36 Visual Item"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E3_Condition_State
+cidoc:E3_Condition_State rdf:type owl:Class ;
+                         rdfs:isDefinedBy cidoc: ;
+                         skos:definition ""@en ;
+                         skos:prefLabel "E3 Condition State"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E42_Identifier
+cidoc:E42_Identifier rdf:type owl:Class ;
+                     rdfs:isDefinedBy cidoc: ;
+                     skos:definition ""@en ;
+                     skos:prefLabel "E42 Identifier"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E52_Time-Span
+cidoc:E52_Time-Span rdf:type owl:Class ;
+                    rdfs:isDefinedBy cidoc: ;
+                    skos:definition ""@en ;
+                    skos:prefLabel "E52 Time Span"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E53_Place
+cidoc:E53_Place rdf:type owl:Class ;
+                rdfs:isDefinedBy cidoc: ;
+                skos:definition ""@en ;
+                skos:prefLabel "E53 Place"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E54_Dimension
+cidoc:E54_Dimension rdf:type owl:Class ;
+                    rdfs:isDefinedBy cidoc: ;
+                    skos:definition ""@en ;
+                    skos:prefLabel "E54 Dimension"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E55_Type
+cidoc:E55_Type rdf:type owl:Class ;
+               rdfs:isDefinedBy cidoc: ;
+               skos:definition ""@en ;
+               skos:prefLabel "E55 Type"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E56_Language
+cidoc:E56_Language rdf:type owl:Class ;
+                   rdfs:isDefinedBy cidoc: ;
+                   skos:definition ""@en ;
+                   skos:prefLabel "E56 Language"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E57_Material
+cidoc:E57_Material rdf:type owl:Class ;
+                   rdfs:isDefinedBy cidoc: ;
+                   skos:definition ""@en ;
+                   skos:prefLabel "E57 Material"@en .
+
+
+###  http://www.cidoc-crm.org/extensions/crmsci/S19_Encounter_Event
+<http://www.cidoc-crm.org/extensions/crmsci/S19_Encounter_Event> rdf:type owl:Class ;
+                                                                 rdfs:isDefinedBy <http://www.cidoc-crm.org/extensions/crmsci> ;
+                                                                 skos:definition ""@en ;
+                                                                 skos:prefLabel "S19 Encounter Event"@en .
+
+
+###  http://www.cidoc-crm.org/extensions/crmtex/TX1_Written_Text
+<http://www.cidoc-crm.org/extensions/crmtex/TX1_Written_Text> rdf:type owl:Class ;
+                                                              rdfs:isDefinedBy <http://www.cidoc-crm.org/extensions/crmtex> ;
+                                                              skos:definition ""@en ;
+                                                              skos:prefLabel "TX1 Written Text"@en .
+
+
+###  http://www.cidoc-crm.org/extensions/crmtex/TX4_Writing_Field
+<http://www.cidoc-crm.org/extensions/crmtex/TX4_Writing_Field> rdf:type owl:Class ;
+                                                               rdfs:isDefinedBy <http://www.cidoc-crm.org/extensions/crmtex/> ;
+                                                               skos:definition ""@en ;
+                                                               skos:prefLabel "TX4 Writing Field"@en .
+
+
+###  http://www.cidoc-crm.org/extensions/crmtex/TX5_Text_Recognition
+<http://www.cidoc-crm.org/extensions/crmtex/TX5_Text_Recognition> rdf:type owl:Class ;
+                                                                  rdfs:isDefinedBy <http://www.cidoc-crm.org/extensions/crmtex/> ;
+                                                                  skos:definition ""@en ;
+                                                                  skos:prefLabel "TX5 Text Recognition"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/Current_Location
+epont:Current_Location rdf:type owl:Class ;
+                       rdfs:subClassOf cidoc:E53_Place ,
+                                       epont:ObjectSupport ;
+                       rdfs:comment "CRM path: Direct CRM property P55 has current location, range E53 Place"@en ;
+                       skos:definition "The present-day location where the object is held or displayed.EpiDoc: <msIdentifier><repository>."@en ;
+                       skos:prefLabel "Current Location"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/Dating_evidence
+epont:Dating_evidence rdf:type owl:Class ;
+                      rdfs:subClassOf cidoc:E55_Type ,
+                                      epont:Inscription_as_physical_inst ;
+                      rdfs:comment "CRM path: Shortcut for: TXP5→TX2→P4→E52→P140→E13 Attribute Assignment→P17→E55 Type"@en ;
+                      skos:definition "The type of evidence used to assign a date to the inscription (e.g. palaeography, prosopography, stratigraphy).EpiDoc: <origDate evidence=\"\">."@en ;
+                      skos:prefLabel "Dating evidence"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/Dimensions
+epont:Dimensions rdf:type owl:Class ;
+                 rdfs:subClassOf cidoc:E54_Dimension ,
+                                 epont:ObjectSupport ;
+                 rdfs:comment "CRM path: Direct CRM property P43 has dimension, range E54 Dimension"@en ;
+                 skos:definition "Physical measurements of the object such as height, width, depth, and weight.EpiDoc: <support><dimensions>."@en ;
+                 skos:prefLabel "Dimensions"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/Editing
+epont:Editing rdf:type owl:Class ;
+              rdfs:subClassOf owl:Thing ,
+                              <https://ontome.net/ontology/c1275> ;
+              rdfs:comment "Extends CIDOC-CRM F2 Expression."@en ;
+              skos:definition "The scholarly editing of the inscription text, including editions, translations, and commentary."@en ;
+              skos:prefLabel "Editing"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/Edition
+epont:Edition rdf:type owl:Class ;
+              rdfs:subClassOf epont:Editing ,
+                              <https://ontome.net/ontology/c1276> ;
+              rdfs:comment "CRM path: Shortcut for: F2 Expression→R76→F2=E33 Linguistic Object→R4→F3 Manifestation"@en ;
+              skos:definition "A published scholarly edition of the inscription text.EpiDoc: <div type=\"edition\">."@en ;
+              skos:prefLabel "Edition"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/Epigraphic_Field
+epont:Epigraphic_Field rdf:type owl:Class ;
+                       rdfs:subClassOf <http://www.cidoc-crm.org/extensions/crmtex/TX4_Writing_Field> ,
+                                       epont:ObjectSupport ;
+                       rdfs:comment "CRM path: Direct CRM property P56 bears feature, range TX4 Writing Field"@en ;
+                       skos:definition "The area on the support surface that contains or contained the written text.EpiDoc: <layoutDesc>."@en ;
+                       skos:prefLabel "Epigraphic Field"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/Execution_Technique
+epont:Execution_Technique rdf:type owl:Class ;
+                          rdfs:subClassOf cidoc:E55_Type ,
+                                          epont:Inscription_as_physical_inst ;
+                          rdfs:comment "CRM path: Shortcut for: TXP5→TX2 Writing→P32 used general technique→E55 Type"@en ;
+                          skos:definition "The method used to physically produce the inscription (e.g. incised, painted, stamped, embossed).EpiDoc: <layout><rs>."@en ;
+                          skos:prefLabel "Execution Technique"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/Findspot
+epont:Findspot rdf:type owl:Class ;
+               rdfs:subClassOf cidoc:E53_Place ,
+                               epont:ObjectSupport ;
+               rdfs:comment "CRM path: Shortcut for: O19→S19 Encounter Event→O21 encountered at→E53 Place"@en ;
+               skos:definition "The location where the object was discovered or most recently observed in situ.EpiDoc: <provenance>."@en ;
+               skos:prefLabel "Findspot"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/Inscription_as_physical_inst
+epont:Inscription_as_physical_inst rdf:type owl:Class ;
+                                   rdfs:subClassOf <http://www.cidoc-crm.org/extensions/crmtex/TX1_Written_Text> ,
+                                                   owl:Thing ;
+                                   rdfs:comment "Extends CIDOC-CRM TX1 Written Text."@en ;
+                                   skos:definition "The inscription considered as a physical written text on a support, focusing on its material and visual properties."@en ;
+                                   skos:prefLabel "Inscription (as physical inst.)"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/Inscription_as_text_nonphysical
+epont:Inscription_as_text_nonphysical rdf:type owl:Class ;
+                                      rdfs:subClassOf owl:Thing ,
+                                                      <https://ontome.net/ontology/c1275> ;
+                                      rdfs:comment "Extends CIDOC-CRM F2 Expression."@en ;
+                                      skos:definition "The inscription considered as an abstract textual expression, independent of its physical carrier."@en ;
+                                      skos:prefLabel "Inscription as text (nonphysical)"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/Inscription_date
+epont:Inscription_date rdf:type owl:Class ;
+                       rdfs:subClassOf cidoc:E52_Time-Span ,
+                                       epont:Inscription_as_physical_inst ;
+                       rdfs:comment "CRM path: Shortcut for: TXP5→TX2 Writing→P4→E52 Time-Span→P82a begin of begin, P82b end of end"@en ;
+                       skos:definition "The date or date range of the writing event that produced the inscription.EpiDoc: <origDate>."@en ;
+                       skos:prefLabel "Inscription date"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/Language
+epont:Language rdf:type owl:Class ;
+               rdfs:subClassOf cidoc:E56_Language ,
+                               epont:Inscription_as_physical_inst ,
+                               epont:Inscription_as_text_nonphysical ;
+               rdfs:comment "CRM path: Direct CRM property P72 has language, range E56 Language"@en ;
+               skos:definition "The language or languages in which the inscription is written.EpiDoc: <textLang>."@en ;
+               skos:prefLabel "Language"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/Letter_forms
+epont:Letter_forms rdf:type owl:Class ;
+                   rdfs:subClassOf cidoc:E55_Type ,
+                                   epont:Inscription_as_physical_inst ;
+                   rdfs:comment "CRM path: Shortcut for: TXP4→TX7→TXP8→TX9 Glyph→P65→idiograph/allograph→P2→E55 Type"@en ;
+                   skos:definition "The typological classification of individual letter shapes, scripts, or writing systems used.EpiDoc: <handNote>."@en ;
+                   skos:prefLabel "Letter forms"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/Letter_heights
+epont:Letter_heights rdf:type owl:Class ;
+                     rdfs:subClassOf cidoc:E54_Dimension ,
+                                     epont:Inscription_as_physical_inst ;
+                     rdfs:comment "CRM path: Shortcut for: TXP4→TX7 Written Text Segment→P43→E54 Dimension"@en ;
+                     skos:definition "The height measurements of individual letters or character groups within the inscription.EpiDoc: <handNote><dimensions>."@en ;
+                     skos:prefLabel "Letter heights"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/Material
+epont:Material rdf:type owl:Class ;
+               rdfs:subClassOf cidoc:E57_Material ,
+                               epont:ObjectSupport ;
+               rdfs:comment "CRM path: Direct CRM property P45 consists of, range E57 Material"@en ;
+               skos:definition "The material or materials of which the physical support is composed (e.g. marble, limestone, bronze).EpiDoc: <material>."@en ;
+               skos:prefLabel "Material"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/ObjectSupport
+epont:ObjectSupport rdf:type owl:Class ;
+                    rdfs:subClassOf cidoc:E24_Physical_Human-Made_Thing ,
+                                    owl:Thing ;
+                    rdfs:comment "Extends CIDOC-CRM E24 Physical Human-Made Thing."@en ;
+                    skos:definition "The physical carrier of an inscription — a stone, tablet, monument or other object on which the text was written."@en ;
+                    skos:prefLabel "Object/Support"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/Object_Date
+epont:Object_Date rdf:type owl:Class ;
+                  rdfs:subClassOf cidoc:E52_Time-Span ,
+                                  epont:ObjectSupport ;
+                  rdfs:comment "CRM path: Shortcut for: P92→E63 Beginning of Existence→P4→E52 Time-Span→P82→E61 Time Primitive"@en ;
+                  skos:definition "The date or date range associated with the creation or production of the physical object."@en ;
+                  skos:prefLabel "Object Date"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/Object_Type
+epont:Object_Type rdf:type owl:Class ;
+                  rdfs:subClassOf cidoc:E55_Type ,
+                                  epont:ObjectSupport ;
+                  rdfs:comment "CRM path: Shortcut for CRM property P2 has type, range E55 Type"@en ;
+                  skos:definition "The typological classification of the physical support (e.g. funerary stele, votive altar, milestone).EpiDoc: <objectType>."@en ;
+                  skos:prefLabel "Object Type"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/Object_condition
+epont:Object_condition rdf:type owl:Class ;
+                       rdfs:subClassOf cidoc:E3_Condition_State ,
+                                       epont:ObjectSupport ;
+                       rdfs:comment "CRM path: Shortcut for: P34→E14 Condition Assessment→P35→E3 Condition State→P2→E55 Type"@en ;
+                       skos:definition "The state of preservation of the physical object as assessed at a given point in time.EpiDoc: <condition>."@en ;
+                       skos:prefLabel "Object condition"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/Observation
+epont:Observation rdf:type owl:Class ;
+                  rdfs:subClassOf <http://www.cidoc-crm.org/extensions/crmsci/S19_Encounter_Event> ,
+                                  epont:autopsy_and_provenance ;
+                  rdfs:comment "CRM path: Direct CRM property O19, range S19 Encounter Event"@en ;
+                  skos:definition "A recorded encounter with the object or inscription, including autopsy visits and archival sightings.EpiDoc: <provenance>."@en ;
+                  skos:prefLabel "Observation"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/Place_of_origin
+epont:Place_of_origin rdf:type owl:Class ;
+                      rdfs:subClassOf cidoc:E53_Place ,
+                                      epont:Inscription_as_physical_inst ;
+                      rdfs:comment "CRM path: Shortcut for: TXP5→TX2 Writing→P7 took place at→E53 Place"@en ;
+                      skos:definition "The geographic location where the writing event took place or where the object was originally produced.EpiDoc: <origPlace>."@en ;
+                      skos:prefLabel "Place of origin"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/Preferred_identifier
+epont:Preferred_identifier rdf:type owl:Class ;
+                           rdfs:subClassOf cidoc:E42_Identifier ,
+                                           epont:Inscription_as_physical_inst ,
+                                           epont:ObjectSupport ;
+                           rdfs:comment "CRM path: Direct CRM property P48 has preferred identifier, range E42 Identifier"@en ;
+                           skos:definition """The primary identifier assigned to the object, such as a museum accession number or corpus reference. 
+In EpiDoc this may be encoded as <msIdentifier><idno> (for Object Support) or <publicationStmt><idno> (for Inscription as physical instance)."""@en ;
+                           skos:prefLabel "Preferred identifier"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/Reproduction_creation
+epont:Reproduction_creation rdf:type owl:Class ;
+                            rdfs:subClassOf cidoc:E24_Physical_Human-Made_Thing ,
+                                            epont:autopsy_and_provenance ;
+                            rdfs:comment "CRM path: Shortcut for: P12→E12 Production→P108 has produced→E24 Physical Human-Made Thing"@en ;
+                            skos:definition "The physical production of a reproduction of the inscription object (squeeze, cast, photograph)."@en ;
+                            skos:prefLabel "Reproduction (creation)"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/Reproduction_relation
+epont:Reproduction_relation rdf:type owl:Class ;
+                            rdfs:subClassOf cidoc:E55_Type ,
+                                            epont:autopsy_and_provenance ;
+                            rdfs:comment "CRM path: Shortcut for: P130→TX1 Written Text→P130.1 kind of similarity→E55 Type"@en ;
+                            skos:definition "A relationship of similarity between the inscription and another object or reproduction."@en ;
+                            skos:prefLabel "Reproduction (relation)"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/Transcription
+epont:Transcription rdf:type owl:Class ;
+                    rdfs:subClassOf epont:autopsy_and_provenance ,
+                                    <https://ontome.net/ontology/c1277> ;
+                    rdfs:comment "CRM path: Shortcut for: TXP10→TX5→TXP15→TX12 Grapheme Sequence→TXP11→TX6 Transliteration→P108→F5 Item"@en ;
+                    skos:definition "The process and result of recording the sequence of characters as read from the inscription."@en ;
+                    skos:prefLabel "Transcription"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/Translation
+epont:Translation rdf:type owl:Class ;
+                  rdfs:subClassOf cidoc:E33_Linguistic_Object ,
+                                  epont:Editing ;
+                  rdfs:comment "CRM path: Shortcut for: F2→R76→F2=E33 or E34→P73 has translation→E33 Linguistic Object"@en ;
+                  skos:definition "A rendering of the inscription text in another language.EpiDoc: <div type=\"translation\">."@en ;
+                  skos:prefLabel "Translation"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/autopsy
+epont:autopsy rdf:type owl:Class ;
+              rdfs:subClassOf <http://www.cidoc-crm.org/extensions/crmtex/TX5_Text_Recognition> ,
+                              epont:autopsy_and_provenance ;
+              rdfs:comment "CRM path: CRM-Tex property TXP10 was deciphered by, range TX5 Text Recognition"@en ;
+              skos:definition "Direct personal examination of the inscription by a scholar, typically for the purposes of transcription.EpiDoc: <provenance type=\"observed\" subtype=\"autopsied\">."@en ;
+              skos:prefLabel "autopsy"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/autopsy_and_provenance
+epont:autopsy_and_provenance rdf:type owl:Class ;
+                             rdfs:subClassOf <http://www.cidoc-crm.org/extensions/crmtex/TX1_Written_Text> ,
+                                             owl:Thing ;
+                             rdfs:comment "Extends CIDOC-CRM TX1 Written Text."@en ;
+                             skos:definition "Information about direct observation of the object and its recorded history of location and movement."@en ;
+                             skos:prefLabel "autopsy and provenance"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/bilingualism_features
+epont:bilingualism_features rdf:type owl:Class ;
+                            rdfs:subClassOf epont:Inscription_as_text_nonphysical ;
+                            rdfs:comment "CRM path: Custom EPONT property for bilingualism (to be refined)"@en ;
+                            skos:definition "Features relating to the use of more than one language within a single inscription.EpiDoc: ?."@en ;
+                            skos:prefLabel "bilingualism features"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/genre
+epont:genre rdf:type owl:Class ;
+            rdfs:subClassOf epont:Inscription_as_text_nonphysical ;
+            rdfs:comment "CRM path: Custom EPONT property: has_genre points to Text_Genre controlled vocabulary"@en ;
+            skos:definition "The literary or documentary genre of the inscription text.EpiDoc: ?."@en ;
+            skos:prefLabel "genre"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/image
+epont:image rdf:type owl:Class ;
+            rdfs:subClassOf cidoc:E36_Visual_Item ,
+                            epont:autopsy_and_provenance ;
+            rdfs:comment "CRM path: Shortcut for: P138→E36 Visual Item→P138.1 mode of representation→E55 Type"@en ;
+            skos:definition "A visual representation of the inscription or its support (photograph, drawing, facsimile).EpiDoc: <facsimile>."@en ;
+            skos:prefLabel "image"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/inscription_type
+epont:inscription_type rdf:type owl:Class ;
+                       rdfs:subClassOf cidoc:E55_Type ,
+                                       epont:Inscription_as_text_nonphysical ;
+                       rdfs:comment "CRM path: Direct CRM property P2 has type, range E55 Type"@en ;
+                       skos:definition "The functional or generic classification of the inscription (e.g. honorific, funerary, votive, boundary).EpiDoc: <textClass>."@en ;
+                       skos:prefLabel "inscription type"@en .
+
+
+###  https://ontome.net/ontology/c1275
+<https://ontome.net/ontology/c1275> rdf:type owl:Class ;
+                                    rdfs:isDefinedBy <http://iflastandards.info/ns/lrm/lrmoo/F2> ;
+                                    skos:definition ""@en ;
+                                    skos:prefLabel "F2 Expression"@en .
+
+
+###  https://ontome.net/ontology/c1276
+<https://ontome.net/ontology/c1276> rdf:type owl:Class ;
+                                    rdfs:isDefinedBy <http://iflastandards.info/ns/lrm/lrmoo/F3> ;
+                                    skos:definition ""@en ;
+                                    skos:prefLabel "F3 Manifestation"@en .
+
+
+###  https://ontome.net/ontology/c1277
+<https://ontome.net/ontology/c1277> rdf:type owl:Class ;
+                                    rdfs:isDefinedBy <http://iflastandards.info/ns/lrm/lrmoo/F5> ;
+                                    skos:definition ""@en ;
+                                    skos:prefLabel "F5 Item"@en .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi

@@ -1,67 +1,934 @@
-body {
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  overflow: hidden;
-  font-size: 95%;
-  /* reduces all text by 20% */
-  margin: 0;
-  /* ADDED: Remove default margins */
-  padding: 0;
-  /* ADDED: Remove default padding */
+/* ═══════════════════════════════════════════════════════════════════
+   FAIR Epigraphy Vocabularies — style_toi.css
+   Design: EPONT Scholarly Theme
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── 1. CSS Custom Properties ──────────────────────────────────────── */
+:root {
+  --e-ink: #1a1814;
+  --e-ink-soft: #4a4540;
+  --e-ink-muted: #8a8278;
+  --e-parchment: #faf7f2;
+  --e-cream: #f3ede3;
+  --e-cream-dk: #e8dfd0;
+  --e-rule: #d4c9b8;
+  --e-gold: #9a7c3e;
+  --e-gold-lt: #c4a55a;
+  --e-red: #8b2020;
+  --e-blue: #1d4e7a;
+  --e-green: #2a5c2a;
+  --sidebar-w: 350px;
+  --hdr: 58px;
+  /* match your navbar height */
 }
 
-/* ADDED: Smaller heading styles */
+/* ── 2. Base ───────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  font-size: 15px;
+  line-height: 1.78;
+  color: var(--e-ink);
+  background: var(--e-parchment);
+  margin: 0;
+  padding: 0;
+}
+
+/* ── 3. Typography ─────────────────────────────────────────────────── */
 h1 {
-  font-size: 36px;
-  /* ADDED: Smaller h1 font size */
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--e-ink);
   margin-bottom: 0.6em;
   margin-top: 0.8em;
 }
 
 h2 {
-  font-size: 22px;
-  /* ADDED: Smaller h2 font size */
-  margin-bottom: 1em;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(20px, 2.8vw, 26px);
+  font-weight: 600;
+  color: var(--e-ink);
+  margin-bottom: 0.8em;
   margin-top: 1em;
 }
 
 h3 {
-  font-size: 20px;
-  /* ADDED: Smaller h3 font size */
-  margin-bottom: 1em;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(17px, 2.2vw, 22px);
+  font-weight: 600;
+  color: var(--e-ink);
+  margin-bottom: 0.8em;
   margin-top: 1.2em;
 }
 
 h4 {
-  font-size: 18px;
-  /* ADDED: Smaller h4 font size */
-  margin-bottom: 0.6em;
-  margin-top: 1em;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--e-ink);
+  margin-bottom: 0.5em;
+  margin-top: 0.8em;
 }
 
-.card {
-  background-color: #ffffff;
-  /* ADDED: Light blue background */
-  border: 1px solid #dee2e6;
-  /* ADDED: Optional border */
-  border-radius: 8px;
-  /* ADDED: Rounded corners */
-  padding: 20px;
-  /* ADDED: Inner spacing */
-  margin-bottom: 20px;
-  /* ADDED: Space between cards */
+a {
+  color: var(--e-blue);
+  text-decoration: none;
 }
 
+a:hover {
+  text-decoration: underline;
+  color: var(--e-blue);
+}
 
+hr.rounded {
+  border: none;
+  border-top: 1px solid var(--e-rule);
+  opacity: 1;
+  margin: 2.5rem 0;
+}
 
-
-/* Header Styles */
+/* ── 4. Navbar ─────────────────────────────────────────────────────── */
 .header {
+  background: var(--e-ink) !important;
+  border-bottom: 3px solid var(--e-gold);
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.header .navbar,
+.navbar.bg-light {
+  background: var(--e-ink) !important;
+}
+
+.navbar-brand {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand img {
+  height: 36px;
+  width: auto;
+}
+
+.logo-text {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--e-parchment) !important;
+  letter-spacing: 0.01em;
+}
+
+.brand-em {
+  color: var(--e-gold-lt);
+  font-style: normal;
+}
+
+.header .nav-link,
+.header .nav-link:visited {
+  color: #c0b8af !important;
+  font-size: 13.5px;
+  padding: 0.5rem 0.85rem !important;
+  transition: color 0.15s;
+}
+
+.header .nav-link:hover,
+.header .nav-link:focus {
+  color: var(--e-gold-lt) !important;
+}
+
+.header .nav-link.show,
+.header .nav-link.active {
+  color: var(--e-gold-lt) !important;
+}
+
+.navbar-toggler {
+  border: 1px solid #444 !important;
+  box-shadow: none !important;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28200,190,180,0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+.dropdown-menu {
+  background: #242120;
+  border: 1px solid #3a3530;
+  border-top: 2px solid var(--e-gold);
+  border-radius: 0 0 6px 6px;
+  padding: 4px 0;
+}
+
+.dropdown-item {
+  color: #c0b8af !important;
+  font-size: 13.5px;
+  padding: 7px 18px;
+  transition: background 0.12s;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background: #2e2a27 !important;
+  color: var(--e-gold-lt) !important;
+}
+
+/* ── 5. Buttons ────────────────────────────────────────────────────── */
+.btn-primary {
+  background: var(--e-ink) !important;
+  border: 1px solid var(--e-gold) !important;
+  color: var(--e-parchment) !important;
+  border-radius: 5px;
+  font-size: 13.5px;
+  font-family: 'Source Serif 4', serif;
+  padding: 8px 22px;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background: var(--e-gold) !important;
+  border-color: var(--e-gold) !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}
+
+/* ── 6. Landing Page ───────────────────────────────────────────────── */
+#divLanding {
+  background: var(--e-parchment);
+  height: calc(100vh - var(--hdr));
+  overflow-y: auto;
+  width: 100vw;
+  box-sizing: border-box;
+}
+
+/* Styled scrollbar — same as sidebar */
+#divLanding::-webkit-scrollbar {
+  width: 6px;
+  margin-right: 200%;
+}
+
+#divLanding::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#divLanding::-webkit-scrollbar-thumb {
+  background: var(--e-gold);
+  border-radius: 2px;
+
+}
+
+#divLanding::-webkit-scrollbar-thumb:hover {
+  background: var(--e-gold-lt);
+  cursor: pointer;
+}
+
+/* ── Vocabulary sidebar + main layout ────────────────────────────── */
+
+/* The .row inside #divVocContent becomes the flex shell */
+#divVocContent .row {
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 0;
+  align-items: stretch;
+}
+
+/* Remove the default Bootstrap card border/bg from the tree panel */
+#divVocContent .row>.col-md-5 .card {
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  height: 100%;
+}
+
+/* #divBig → scrollable main area */
+#divBig {
+  flex: 1 1 0;
+  min-width: 0;
+  overflow-y: auto;
+  height: calc(100vh - var(--hdr));
+  padding: 0;
+}
+
+/* When JS adds col-md-12 (detail-only view, no tree) */
+#divBig.col-md-12 {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+/* Card inside #divBig fills height */
+#divBig .card {
+  height: 100%;
+  border: none !important;
+  border-radius: 0 !important;
+  border-left: 1px solid var(--e-cream-dk) !important;
+  border-right: 3px solid var(--e-cream-dk);
+}
+
+/* Navbar header inside tree panel (spVocHeading) */
+#divVocContent .row>.col-md-5 .card-header,
+#divBig .card-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--e-cream) !important;
+  border-bottom: 1px solid var(--e-rule) !important;
+}
+
+#divVocContent .row>.col-md-5 .card::-webkit-scrollbar,
+#divBig .card::-webkit-scrollbar {
+  width: 6px;
+}
+
+#divVocContent .row>.col-md-5 .card::-webkit-scrollbar-track,
+#divBig .card::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#divVocContent .row>.col-md-5 .card::-webkit-scrollbar-thumb,
+#divBig .card::-webkit-scrollbar-thumb {
+  background: var(--e-gold);
+  border-radius: 2px;
+}
+
+#divVocContent .row>.col-md-5 .card::-webkit-scrollbar-thumb:hover,
+#divBig .card::-webkit-scrollbar-thumb:hover {
+  background: var(--e-gold-lt);
+}
+
+.welcome-banner {
+  background: var(--e-cream);
+  border-left: 4px solid var(--e-gold);
+  border-radius: 0 8px 8px 0;
+  padding: 16px 22px;
+  margin: 1.2rem 0 1.6rem;
+}
+
+.welcome-banner .lead {
+  color: var(--e-ink-soft);
+  font-size: 16px;
+  margin: 0;
+  line-height: 1.7;
+}
+
+/* Cards on landing page */
+.card {
+  background: var(--e-cream);
+  border: 1px solid var(--e-rule);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .04);
+}
+
+.card h4,
+.card .card-title {
+  font-family: 'Playfair Display', serif;
+  color: var(--e-ink);
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+
+/* Timeline */
+.timeline {
+  border-left: 3px solid var(--e-gold);
+  padding-left: 24px;
+  margin-left: 4px;
+}
+
+.timeline-item {
+  margin-bottom: 28px;
+  position: relative;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -31px;
+  top: 6px;
+  width: 11px;
+  height: 11px;
+  background: var(--e-gold);
+  border-radius: 50%;
+  border: 2px solid var(--e-parchment);
+}
+
+.timeline-item h4 {
+  color: var(--e-gold);
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+
+/* Category groups */
+.category-group {
+  background: var(--e-cream);
+  border: 1px solid var(--e-rule);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  height: 100%;
+}
+
+.category-group h3 {
+  font-size: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--e-rule);
+  margin-bottom: 16px;
+}
+
+.category-item {
+  border-bottom: 1px solid var(--e-cream-dk);
+  padding-bottom: 10px;
+  margin-bottom: 12px;
+}
+
+.category-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.category-item h4 {
+  font-size: 14.5px;
+  color: var(--e-ink-soft);
+  margin-bottom: 2px;
+}
+
+.category-item p {
+  font-size: 13.5px;
+  color: var(--e-ink-muted);
+  margin: 0;
+}
+
+/* Action card */
+.action-card {
+  background: var(--e-cream);
+  border: 1px solid var(--e-rule);
+  border-left: 4px solid var(--e-gold);
+  border-radius: 0 8px 8px 0;
+  padding: 22px;
+  height: 100%;
+}
+
+/* Bibliography */
+.bibliography-section {
+  margin-bottom: 32px;
+}
+
+.bibliography-section h3 {
+  font-size: 18px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--e-rule);
+  margin-bottom: 14px;
+}
+
+.section-intro {
+  color: var(--e-ink-muted);
+  font-size: 14px;
+  margin-bottom: 12px;
+  font-style: italic;
+}
+
+.bibliography-list {
+  padding-left: 18px;
+}
+
+.bibliography-list li {
+  margin-bottom: 14px;
+  color: var(--e-ink-soft);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.bibliography-list a,
+.project-link {
+  color: var(--e-blue);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.bibliography-list a:hover,
+.project-link:hover {
+  border-bottom-color: var(--e-blue);
+  text-decoration: none;
+}
+
+.section-title {
+  border-bottom: 2px solid var(--e-rule);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ── 7. Vocabulary View — Tabs ──────────────────────────────────────── */
+div#divLanding+div {
+  background: var(--e-parchment);
+  min-height: calc(100vh - 62px);
+}
+
+#nav-tab {
+  border-bottom: 2px solid var(--e-rule);
+  background: var(--e-cream);
+  padding: 0 12px;
+}
+
+#nav-tab .nav-link {
+  color: var(--e-ink-muted) !important;
+  font-family: 'Source Serif 4', serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  padding: 12px 20px;
+  margin-bottom: -2px;
+  background: transparent !important;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+#nav-tab .nav-link:hover {
+  color: var(--e-ink) !important;
+}
+
+#nav-tab .nav-link.active {
+  color: var(--e-ink) !important;
+  border-bottom: 4px solid var(--e-gold) !important;
+  background: transparent !important;
+}
+
+#nav-about {
+  padding: 32px 40px;
+  color: var(--e-ink-soft);
+  font-size: 14.5px;
+  line-height: 1.78;
+  height: calc(100vh - var(--hdr));
+  overflow-y: auto;
+  width: 100vw;
+  box-sizing: border-box;
+}
+
+#nav-about::-webkit-scrollbar {
+  width: 6px;
+  margin-right: 200%;
+}
+
+#nav-about::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#nav-about::-webkit-scrollbar-thumb {
+  background: var(--e-gold);
+  border-radius: 2px;
+}
+
+#nav-about::-webkit-scrollbar-thumb:hover {
+  background: var(--e-gold-lt);
+  cursor: pointer;
+}
+
+/* ── 8. Vocabulary View — Cards ─────────────────────────────────────── */
+#divVocContent {
+  padding: 16px 20px;
+  background: var(--e-parchment);
+}
+
+#divVocContent .card {
+  padding: 0;
+  margin-bottom: 0;
+  border: 1px solid var(--e-rule);
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, .05);
+  background: var(--e-parchment);
+}
+
+/* Search */
+#myInput {
+  border: 1px solid var(--e-rule);
+  border-right: none;
+  border-radius: 6px 0 0 6px;
+  font-family: 'Source Serif 4', serif;
+  font-size: 13.5px;
+  background: var(--e-parchment);
+  color: var(--e-ink);
+  padding: 7px 12px;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+#myInput:focus {
+  border-color: var(--e-gold);
+  background: #fff;
+  box-shadow: none;
+  outline: none;
+}
+
+#myInput::placeholder {
+  color: var(--e-ink-muted);
+}
+
+.input-group-text {
+  background: var(--e-cream);
+  border: 1px solid var(--e-rule);
+  border-left: none;
+  border-radius: 0 6px 6px 0;
+  color: var(--e-ink-muted);
+}
+
+/* Offcanvas */
+.offcanvas-header {
+  background: var(--e-cream);
+  border-bottom: 1px solid var(--e-rule);
+}
+
+.offcanvas-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--e-ink);
+}
+
+/* ── 9. Tree  ──────────────────────────────────────────────────────────
+   CRITICAL: .tree  .branch  .indicator  .currentHover  .active
+   These class names are added/removed by script_vocabularies.js.
+   Do NOT rename them.
+   ─────────────────────────────────────────────────────────────────── */
+
+/* ==========================================================
+   1. BASE STRUCTURE & RESETS
+   ========================================================== */
+.tree,
+.tree ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Hide indicator on root-level items */
+#root>i.indicator {
+  display: none;
+}
+
+/* ==========================================================
+   2. NESTING & CONNECTING LINES
+   ========================================================== */
+.tree ul ul {
+  margin-left: 0.75em;
+  /* Cleaner indentation */
+  padding-left: 1em;
+}
+
+.tree li {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+/* Horizontal line for nested items */
+.tree ul ul>li::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  /* Halfway down a standard ~28px button */
+  left: -1em;
+  width: 1em;
+  border-bottom: 1px solid var(--e-rule);
+}
+
+/* Vertical line for nested items */
+.tree ul ul>li::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -1em;
+  border-left: 1px solid var(--e-rule);
+}
+
+/* Cut off the vertical line precisely at the last child */
+.tree ul ul>li:last-child::after {
+  bottom: auto;
+  height: 14px;
+  /* Matches the top offset of the horizontal line */
+}
+
+/* ==========================================================
+   3. INTERACTIVE ELEMENTS (BUTTONS)
+   ========================================================== */
+.tree button {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  /* Full row width */
+  min-height: 28px;
+  padding: 4px 8px;
+  margin: 2px 0;
+
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--e-ink-soft);
+  text-align: left;
+
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  /* Professional rounded corners */
+  outline: none;
+  cursor: pointer;
+
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+/* The indicator/caret icon */
+.indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  margin-right: 6px;
+  color: var(--e-ink-muted);
+  font-size: 10px;
+  cursor: pointer;
+}
+
+/* Links inside the tree (if any) */
+.tree li a {
+  text-decoration: none;
+  color: var(--e-ink);
+}
+
+/* ==========================================================
+   4. STATES (HOVER, FOCUS, ACTIVE)
+   ========================================================== */
+
+/* Clean focus state for accessibility without ugly default borders */
+.tree button:focus-visible {
+  outline: 2px solid var(--e-rule);
+  outline-offset: -2px;
+}
+
+/* Hover States - handled by both JS classes and pure CSS */
+.tree button:hover,
+.currentHover>button {
+  background-color: var(--e-cream-dk);
+  color: var(--e-ink);
+}
+
+/* Prevent parent row from staying highlighted when hovering nested children */
+li.currentHover ul button {
+  background-color: transparent;
+}
+
+li.currentHover ul button:hover {
+  background-color: var(--e-cream-dk);
+}
+
+/* Active / Selected State */
+.tree button.active {
+  color: var(--e-parchment) !important;
+  background-color: var(--e-ink) !important;
+}
+
+
+/* -------------------------------- */
+/* End of tree. Next: detail panel. */
+
+/* ── 10. Detail Panel (.voc-details) ───────────────────────────────────
+   JS injects HTML into .voc-details elements.
+   Keep the class name. Style the HTML it generates.
+   ────────────────────────────────────────────────────────────────── */
+.voc-details {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 14px;
+  line-height: 1.78;
+  color: var(--e-ink);
+  padding: 48px 56px 80px;
+  animation: fadeIn .18s ease;
+}
+
+.voc-details h6 {
+  font-family: 'Playfair Display', serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--e-gold);
+  margin-bottom: 6px;
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.voc-details h6::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--e-rule);
+}
+
+.voc-details p {
+  color: var(--e-ink-soft);
+  margin-bottom: 8px;
+}
+
+.voc-details a {
+  color: var(--e-blue);
+  text-decoration: none;
+}
+
+.voc-details a:hover {
+  text-decoration: underline;
+}
+
+/* Tables generated by getVocDetails() */
+.voc-details .table {
+  border: 1px solid var(--e-rule);
+  border-radius: 6px;
+  overflow: hidden;
+  font-size: 13.5px;
+}
+
+.voc-details .table th {
+  font-family: 'Source Serif 4', serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--e-ink-muted);
+  background: var(--e-cream);
+  border-color: var(--e-rule);
+  padding: 9px 14px;
+  vertical-align: top;
+}
+
+.voc-details .table td {
+  border-color: var(--e-rule);
+  vertical-align: top;
+  color: var(--e-ink-soft);
+  padding: 9px 14px;
+  word-break: break-word;
+}
+
+.voc-details .table-hover tbody tr:hover>td {
+  background: var(--e-cream);
+}
+
+.voc-details .table.table-sm th,
+.voc-details .table.table-sm td {
+  padding: 7px 12px;
+}
+
+.voc-details .table-light,
+.voc-details .table-light th {
+  background: var(--e-cream) !important;
+}
+
+/* Badges generated by getVocDetails() */
+.voc-details .badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 3px 8px;
+  border-radius: 8px;
+}
+
+.voc-details .badge.bg-secondary {
+  background: var(--e-cream-dk) !important;
+  color: var(--e-ink-muted) !important;
+}
+
+.voc-details .fw-semibold {
+  font-weight: 600;
+  color: var(--e-blue);
+}
+
+.voc-details .text-muted {
+  color: var(--e-ink-muted) !important;
+  font-size: 12.5px;
+}
+
+.voc-details .small {
+  font-size: 12.5px !important;
+}
+
+/* ── 11. Admin Modal ────────────────────────────────────────────────── */
+.modal-header {
+  background: var(--e-cream);
+  border-bottom: 2px solid var(--e-rule);
+}
+
+.modal-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  color: var(--e-ink);
+}
+
+.modal-content {
+  border: 1px solid var(--e-rule);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.modal-body {
+  background: var(--e-parchment);
+}
+
+.modal .form-control,
+.modal .form-select {
+  border: 1px solid var(--e-rule);
+  background: var(--e-parchment);
+  font-size: 13.5px;
+  color: var(--e-ink);
+  border-radius: 5px;
+}
+
+.modal .form-control:focus,
+.modal .form-select:focus {
+  border-color: var(--e-gold);
+  box-shadow: none;
+}
+
+.modal .form-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--e-ink-muted);
+  margin-bottom: 5px;
+}
+
+.modal .table th {
+  background: var(--e-cream);
+  color: var(--e-ink-muted);
+  font-size: 11.5px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-color: var(--e-rule);
+}
+
+.modal .table td {
+  border-color: var(--e-rule);
+  font-size: 13.5px;
+  color: var(--e-ink-soft);
+  vertical-align: middle;
+}
+
+.modal .table-striped tbody tr:nth-of-type(odd)>* {
+  background-color: rgba(243, 237, 227, 0.4);
+}
+
+/* ── 12. Utilities ──────────────────────────────────────────────────── */
+.badge-custom {
+  background-color: var(--e-cream);
+  color: var(--e-ink);
+  border: 1px solid var(--e-rule);
 }
 
 .logo {
@@ -71,215 +938,348 @@ h4 {
 
 .logo img {
   width: 60px;
-  /* Adjust the width as needed */
   height: auto;
   margin-right: 10px;
-  /* Add some spacing between image and text */
 }
 
-.logo-text {
-  font-size: 24px;
-  /* Adjust font size as needed */
-  font-weight: bold;
+/* ── 13. Responsive ─────────────────────────────────────────────────── */
+@media (max-width: 991.98px) {
+  .header .navbar-collapse {
+    background: #242120;
+    padding: 12px 16px;
+    border-top: 1px solid #333;
+  }
+
+  .header .nav-link {
+    padding: 8px 4px !important;
+    border-bottom: 1px solid #2e2a27;
+  }
 }
 
-.nav-menu {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  background-color: #ffffff;
-  /* Set the background color as needed */
+@media (max-width: 767.98px) {
+  #divVocContent {
+    padding: 10px;
+  }
+
+  #nav-about {
+    padding: 20px 16px;
+  }
+
+  .category-group {
+    height: auto;
+  }
+
+  .action-card {
+    height: auto;
+  }
 }
 
-.menu-list {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-  margin: 0;
-  padding: 0;
-}
+@media (max-width: 575.98px) {
 
-.menu-list li span {
-  text-decoration: none;
-  color: #333333;
-  font-size: 16px;
-  transition: color 0.3s;
-  cursor: pointer;
-}
-
-.menu-list li span:hover {
-  color: #007bff;
-}
-
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-}
-
-
-.bar {
-  width: 30px;
-  height: 3px;
-  background-color: #333333;
-  margin: 3px 0;
-  transition: background-color 0.3s;
-}
-
-.tree,
-.tree ul {
-  margin: 0;
-  padding: 0;
-  list-style: none
-}
-
-.tree ul {
-  margin-left: 1em;
-  position: relative
-}
-
-.tree ul ul {
-  margin-left: .5em
-}
-
-.tree ul:before {
-  content: "";
-  display: block;
-  width: 0;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  border-left: 1px solid
-}
-
-.tree li {
-  margin: 0;
-  padding: 0 1em;
-  line-height: 2em;
-  color: #212529;
-  font-weight: 700;
-  position: relative;
-  cursor: pointer;
-}
-
-.tree ul li:before {
-  content: "";
-  display: block;
-  width: 10px;
-  height: 0;
-  border-top: 1px solid;
-  margin-top: -1px;
-  position: absolute;
-  top: 1em;
-  left: 0
-}
-
-.tree ul li:last-child:before {
-  background: #fff;
-  height: auto;
-  top: 1em;
-  bottom: 0
-}
-
-/* .tree ul li:hover {
-    background-color: lightblue;
-  } */
-
-.currentHover button {
-  background-color: #ffffff !important;
-}
-
-li.currentHover ul button {
-  background-color: white !important;
-}
-
-.tree button {
-  width: 80%;
-  text-align: left;
-}
-
-.tree button.active {
-  color: #fff !important;
-  background-color: #56aeff !important;
-}
-
-.indicator {
-  margin-right: 5px;
-}
-
-.tree li a {
-  text-decoration: none;
-  color: #212529;
-}
-
-.tree li button,
-.tree li button:active,
-.tree li button:focus {
-  text-decoration: none;
-  color: #212529;
-  border: none;
-  background: transparent;
-  margin: 0px 0px 0px 0px;
-  padding: 0px 0px 0px 0px;
-  outline: 0;
-}
-
-/* Media Queries for Responsiveness */
-@media screen and (max-width: 768px) {
-  .menu-list {
-    display: none;
-    flex-direction: column;
-    background-color: #ffffff;
-    position: absolute;
-    top: 100%;
-    left: 0;
+  .voc-details .table,
+  .voc-details .table tbody,
+  .voc-details .table tr,
+  .voc-details .table th,
+  .voc-details .table td {
+    display: block;
     width: 100%;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
 
-  .menu-list.active {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: flex;
-  }
-
-  .menu-toggle.active .bar {
-    background-color: #007bff;
-  }
-
-  .logo {
-    font-size: 1.2rem;
-  }
-
-  .cta-button {
-    font-size: 0.9rem;
+  .voc-details .table th {
+    border-bottom: none;
   }
 }
 
+/* ── Only apply fixed sidebar on md+ screens ─────────────────────── */
+@media (min-width: 768px) {
+  #divVocContent .row>.col-md-5 {
+    flex: 0 0 var(--sidebar-w);
+    width: var(--sidebar-w);
+    max-width: var(--sidebar-w);
+    padding: 0;
+    background: var(--e-cream);
+    border-right: 1px solid var(--e-cream-dk);
+    position: sticky;
+    top: var(--hdr);
+    height: calc(100vh - var(--hdr));
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 50;
+  }
 
-.section-title {
-  border-bottom: 2px solid #dee2e6;
-  padding-bottom: 0.5rem;
-  margin-bottom: 1.5rem;
+  #divBig {
+    flex: 1 1 0;
+    min-width: 0;
+    overflow-y: auto;
+    height: calc(100vh - var(--hdr));
+  }
 }
 
-.badge-custom {
-  background-color: #f8f9fa;
-  color: #212529;
-  border: 1px solid #dee2e6;
+/* ── On small screens restore normal Bootstrap scroll ─────────────── */
+@media (max-width: 767.98px) {
+  #divVocContent .row {
+    flex-wrap: wrap;
+    /* restore Bootstrap wrapping */
+  }
+
+  #divVocContent .row>.col-md-5 {
+    width: 100%;
+    max-width: 100%;
+    height: calc(100vh - var(--hdr));
+    /* ← constrains height so overflow triggers */
+    overflow-y: auto;
+    position: static;
+  }
+
+  #divBig {
+    width: 100%;
+    max-width: 100%;
+    max-height: 50vh;
+    /* ← same for detail panel */
+    overflow-y: auto;
+    position: static;
+  }
 }
 
-.project-link {
-  color: #212529;
-  text-decoration: none;
-  border-bottom: 1px solid #dee2e6;
+/* ── Detail Panel — EPONT styled ────────────────────────────────── */
+.eyebrow {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--e-gold);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.project-link:hover {
-  border-bottom-color: #212529;
+.eyebrow::after {
+  content: '';
+  height: 1px;
+  flex: 1;
+  background: var(--e-rule);
+}
+
+.det-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 700;
+  color: var(--e-ink);
+  line-height: 1.15;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.det-iri {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  color: var(--e-blue);
+  word-break: break-all;
+  margin-bottom: 22px;
+}
+
+.det-iri a {
+  color: var(--e-blue);
+}
+
+.det-def {
+  font-size: 15px;
+  line-height: 1.78;
+  color: var(--e-ink-soft);
+  margin-bottom: 26px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--e-rule);
+}
+
+/* Info table (replaces table-hover for metadata rows) */
+.info-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin-bottom: 28px;
+  border: 1px solid var(--e-rule);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.info-tbl tr:nth-child(even) td {
+  background: var(--e-cream);
+}
+
+.info-tbl td {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--e-rule);
+  vertical-align: top;
+}
+
+.info-tbl tr:last-child td {
+  border-bottom: none;
+}
+
+.info-tbl .ik {
+  width: 160px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--e-ink-muted);
+  border-right: 1px solid var(--e-rule);
+  white-space: nowrap;
+}
+
+.info-tbl .iv {
+  color: var(--e-ink);
+  word-break: break-word;
+}
+
+.info-tbl a {
+  color: var(--e-blue);
+}
+
+/* Section heading */
+.sec-hd {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--e-ink);
+  margin: 28px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--e-ink);
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sec-hd .cnt {
+  font-family: 'Source Serif 4', serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--e-ink-muted);
+}
+
+/* Property cards */
+.prop-card {
+  border: 1px solid var(--e-rule);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  transition: box-shadow .15s;
+}
+
+.pc-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--e-cream);
+  border-bottom: 1px solid var(--e-rule);
+  cursor: pointer;
+  flex-wrap: wrap;
+}
+
+.pc-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--e-red);
+  flex: 1;
+  min-width: 120px;
+}
+
+.pc-body {
+  padding: 12px 16px;
+}
+
+.pc-fl {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--e-ink-muted);
+  margin-bottom: 3px;
+}
+
+.pc-fv {
+  font-size: 13.5px;
+  color: var(--e-ink-soft);
+  line-height: 1.5;
+}
+
+.pc-fv a {
+  color: var(--e-blue);
+}
+
+/* Badges */
+.ebadge {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 2px 8px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.b-top {
+  background: #dde9f5;
+  color: var(--e-blue);
+  border: 1px solid #b2c8de;
+}
+
+.b-sub {
+  background: #f5dde0;
+  color: var(--e-red);
+  border: 1px solid #deb2b8;
+}
+
+.b-crm {
+  background: #f0e8d5;
+  color: #7a4e1d;
+  border: 1px solid #deb28c;
+}
+
+
+.prop-def {
+  font-size: 11.5px;
+  background: var(--e-cream);
+  border: 1px solid var(--e-rule);
+  border-radius: 5px;
+  padding: 10px 14px;
+  line-height: 1.9;
+  word-break: break-word;
+  margin-top: 10px;
+}
+
+.prop-def .prop-def-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--e-ink-muted);
+  font-family: 'Source Serif 4', serif;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* Mobile stacking for info-tbl */
+@media (max-width: 575.98px) {
+
+  .info-tbl,
+  .info-tbl tbody,
+  .info-tbl tr,
+  .info-tbl td {
+    display: block;
+    width: 100%;
+  }
+
+  .info-tbl .ik {
+    border-right: none;
+    border-bottom: 1px solid var(--e-cream-dk);
+  }
 }

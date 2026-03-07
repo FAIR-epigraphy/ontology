@@ -13,71 +13,79 @@ var hasTree = false;
 // Initialize the treeview
 $.fn.extend({
     treed: function (o) {
-
-        var openedClass = 'bi bi-caret-down-fill';
-        var closedClass = 'bi bi-caret-right-fill';
+        // Kept the 'bi' class separate to make toggling cleaner
+        var openedClass = 'bi-caret-down-fill';
+        var closedClass = 'bi-caret-right-fill';
 
         if (typeof o != 'undefined') {
-            if (typeof o.openedClass != 'undefined') {
-                openedClass = o.openedClass;
-            }
-            if (typeof o.closedClass != 'undefined') {
-                closedClass = o.closedClass;
-            }
-        };
+            if (typeof o.openedClass != 'undefined') openedClass = o.openedClass;
+            if (typeof o.closedClass != 'undefined') closedClass = o.closedClass;
+        }
 
-        //initialize each of the top levels
         var tree = $(this);
-        tree.children().off();
-
-        //tree.html('')
         tree.addClass("tree");
+
+        // Clean up old events to prevent double-firing if initialized multiple times
+        tree.off('click');
+
+        // 1. Initialize DOM structure safely
         tree.find('li').has("ul").each(function () {
-            var branch = $(this); //li with children ul
-            branch.prepend(`<i class='indicator ${closedClass}'></i>`);
+            var branch = $(this);
             branch.addClass('branch');
-            branch.on('click', function (e) {
-                e.preventDefault();
-                if (this == e.target) {
-                    var icon = $(this).children('i:first');
-                    icon.toggleClass(openedClass + " " + closedClass);
-                    $(this).children().children().toggle();
+
+            var button = branch.children('button').first();
+
+            // Check if this is a top-level root node
+            var isRoot = branch.parent().is(tree);
+
+            // If it's the root node, leave it OPEN by default
+            if (isRoot) {
+                if (button.length > 0) {
+                    button.prepend(`<i class='indicator bi ${openedClass}'></i>`);
+                } else {
+                    branch.prepend(`<i class='indicator bi ${openedClass}'></i>`);
                 }
-            })
-            branch.children().children().toggle();
-        });
-        //fire event from the dynamically added icon
-        tree.find('.branch .indicator').each(function () {
-            $(this).on('click', function () {
-                $(this).closest('li').click();
-            });
-        });
-        //fire event to open branch if the li contains an anchor instead of text
-        tree.find('.branch>a').each(function () {
-            $(this).on('click', function (e) {
-                $(this).closest('li').click();
-                e.preventDefault();
-            });
-        });
-        //fire event to open branch if the li contains a button instead of text
-        tree.find('.branch>button').each(function () {
-            $(this).on('click', function (e) {
-                $(this).closest('li').click();
-                e.preventDefault();
-            });
+                branch.children('ul').show(); // Keep the root expanded
+            }
+            // If it's a nested node, COLLAPSE it by default
+            else {
+                if (button.length > 0) {
+                    button.prepend(`<i class='indicator bi ${closedClass}'></i>`);
+                } else {
+                    branch.prepend(`<i class='indicator bi ${closedClass}'></i>`);
+                }
+                branch.children('ul').hide(); // Collapse the nested lists safely
+            }
         });
 
-        tree.find('button').each(function () {
-            $(this).on('click', function (e) {
-                $('.tree button').removeClass('active')
-                $(this).closest('button').addClass('active');
-                //console.log($(this).parent().attr('id'))
-                getVocDetails($(this).parent().attr('id'))
-                e.preventDefault();
-            });
+        // 2. Click event: The Indicator (expands/collapses folder)
+        tree.on('click', '.indicator', function (e) {
+            e.preventDefault();
+            e.stopPropagation(); // Prevents the button highlight event from triggering
+
+            var icon = $(this);
+            icon.toggleClass(`${openedClass} ${closedClass}`);
+
+            // Toggle the visibility of the nested list
+            icon.closest('li').children('ul').toggle();
+        });
+
+        // 3. Click event: The Button (highlights row and fetches data)
+        tree.on('click', 'button', function (e) {
+            e.preventDefault();
+            var button = $(this);
+            var parentLi = button.closest('li');
+
+            // Set active highlight state visually
+            $('.tree button').removeClass('active');
+            button.addClass('active');
+
+            // Trigger your custom RDF detail fetching function
+            getVocDetails(parentLi.attr('id'), parentLi.attr('value'));
         });
 
         hasTree = true;
+        return this; // Standard jQuery practice to allow chaining
     }
 });
 //////////////////////////////////////////////////////////////////////////////
@@ -167,13 +175,15 @@ function callVocabulary(voc) {
     if (fileName !== "") {
         await loadData(fileName);
         if (isShowIRI) {
-            getVocDetails(window.location.href.replace('#', ''));
             $('div#divLanding').hide();
             $('div#divLanding').next().show();
             $('div#divVocContent').show();
-            $('div#divBig').prev().hide();
-            $('div#divBig').removeClass('col-md-7');
-            $('div#divBig').addClass('col-md-12');
+            $('div#divBig').prev().show(); // Keep tree visible
+            $('div#divBig').removeClass('col-md-12').addClass('col-md-7');
+            
+            // Use the new tree expansion logic
+            let currentIri = window.location.href.replace('#', '');
+            expandAndSelectTreeNode(currentIri);
         }
     }
     else {
@@ -229,7 +239,7 @@ async function call() {
 }
 
 
-async function getVocDetails(iri) {
+async function getVocDetails(iri, title = '') {
     let appendPrefixes = '';
 
     for (const [key, value] of Object.entries(allPrefixes)) {
@@ -264,35 +274,18 @@ async function getVocDetails(iri) {
     ////////////////////////////////////////////
     let parts = iri.split('/');
     let lastEle = parts[parts.length - 1];
-    let detailHTML = `<h6 class="fw-bold">IRI</h6>
-                    <p><a href="${iri}" target="_blank"> ${iri} <i class="bi bi-box-arrow-up-right"></i></a></p>
-                    <table class="table table-hover">
-                    <tbody>`;
     let label = detailsArray.filter(x => x.get('pred').value.includes('prefLabel'));
-
-    if (label.length > 0) {
-        key = label[0].get('pred').value.split('/').pop().split('#').pop().replace(/([A-Z])/g, ' $1').trim();
-        value = label[0].get('obj').id;
-        detailHTML += `
-                        <tr>
-                            <th scope="row" style="width: 20%;" class="text-capitalize">${key}</th>
-                            <td>${value}</td>
-                        </tr>
-                    `;
-    }
-
     let description = detailsArray.filter(x => x.get('pred').value.includes('definition'));
 
-    if (description.length > 0) {
-        key = description[0].get('pred').value.split('/').pop().split('#').pop().replace(/([A-Z])/g, ' $1').trim();
-        value = description[0].get('obj').value;
-        detailHTML += `
-                        <tr>
-                            <th scope="row" style="width: 20%;" class="text-capitalize">${key}</th>
-                            <td>${value}</td>
-                        </tr>
-                    `;
-    }
+    let detailHTML = `
+                    <div class="eyebrow"><i class="bi bi-box me-1"></i>Vocabulary Term</div>
+                    <div class="det-title" id="det-label-placeholder">${label.length > 0 ? label[0].get('obj').value : 'No preferred label available.'}</div>
+                    <div class="det-iri">
+                        <i class="bi bi-link-45deg me-1"></i>
+                        <a href="${iri}" target="_blank">${iri} <i class="bi bi-box-arrow-up-right" style="font-size:10px"></i></a>
+                    </div>
+                    <div class="det-def" bis_skin_checked="1">${description.length > 0 ? `${description[0].get('obj').value.replaceAll('<', '&lt;').replaceAll('>', '&gt;')}` : 'No description available.'}</div>
+                    <table class="info-tbl"><tbody>`;
 
     for (let d of detailsArray) {
         if (!d.get('pred').value.includes('prefLabel') && !d.get('pred').value.includes('definition')) {
@@ -311,10 +304,10 @@ async function getVocDetails(iri) {
             if (!value.includes('owl#Thing')) {
                 detailHTML += `
                         <tr>
-                            <th scope="row" style="width: 20%;" class="text-capitalize">
+                            <td class="ik" scope="row" style="width: 20%;" class="text-capitalize">
                                 ${key}
-                            </th>
-                            <td style="overflow-wrap: break-word;">${value}</td>
+                            </td>
+                            <td class="iv" style="overflow-wrap: break-word;">${value}</td>
                         </tr>
                 `;
             }
@@ -344,20 +337,10 @@ async function getVocDetails(iri) {
 
     if (outProps.length > 0) {
         detailHTML += `
-            <h6 class="fw-bold mt-4">
-                Properties
-                <span class="badge bg-secondary fw-normal ms-1">${outProps.length}</span>
-            </h6>
-            <p class="text-muted small mb-2">Properties whose domain is this class — what you can assert about its instances.</p>
-            <table class="table table-hover table-sm">
-                <thead class="table-light">
-                    <tr>
-                        <th style="width:22%;">Property</th>
-                        <th style="width:20%;">Range</th>
-                        <th>Definition</th>
-                    </tr>
-                </thead>
-                <tbody>`;
+            <div class="sec-hd">
+                <i class="bi bi-arrow-right-circle me-1"></i>Properties
+                <span class="cnt">${outProps.length} propert${outProps.length === 1 ? 'y' : 'ies'}</span>
+            </div>`;
 
         for (let p of outProps) {
             let propIri = p.get('prop').value;
@@ -371,15 +354,30 @@ async function getVocDetails(iri) {
                 : '—';
 
             detailHTML += `
-                <tr>
-                    <td>
-                        <a href="${propIri}" target="_blank" class="fw-semibold text-decoration-none">
-                            ${propLabel}
-                        </a>
-                    </td>
-                    <td>${rangeCell}</td>
-                    <td class="text-muted small">${propDef}</td>
-                </tr>`;
+                    <div class="prop-card">
+                        <div class="pc-head">
+                            <span class="pc-name"><i class="bi bi-arrow-right me-1"></i>${propLabel}</span>
+                        </div>
+                        <div class="pc-body">
+                            <div class="row g-2">
+                              ${propIri ? `<div class="col-12 col-sm-6">
+                                    <div class="pc-fl"><i class="bi bi-link-45deg me-1"></i>IRI</div>
+                                    <div class="pc-fv"><a href="${propIri}" target="_blank">${propIri} <i class="bi bi-box-arrow-up-right"></i></a></div>
+                                </div>` : ''}
+                                ${rangeIri ? `
+                                <div class="col-12 col-sm-6">
+                                    <div class="pc-fl"><i class="bi bi-arrow-right me-1"></i>Range</div>
+                                    <div class="pc-fv">${rangeCell}</div>
+                                </div>` : ''}
+                                ${propDef ? `</div><div class="row">
+                                <div class="col-12">
+                                    <div class="prop-def">
+                                        <span class="prop-def-title"><i class="bi bi-card-text me-1"></i> Definition</span>
+                                        <span>${propDef}</span>
+                                    </div>
+                                </div></div>` : ''}
+                        </div>
+                    </div>`;
         }
 
         detailHTML += `</tbody></table>`;
@@ -404,19 +402,10 @@ async function getVocDetails(iri) {
 
     if (inProps.length > 0) {
         detailHTML += `
-            <h6 class="fw-bold mt-4">
-                Incoming Properties
-                <span class="badge bg-secondary fw-normal ms-1">${inProps.length}</span>
-            </h6>
-            <p class="text-muted small mb-2">Properties whose range is this class — what other classes link to it.</p>
-            <table class="table table-hover table-sm">
-                <thead class="table-light">
-                    <tr>
-                        <th style="width:22%;">Property</th>
-                        <th>Domain (source class)</th>
-                    </tr>
-                </thead>
-                <tbody>`;
+            <div class="sec-hd mt-4">
+                <i class="bi bi-arrow-left-circle me-1"></i>Incoming Properties
+                <span class="cnt">${inProps.length} propert${inProps.length === 1 ? 'y' : 'ies'}</span>
+            </div>`;
 
         for (let p of inProps) {
             let propIri = p.get('prop').value;
@@ -429,14 +418,15 @@ async function getVocDetails(iri) {
                 : '—';
 
             detailHTML += `
-                <tr>
-                    <td>
-                        <a href="${propIri}" target="_blank" class="fw-semibold text-decoration-none">
-                            ${propLabel}
-                        </a>
-                    </td>
-                    <td>${domainCell}</td>
-                </tr>`;
+                    <div class="prop-card">
+                        <div class="pc-head">
+                            <span class="pc-name"><i class="bi bi-arrow-left me-1"></i>${propLabel}</span>
+                        </div>
+                        <div class="pc-body">
+                            <div class="pc-fl"><i class="bi bi-arrow-left me-1"></i>Domain</div>
+                            <div class="pc-fv">${domainCell}</div>
+                        </div>
+                    </div>`;
         }
 
         detailHTML += `</tbody></table>`;
@@ -573,7 +563,7 @@ async function displayMainClasses(classes, allClasses) {
 async function manageParentChildRel(c, label, des, allClasses, altLabels) {
     let list = '';
     let children = allClasses.filter(x => x.get('supertype').value === c)
-    list += `<li id="${c}">
+    list += `<li id="${c}" value="${label}">
                     <button>
                         ${label}
                         <span class="d-none">${des}</span>
@@ -636,4 +626,39 @@ async function download() {
         console.error(error); // Handle any error that might occur during file loading
     }
 
+}
+
+async function expandAndSelectTreeNode(iri) {
+    // 1. Find the list item (li) with the exact ID matching the IRI
+    // We use the attribute selector `[id="..."]` because IRIs contain special characters like / and :
+    var targetLi = $(`li[id="${iri}"]`);
+    
+    if (targetLi.length > 0) {
+        // 2. Expand all parent <ul> elements so the node becomes visible
+        targetLi.parents('ul').show();
+        
+        // 3. Change the indicator icons of all parent branches from closed to open
+        targetLi.parents('li.branch').each(function() {
+            var icon = $(this).find('.indicator').first();
+            icon.removeClass('bi-caret-right-fill').addClass('bi-caret-down-fill');
+        });
+        
+        // 4. Highlight the specific button and fetch its details
+        var targetButton = targetLi.children('button').first();
+        if (targetButton.length > 0) {
+            // Simulating a click triggers your existing logic to highlight it and call getVocDetails()
+            targetButton.click();
+            
+            // 5. Smoothly scroll the tree container so the highlighted item is in view
+            var treeContainer = $('#tree').closest('.card-body');
+            if (treeContainer.length > 0) {
+                treeContainer.animate({
+                    scrollTop: targetButton.offset().top - treeContainer.offset().top + treeContainer.scrollTop() - 50
+                }, 500);
+            }
+        }
+    } else {
+        // Fallback: If the node isn't found in the tree, just load the details normally
+        getVocDetails(iri);
+    }
 }
