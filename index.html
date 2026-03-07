@@ -787,6 +787,10 @@
                                 $('div#divLanding').next().show();
                                 $('div#divVocContent').show();
 
+                                $('#nav-about').load(`../${menu.name}/about.html`);
+                                $('#spVocDownload').html(`<span onclick="download('${routeName}')" title="Download Vocabulary"
+                            class="float-end fs-4 bi bi-download fw-bold" style="cursor: pointer;"></span>`);
+
                                 // THE FIX: Show the tree column instead of hiding it
                                 $('div#divBig').prev().show();
                                 $('div#divBig').removeClass('col-md-12').addClass('col-md-7');
