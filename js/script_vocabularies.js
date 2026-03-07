@@ -628,28 +628,28 @@ async function download() {
 
 }
 
-async function expandAndSelectTreeNode(iri) {
-    // 1. Find the list item (li) with the exact ID matching the IRI
-    // We use the attribute selector `[id="..."]` because IRIs contain special characters like / and :
-    var targetLi = $(`li[id="${iri}"]`);
+async function expandAndSelectTreeNode(iri, attempts = 0) {
+    // 1. Safely find the node. document.getElementById handles complex URL strings perfectly.
+    var targetLi = $(document.getElementById(iri));
     
+    // 2. If the node exists, do the expansion!
     if (targetLi.length > 0) {
-        // 2. Expand all parent <ul> elements so the node becomes visible
+        // Expand all parent <ul> wrappers
         targetLi.parents('ul').show();
         
-        // 3. Change the indicator icons of all parent branches from closed to open
+        // Flip all parent folder icons to the 'open' state
         targetLi.parents('li.branch').each(function() {
             var icon = $(this).find('.indicator').first();
             icon.removeClass('bi-caret-right-fill').addClass('bi-caret-down-fill');
         });
         
-        // 4. Highlight the specific button and fetch its details
+        // Highlight the target button
         var targetButton = targetLi.children('button').first();
         if (targetButton.length > 0) {
-            // Simulating a click triggers your existing logic to highlight it and call getVocDetails()
-            targetButton.click();
+            $('.tree button').removeClass('active');
+            targetButton.addClass('active');
             
-            // 5. Smoothly scroll the tree container so the highlighted item is in view
+            // Scroll the tree so the item is visible
             var treeContainer = $('#tree').closest('.card-body');
             if (treeContainer.length > 0) {
                 treeContainer.animate({
@@ -657,8 +657,18 @@ async function expandAndSelectTreeNode(iri) {
                 }, 500);
             }
         }
-    } else {
-        // Fallback: If the node isn't found in the tree, just load the details normally
+    } 
+    // 3. IF NOT FOUND: The DOM is still rendering. Try again!
+    else if (attempts < 20) { 
+        // Wait 100 milliseconds, then run this exact function again.
+        // It will try up to 20 times (2 seconds total) before giving up.
+        setTimeout(() => {
+            expandAndSelectTreeNode(iri, attempts + 1);
+        }, 100);
+    } 
+    // 4. FALLBACK: If 2 seconds pass and it STILL isn't there, just load the details
+    else {
+        console.warn("Tree node not found after rendering: " + iri);
         getVocDetails(iri);
     }
 }
