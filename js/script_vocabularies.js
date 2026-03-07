@@ -648,6 +648,7 @@ async function expandAndSelectTreeNode(iri, attempts = 0) {
         if (targetButton.length > 0) {
             $('.tree button').removeClass('active');
             targetButton.addClass('active');
+            targetButton.click()
             
             // Scroll the tree so the item is visible
             var treeContainer = $('#tree').closest('.card-body');
