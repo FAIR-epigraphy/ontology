@@ -8,7 +8,7 @@
     <title>FAIR Epigraphic Vocabularies/Ontologies
     </title>
     <link href="../css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-    <link href="../css/bootstrap-icons.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
@@ -20,6 +20,8 @@
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../css/style_toi.css">
+    <link rel="stylesheet" href="../css/ontoviz.css">
+
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
 </head>
 
@@ -28,9 +30,11 @@
         <nav class="navbar navbar-expand-lg bg-light w-100">
             <div class="container-fluid">
                 <!-- Brand/Logo -->
-                <a class="navbar-brand d-flex align-items-center" href="#">
+                <a class="navbar-brand d-flex align-items-center" href="/">
                     <img src="../images/logo.png" alt="Your Logo" style="height: 40px;">
-                    <div class="logo-text ms-2">FAIR <em class="brand-em">Epigraphy</em></div>
+                    <div class="logo-text ms-2">FAIR <em class="brand-em">Epigraphy</em>
+                        <span id="spTitlePath" class="text-capitalize"></span>
+                    </div>
                 </a>
 
                 <!-- Toggler -->
@@ -623,11 +627,11 @@
     <div style="display: none;">
         <nav>
             <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
-                <button class="nav-link active fs-6" id="nav-about-tab" data-bs-toggle="tab" data-bs-target="#nav-about"
+                <button class="nav-link active" id="nav-about-tab" data-bs-toggle="tab" data-bs-target="#nav-about"
                     type="button" role="tab"><i class="bi bi-book"></i> About</button>
-                <button class="nav-link fs-6" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-voc"
+                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-voc"
                     type="button" role="tab"><i class="bi bi-diagram-3"></i> Vocabulary</button>
-                <button class="nav-link fs-6" id="spVocDownload" type="button" role="tab"></button>
+                <button class="nav-link" id="spVocDownload" type="button" role="tab"></button>
             </div>
         </nav>
         <div class="tab-content" id="nav-tabContent">
@@ -639,19 +643,52 @@
                     <div class="row g-0">
                         <div class="col-md-5">
                             <div class="card overflow-auto border-0">
+                                <div class="nav nav-tabs sticky-top" id="nav-tab-sidebar" role="tablist">
+                                    <button class="nav-link active" id="nav-class-tab" data-bs-toggle="tab"
+                                        data-bs-target="#nav-classes" type="button" role="tab"
+                                        onclick="$('#nav-properties').hide(); $('#nav-classes').show()"><i
+                                            class="bi bi-bar-chart-steps"></i>
+                                        Classes</button>
+                                    <button class="nav-link" id="nav-properties-tab" data-bs-toggle="tab"
+                                        data-bs-target="#nav-properties" type="button" role="tab"
+                                        onclick="$('#nav-classes').hide(); $('#nav-properties').show()"
+                                        style="display: none;"><i class="bi bi-arrow-left-right me-1"></i>
+                                        Properties</button>
+                                    <button class="nav-link" id="btnOntoViz" type="button">
+                                        <i class="bi bi-claude"></i> OntoViz
+                                    </button>
+                                </div>
                                 <div class="card-body mb-5">
-                                    <div class="input-group mb-3">
-                                        <input id="myInput" class="form-control" type="search" placeholder="Search.." />
-                                        <span class="input-group-text" id="inputGroup-sizing-default">
-                                            <i class="bi bi-search"></i>
-                                        </span>
-                                    </div>
-                                    <ul id="tree" class="mb-5">
-                                        <li id="root">
-                                            <!-- <button>-</button> -->
+                                    <div id="nav-classes">
+                                        <div class="input-group mb-3">
+                                            <input id="myInput" class="form-control" type="search"
+                                                placeholder="Search.." />
+                                            <span class="input-group-text" id="inputGroup-sizing-default">
+                                                <i class="bi bi-search"></i>
+                                            </span>
+                                        </div>
+                                        <ul id="tree" class="mb-5">
+                                            <li id="root">
+                                                <!-- <button>-</button> -->
 
-                                        </li>
-                                    </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div id="nav-properties" style="display: none;">
+                                        <div class="input-group mb-3">
+                                            <input id="myInputProp" class="form-control" type="search"
+                                                placeholder="Search.." />
+                                            <span class="input-group-text" id="inputGroup-sizing-default1">
+                                                <i class="bi bi-search"></i>
+                                            </span>
+                                        </div>
+                                        <ul id="treeProp" class="mb-5">
+                                            <li id="rootProp">
+                                                <!-- <button>-</button> -->
+
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -702,6 +739,8 @@
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <!-- D3 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
 
     <script src="js/firebase.js"></script>
     <script src="js/ghConfig.js"></script>
@@ -715,9 +754,286 @@
     <script src="../js/comunica-browser.js"></script>
     <script src="../js/script_vocabularies.js"></script>
 
+    <script src="../js/ontoviz.js"></script>
+
     <div id="divAdmin"></div>
 
+    <div id="ontoviz" style="display: none;">
+        <div style="margin: -40px -48px -80px;">
+            <!-- ══════════════════════════════════════════
+             TOP BAR
+            ════════════════════════════════════════════ -->
+            <div id="topbar">
+                <div class="tb-div"></div>
+
+                <div class="sw">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                    <input id="search" type="search" placeholder="Search classes…" disabled>
+                </div>
+                <div class="tb-div"></div>
+
+                <div class="ns-row" id="ns-row"></div>
+                <div class="tb-div"></div>
+
+                <div class="tbar">
+                    <button class="tbtn on" id="btn-sc" disabled>SubClass</button>
+                    <button class="tbtn on" id="btn-op" disabled>Properties</button>
+                    <button class="tbtn" id="btn-el" disabled>Edge Labels</button>
+                    <button class="tbtn" id="btn-rl" disabled>↺ Reset</button>
+                    <button class="tbtn" id="btn-lk" disabled>⊞ Lock</button>
+                </div>
+            </div>
+
+            <!-- ══════════════════════════════════════════
+                WORKSPACE
+            ════════════════════════════════════════════ -->
+            <div id="workspace">
+
+                <!-- ── GRAPH AREA ── -->
+                <div id="gw">
+                    <!-- Waiting state — shown until processText() or renderFromStore() is called -->
+                    <div id="dropzone">
+                        <div class="wait-state">
+                            <div class="wait-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="var(--b-primary)" stroke-width="1.5">
+                                    <circle cx="12" cy="12" r="9" />
+                                    <path d="M8 12h4l2-4" />
+                                </svg>
+                            </div>
+                            <div class="wait-title">Ontology Graph Explorer</div>
+                            <div class="wait-sub">Initialising…</div>
+                        </div>
+                    </div>
+
+                    <!-- Loading spinner -->
+                    <div id="loading">
+                        <div class="ld-spin"></div>
+                        <div id="ld-msg">Parsing ontology…</div>
+                        <div id="ld-sub">Please wait</div>
+                    </div>
+
+                    <!-- Graph SVG -->
+                    <svg id="graph" class="hidden">
+                        <defs>
+                            <marker id="arr-sub" markerWidth="10" markerHeight="10" refX="9" refY="3.5" orient="auto">
+                                <path d="M1 1L9 3.5L1 6.5" fill="none" stroke="#1a3f6f" stroke-width="1.5"
+                                    stroke-opacity=".75" />
+                            </marker>
+                            <marker id="arr-obj" markerWidth="10" markerHeight="10" refX="9" refY="3.5" orient="auto">
+                                <path d="M1 1L9 3.5L1 6.5" fill="none" stroke="#1a6bbf" stroke-width="1.5"
+                                    stroke-opacity=".65" />
+                            </marker>
+                            <marker id="arr-sub-h" markerWidth="10" markerHeight="10" refX="9" refY="3.5" orient="auto">
+                                <path d="M1 1L9 3.5L1 6.5" fill="none" stroke="#1a3f6f" stroke-width="2.2" />
+                            </marker>
+                            <marker id="arr-obj-h" markerWidth="10" markerHeight="10" refX="9" refY="3.5" orient="auto">
+                                <path d="M1 1L9 3.5L1 6.5" fill="none" stroke="#1a6bbf" stroke-width="2.2" />
+                            </marker>
+                        </defs>
+                        <g id="gg"></g>
+                    </svg>
+
+                    <!-- Zoom controls -->
+                    <div id="zpanel">
+                        <div class="zb" id="zb-in" title="Zoom in">
+                            <svg viewBox="0 0 24 24">
+                                <line x1="12" y1="5" x2="12" y2="19" />
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                            </svg>
+                        </div>
+                        <div class="zb" id="zb-out" title="Zoom out">
+                            <svg viewBox="0 0 24 24">
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                            </svg>
+                        </div>
+                        <div class="zb" id="zb-fit" title="Fit all nodes">
+                            <svg viewBox="0 0 24 24">
+                                <polyline points="15 3 21 3 21 9" />
+                                <polyline points="9 21 3 21 3 15" />
+                                <line x1="21" y1="3" x2="14" y2="10" />
+                                <line x1="3" y1="21" x2="10" y2="14" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Stats bar -->
+                    <div id="stats">
+                        <div class="spill"><strong id="s-cls">0</strong>classes</div>
+                        <div class="spill"><strong id="s-edg">0</strong>edges</div>
+                        <div class="spill"><strong id="s-sub">0</strong>subClassOf</div>
+                        <div class="spill"><strong id="s-obj">0</strong>properties</div>
+                    </div>
+
+                    <!-- Hint -->
+                    <div id="hint">
+                        Scroll to zoom · Drag canvas to pan · Hover for tooltip · Click node for details · Drag to pin ·
+                        Dbl-click to unpin
+                    </div>
+
+                    <!-- Error toast -->
+                    <div id="error-toast"></div>
+                </div><!-- /#gw -->
+
+                <!-- ══════════════════════════════════════
+       RIGHT INFO PANEL
+  ═════════════════════════════════════════= -->
+                <div id="info-panel" class="collapsed">
+
+                    <!-- Collapse / expand tab -->
+                    <button id="panel-tab" title="Toggle info panel" onclick="togglePanel()">
+                        <!-- Chevron left — collapses panel; rotates to right when collapsed -->
+                        <svg viewBox="0 0 24 24">
+                            <polyline points="15 18 9 12 15 6" />
+                        </svg>
+                    </button>
+
+                    <!-- Scrollable panel body -->
+                    <div id="panel-body">
+
+                        <!-- ── EMPTY STATE ── -->
+                        <div id="panel-empty">
+                            <div class="pe-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <line x1="12" y1="16" x2="12" y2="12" />
+                                    <line x1="12" y1="8" x2="12.01" y2="8" />
+                                </svg>
+                            </div>
+                            <div class="pe-title">No class selected</div>
+                            <div class="pe-sub">Click any node on the graph to inspect its details and relationships.
+                            </div>
+                        </div>
+
+                        <!-- ── NODE INFO (injected by JS) ── -->
+                        <div id="panel-node" style="display:none">
+
+                            <!-- Sticky header -->
+                            <div class="pn-header">
+                                <div class="pn-color-bar" id="pn-color-bar"></div>
+                                <div class="pn-header-body">
+                                    <div style="flex:1;min-width:0">
+                                        <div id="pn-ns-badge" class="pn-ns-badge"></div>
+                                        <div id="pn-title" class="pn-title"></div>
+                                    </div>
+                                    <button class="pn-close" onclick="closePanel()" title="Close">✕</button>
+                                </div>
+                            </div>
+
+                            <!-- URI -->
+                            <div class="pn-section">
+                                <div class="pn-section-label">URI</div>
+                                <div class="uri-block">
+                                    <span class="uri-text" id="pn-uri"></span>
+                                    <button class="copy-btn" id="copy-btn" title="Copy URI" onclick="copyURI()">
+                                        <i class="bi bi-copy"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Definition -->
+                            <div class="pn-section" id="pn-def-section">
+                                <div class="pn-section-label">Definition</div>
+                                <p class="pn-def" id="pn-def"></p>
+                            </div>
+
+                            <!-- Stats -->
+                            <div class="pn-section">
+                                <div class="pn-section-label">Connections</div>
+                                <div class="stats-row">
+                                    <div class="stat-chip"><span class="sc-val" id="pn-total">0</span><span
+                                            class="sc-lbl">total</span></div>
+                                    <div class="stat-chip"><span class="sc-val" id="pn-out">0</span><span
+                                            class="sc-lbl">outgoing</span></div>
+                                    <div class="stat-chip"><span class="sc-val" id="pn-in">0</span><span
+                                            class="sc-lbl">incoming</span></div>
+                                </div>
+                            </div>
+
+                            <!-- Connection accordion -->
+                            <div class="pn-section" style="padding:0">
+                                <div class="accordion conn-accordion" id="conn-accordion">
+
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#acc-out" aria-expanded="true">
+                                                Outgoing
+                                                <span class="acc-badge" id="badge-out">0</span>
+                                            </button>
+                                        </h2>
+                                        <div id="acc-out" class="accordion-collapse collapse show">
+                                            <div class="accordion-body">
+                                                <div id="list-out"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#acc-in"
+                                                aria-expanded="false">
+                                                Incoming
+                                                <span class="acc-badge" id="badge-in">0</span>
+                                            </button>
+                                        </h2>
+                                        <div id="acc-in" class="accordion-collapse collapse">
+                                            <div class="accordion-body">
+                                                <div id="list-in"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div><!-- /#panel-node -->
+                    </div><!-- /#panel-body -->
+                </div><!-- /#info-panel -->
+
+            </div><!-- /#workspace -->
+
+            <!-- Hover tooltip -->
+            <div id="tip">
+                <div class="ti" id="ti-inner"></div>
+            </div>
+        </div>
+
+    </div>
+
     <script>
+        document.querySelectorAll('#mainNav .nav-link:not(.dropdown-toggle), #mainNav .dropdown-item').forEach(link => {
+            link.addEventListener('click', () => {
+                const collapse = document.querySelector('#mainNav');
+                const bsCollapse = bootstrap.Collapse.getInstance(collapse);
+                if (bsCollapse) bsCollapse.hide();
+            });
+        });
+
+        document.querySelectorAll('#menuVocList, #menuOntList').forEach(link => {
+            link.addEventListener('click', () => {
+                const collapse = document.querySelector('#mainNav');
+                const bsCollapse = bootstrap.Collapse.getInstance(collapse);
+                if (bsCollapse) bsCollapse.hide();
+            }, true);
+        });
+
+        // Navigo-routed items — use capture to catch before router handles it
+        // document.getElementById('menuVocList').addEventListener('click', () => {
+        //     const collapse = document.querySelector('#mainNav');
+        //     const bsCollapse = bootstrap.Collapse.getInstance(collapse);
+        //     if (bsCollapse) bsCollapse.hide();
+        // }, true);
+
+        $('#btnOntoViz').click(async function () {
+            $('.voc-details').html($('#ontoviz').html())
+            await renderFromStore(store, allPrefixes, "");
+            await renderFromStore(store, allPrefixes, "");
+        });
+
         $('#divAdmin').load('/admin.html', function () {
             console.log('loaded');
 
@@ -728,13 +1044,13 @@
                 let li = '';
                 let liOnt = '';
                 let liDownload = '';
-                //menuList.push({ name: 'epont' });
+                //menuList.push({ name: 'fair_epigraphy_ontology' });
 
                 for (let menu of menuList) {
                     if (menu !== '') {
                         liDownload += `<li><span class="dropdown-item text-capitalize" onclick="download('${menu.name}')">${menu.name.replaceAll('/', '').replaceAll('_', ' ')}</span></li>`;
 
-                        if (menu.name === 'epont') {
+                        if (menu.name.includes('ontology')) {
                             $('li#liOnt').show();
                             liOnt += `<li><a class="dropdown-item text-capitalize" href="/${menu.name}" data-navigo>${menu.name.replaceAll('/', '').replaceAll('_', ' ')}</a></li>`;
                         }
@@ -742,7 +1058,7 @@
                             li += `<li><a class="dropdown-item text-capitalize" href="/${menu.name}" data-navigo>${menu.name.replaceAll('/', '').replaceAll('_', ' ')}</a></li>`;
                         }
 
-                        debugger;
+                        //debugger;
                         // Register route dynamically
                         const routeName = menu.name;
                         const routeExists = router.routes.some(r => r.path === routeName);
@@ -762,21 +1078,26 @@
                                         getVocDetails(window.location.href);
                                         // Load the about page
                                         $('#nav-about').load(`../${menu.name}/about.html`);
+                                        $('#spTitlePath').html(` / ${menu.name.replaceAll('/', '').replaceAll('_', ' ')}`)
                                     }
                                 }
                                 else {
                                     callVocabulary(routeName);
                                     $('#nav-about').load(`../${routeName}/about.html`, function (e) {
+                                        $('#nav-tab').show();
+
                                         if (e.toLowerCase().includes('error')) {
+                                            $('#nav-tab').hide();
                                             $('#nav-about').html('<p>No content found</p>');
                                         }
                                         else {
                                             var firstTab = new bootstrap.Tab($('#nav-tab button:first'));
                                             firstTab.show();
                                         }
+                                        $('#spTitlePath').html(` / ${menu.name.replaceAll('/', '').replaceAll('_', ' ')}`)
                                     });
                                 }
-                                if (routeName.includes('epont')) {
+                                if (routeName.includes('ontology')) {
                                     $('#nav-profile-tab').html(`<i class="bi bi-share"></i> Ontology`);
                                 }
                                 else {
@@ -791,7 +1112,7 @@
                                 $('#spVocDownload').html(`<span onclick="download('${routeName}')" title="Download Vocabulary"
                             class="float-end fs-4 bi bi-download fw-bold" style="cursor: pointer;"></span>`);
 
-                                if (routeName.includes('epont')) {
+                                if (routeName.includes('ontology')) {
                                     $('#nav-profile-tab').html(`<i class="bi bi-share"></i> Ontology`);
                                 }
                                 else {
@@ -813,6 +1134,9 @@
                                 // Clean the URL and trigger our new tree expansion function
                                 let currentIri = window.location.href.split('#')[0];
                                 expandAndSelectTreeNode(currentIri);
+                                $('#spTitlePath').html(` / ${menu.name.replaceAll('/', '').replaceAll('_', ' ')}`)
+                            }).on(('/'), async ({ data }) => {
+                                $('#spTitlePath').html(``)
                             })
                         }
                     }

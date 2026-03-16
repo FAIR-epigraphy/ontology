@@ -156,7 +156,6 @@
             let confirmDelete = confirm(`Are you sure you want to delete the vocabulary "${folderName}"?`);
             if (confirmDelete) {
                 try {
-                    debugger;
                     const files = await getFilesInFolder(folderName);
                     if (files.length === 0) {
                         alert('Folder is already empty or does not exist.');
@@ -365,7 +364,6 @@
 
         document.getElementById('fileInputVoid').addEventListener('change', async function (e) {
             const file = e.target.files[0];
-            debugger
             if (file) {
                 console.log('Selected VoID file:', file.name);
                 const vocabularyName = e.target.getAttribute('data-vocName');

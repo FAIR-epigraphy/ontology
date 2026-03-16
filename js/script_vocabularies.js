@@ -5,6 +5,7 @@ const { namedNode, literal, defaultGraph, quad } = DataFactory;
 var store = new N3.Store();
 var allPrefixes = {};
 var fileName = "";
+var fileText = "";
 var voidFileName = "";
 var isDataLoaded = false;
 var hasTree = false;
@@ -180,7 +181,7 @@ function callVocabulary(voc) {
             $('div#divVocContent').show();
             $('div#divBig').prev().show(); // Keep tree visible
             $('div#divBig').removeClass('col-md-12').addClass('col-md-7');
-            
+
             // Use the new tree expansion logic
             let currentIri = window.location.href.replace('#', '');
             expandAndSelectTreeNode(currentIri);
@@ -210,6 +211,7 @@ async function loadData(file) {
     //$('#tree').treed();
     let rdfData = await fetch(file);
     let data = await rdfData.text();
+    fileText = data;
     if (data !== '') {
         const parser_for_graphs = new N3.Parser();
         let records = [];
@@ -278,7 +280,7 @@ async function getVocDetails(iri, title = '') {
     let description = detailsArray.filter(x => x.get('pred').value.includes('definition'));
 
     let detailHTML = `
-                    <div class="eyebrow"><i class="bi bi-box me-1"></i>Vocabulary Term</div>
+                    <div class="eyebrow"><i class="bi bi-box me-1"></i>Term</div>
                     <div class="det-title" id="det-label-placeholder">${label.length > 0 ? label[0].get('obj').value : 'No preferred label available.'}</div>
                     <div class="det-iri">
                         <i class="bi bi-link-45deg me-1"></i>
@@ -301,7 +303,7 @@ async function getVocDetails(iri, title = '') {
                 value = d.get('obj').value.includes('http') ? `<a href="${d.get('obj').value}" target="_blank">${d.get('obj').value} <i class="bi bi-box-arrow-up-right"></i></a>` : d.get('obj').id;
             }
 
-            if (!value.includes('owl#Thing')) {
+            if (value && !value.includes('owl#Thing')) {
                 detailHTML += `
                         <tr>
                             <td class="ik" scope="row" style="width: 20%;" class="text-capitalize">
@@ -354,30 +356,32 @@ async function getVocDetails(iri, title = '') {
                 : '—';
 
             detailHTML += `
-                    <div class="prop-card">
-                        <div class="pc-head">
-                            <span class="pc-name"><i class="bi bi-arrow-right me-1"></i>${propLabel}</span>
-                        </div>
-                        <div class="pc-body">
-                            <div class="row g-2">
-                              ${propIri ? `<div class="col-12 col-sm-6">
-                                    <div class="pc-fl"><i class="bi bi-link-45deg me-1"></i>IRI</div>
-                                    <div class="pc-fv"><a href="${propIri}" target="_blank">${propIri} <i class="bi bi-box-arrow-up-right"></i></a></div>
-                                </div>` : ''}
-                                ${rangeIri ? `
-                                <div class="col-12 col-sm-6">
-                                    <div class="pc-fl"><i class="bi bi-arrow-right me-1"></i>Range</div>
-                                    <div class="pc-fv">${rangeCell}</div>
-                                </div>` : ''}
-                                ${propDef ? `</div><div class="row">
-                                <div class="col-12">
-                                    <div class="prop-def">
-                                        <span class="prop-def-title"><i class="bi bi-card-text me-1"></i> Definition</span>
-                                        <span>${propDef}</span>
+                        <div class="prop-card">
+                            <div class="pc-head">
+                                <span class="pc-name"><i class="bi bi-arrow-right me-1"></i>${propLabel}</span>
+                            </div>
+                            <div class="pc-body">
+                                <div class="row g-2">
+                                    ${propIri ? `<div class="col-12 col-sm-6">
+                                        <div class="pc-fl"><i class="bi bi-link-45deg me-1"></i>IRI</div>
+                                        <div class="pc-fv"><a href="${propIri}" target="_blank">${propIri} <i class="bi bi-box-arrow-up-right"></i></a></div>
+                                    </div>` : ''}
+                                    ${rangeIri ? `<div class="col-12 col-sm-6">
+                                        <div class="pc-fl"><i class="bi bi-arrow-right me-1"></i>Range</div>
+                                        <div class="pc-fv">${rangeCell}</div>
+                                    </div>` : ''}
+                                </div> <!-- close row g-2 -->
+
+                                ${propDef ? `<div class="row mt-2">
+                                    <div class="col-12">
+                                        <div class="prop-def">
+                                            <span class="prop-def-title"><i class="bi bi-card-text me-1"></i> Definition</span>
+                                            <span>${propDef}</span>
+                                        </div>
                                     </div>
-                                </div></div>` : ''}
-                        </div>
-                    </div>`;
+                                </div>` : ''}
+                            </div>
+                        </div>`;
         }
 
         detailHTML += `</tbody></table>`;
@@ -456,6 +460,20 @@ $("#myInput").on("input", async function () {
     }
 });
 
+$("#myInputProp").on("input", async function () {
+    //debugger;
+    var value = $(this).val().toLowerCase();
+    $("#treeProp li").filter(function () {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+
+    if (value === '') {
+        $('#rootProp i').removeClass('bi bi-caret-right-fill')
+        $('#rootProp i').addClass('bi bi-caret-down-fill')
+        $('#rootProp li').click();
+    }
+});
+
 async function updateList() {
     let appendPrefixes = '';
     for (const [key, value] of Object.entries(allPrefixes)) {
@@ -500,6 +518,32 @@ async function updateList() {
 
     let allClasses = await runQuery(sparql_query);
     displayMainClasses(mainClasses, allClasses);
+
+    sparql_query = `${appendPrefixes}
+                    SELECT DISTINCT ?prop ?label ?description
+                                WHERE { 
+                                    ?prop a owl:ObjectProperty .
+                                    ?prop skos:prefLabel ?label .
+                                    ?prop skos:definition ?description .
+                                    FILTER NOT EXISTS { 
+                                          ?prop rdfs:subPropertyOf ?parent .
+                                      }
+                            }
+                            ORDER BY ?label`;
+
+    let mainProperties = await runQuery(sparql_query);
+    sparql_query = `${appendPrefixes}
+                    SELECT DISTINCT ?subject ?label ?description ?supertype
+                                WHERE { 
+                                    ?subject a owl:ObjectProperty .
+                                    ?subject skos:prefLabel ?label .
+                                    ?subject skos:definition ?description .
+                                    ?subject rdfs:subPropertyOf ?supertype .
+                            }
+                            ORDER BY ?label`;
+
+    let allProperties = await runQuery(sparql_query);
+    displayMainProperties(mainProperties, allProperties);
 }
 
 async function getAllAlternateLables(iri) {
@@ -558,6 +602,37 @@ async function displayMainClasses(classes, allClasses) {
     //Initialization of treeviews
     $('#tree').treed();
     $('#root').first().click();
+}
+
+async function displayMainProperties(properties, allProps) {
+
+    if (properties.length === 0) {
+        $('#nav-properties-tab').hide();
+        return;
+    }
+
+    $('#nav-properties-tab').show();
+    let divProperties = '<ul id="ulClasses">';
+    for (let c of properties) {
+        let altLabels = await getAllAlternateLables(c.get('prop').value);
+        divProperties += await manageParentChildRel(c.get('prop').value, c.get('label').value, c.get('description').value, allProps, altLabels);
+    }
+    divProperties += '</ul>';
+
+    $('#rootProp').html(divProperties);
+
+    $('li').mouseover(function (e) {
+        e.stopPropagation();
+        $(this).addClass('currentHover');
+    });
+
+    $('li').mouseout(function () {
+        $(this).removeClass('currentHover');
+    });
+
+    //Initialization of treeviews
+    $('#treeProp').treed();
+    $('#rootProp').first().click();
 }
 
 async function manageParentChildRel(c, label, des, allClasses, altLabels) {
@@ -631,25 +706,25 @@ async function download() {
 async function expandAndSelectTreeNode(iri, attempts = 0) {
     // 1. Safely find the node. document.getElementById handles complex URL strings perfectly.
     var targetLi = $(document.getElementById(iri));
-    
+
     // 2. If the node exists, do the expansion!
     if (targetLi.length > 0) {
         // Expand all parent <ul> wrappers
         targetLi.parents('ul').show();
-        
+
         // Flip all parent folder icons to the 'open' state
-        targetLi.parents('li.branch').each(function() {
+        targetLi.parents('li.branch').each(function () {
             var icon = $(this).find('.indicator').first();
             icon.removeClass('bi-caret-right-fill').addClass('bi-caret-down-fill');
         });
-        
+
         // Highlight the target button
         var targetButton = targetLi.children('button').first();
         if (targetButton.length > 0) {
             $('.tree button').removeClass('active');
             targetButton.addClass('active');
             targetButton.click()
-            
+
             // Scroll the tree so the item is visible
             var treeContainer = $('#tree').closest('.card-body');
             if (treeContainer.length > 0) {
@@ -658,15 +733,15 @@ async function expandAndSelectTreeNode(iri, attempts = 0) {
                 }, 500);
             }
         }
-    } 
+    }
     // 3. IF NOT FOUND: The DOM is still rendering. Try again!
-    else if (attempts < 20) { 
+    else if (attempts < 20) {
         // Wait 100 milliseconds, then run this exact function again.
         // It will try up to 20 times (2 seconds total) before giving up.
         setTimeout(() => {
             expandAndSelectTreeNode(iri, attempts + 1);
         }, 100);
-    } 
+    }
     // 4. FALLBACK: If 2 seconds pass and it STILL isn't there, just load the details
     else {
         console.warn("Tree node not found after rendering: " + iri);
