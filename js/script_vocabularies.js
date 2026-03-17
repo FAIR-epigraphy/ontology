@@ -91,7 +91,7 @@ $.fn.extend({
 });
 //////////////////////////////////////////////////////////////////////////////
 
-function callVocabulary(voc) {
+async function callVocabulary(voc) {
     $('#divLanding').hide();
     $('div#divLanding').next().show();
     $('#divVocContent').show();
@@ -121,7 +121,7 @@ function callVocabulary(voc) {
                                         </div>
                                     </div>
                                 </ul>`);
-    $('#spVocHeading').text(`${voc.replaceAll('/', '').replaceAll('_', ' ')} Vocabulary`);
+    //$('#spVocHeading').text(`${voc.replaceAll('/', '').replaceAll('_', ' ')} Vocabulary`);
     $('#spVocDownload').html(`<span onclick="download('${voc}')" title="Download Vocabulary"
                             class="float-end fs-4 bi bi-download fw-bold" style="cursor: pointer;"></span>`);
 
@@ -131,7 +131,7 @@ function callVocabulary(voc) {
 
     ////// Load RDF data
     if (fileName !== "")
-        loadData(fileName);
+        await loadData(fileName);
     else {
         isDataLoaded = true;
     }
@@ -160,7 +160,7 @@ function callVocabulary(voc) {
                     </div>
                 </div>
             </ul>`);
-            $('#spVocHeading').text(`${voc.replaceAll('/', '').replaceAll('_', ' ')} Vocabulary`);
+            //$('#spVocHeading').text(`${voc.replaceAll('/', '').replaceAll('_', ' ')} Vocabulary`);
             $('#spVocDownload').html(`<span onclick="download('${voc}')" title="Download Vocabulary"
                                     class="float-end fs-4 bi bi-download fw-bold" style="cursor: pointer;"></span>`);
 
@@ -482,7 +482,6 @@ async function updateList() {
     }
 
     let sparql_query = `${appendPrefixes}
-                         PREFIX dc: <http://purl.org/dc/elements/1.1/>
                          SELECT DISTINCT ?class ?label ?description
                                 WHERE { 
                                     ?class a owl:Class .
@@ -496,7 +495,6 @@ async function updateList() {
     let mainClasses = await runQuery(sparql_query);
 
     sparql_query = `${appendPrefixes}
-                    PREFIX dc: <http://purl.org/dc/elements/1.1/>
                     SELECT DISTINCT ?subject ?label ?description ?supertype
                     WHERE {
                         { ?subject a owl:Class . } UNION { ?individual a ?subject . } .
@@ -659,6 +657,25 @@ async function manageParentChildRel(c, label, des, allClasses, altLabels) {
     return list;
 }
 
+async function getVoc_Ont_Name() {
+    let appendPrefixes = '';
+    for (const [key, value] of Object.entries(allPrefixes)) {
+        //console.log(`${key}: ${value}`);
+        appendPrefixes += `PREFIX ${key}: <${value}>\n`;
+    }
+    let query = `${appendPrefixes}
+                         SELECT DISTINCT ?label
+                                WHERE { 
+                                    ?ontology a owl:Ontology .
+                                    ?ontology skos:prefLabel ?label .
+                            }`
+    result = await runQuery(query);
+    if(result){
+        let voc_ont_name = result[0].get('label').value;
+        return voc_ont_name;
+    }
+    return '';
+}
 ///////////////////////////////////////////////////////////////
 // Menu
 // const menuToggle = document.querySelector('.menu-toggle');

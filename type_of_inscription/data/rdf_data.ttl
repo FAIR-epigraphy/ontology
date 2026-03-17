@@ -7,8 +7,8 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @base <https://ontology.inscriptiones.org/type_of_inscription/> .
 
-<https://ontology.inscriptiones.org/type_of_inscription/> rdf:type owl:Ontology .
-
+<https://ontology.inscriptiones.org/type_of_inscription/> rdf:type owl:Ontology ;
+        skos:prefLabel "Type of Inscription"@en .
 #################################################################
 #    Annotation properties
 #################################################################

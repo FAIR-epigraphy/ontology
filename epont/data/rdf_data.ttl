@@ -1,0 +1,750 @@
+@prefix : <https://ontology.inscriptiones.org/epont/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://ontology.inscriptiones.org/epont/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://ontology.inscriptiones.org/epont/> rdf:type owl:Ontology ;
+                                             owl:imports <http://www.cidoc-crm.org/cidoc-crm/> ;
+                                             rdfs:comment "An ontology for epigraphic data, reusing CIDOC-CRM, CRMtex, CRMsci, LRMoo, and Dublin Core Terms." ;
+                                             rdfs:label "FAIR Epigraphy Ontology (epont)" ;
+                                             <http://www.w3.org/2004/02/skos/core#definition> ""@en ;
+                                             <http://www.w3.org/2004/02/skos/core#prefLabel> "FAIR Epigraphy Ontology"@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2004/02/skos/core#altLabel
+<http://www.w3.org/2004/02/skos/core#altLabel> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+<http://www.w3.org/2004/02/skos/core#prefLabel> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#scopeNote
+<http://www.w3.org/2004/02/skos/core#scopeNote> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.cidoc-crm.org/cidoc-crm/P11_had_participant
+<http://www.cidoc-crm.org/cidoc-crm/P11_had_participant> rdf:type owl:ObjectProperty ;
+                                                         rdfs:domain <http://www.cidoc-crm.org/extensions/crmsci/S19> ;
+                                                         rdfs:range <http://www.cidoc-crm.org/cidoc-crm/E39> ;
+                                                         <http://www.w3.org/2004/02/skos/core#altLabel> "participated in"@en ;
+                                                         <http://www.w3.org/2004/02/skos/core#definition> "P11 had participant"@en ;
+                                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "P11 had participant"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P128
+<http://www.cidoc-crm.org/cidoc-crm/P128> rdf:type owl:ObjectProperty ;
+                                          rdfs:domain <http://www.cidoc-crm.org/extensions/crmtex/TX1> ;
+                                          rdfs:range <http://www.cidoc-crm.org/cidoc-crm/E34> ;
+                                          <http://www.w3.org/2004/02/skos/core#altLabel> "is carried by"@en ;
+                                          <http://www.w3.org/2004/02/skos/core#definition> "P128 carries"@en ;
+                                          <http://www.w3.org/2004/02/skos/core#prefLabel> "P128 carries"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P14
+<http://www.cidoc-crm.org/cidoc-crm/P14> rdf:type owl:ObjectProperty ;
+                                         rdfs:domain <http://www.cidoc-crm.org/extensions/crmsci/S21> ;
+                                         rdfs:range <http://www.cidoc-crm.org/cidoc-crm/E39> ;
+                                         <http://www.w3.org/2004/02/skos/core#altLabel> "performed"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> "P14 carried out by"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "P14 carried out by"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P140
+<http://www.cidoc-crm.org/cidoc-crm/P140> rdf:type owl:ObjectProperty ;
+                                          rdfs:domain <http://www.cidoc-crm.org/cidoc-crm/E15> ;
+                                          rdfs:range :Epigraphic_Support ;
+                                          <http://www.w3.org/2004/02/skos/core#altLabel> "was attributed by"@en ;
+                                          <http://www.w3.org/2004/02/skos/core#definition> "P140 assigned attribute to"@en ;
+                                          <http://www.w3.org/2004/02/skos/core#prefLabel> "P140 assigned attribute to"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P165_incorporates
+<http://www.cidoc-crm.org/cidoc-crm/P165_incorporates> rdf:type owl:ObjectProperty ;
+                                                       <http://www.w3.org/2004/02/skos/core#definition> "P165 incorporates"@en ;
+                                                       <http://www.w3.org/2004/02/skos/core#prefLabel> "P165 incorporates"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P168
+<http://www.cidoc-crm.org/cidoc-crm/P168> rdf:type owl:ObjectProperty ;
+                                          rdfs:domain <http://www.cidoc-crm.org/cidoc-crm/E53> ;
+                                          rdfs:range <http://www.cidoc-crm.org/cidoc-crm/E94> ;
+                                          <http://www.w3.org/2004/02/skos/core#altLabel> "defines place"@en ;
+                                          <http://www.w3.org/2004/02/skos/core#definition> "P168 place is defined by"@en ;
+                                          <http://www.w3.org/2004/02/skos/core#prefLabel> "P168 place is defined by"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P2
+<http://www.cidoc-crm.org/cidoc-crm/P2> rdf:type owl:ObjectProperty ;
+                                        rdfs:domain <http://www.cidoc-crm.org/cidoc-crm/E15> ,
+                                                    <http://www.cidoc-crm.org/cidoc-crm/E28> ,
+                                                    <http://www.cidoc-crm.org/cidoc-crm/E3> ,
+                                                    <http://www.cidoc-crm.org/cidoc-crm/E34> ,
+                                                    <http://www.cidoc-crm.org/cidoc-crm/E53> ,
+                                                    <http://www.cidoc-crm.org/cidoc-crm/E54> ,
+                                                    <http://www.cidoc-crm.org/extensions/crmsci/S19> ,
+                                                    :Epigraphic_Support ,
+                                                    [ rdf:type owl:Class ;
+                                                      owl:unionOf ( <http://www.cidoc-crm.org/cidoc-crm/E28>
+                                                                    <http://www.cidoc-crm.org/cidoc-crm/E3>
+                                                                    <http://www.cidoc-crm.org/cidoc-crm/E34>
+                                                                    <http://www.cidoc-crm.org/cidoc-crm/E53>
+                                                                    <http://www.cidoc-crm.org/cidoc-crm/E54>
+                                                                    <http://www.cidoc-crm.org/extensions/crmsci/S19>
+                                                                    :Epigraphic_Support
+                                                                  )
+                                                    ] ;
+                                        rdfs:range <http://www.cidoc-crm.org/cidoc-crm/E55> ;
+                                        <http://www.w3.org/2004/02/skos/core#altLabel> "is type of"@en ;
+                                        <http://www.w3.org/2004/02/skos/core#definition> "P2 has type"@en ;
+                                        <http://www.w3.org/2004/02/skos/core#prefLabel> "P2 has type"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P3
+<http://www.cidoc-crm.org/cidoc-crm/P3> rdf:type owl:ObjectProperty ;
+                                        rdfs:domain <http://www.cidoc-crm.org/cidoc-crm/E53> ;
+                                        rdfs:range <http://www.cidoc-crm.org/cidoc-crm/E62> ;
+                                        <http://www.w3.org/2004/02/skos/core#definition> "P3 has note"@en ;
+                                        <http://www.w3.org/2004/02/skos/core#prefLabel> "P3 has note"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P34
+<http://www.cidoc-crm.org/cidoc-crm/P34> rdf:type owl:ObjectProperty ;
+                                         rdfs:domain <http://www.cidoc-crm.org/cidoc-crm/E14> ;
+                                         rdfs:range :Epigraphic_Support ;
+                                         <http://www.w3.org/2004/02/skos/core#altLabel> "was assessed by"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> "P34 concerned"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "P34 concerned"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P35
+<http://www.cidoc-crm.org/cidoc-crm/P35> rdf:type owl:ObjectProperty ;
+                                         rdfs:domain <http://www.cidoc-crm.org/cidoc-crm/E14> ;
+                                         rdfs:range <http://www.cidoc-crm.org/cidoc-crm/E3> ;
+                                         <http://www.w3.org/2004/02/skos/core#altLabel> "was identified by"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> "P35 has identified"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "P35 has identified"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P37
+<http://www.cidoc-crm.org/cidoc-crm/P37> rdf:type owl:ObjectProperty ;
+                                         rdfs:range <http://www.cidoc-crm.org/cidoc-crm/E42> ;
+                                         <http://www.w3.org/2004/02/skos/core#altLabel> "was assigned by"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> "P37 assigned"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "P37 assigned"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P4
+<http://www.cidoc-crm.org/cidoc-crm/P4> rdf:type owl:ObjectProperty ;
+                                        rdfs:domain <http://www.cidoc-crm.org/cidoc-crm/E63> ,
+                                                    <http://www.cidoc-crm.org/cidoc-crm/E64> ,
+                                                    <http://www.cidoc-crm.org/extensions/crmsci/S19> ,
+                                                    <http://www.cidoc-crm.org/extensions/crmsci/S21> ,
+                                                    [ rdf:type owl:Class ;
+                                                      owl:unionOf ( <http://www.cidoc-crm.org/cidoc-crm/E63>
+                                                                    <http://www.cidoc-crm.org/cidoc-crm/E64>
+                                                                    <http://www.cidoc-crm.org/extensions/crmsci/S19>
+                                                                    <http://www.cidoc-crm.org/extensions/crmsci/S21>
+                                                                  )
+                                                    ] ;
+                                        rdfs:range <http://www.cidoc-crm.org/cidoc-crm/E52> ;
+                                        <http://www.w3.org/2004/02/skos/core#altLabel> "is time-span of"@en ;
+                                        <http://www.w3.org/2004/02/skos/core#definition> "P4 has time-span"@en ;
+                                        <http://www.w3.org/2004/02/skos/core#prefLabel> "P4 has time-span"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P40_observed_dimension
+<http://www.cidoc-crm.org/cidoc-crm/P40_observed_dimension> rdf:type owl:ObjectProperty ;
+                                                            rdfs:domain <http://www.cidoc-crm.org/extensions/crmsci/S21> ;
+                                                            rdfs:range <http://www.cidoc-crm.org/cidoc-crm/E54> ;
+                                                            <http://www.w3.org/2004/02/skos/core#altLabel> "was observed in"@en ;
+                                                            <http://www.w3.org/2004/02/skos/core#definition> "P40 observed dimension"@en ;
+                                                            <http://www.w3.org/2004/02/skos/core#prefLabel> "P40 observed dimension"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P43
+<http://www.cidoc-crm.org/cidoc-crm/P43> rdf:type owl:ObjectProperty ;
+                                         rdfs:domain :Epigraphic_Support ;
+                                         rdfs:range <http://www.cidoc-crm.org/cidoc-crm/E54> ;
+                                         <http://www.w3.org/2004/02/skos/core#altLabel> "is dimension of"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> "P43 has dimension"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "P43 has dimension"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P45
+<http://www.cidoc-crm.org/cidoc-crm/P45> rdf:type owl:ObjectProperty ;
+                                         rdfs:domain :Epigraphic_Support ;
+                                         rdfs:range <http://www.cidoc-crm.org/cidoc-crm/E57> ;
+                                         <http://www.w3.org/2004/02/skos/core#altLabel> "is incorporated in"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> "P45 consists of"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "P45 consists of"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P46
+<http://www.cidoc-crm.org/cidoc-crm/P46> rdf:type owl:ObjectProperty ;
+                                         rdfs:domain :Epigraphic_Support ;
+                                         rdfs:range <http://www.cidoc-crm.org/cidoc-crm/E25> ;
+                                         <http://www.w3.org/2004/02/skos/core#altLabel> "forms part of"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> "P46 is composed of"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "P46 is composed of"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P48
+<http://www.cidoc-crm.org/cidoc-crm/P48> rdf:type owl:ObjectProperty ;
+                                         rdfs:domain <http://www.cidoc-crm.org/cidoc-crm/E53> ,
+                                                     <http://www.cidoc-crm.org/extensions/crmtex/TX1> ;
+                                         rdfs:range <http://www.cidoc-crm.org/cidoc-crm/E42> ;
+                                         <http://www.w3.org/2004/02/skos/core#altLabel> "is preferred identifier of"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> "P48 has preferred identifier"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "P48 has preferred identifier"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P55
+<http://www.cidoc-crm.org/cidoc-crm/P55> rdf:type owl:ObjectProperty ;
+                                         rdfs:domain :Epigraphic_Support ;
+                                         rdfs:range <http://www.cidoc-crm.org/cidoc-crm/E53> ;
+                                         <http://www.w3.org/2004/02/skos/core#altLabel> "currently holds"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> "P55 has current location"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "P55 has current location"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P56
+<http://www.cidoc-crm.org/cidoc-crm/P56> rdf:type owl:ObjectProperty ;
+                                         rdfs:domain :Epigraphic_Support ;
+                                         rdfs:range <http://www.cidoc-crm.org/extensions/crmtex/TX1> ,
+                                                    <http://www.cidoc-crm.org/extensions/crmtex/TX4> ,
+                                                    [ rdf:type owl:Class ;
+                                                      owl:unionOf ( <http://www.cidoc-crm.org/extensions/crmtex/TX1>
+                                                                    <http://www.cidoc-crm.org/extensions/crmtex/TX4>
+                                                                  )
+                                                    ] ;
+                                         <http://www.w3.org/2004/02/skos/core#altLabel> "is found on"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> "P56 bears feature"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "P56 bears feature"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P62
+<http://www.cidoc-crm.org/cidoc-crm/P62> rdf:type owl:ObjectProperty ;
+                                         rdfs:domain <http://www.cidoc-crm.org/cidoc-crm/E25> ,
+                                                     :Epigraphic_Support ;
+                                         rdfs:range <http://www.cidoc-crm.org/cidoc-crm/E28> ;
+                                         <http://www.w3.org/2004/02/skos/core#altLabel> "is depicted by"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> "P62 depicts"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "P62 depicts"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P65
+<http://www.cidoc-crm.org/cidoc-crm/P65> rdf:type owl:ObjectProperty ;
+                                         rdfs:domain <http://www.cidoc-crm.org/extensions/crmtex/TX1> ;
+                                         rdfs:range <http://www.cidoc-crm.org/cidoc-crm/E34> ;
+                                         <http://www.w3.org/2004/02/skos/core#altLabel> "is shown by"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> "P65 shows visual item"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "P65 shows visual item"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P7
+<http://www.cidoc-crm.org/cidoc-crm/P7> rdf:type owl:ObjectProperty ;
+                                        rdfs:domain <http://www.cidoc-crm.org/cidoc-crm/E63> ,
+                                                    <http://www.cidoc-crm.org/cidoc-crm/E64> ,
+                                                    [ rdf:type owl:Class ;
+                                                      owl:unionOf ( <http://www.cidoc-crm.org/cidoc-crm/E63>
+                                                                    <http://www.cidoc-crm.org/cidoc-crm/E64>
+                                                                  )
+                                                    ] ;
+                                        rdfs:range <http://www.cidoc-crm.org/cidoc-crm/E53> ;
+                                        <http://www.w3.org/2004/02/skos/core#altLabel> "witnessed"@en ;
+                                        <http://www.w3.org/2004/02/skos/core#definition> "P7 took place at"@en ;
+                                        <http://www.w3.org/2004/02/skos/core#prefLabel> "P7 took place at"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P70
+<http://www.cidoc-crm.org/cidoc-crm/P70> rdf:type owl:ObjectProperty ;
+                                         rdfs:domain <http://purl.org/dc/terms/BibliographicResource> ;
+                                         rdfs:range :Epigraphic_Support ;
+                                         <http://www.w3.org/2004/02/skos/core#altLabel> "is documented in"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> "P70 documents"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "P70 documents"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P72
+<http://www.cidoc-crm.org/cidoc-crm/P72> rdf:type owl:ObjectProperty ;
+                                         rdfs:domain <http://www.cidoc-crm.org/cidoc-crm/E34> ,
+                                                     [ rdf:type owl:Class ;
+                                                       owl:unionOf ( <http://www.cidoc-crm.org/cidoc-crm/E34>
+                                                                     :Translation
+                                                                   )
+                                                     ] ;
+                                         rdfs:range <http://www.cidoc-crm.org/cidoc-crm/E56> ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> "P72 has language"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "P72 has language"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P73
+<http://www.cidoc-crm.org/cidoc-crm/P73> rdf:type owl:ObjectProperty ;
+                                         rdfs:domain <http://www.cidoc-crm.org/cidoc-crm/E34> ;
+                                         rdfs:range :Translation ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> "P73 has translation"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "P73 has translation"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P82
+<http://www.cidoc-crm.org/cidoc-crm/P82> rdf:type owl:ObjectProperty ;
+                                         rdfs:domain <http://www.cidoc-crm.org/cidoc-crm/E52> ;
+                                         rdfs:range <http://www.cidoc-crm.org/cidoc-crm/E61> ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> "P82 at some time within"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "P82 at some time within"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P90
+<http://www.cidoc-crm.org/cidoc-crm/P90> rdf:type owl:ObjectProperty ;
+                                         rdfs:domain <http://www.cidoc-crm.org/cidoc-crm/E54> ;
+                                         rdfs:range <http://www.cidoc-crm.org/cidoc-crm/E60> ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> "P90 has value"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "P90 has value"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P91
+<http://www.cidoc-crm.org/cidoc-crm/P91> rdf:type owl:ObjectProperty ;
+                                         rdfs:domain <http://www.cidoc-crm.org/cidoc-crm/E54> ;
+                                         rdfs:range <http://www.cidoc-crm.org/cidoc-crm/E58> ;
+                                         <http://www.w3.org/2004/02/skos/core#altLabel> "is unit of"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> "P91 has unit"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "P91 has unit"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P92
+<http://www.cidoc-crm.org/cidoc-crm/P92> rdf:type owl:ObjectProperty ;
+                                         rdfs:domain <http://www.cidoc-crm.org/cidoc-crm/E63> ;
+                                         rdfs:range :Epigraphic_Support ;
+                                         <http://www.w3.org/2004/02/skos/core#altLabel> "was brought into existence by"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> "P92 brought into existence"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "P92 brought into existence"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P93
+<http://www.cidoc-crm.org/cidoc-crm/P93> rdf:type owl:ObjectProperty ;
+                                         rdfs:domain <http://www.cidoc-crm.org/cidoc-crm/E64> ;
+                                         rdfs:range :Epigraphic_Support ;
+                                         <http://www.w3.org/2004/02/skos/core#altLabel> "was taken out of existence by"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> "P93 took out of existence"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "P93 took out of existence"@en .
+
+
+###  http://www.cidoc-crm.org/extensions/crmsci/O19
+<http://www.cidoc-crm.org/extensions/crmsci/O19> rdf:type owl:ObjectProperty ;
+                                                 rdfs:domain <http://www.cidoc-crm.org/extensions/crmsci/S19> ;
+                                                 rdfs:range :Epigraphic_Support ;
+                                                 <http://www.w3.org/2004/02/skos/core#altLabel> "was object encountered through"@en ;
+                                                 <http://www.w3.org/2004/02/skos/core#definition> "O19 encountered object"@en ;
+                                                 <http://www.w3.org/2004/02/skos/core#prefLabel> "O19 encountered object"@en .
+
+
+###  http://www.cidoc-crm.org/extensions/crmsci/O21
+<http://www.cidoc-crm.org/extensions/crmsci/O21> rdf:type owl:ObjectProperty ;
+                                                 rdfs:domain <http://www.cidoc-crm.org/extensions/crmsci/S19> ,
+                                                             [ rdf:type owl:Class ;
+                                                               owl:unionOf ( <http://www.cidoc-crm.org/extensions/crmsci/S19>
+                                                                             <http://www.cidoc-crm.org/extensions/crmsci/S21>
+                                                                           )
+                                                             ] ;
+                                                 rdfs:range <http://www.cidoc-crm.org/cidoc-crm/E53> ;
+                                                 <http://www.w3.org/2004/02/skos/core#altLabel> "witnessed encounter"@en ;
+                                                 <http://www.w3.org/2004/02/skos/core#definition> "O21 encountered at"@en ;
+                                                 <http://www.w3.org/2004/02/skos/core#prefLabel> "O21 encountered at"@en .
+
+
+###  http://www.cidoc-crm.org/extensions/crmsci/O24
+<http://www.cidoc-crm.org/extensions/crmsci/O24> rdf:type owl:ObjectProperty ;
+                                                 rdfs:domain <http://www.cidoc-crm.org/extensions/crmsci/S21> ;
+                                                 rdfs:range :Epigraphic_Support ;
+                                                 <http://www.w3.org/2004/02/skos/core#altLabel> "was measured by"@en ;
+                                                 <http://www.w3.org/2004/02/skos/core#definition> "O24 measured"@en ;
+                                                 <http://www.w3.org/2004/02/skos/core#prefLabel> "O24 measured"@en .
+
+
+###  http://www.cidoc-crm.org/extensions/crmsci/O9
+<http://www.cidoc-crm.org/extensions/crmsci/O9> rdf:type owl:ObjectProperty ;
+                                                rdfs:domain <http://www.cidoc-crm.org/extensions/crmsci/S21> ;
+                                                rdfs:range <http://www.cidoc-crm.org/cidoc-crm/E57> ;
+                                                <http://www.w3.org/2004/02/skos/core#altLabel> "property type was observed by"@en ;
+                                                <http://www.w3.org/2004/02/skos/core#definition> "O9 observed property type"@en ;
+                                                <http://www.w3.org/2004/02/skos/core#prefLabel> "O9 observed property type"@en .
+
+
+###  http://www.cidoc-crm.org/extensions/crmtex/TXP2
+<http://www.cidoc-crm.org/extensions/crmtex/TXP2> rdf:type owl:ObjectProperty ;
+                                                  rdfs:domain <http://www.cidoc-crm.org/extensions/crmtex/TX4> ;
+                                                  rdfs:range <http://www.cidoc-crm.org/extensions/crmtex/TX1> ;
+                                                  <http://www.w3.org/2004/02/skos/core#altLabel> "is included within"@en ;
+                                                  <http://www.w3.org/2004/02/skos/core#definition> "TXP2 includes"@en ;
+                                                  <http://www.w3.org/2004/02/skos/core#prefLabel> "TXP2 includes"@en ;
+                                                  <http://www.w3.org/2004/02/skos/core#scopeNote> "This property describes the relation existing between a TX1 Written Text and the TX4 Writing Field, specifically created to accommodate the text, within which it is inscribed. This relation becomes quite relevant in the very frequent case where more than a single text is found on different areas of a specific support."^^xsd:string .
+
+
+###  https://ontology.inscriptiones.org/epont/carriesText
+:carriesText rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P56> ;
+             rdfs:domain :Epigraphic_Support ;
+             rdfs:range <http://www.cidoc-crm.org/extensions/crmtex/TX1> ;
+             <http://www.w3.org/2004/02/skos/core#altLabel> "text is carried on"@en ;
+             <http://www.w3.org/2004/02/skos/core#definition> "carriesText"@en ;
+             <http://www.w3.org/2004/02/skos/core#prefLabel> "carriesText"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/has_edition
+:has_edition rdf:type owl:ObjectProperty ;
+             rdfs:domain <http://www.cidoc-crm.org/cidoc-crm/E34> ;
+             rdfs:range :Edition ;
+             <http://www.w3.org/2004/02/skos/core#altLabel> "is edition of"@en ;
+             <http://www.w3.org/2004/02/skos/core#definition> "has edition"@en ;
+             <http://www.w3.org/2004/02/skos/core#prefLabel> "has edition"@en ;
+             <http://www.w3.org/2004/02/skos/core#scopeNote> "This property is a short-cut of the fully developed path TX1 Written Inscription : P128 carries : E34 Inscription : instantiates : F2 Expression: R76 (has derivative): F2 Expression : E33 Linguistic Object : R4 (is embodied in) : F3 Manifestation :dcterms:BibliographicResource"^^xsd:string .
+
+
+###  https://ontology.inscriptiones.org/epont/has_genre
+:has_genre rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P2> ;
+           rdfs:domain <http://www.cidoc-crm.org/cidoc-crm/E34> ;
+           rdfs:range :Text_Genre ;
+           <http://www.w3.org/2004/02/skos/core#altLabel> "genre is found in"@en ;
+           <http://www.w3.org/2004/02/skos/core#definition> "has genre"@en ;
+           <http://www.w3.org/2004/02/skos/core#prefLabel> "has genre"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/has_linguistic_property
+:has_linguistic_property rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P165_incorporates> ;
+                         rdfs:domain <http://www.cidoc-crm.org/cidoc-crm/E34> ,
+                                     <http://www.cidoc-crm.org/extensions/crmtex/TX1> ;
+                         rdfs:range <https://ontology.inscriptiones.org/bilingualism> ;
+                         <http://www.w3.org/2004/02/skos/core#altLabel> "linguistic property is found in"@en ;
+                         <http://www.w3.org/2004/02/skos/core#definition> "has linguistic property"@en ;
+                         <http://www.w3.org/2004/02/skos/core#prefLabel> "has linguistic property"@en .
+
+
+###  https://ontology.inscriptiones.org/fair_epigraphy_ontology/has_support_condition
+<https://ontology.inscriptiones.org/fair_epigraphy_ontology/has_support_condition> rdf:type owl:ObjectProperty ;
+                                                                                   rdfs:subPropertyOf owl:topObjectProperty ;
+                                                                                   rdfs:domain <http://www.cidoc-crm.org/extensions/crmtex/TX1> ;
+                                                                                   rdfs:range <http://www.cidoc-crm.org/cidoc-crm/E55> ;
+                                                                                   <http://www.w3.org/2004/02/skos/core#definition> "describes the preservation state of the epigraphic support"@en ;
+                                                                                   <http://www.w3.org/2004/02/skos/core#prefLabel> "has support condition"@en ;
+                                                                                   <http://www.w3.org/2004/02/skos/core#scopeNote> "This property associates an instance of a TX1 written text with the description of the physical preservation state of the underlying epigraphic support. It is a short-cut for the fully developed path TX1 Written Inscription : P56 is found on : Epigraphic Support : P34 (was assessed by): E14 Condition Assessment: P35 has identified: E3 Condition State : P2 has type : E55 type"@en .
+
+
+###  https://ontology.inscriptiones.org/fair_epigraphy_ontology/has_support_current_location
+<https://ontology.inscriptiones.org/fair_epigraphy_ontology/has_support_current_location> rdf:type owl:ObjectProperty ;
+                                                                                          rdfs:subPropertyOf owl:topObjectProperty ;
+                                                                                          rdfs:domain <http://www.cidoc-crm.org/extensions/crmtex/TX1> ;
+                                                                                          rdfs:range <http://www.cidoc-crm.org/cidoc-crm/E53> ;
+                                                                                          <http://www.w3.org/2004/02/skos/core#definition> "describes the current location of the object (epigraphic support) on which the inscription is found"@en ;
+                                                                                          <http://www.w3.org/2004/02/skos/core#prefLabel> "has support current location"@en ;
+                                                                                          <http://www.w3.org/2004/02/skos/core#scopeNote> "This property associates an instance of a TX1 written text with the E53 Place where the object (epigraphic support) on which the inscription is to be found is currently located. It is a short-cut for the fully developed path TX1 Written Inscription : P56 is found on : Epigraphic Support : P55 has current location : E53 Place"@en .
+
+
+###  https://ontology.inscriptiones.org/fair_epigraphy_ontology/has_support_dimension
+<https://ontology.inscriptiones.org/fair_epigraphy_ontology/has_support_dimension> rdf:type owl:ObjectProperty ;
+                                                                                   rdfs:subPropertyOf owl:topObjectProperty ;
+                                                                                   rdfs:domain <http://www.cidoc-crm.org/extensions/crmtex/TX1> ;
+                                                                                   rdfs:range <http://www.cidoc-crm.org/cidoc-crm/E54> ;
+                                                                                   <http://www.w3.org/2004/02/skos/core#definition> "describes a physical dimension (i.e. measurement) of the epigraphic support (e.g. height, width, etc.)."@en ;
+                                                                                   <http://www.w3.org/2004/02/skos/core#prefLabel> "has support dimension"@en ;
+                                                                                   <http://www.w3.org/2004/02/skos/core#scopeNote> "This property associates an instance of a TX1 written text with one or more physical dimensions of the epigraphic support on which it is found. It is a short cut of the fully developed path TX1 Written Inscription : P56 is found on : Epigraphic Support : P43 has dimension: E54 Dimension"@en .
+
+
+###  https://ontology.inscriptiones.org/fair_epigraphy_ontology/has_support_findspot
+<https://ontology.inscriptiones.org/fair_epigraphy_ontology/has_support_findspot> rdf:type owl:ObjectProperty ;
+                                                                                  rdfs:subPropertyOf owl:topObjectProperty ;
+                                                                                  rdfs:domain <http://www.cidoc-crm.org/extensions/crmtex/TX1> ;
+                                                                                  rdfs:range <http://www.cidoc-crm.org/cidoc-crm/E53> ;
+                                                                                  <http://www.w3.org/2004/02/skos/core#definition> "describes the findspot of the epigraphic support"@en ;
+                                                                                  <http://www.w3.org/2004/02/skos/core#prefLabel> "has support findspot"@en ;
+                                                                                  <http://www.w3.org/2004/02/skos/core#scopeNote> "This property associates an instance of a TX1 written text with the findspot of the epigraphic support on which the text is located. It is a short-cut of the fully developed path TX1 Written Inscription : P56 is found on : Epigraphic Support : O19 (was object encountered through) : S19 Encounter event : O21 encountered at : E53 Place"@en .
+
+
+###  https://ontology.inscriptiones.org/fair_epigraphy_ontology/has_support_identifier
+<https://ontology.inscriptiones.org/fair_epigraphy_ontology/has_support_identifier> rdf:type owl:ObjectProperty ;
+                                                                                    rdfs:subPropertyOf owl:topObjectProperty ;
+                                                                                    rdfs:domain <http://www.cidoc-crm.org/extensions/crmtex/TX1> ;
+                                                                                    rdfs:range <http://www.cidoc-crm.org/cidoc-crm/E42> ;
+                                                                                    <http://www.w3.org/2004/02/skos/core#definition> "details an identifier for the object (epigraphic support) on which the inscription is to be found"@en ;
+                                                                                    <http://www.w3.org/2004/02/skos/core#prefLabel> "has support identifier"@en ;
+                                                                                    <http://www.w3.org/2004/02/skos/core#scopeNote> "This property associates an instance of TX1 Written Text with an E42 Identifier for the epigraphic support on which the inscription is found. It is a short-cut for the fully developed path TX1 Written Inscription : P56 is found on : Epigraphic Support : P48 has preferred identifier: E42 Identifier"@en .
+
+
+###  https://ontology.inscriptiones.org/fair_epigraphy_ontology/has_support_material
+<https://ontology.inscriptiones.org/fair_epigraphy_ontology/has_support_material> rdf:type owl:ObjectProperty ;
+                                                                                  rdfs:subPropertyOf owl:topObjectProperty ;
+                                                                                  rdfs:domain <http://www.cidoc-crm.org/extensions/crmtex/TX1> ;
+                                                                                  rdfs:range <http://www.cidoc-crm.org/cidoc-crm/E57> ;
+                                                                                  <http://www.w3.org/2004/02/skos/core#definition> "defines the material of the epigraphic support which carries the inscription"@en ;
+                                                                                  <http://www.w3.org/2004/02/skos/core#prefLabel> "has support material"@en ;
+                                                                                  <http://www.w3.org/2004/02/skos/core#scopeNote> "This property associates an instance of a TX1 written text with the E57 material of which the epigraphic support which carries that text is constituted. It is a short cut for the fully developed path TX1 Written Inscription : P56 is found on : Epigraphic Support : P45 consists of : E57 Material"@en .
+
+
+###  https://ontology.inscriptiones.org/fair_epigraphy_ontology/has_support_type
+<https://ontology.inscriptiones.org/fair_epigraphy_ontology/has_support_type> rdf:type owl:ObjectProperty ;
+                                                                              rdfs:subPropertyOf owl:topObjectProperty ;
+                                                                              rdfs:domain <http://www.cidoc-crm.org/extensions/crmtex/TX1> ;
+                                                                              rdfs:range <http://www.cidoc-crm.org/cidoc-crm/E55> ;
+                                                                              <http://www.w3.org/2004/02/skos/core#definition> "describes the type of object which constitutes the epigraphic support"@en ;
+                                                                              <http://www.w3.org/2004/02/skos/core#prefLabel> "has support type"@en ;
+                                                                              <http://www.w3.org/2004/02/skos/core#scopeNote> "This property associates an instance of a TX1 written text with a classification of the object which constitutes the epigraphic support. It is a short-cut of the fully developed path TX1 Written Inscription : P56 is found on : Epigraphic Support : P2 has type: E55 type"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://iflastandards.info/ns/lrm/lrmoo/F3_Manifestation
+<http://iflastandards.info/ns/lrm/lrmoo/F3_Manifestation> rdf:type owl:Class .
+
+
+###  http://purl.org/dc/terms/BibliographicResource
+<http://purl.org/dc/terms/BibliographicResource> rdf:type owl:Class ;
+                                                 rdfs:subClassOf owl:Thing ;
+                                                 <http://www.w3.org/2004/02/skos/core#definition> ""@en ;
+                                                 <http://www.w3.org/2004/02/skos/core#prefLabel> "BibliographicResource"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E14
+<http://www.cidoc-crm.org/cidoc-crm/E14> rdf:type owl:Class ;
+                                         rdfs:subClassOf owl:Thing ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> ""@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "E14 Condition Assessment"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E15
+<http://www.cidoc-crm.org/cidoc-crm/E15> rdf:type owl:Class ;
+                                         rdfs:subClassOf owl:Thing ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> ""@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "E15 Identifier Assignment"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E24
+<http://www.cidoc-crm.org/cidoc-crm/E24> rdf:type owl:Class ;
+                                         rdfs:subClassOf owl:Thing ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> ""@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "E24 Physical Human-Made Thing"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E25
+<http://www.cidoc-crm.org/cidoc-crm/E25> rdf:type owl:Class ;
+                                         rdfs:subClassOf owl:Thing ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> ""@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "E25 Human-Made Feature"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E28
+<http://www.cidoc-crm.org/cidoc-crm/E28> rdf:type owl:Class ;
+                                         rdfs:subClassOf owl:Thing ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> ""@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "E28 Conceptual Object"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E3
+<http://www.cidoc-crm.org/cidoc-crm/E3> rdf:type owl:Class ;
+                                        rdfs:subClassOf owl:Thing ;
+                                        <http://www.w3.org/2004/02/skos/core#definition> ""@en ;
+                                        <http://www.w3.org/2004/02/skos/core#prefLabel> "E3 Condition State"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E33
+<http://www.cidoc-crm.org/cidoc-crm/E33> rdf:type owl:Class ;
+                                         rdfs:subClassOf owl:Thing ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> ""@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "E33 Linguistic Object"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E34
+<http://www.cidoc-crm.org/cidoc-crm/E34> rdf:type owl:Class ;
+                                         rdfs:subClassOf owl:Thing ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> ""@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "E34 Inscription"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E39
+<http://www.cidoc-crm.org/cidoc-crm/E39> rdf:type owl:Class ;
+                                         rdfs:subClassOf owl:Thing ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> ""@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "E39 Actor"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E42
+<http://www.cidoc-crm.org/cidoc-crm/E42> rdf:type owl:Class ;
+                                         rdfs:subClassOf owl:Thing ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> ""@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "E42 Identifier"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E52
+<http://www.cidoc-crm.org/cidoc-crm/E52> rdf:type owl:Class ;
+                                         rdfs:subClassOf owl:Thing ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> ""@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "E52 Time-Span"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E53
+<http://www.cidoc-crm.org/cidoc-crm/E53> rdf:type owl:Class ;
+                                         rdfs:subClassOf owl:Thing ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> ""@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "E53 Place"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E54
+<http://www.cidoc-crm.org/cidoc-crm/E54> rdf:type owl:Class ;
+                                         rdfs:subClassOf owl:Thing ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> ""@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "E54 Dimension"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E55
+<http://www.cidoc-crm.org/cidoc-crm/E55> rdf:type owl:Class ;
+                                         rdfs:subClassOf owl:Thing ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> ""@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "E55 Type"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E56
+<http://www.cidoc-crm.org/cidoc-crm/E56> rdf:type owl:Class ;
+                                         rdfs:subClassOf owl:Thing ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> ""@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "E56 Language"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E57
+<http://www.cidoc-crm.org/cidoc-crm/E57> rdf:type owl:Class ;
+                                         rdfs:subClassOf owl:Thing ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> ""@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "E57 Material"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E58
+<http://www.cidoc-crm.org/cidoc-crm/E58> rdf:type owl:Class ;
+                                         rdfs:subClassOf owl:Thing ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> ""@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "E58 Measurement Unit"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E60
+<http://www.cidoc-crm.org/cidoc-crm/E60> rdf:type owl:Class ;
+                                         rdfs:subClassOf owl:Thing ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> ""@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "E60 Number"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E61
+<http://www.cidoc-crm.org/cidoc-crm/E61> rdf:type owl:Class ;
+                                         rdfs:subClassOf owl:Thing ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> ""@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "E61 Time Primitive"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E62
+<http://www.cidoc-crm.org/cidoc-crm/E62> rdf:type owl:Class ;
+                                         rdfs:subClassOf owl:Thing ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> ""@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "E62 String"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E63
+<http://www.cidoc-crm.org/cidoc-crm/E63> rdf:type owl:Class ;
+                                         rdfs:subClassOf owl:Thing ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> ""@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "E63 Beginning of Existence"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E64
+<http://www.cidoc-crm.org/cidoc-crm/E64> rdf:type owl:Class ;
+                                         rdfs:subClassOf owl:Thing ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> ""@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "E64 End of Existence"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E94
+<http://www.cidoc-crm.org/cidoc-crm/E94> rdf:type owl:Class ;
+                                         rdfs:subClassOf owl:Thing ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> ""@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "E94 Space Primitive"@en .
+
+
+###  http://www.cidoc-crm.org/extensions/crmsci/S19
+<http://www.cidoc-crm.org/extensions/crmsci/S19> rdf:type owl:Class ;
+                                                 rdfs:subClassOf owl:Thing ;
+                                                 <http://www.w3.org/2004/02/skos/core#definition> ""@en ;
+                                                 <http://www.w3.org/2004/02/skos/core#prefLabel> "S19 Encounter Event"@en .
+
+
+###  http://www.cidoc-crm.org/extensions/crmsci/S21
+<http://www.cidoc-crm.org/extensions/crmsci/S21> rdf:type owl:Class ;
+                                                 rdfs:subClassOf owl:Thing ;
+                                                 <http://www.w3.org/2004/02/skos/core#definition> ""@en ;
+                                                 <http://www.w3.org/2004/02/skos/core#prefLabel> "S21 Measurement"@en .
+
+
+###  http://www.cidoc-crm.org/extensions/crmtex/TX1
+<http://www.cidoc-crm.org/extensions/crmtex/TX1> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E25> ;
+                                                 <http://www.w3.org/2004/02/skos/core#definition> "Visible or tactile marks (generally called glyphs or graphs), intentionally traced (i.e., “written”) on some kind of physical support by using specific techniques and tools, with the purpose of conveying a message towards a given receiver or group of receivers."@en ;
+                                                 <http://www.w3.org/2004/02/skos/core#prefLabel> "TX1 Written Text"@en .
+
+
+###  http://www.cidoc-crm.org/extensions/crmtex/TX4
+<http://www.cidoc-crm.org/extensions/crmtex/TX4> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E25> ;
+                                                 <http://www.w3.org/2004/02/skos/core#definition> "The portion of the physical carrier arranged and usually reserved and delimited for the purpose of accommodating a written text, highlighting and isolating it from the other parts of the object to which it belongs, enhancing and guaranteeing its readability."@en ;
+                                                 <http://www.w3.org/2004/02/skos/core#prefLabel> "TX4 Writing Field"@en .
+
+
+###  https://ontology.inscriptiones.org/bilingualism
+<https://ontology.inscriptiones.org/bilingualism> rdf:type owl:Class ;
+                                                  rdfs:subClassOf owl:Thing ;
+                                                  <http://www.w3.org/2004/02/skos/core#definition> "elements in an inscription which indicate the concurrent use, or evidence of the presence of, two or more languages, for example Latin/Greek/'indigenous' languages, and which may therefore reflect societal and/or individual bilingualism/multilingualism. This is split into two main sub-categories, language-focused and script-focused, and the same epigraphic texts may contain multiple features, including from both main sub-categories."@en ;
+                                                  <http://www.w3.org/2004/02/skos/core#prefLabel> "Bilingualism Feature"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/Edition
+:Edition rdf:type owl:Class ;
+         rdfs:subClassOf <http://iflastandards.info/ns/lrm/lrmoo/F3_Manifestation> ;
+         <http://www.w3.org/2004/02/skos/core#definition> "An epigraphic edition, an interpreted version of the epigraphic text, generally the end-result of a process of checking, intepreting and preparing a version of the epigraphic text for wider dissemination; usually, but not necessarily, a publication."@en ;
+         <http://www.w3.org/2004/02/skos/core#prefLabel> "Edition"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/Epigraphic_Support
+:Epigraphic_Support rdf:type owl:Class ;
+                    rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E24> ;
+                    <http://www.w3.org/2004/02/skos/core#definition> "The physical carrier of an inscription — the object on which the text was written (stone tablet, metal sheet, ceramic vessel, rock face, etc.)."@en ;
+                    <http://www.w3.org/2004/02/skos/core#prefLabel> "Epigraphic Support"@en .
+
+
+###  https://ontology.inscriptiones.org/epont/Text_Genre
+:Text_Genre rdf:type owl:Class ;
+            rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E55> ;
+            <http://www.w3.org/2004/02/skos/core#definition> "The form of written language employed in the inscription, at its highest level distinguishing between prose and verse"@en ;
+            <http://www.w3.org/2004/02/skos/core#prefLabel> "Text Genre"@en ;
+            <http://www.w3.org/2004/02/skos/core#scopeNote> "This class is intended primarily for the distinction between prose and verse, and the sub-categories thereof; it is not intended to describe the functional genres of inscriptions (such as letter, decree, epitaph, etc.)."^^xsd:string .
+
+
+###  https://ontology.inscriptiones.org/epont/Translation
+:Translation rdf:type owl:Class ;
+             rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E33> ;
+             <http://www.w3.org/2004/02/skos/core#definition> "Translation"@en ;
+             <http://www.w3.org/2004/02/skos/core#prefLabel> "Translation"@en .
+
+
+###  Generated by the OWL API (version 4.5.13) https://github.com/owlcs/owlapi

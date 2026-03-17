@@ -1,0 +1,265 @@
+<div class="container my-5">
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <!-- Header -->
+            <header class="mb-5">
+                <h1>The EpOnt ontology for Epigraphic Data</h1>
+                <div class="mt-4">
+                    <span class="badge badge-custom me-2">Version 1.0 · EPONT</span>
+                    <span class="badge badge-custom me-2">01/03/2026</span>
+                </div>
+
+                <div class="mt-3">
+                    <p class="mb-1"><strong>Responsible:</strong> <a href="https://orcid.org/0000-0003-3819-8537"
+                            target="_blank" class="project-link">Jonathan Prag</a></p>
+                    <p class="mb-1"><strong>Contributors:</strong> <a href="https://orcid.org/0000-0002-1144-6265"
+                            target="_blank" class="project-link">Imran Asif</a>; <a
+                            href="https://orcid.org/0000-0003-3819-8537" target="_blank" class="project-link">Jonathan
+                            Prag</a></p>
+                    <p class="mb-1"><strong>DOI:</strong> <a href="#" target="_blank" class="project-link"> TBA <i
+                                class="bi bi-box-arrow-up-right"></i></a></p>
+                    <p> </p>
+                </div>
+
+                <div class="alert alert-light border mt-3" role="alert">
+                    <strong>Cite as:</strong> FAIR Epigraphic Ontology (EPONT) v1.0.0. <a href="#" target="_blank"
+                        class="project-link"> <i class="bi bi-box-arrow-up-right"></i></a>.
+                </div>
+            </header>
+
+            <!-- Overview -->
+            <section class="mb-5">
+                <h2 class="section-title">Overview</h2>
+                <p>
+                    The purpose of this ontology is to enable the integration of diverse epigraphic datasets, although
+                    its success depends in turn upon the use by individual projects of data standards and published
+                    controlled vocabularies (whether those provided by the <a href="https://ontology.inscriptiones.org/"
+                        target="_blank">FAIR Epigraphy project</a>, by <a
+                        href="https://www.eagle-network.eu/resources/vocabularies/" target="_blank">EAGLE</a>, the <a
+                        href="https://www.getty.edu/research/tools/vocabularies/aat/" target="_blank">Getty AAT</a>, or
+                    any other). The ontology is based upon <a href="https://cidoc-crm.org/"
+                        target="_blank">CIDOC-CRM</a> and its various extensions. CIDOC allows for extremely detailed
+                    data recording and linking and, because it is designed for cultural heritage and is event-based, it
+                    is well suited to capture the full epigraphic knowledge graph, from object description through to
+                    study and publication. However, most epigraphic projects will not require most of the granularity
+                    offered by the full CIDOC-CRM, and will only need a very limited number of nodes in the graph (i.e.
+                    individual data points). Consequently, although we attempt to model the epigraphic knowledge graph
+                    as fully as possible in order to allow for the maximum flexibility in the future, we have
+                    prioritised the principal elements of the epigraphic knowledge graph, i.e. those which we expect to
+                    be most commonly included in a typical epigraphic dataset, and we have in turn endeavoured to
+                    simplify the relevant parts of the knowledge graph to make things easier for the user. The EpOnt
+                    classes and associated properties are in many cases therefore explicitly intended as short-cuts of a
+                    longer and more complex path of relationships available in the full CIDOC-CRM, and in many cases the
+                    shortcut properties exist only for that reason.
+
+                </p>
+                <p class="text-secondary">
+                    Select any class or property from the panel to explore its full
+                    specification, CIDOC-CRM alignment, EpiDoc mapping, and applicable properties.
+                </p>
+                <div class="ns-box my-4">
+                    <strong>Base URI:</strong>
+                    <code>https://ontology.inscriptiones.org/epont/</code><br>
+                    <strong>Extends:</strong> CIDOC-CRM · CRMtex · FRBRoo · SARI Encounter Model<br>
+                    <strong>Annotations:</strong> SKOS (skos:prefLabel · skos:definition)
+                </div>
+            </section>
+
+            <!-- Development -->
+            <section class="mb-5">
+                <h2 class="section-title">Development</h2>
+                <p>
+                    This ontology builds upon the earlier work undertaken by many members of the epigraphic community
+                    (and beyond). In particular, it builds firstly upon the prototype ontology developed in the working
+                    paper <a href="https://doi.org/10.5281/zenodo.4639508" target="_blank">‘Modeling Epigraphy with an
+                        Ontology’</a>, produced by a group of some 30 epigraphers, associated with the ontology working
+                    group of <a href="http://Epigraphy.Info" target="_blank">Epigraphy.Info</a> and published online in
+                    Zenodo in March 2021. This published an initial and deliberately simple ontology under the domain of
+                    ‘epont’, made available at <a href="https://w3id.org/epont/ontology/"
+                        target="_blank">https://w3id.org/epont/ontology/</a> [Note: w3id is currently not functional;
+                    the original OWL file can be found directly at <a href="https://github.com/PietroLiuzzo/epiont"
+                        target="_blank">https://github.com/PietroLiuzzo/epiont]</a>. We have chosen to re-use the
+                    ‘epont’ prefix, with the agreement of its primary maintainer, Pietro Liuzzo. Secondly, this ontology
+                    owes a very great deal to the CIDOC <a href="https://cidoc-crm.org/crmtex" target="_blank">CRMtex
+                        extension</a>, developed by Achille Felicetti and Francesca Murano (and Pavlos Fafalios for
+                    version 2.0). CRMtex was specifically developed to support the modelling of ancient texts, and has
+                    undergone notable evolution from v.1 to the <a
+                        href="https://cidoc-crm.org/extensions/crmtex/html/CRMtex_v2.0.html" target="_blank">current
+                        v.2</a> (2023). CRMtex, however, has a slightly broader remit than epigraphy alone, and while we
+                    have found it fundamental to much of the development of this model, there are points of intellectual
+                    divergence and areas which remain largely undeveloped in the CRMtex. To that end, we have
+                    additionally found the <a href="https://cidoc-crm.org/crmsci" target="_blank">CRMsci</a> (scientific
+                    observation) model of use for modelling the study of the physical inscription and the inscribed
+                    object, and the more recent <a href="https://cidoc-crm.org/lrmoo" target="_blank">LRMoo</a> model
+                    for attempting to model the relationship of the original inscribed text to transcriptions and
+                    editions of that text.
+
+                </p>
+                <p>
+                    The model has been primarily developed by Jonathan Prag and Imran Asif, over the period 2024-2026.
+                    It was discussed intensively at a workshop in Oxford in February 2025, with the presence and support
+                    of John Bodel, Charles Crowther, Silvia Evangelisti, Petra Hermankova, Marietta Horster, Pietro
+                    Liuzzo, Andrew Meadows, Alex Mullen, Simona Stoyanova and Scott Vanderbilt. It has been presented at
+                    workshops in Oxford and Aarhus, and we are extremely grateful for all the feedback received to date.
+                    It remains very much a work-in-progress.
+                </p>
+                <p>
+                    Individual properties and classes in this model fall broadly into one of four categories:
+                <ol>
+                    <li>
+                        Properties and classes of CIDOC-CRM and its extensions
+                    </li>
+                    <li>
+                        New sub-classes or sub-properties of existing CIDOC-CRM classes and properties.
+                    </li>
+                    <li>
+                        Properties and classes imported from other models (such as Dublin Core)
+                    </li>
+                    <li>
+                        New classes or properties
+                    </li>
+                </ol>
+                </p>
+                <p>
+                    Instances of (4) are deliberately few. Instances of (2) inevitably reflect a degree of
+                    domain/subject specificity, which may or may not be thought appropriate.
+                </p>
+                <p>
+                    Although the EpOnt ontology describes a single complex knowledge graph, which all hinges around the
+                    physical instance of a single inscription, it may be more helpful to think of it in a more
+                    compartmentalised way, reflecting different parts of the Epigraphic datasphere. These can be divided
+                    up as follows:
+                <ol>
+                    <li>
+                        Description of the epigraphic support (i.e. the inscribed object)
+                    </li>
+                    <li>
+                        Description of the original physical instance of the inscription, including its creation
+                    </li>
+                    <li>
+                        Description of the inscription text as a linguistic object, in the abstract
+                    </li>
+                    <li>
+                        Description of the activity of study (autopsy) and its immediate outputs (transcription)
+                    </li>
+                    <li>
+                        Description of the activity of imaging and reproduction
+                    </li>
+                    <li>
+                        Description of the activities and outputs of editing, publishing and translating.
+                    </li>
+                </ol>
+                </p>
+                <p>
+                    The general approach can be illustrated with reference to (1), the description of the epigraphic
+                    support, that is, the physical object on which the actual inscription was realised. The graph below
+                    illustrates the potential range of description that might be employed, entirely within CIDOC, to
+                    describe the inscribed object, as an object. But, notwithstanding the complexity of the graph, the
+                    average epigraphic dataset is likely to record only half-a-dozen datapoints: object type,
+                    dimensions, material, findspot, current location, and possibly its date (although most projects will
+                    record the date of the inscription, without distinguishing this explicitly from the date of the
+                    underlying object). Consequently, while the graph illustrates how one might record all aspects of
+                    the recording of an object, the information about it, and its provenance history (without pretending
+                    to cover all of this in full), the typical epigraphic project is likely only to need a handful of
+                    properties and classes. Furthermore, this module exemplifies the role of short-cuts in the model.
+                    Typically, an epigraphic project will state, e.g., ‘inscription X consists of material Y’, whereas
+                    more correctly, this would be ‘object Z, which bears inscription X, consists of material Y’. By
+                    formally creating a property ‘has support material’, which is explicitly a short-cut of the full
+                    CIDOC-CRM-based path from inscribed text to text-carrying object to object material, the EpOnt
+                    ontology can mirror the data models of typical projects while simultaneously capturing the greater
+                    complexity of the data. This allows, for instance, for future integration of more data about the
+                    object in question, whether in a museum record or elsewhere. The granularity of the graph further
+                    illustrates that, should a project also maintain a useable record of who observed the object at that
+                    location and when, or even details about materials analysis that was undertaken of the object, this
+                    can also be directly captured in the same model.
+                </p>
+
+                <!-- Viewer -->
+                <div id="svg-wrapper" style="
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  cursor: grab;
+  background: #f9f9f9;
+">
+                    <img id="svg-image" src="../images/Epigraphy_ont.jpg"
+                        style="width: 100%; height: auto; display: block; transform-origin: 0 0;">
+                </div>
+
+            </section>
+
+            <!-- Version Note -->
+            <!-- <section class="mb-5">
+                <h2 class="section-title">Version Note</h2>
+                <p></p>
+            </section> -->
+
+
+            <!-- Related Works -->
+            <section class="mb-5">
+                <h2 class="section-title">Related Works</h2>
+                <ul>
+                    <li class="mb-2">Heřmánková, Petra, Imran Asif, Marietta Horster, and Jonathan R. W. Prag. 2025.
+                        ‘From Fragmented Data to Linked History: Developing the FAIR Epigraphic Vocabularies’. Journal
+                        of Open Humanities Data 11 (1). <a href="https://doi.org/10.5334/johd.428" target="_blank"
+                            class="project-link">https://doi.org/10.5334/johd.428.<i
+                                class="bi bi-box-arrow-up-right"></i></a>.</li>
+
+                </ul>
+            </section>
+
+            <!-- Funding -->
+            <!-- <section class="mb-5">
+                <h2 class="section-title">Funding</h2>
+                <p></p>
+            </section> -->
+
+            <!-- Acknowledgements -->
+            <!-- <section class="mb-5">
+                <h2 class="section-title">Acknowledgements</h2>
+                <p></p>
+            </section> -->
+
+            <!-- Contribution -->
+            <section class="mb-5">
+                <div class="alert alert-light border" role="alert">
+                    <h5>Contribute</h5>
+                    <p class="mb-0">Anyone wishing to contribute can do so either by contacting the authors
+                        or creating an issue via <a href="#" class="project-link">GitHub</a>.</p>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+    const image = document.getElementById('svg-image');
+    const wrapper = document.getElementById('svg-wrapper');
+
+    image.addEventListener('load', function () {
+        const panzoom = Panzoom(image, {
+            maxScale: 20,
+            minScale: 0.1,
+            contain: 'outside',
+            cursor: 'grab',
+        });
+
+        // Enable mouse wheel zoom
+        wrapper.addEventListener('wheel', function (event) {
+            panzoom.zoomWithWheel(event);
+        });
+
+        // Optional: reset on double click
+        image.addEventListener('dblclick', function () {
+            panzoom.reset();
+        });
+    });
+
+    // If the image is cached, it might already be loaded
+    if (image.complete) {
+        image.dispatchEvent(new Event('load'));
+    }
+</script>

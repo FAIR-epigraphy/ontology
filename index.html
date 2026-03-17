@@ -19,6 +19,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+
     <link rel="stylesheet" href="../css/style_toi.css">
     <link rel="stylesheet" href="../css/ontoviz.css">
 
@@ -749,6 +752,7 @@
     <script src="https://unpkg.com/navigo"></script>
     <script src="js/routing.js"></script>
 
+
     <!-- RDF Library -->
     <script src="../js/n3.min.js"></script>
     <script src="../js/comunica-browser.js"></script>
@@ -1044,101 +1048,104 @@
                 let li = '';
                 let liOnt = '';
                 let liDownload = '';
-                //menuList.push({ name: 'fair_epigraphy_ontology' });
+                menuList = menuList.filter(x => x.name !== "fair_epigraphy_ontology")
+                menuList.push({ name: 'epont' });
 
-                for (let menu of menuList) {
-                    if (menu !== '') {
-                        liDownload += `<li><span class="dropdown-item text-capitalize" onclick="download('${menu.name}')">${menu.name.replaceAll('/', '').replaceAll('_', ' ')}</span></li>`;
+                for (let i = 0; i < menuList.length; i++) {
+                    await callVocabulary(menuList[i].name);
+                    let voc_ont_name = await getVoc_Ont_Name();
 
-                        if (menu.name.includes('ontology')) {
-                            $('li#liOnt').show();
-                            liOnt += `<li><a class="dropdown-item text-capitalize" href="/${menu.name}" data-navigo>${menu.name.replaceAll('/', '').replaceAll('_', ' ')}</a></li>`;
-                        }
-                        else {
-                            li += `<li><a class="dropdown-item text-capitalize" href="/${menu.name}" data-navigo>${menu.name.replaceAll('/', '').replaceAll('_', ' ')}</a></li>`;
-                        }
+                    liDownload += `<li><span class="dropdown-item" onclick="download('${menuList[i].name}')">${voc_ont_name}</span></li>`;
 
-                        //debugger;
-                        // Register route dynamically
-                        const routeName = menu.name;
-                        const routeExists = router.routes.some(r => r.path === routeName);
+                    if (voc_ont_name.toLowerCase().includes('ontology')) {
+                        $('li#liOnt').show();
+                        liOnt += `<li><a class="dropdown-item" href="/${menuList[i].name}" data-navigo>${voc_ont_name}</a></li>`;
+                    }
+                    else {
+                        li += `<li><a class="dropdown-item" href="/${menuList[i].name}" data-navigo>${voc_ont_name}</a></li>`;
+                    }
 
-                        if (!routeExists) {
-                            router.on(`/${routeName}`, async () => {
-                                if (window.location.hash !== '') {
-                                    if (window.location.hash.split('#').length === 2) {
-                                        $('div#divLanding').hide();
-                                        $('div#divLanding').next().show();
-                                        $('div#divVocContent').show();
-                                        $('div#divBig').prev().hide();
-                                        $('div#divBig').removeClass('col-md-7');
-                                        $('div#divBig').addClass('col-md-12');
-                                        let fileName = `../${menu.name}/data/rdf_data.ttl`;
-                                        await loadData(fileName);
-                                        getVocDetails(window.location.href);
-                                        // Load the about page
-                                        $('#nav-about').load(`../${menu.name}/about.html`);
-                                        $('#spTitlePath').html(` / ${menu.name.replaceAll('/', '').replaceAll('_', ' ')}`)
+                    //debugger;
+                    // Register route dynamically
+                    const routeName = menuList[i].name;
+                    const routeExists = router.routes.some(r => r.path === routeName);
+
+                    if (!routeExists) {
+                        router.on(`/${routeName}`, async () => {
+                            if (window.location.hash !== '') {
+                                if (window.location.hash.split('#').length === 2) {
+                                    $('div#divLanding').hide();
+                                    $('div#divLanding').next().show();
+                                    $('div#divVocContent').show();
+                                    $('div#divBig').prev().hide();
+                                    $('div#divBig').removeClass('col-md-7');
+                                    $('div#divBig').addClass('col-md-12');
+                                    let fileName = `../${menuList[i].name}/data/rdf_data.ttl`;
+                                    await loadData(fileName);
+                                    getVocDetails(window.location.href);
+                                    // Load the about page
+                                    $('#nav-about').load(`../${menuList[i].name}/about.html`);
+                                    $('#spTitlePath').html(` / ${voc_ont_name}`)
+                                }
+                            }
+                            else {
+                                await callVocabulary(menuList[i].name);
+                                $('#nav-about').load(`../${routeName}/about.html`, function (e) {
+                                    $('#nav-tab').show();
+
+                                    if (e.toLowerCase().includes('error')) {
+                                        $('#nav-tab').hide();
+                                        $('#nav-about').html('<p>No content found</p>');
                                     }
-                                }
-                                else {
-                                    callVocabulary(routeName);
-                                    $('#nav-about').load(`../${routeName}/about.html`, function (e) {
-                                        $('#nav-tab').show();
+                                    else {
+                                        var firstTab = new bootstrap.Tab($('#nav-tab button:first'));
+                                        firstTab.show();
+                                    }
 
-                                        if (e.toLowerCase().includes('error')) {
-                                            $('#nav-tab').hide();
-                                            $('#nav-about').html('<p>No content found</p>');
-                                        }
-                                        else {
-                                            var firstTab = new bootstrap.Tab($('#nav-tab button:first'));
-                                            firstTab.show();
-                                        }
-                                        $('#spTitlePath').html(` / ${menu.name.replaceAll('/', '').replaceAll('_', ' ')}`)
-                                    });
-                                }
-                                if (routeName.includes('ontology')) {
-                                    $('#nav-profile-tab').html(`<i class="bi bi-share"></i> Ontology`);
-                                }
-                                else {
-                                    $('#nav-profile-tab').html(`<i class="bi bi-diagram-3"></i> Vocabulary`);
-                                }
-                            }).on(`/${routeName}/:className`, async ({ data }) => {
-                                $('div#divLanding').hide();
-                                $('div#divLanding').next().show();
-                                $('div#divVocContent').show();
+                                    $('#spTitlePath').html(` / ${voc_ont_name}`)
+                                });
+                            }
+                            if (voc_ont_name.toLowerCase().includes('ontology')) {
+                                $('#nav-profile-tab').html(`<i class="bi bi-share"></i> Ontology`);
+                            }
+                            else {
+                                $('#nav-profile-tab').html(`<i class="bi bi-diagram-3"></i> Vocabulary`);
+                            }
+                        }).on(`/${routeName}/:className`, async ({ data }) => {
+                            $('div#divLanding').hide();
+                            $('div#divLanding').next().show();
+                            $('div#divVocContent').show();
 
-                                $('#nav-about').load(`../${menu.name}/about.html`);
-                                $('#spVocDownload').html(`<span onclick="download('${routeName}')" title="Download Vocabulary"
+                            $('#nav-about').load(`../${menuList[i].name}/about.html`);
+                            $('#spVocDownload').html(`<span onclick="download('${routeName}')" title="Download Vocabulary"
                             class="float-end fs-4 bi bi-download fw-bold" style="cursor: pointer;"></span>`);
 
-                                if (routeName.includes('ontology')) {
-                                    $('#nav-profile-tab').html(`<i class="bi bi-share"></i> Ontology`);
-                                }
-                                else {
-                                    $('#nav-profile-tab').html(`<i class="bi bi-diagram-3"></i> Vocabulary`);
-                                }
+                            if (voc_ont_name.toLowerCase().includes('ontology')) {
+                                $('#nav-profile-tab').html(`<i class="bi bi-share"></i> Ontology`);
+                            }
+                            else {
+                                $('#nav-profile-tab').html(`<i class="bi bi-diagram-3"></i> Vocabulary`);
+                            }
 
-                                // THE FIX: Show the tree column instead of hiding it
-                                $('div#divBig').prev().show();
-                                $('div#divBig').removeClass('col-md-12').addClass('col-md-7');
+                            // THE FIX: Show the tree column instead of hiding it
+                            $('div#divBig').prev().show();
+                            $('div#divBig').removeClass('col-md-12').addClass('col-md-7');
 
-                                // Switch to the Vocabulary tab
-                                var vocTab = new bootstrap.Tab($('#nav-tab button').eq(1));
-                                vocTab.show();
+                            // Switch to the Vocabulary tab
+                            var vocTab = new bootstrap.Tab($('#nav-tab button').eq(1));
+                            vocTab.show();
 
-                                // Load the data and wait for the tree to fully build
-                                let fileName = `../${menu.name}/data/rdf_data.ttl`;
-                                await loadData(fileName);
+                            // Load the data and wait for the tree to fully build
+                            //let fileName = `../${menuList[0].name}/data/rdf_data.ttl`;
+                            //await loadData(fileName);
 
-                                // Clean the URL and trigger our new tree expansion function
-                                let currentIri = window.location.href.split('#')[0];
-                                expandAndSelectTreeNode(currentIri);
-                                $('#spTitlePath').html(` / ${menu.name.replaceAll('/', '').replaceAll('_', ' ')}`)
-                            }).on(('/'), async ({ data }) => {
-                                $('#spTitlePath').html(``)
-                            })
-                        }
+                            // Clean the URL and trigger our new tree expansion function
+                            let currentIri = window.location.href.split('#')[0];
+                            expandAndSelectTreeNode(currentIri);
+                            $('#spTitlePath').html(` / ${voc_ont_name}`)
+                        }).on(('/'), async ({ data }) => {
+                            $('#spTitlePath').html(``)
+                        })
                     }
                 }
 
