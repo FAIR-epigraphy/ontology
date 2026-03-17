@@ -1136,7 +1136,7 @@
                             vocTab.show();
 
                             // Load the data and wait for the tree to fully build
-                            let fileName = `../${menuList[0].name}/data/rdf_data.ttl`;
+                            let fileName = `../${menuList[i].name}/data/rdf_data.ttl`;
                             await loadData(fileName);
 
                             // Clean the URL and trigger our new tree expansion function
