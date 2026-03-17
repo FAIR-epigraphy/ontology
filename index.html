@@ -1048,8 +1048,8 @@
                 let li = '';
                 let liOnt = '';
                 let liDownload = '';
-                menuList = menuList.filter(x => x.name !== "fair_epigraphy_ontology")
-                menuList.push({ name: 'epont' });
+                //menuList = menuList.filter(x => x.name !== "fair_epigraphy_ontology")
+                //menuList.push({ name: 'epont' });
 
                 for (let i = 0; i < menuList.length; i++) {
                     await callVocabulary(menuList[i].name);
