@@ -253,26 +253,32 @@ async function getVocDetails(iri, title = '') {
         PREFIX dc: <http://purl.org/dc/elements/1.1/>
         SELECT ?pred ?obj 
         WHERE {
-            <${iri}> ?pred ?obj .
+            {<${iri}> ?pred ?obj .
             FILTER NOT EXISTS {
                 <${iri}> a ?obj .
+            }
+            }
+            UNION
+            {
+                BIND(owl:inverseOf AS ?pred)
+                <${iri}> ^owl:inverseOf ?obj .
             }
         }`
     let detailsArray = await runQuery(query);
     //debugger;
-    if (detailsArray.length === 0) {
-        let query = `
-        ${appendPrefixes}
-        PREFIX dc: <http://purl.org/dc/elements/1.1/>
-        SELECT ?pred ?obj 
-        WHERE {
-            <${iri}> ?pred ?obj .
-            FILTER NOT EXISTS {
-                <${iri}> a ?obj .
-            }
-        }`
-        detailsArray = await runQuery(query);
-    }
+    // if (detailsArray.length === 0) {
+    //     let query = `
+    //     ${appendPrefixes}
+    //     PREFIX dc: <http://purl.org/dc/elements/1.1/>
+    //     SELECT ?pred ?obj 
+    //     WHERE {
+    //         <${iri}> ?pred ?obj .
+    //         FILTER NOT EXISTS {
+    //             <${iri}> a ?obj .
+    //         }
+    //     }`
+    //     detailsArray = await runQuery(query);
+    // }
     ////////////////////////////////////////////
     let parts = iri.split('/');
     let lastEle = parts[parts.length - 1];
@@ -487,7 +493,10 @@ async function updateList() {
                                     ?class a owl:Class .
                                     ?class skos:prefLabel ?label .
                                     ?class skos:definition ?description .
-                                    ?class rdfs:subClassOf owl:Thing .
+                                    FILTER NOT EXISTS { 
+                                          ?class rdfs:subClassOf ?parent .
+                                          FILTER (?parent != owl:Thing)
+                                      }
                             }
                             ORDER BY ?label
                         `;
@@ -496,22 +505,13 @@ async function updateList() {
 
     sparql_query = `${appendPrefixes}
                     SELECT DISTINCT ?subject ?label ?description ?supertype
-                    WHERE {
-                        { ?subject a owl:Class . } UNION { ?individual a ?subject . } .
-                        OPTIONAL { 
-                                ?subject rdfs:subClassOf ?supertype .
-                                FILTER (str(?supertype) !='')
-                                } .
-                        OPTIONAL { 
-                                ?subject skos:prefLabel ?label .
-                                FILTER (str(?label) != '')
-                                }.
-                        OPTIONAL { 
-                                ?subject skos:definition ?description .
-                                FILTER (str(?description) != '')
-                                }.
-
-                    } ORDER BY ?label
+                                WHERE { 
+                                    ?subject a owl:Class .
+                                    ?subject skos:prefLabel ?label .
+                                    ?subject skos:definition ?description .
+                                    ?subject rdfs:subClassOf ?supertype .
+                            }
+                            ORDER BY ?label
     `;
 
     let allClasses = await runQuery(sparql_query);
