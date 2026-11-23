@@ -919,8 +919,8 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
          skos:relatedMatch <https://www.wikidata.org/wiki/Q9252945> .
 
 
-###  https://ontology.inscriptiones.org/type_of_inscription/Endownment
-:Endownment rdf:type owl:Class ;
+###  https://ontology.inscriptiones.org/type_of_inscription/Endowment
+:Endowment rdf:type owl:Class ;
             rdfs:subClassOf :Legal ;
             <http://purl.org/dc/terms/bibliographicCitation> "Roueché, Charlotte. 1997. ‘Benefactors in the Late Roman Period : The Eastern Empire’. In Actes Du Xe Congrès International d’épigraphie Grecque et Latine : Nîmes, 4-9 Octobre 1992, edited by Michel Christol and Olivier Masson, 353–68. Histoire Ancienne et Médiévale. Paris: Éditions de la Sorbonne. https://doi.org/10.4000/books.psorbonne.24055."^^xsd:string ;
             skos:altLabel "Benefaction" ;
@@ -929,7 +929,7 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
             skos:example <https://www.atticinscriptions.com/inscription/IEleus/489> ,
                          <https://www.atticinscriptions.com/inscription/Puech/1> ,
                          <https://www.atticinscriptions.com/inscription/SEG/50168> ;
-            skos:prefLabel "Endownment"@en ;
+            skos:prefLabel "Endowment"@en ;
             skos:relatedMatch <https://www.wikidata.org/wiki/Q17518217> .
 
 
@@ -1967,7 +1967,7 @@ In the Latin context, they appear on columnar, but mostly cuboid cippi with a br
                                    "ἐπίδοσις"@el ;
                      skos:closeMatch <https://ark.mom.fr/ark:/76609/epvg9fr70hjdg> ,
                                      "urn:cite:brill:inscriptionType:0000008" ;
-                     skos:definition "Lists of individuals who contributed to a public fund or initiative through voluntary subscription. Voluntary contribution to the state, benevolence, benefaction, charitable endownment."@en ;
+                     skos:definition "Lists of individuals who contributed to a public fund or initiative through voluntary subscription. Voluntary contribution to the state, benevolence, benefaction, charitable endowment."@en ;
                      skos:example <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD000869> ,
                                   <https://edh.ub.uni-heidelberg.de/edh/inschrift/HD003737> ,
                                   <https://epigraphy.packhum.org/text/4568> ,
